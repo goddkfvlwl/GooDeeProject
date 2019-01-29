@@ -21,9 +21,13 @@ namespace GoodeeProject
         CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
 
+
         public FrmMain()
         {
             InitializeComponent();
+            //사용자가 수강생일때
+            //ctlProfile1.Size = new Size(224, 111);
+            //ctlProfile1.Location = new Point(767, 29);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -74,7 +78,7 @@ namespace GoodeeProject
             //사용자
             surveyUser = new CtlSurveyUserDetail();
             panel2.Controls.Add(surveyUser);
-            surveyUser.Location = new Point(192, 71);
+            surveyUser.Location = new Point(192, 100);
 
             //관리자
             //surveyAdmin = new CtlSurveyAdminDetail();

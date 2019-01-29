@@ -46,34 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CtlCompanyInfoDetail.cs">
+    <Compile Include="CtlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtlCompanyInfoDetail.Designer.cs">
+    <Compile Include="CtlProfile.Designer.cs">
+      <DependentUpon>CtlProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetailMenu\CtlCompanyInfoDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailMenu\CtlCompanyInfoDetail.Designer.cs">
       <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtlMBTIDetail.cs">
+    <Compile Include="DetailMenu\CtlMBTIDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtlMBTIDetail.Designer.cs">
+    <Compile Include="DetailMenu\CtlMBTIDetail.Designer.cs">
       <DependentUpon>CtlMBTIDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtlSpecDetail.cs">
+    <Compile Include="DetailMenu\CtlSpecDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtlSpecDetail.Designer.cs">
+    <Compile Include="DetailMenu\CtlSpecDetail.Designer.cs">
       <DependentUpon>CtlSpecDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtlSurveyAdminDetail.cs">
+    <Compile Include="DetailMenu\CtlSurveyAdminDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtlSurveyAdminDetail.Designer.cs">
+    <Compile Include="DetailMenu\CtlSurveyAdminDetail.Designer.cs">
       <DependentUpon>CtlSurveyAdminDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtlSurveyUserDetail.cs">
+    <Compile Include="DetailMenu\CtlSurveyUserDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtlSurveyUserDetail.Designer.cs">
+    <Compile Include="DetailMenu\CtlSurveyUserDetail.Designer.cs">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
@@ -91,19 +97,22 @@
     <Compile Include="italk_theme_-_c#.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CtlCompanyInfoDetail.resx">
+    <EmbeddedResource Include="CtlProfile.resx">
+      <DependentUpon>CtlProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailMenu\CtlCompanyInfoDetail.resx">
       <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtlMBTIDetail.resx">
+    <EmbeddedResource Include="DetailMenu\CtlMBTIDetail.resx">
       <DependentUpon>CtlMBTIDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtlSpecDetail.resx">
+    <EmbeddedResource Include="DetailMenu\CtlSpecDetail.resx">
       <DependentUpon>CtlSpecDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtlSurveyAdminDetail.resx">
+    <EmbeddedResource Include="DetailMenu\CtlSurveyAdminDetail.resx">
       <DependentUpon>CtlSurveyAdminDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtlSurveyUserDetail.resx">
+    <EmbeddedResource Include="DetailMenu\CtlSurveyUserDetail.resx">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
@@ -155,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\chat-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

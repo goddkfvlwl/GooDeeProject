@@ -14,3 +14,4 @@ C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCom
 C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
 C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
 C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
+C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
