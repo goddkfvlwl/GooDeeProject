@@ -28,10 +28,35 @@ namespace GoodeeProject
             return con;
         }
 
+        internal DataTable SelectWithParams(string proc, SqlParameter[] pm)
+        {
+            SqlDataAdapter da = new SqlDataAdapter();
+            var ds = new DataSet();
+
+            OpenConnection();
+
+            SqlCommand cmd = new SqlCommand();
+            da.SelectCommand = cmd;
+            da.SelectCommand.Connection = con;
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.CommandText = proc;
+
+            if (pm != null)
+            {
+                da.SelectCommand.Parameters.AddRange(pm); 
+            }
+
+            da.Fill(ds);
+            con.Close();
+            return ds.Tables[0];
+        }
+
         internal DataTable ExecuteSelect(string proc)
         {
             SqlDataAdapter da = new SqlDataAdapter();
             var ds = new DataSet();
+
+            OpenConnection();
 
             SqlCommand cmd = new SqlCommand();
             da.SelectCommand = cmd;
@@ -40,7 +65,7 @@ namespace GoodeeProject
             da.SelectCommand.CommandText = proc;
 
             da.Fill(ds);
-
+            con.Close();
             return ds.Tables[0];
         }
 

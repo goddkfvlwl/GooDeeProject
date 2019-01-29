@@ -15,20 +15,48 @@ namespace GoodeeProject
         private int movePointX;
         private int movePointY;
 
+        private static string id;
+        private static char authority;
+
+        //로그인 한 사용자의 정보를 담을 리스트
+        static MemberInfo mi = new MemberInfo();
+
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
         CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
-
+        
+        public static string Id { get => id; set => id = value; }
+        public static char Authority { get => authority; set => authority = value; }
+        internal static MemberInfo Mi { get => mi; set => mi = value; }
 
         public FrmMain()
         {
             InitializeComponent();
-            //사용자가 수강생일때
-            //ctlProfile1.Size = new Size(224, 111);
-            //ctlProfile1.Location = new Point(767, 29);
+            ctlProfile1.lblEmailID.Text = mi.Id;
+            ctlProfile1.lblName.Text = mi.Name;
+            
+            if (Authority == 'S')
+            {
+                //사용자가 수강생일때
+                ctlProfile1.btnLog.Visible = false;
+                ctlProfile1.btnStudent.Visible = false;
+                ctlProfile1.Size = new Size(224, 111);
+                ctlProfile1.Location = new Point(767, 29);
+            }
+            else if (Authority == 'A')
+            {
+                //관리자일 때
+                ctlProfile1.btnCreateID.Visible = false;
+            }
         }
+
+        //public FrmMain(string id, char authority) : this()
+        //{
+        //    this.Id = id;
+        //    this.Authority = authority;
+        //}
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -75,15 +103,20 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
 
-            //사용자
-            surveyUser = new CtlSurveyUserDetail();
-            panel2.Controls.Add(surveyUser);
-            surveyUser.Location = new Point(192, 100);
-
-            //관리자
-            //surveyAdmin = new CtlSurveyAdminDetail();
-            //panel2.Controls.Add(surveyAdmin);
-            //surveyAdmin.Location = new Point(192, 71);
+            if (Authority == 'S')
+            {
+                //사용자
+                surveyUser = new CtlSurveyUserDetail();
+                panel2.Controls.Add(surveyUser);
+                surveyUser.Location = new Point(192, 100);
+            }
+            else
+            {
+                //관리자, 최상위 관리자
+                surveyAdmin = new CtlSurveyAdminDetail();
+                panel2.Controls.Add(surveyAdmin);
+                surveyAdmin.Location = new Point(192, 71);
+            }
         }
 
         private void btnMBTI_Click(object sender, EventArgs e)

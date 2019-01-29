@@ -12,6 +12,10 @@ namespace GoodeeProject
         private string pw;
         private char authority;
 
+        public AccountInfo()
+        {
+        }
+
         public AccountInfo(string id, string pw, char authority)
         {
             this.Id = id;

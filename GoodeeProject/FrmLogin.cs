@@ -12,12 +12,18 @@ namespace GoodeeProject
 {
     public partial class FrmLogin : Form
     {
+        AccountInfo ai;
+
+        private string tempPW;
+
         private int movePointX;
         private int movePointY;
+        GoodeeDAO.GoodeeDAO gd;
 
         public FrmLogin()
         {
             InitializeComponent();
+            gd = GoodeeDAO.GoodeeDAO.getInstance();
         }
 
         private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
@@ -46,9 +52,39 @@ namespace GoodeeProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            FrmMain fr = new FrmMain();
-            fr.Show();
-            this.Visible = false;
+            
+            if (!(String.IsNullOrEmpty(tboxID.Text) && String.IsNullOrEmpty(tboxPW.Text)))
+            {
+                ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
+                if (ai.Id != null)
+                {
+                    FrmMain.Id = ai.Id;
+                    
+                    FrmMain.Authority = ai.Authority;
+                    if (ai.Authority == 'C')
+                    {
+                        //기업로그인일 때
+                    }
+                    else
+                    {
+                        FrmMain.Mi = gd.SelectMember();
+
+
+                        FrmMain fr = new FrmMain();
+                        fr.Show();
+                        this.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("올바르지 않은 회원정보입니다.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("ID 혹은 비밀번호를 입력해주세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
