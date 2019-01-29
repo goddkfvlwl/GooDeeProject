@@ -21,8 +21,7 @@ namespace GoodeeProject
 
         private void CtlProfile_Load(object sender, EventArgs e)
         {
-            btnLog.Visible = false;
-            btnStudent.Visible = false;
+
         }
     }
 }

@@ -45,7 +45,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblName.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.lblName.ForeColor = System.Drawing.Color.Gray;
             this.lblName.Location = new System.Drawing.Point(96, 15);
             this.lblName.Name = "lblName";
@@ -67,7 +67,7 @@
             // 
             this.lblEmailID.AutoSize = true;
             this.lblEmailID.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmailID.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.lblEmailID.Font = new System.Drawing.Font("맑은 고딕", 9F);
             this.lblEmailID.ForeColor = System.Drawing.Color.Gray;
             this.lblEmailID.Location = new System.Drawing.Point(96, 44);
             this.lblEmailID.Name = "lblEmailID";
@@ -78,7 +78,7 @@
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnLogOut.Image = null;
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLogOut.Location = new System.Drawing.Point(207, 3);
@@ -91,7 +91,7 @@
             // btnModify
             // 
             this.btnModify.BackColor = System.Drawing.Color.Transparent;
-            this.btnModify.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnModify.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnModify.Image = null;
             this.btnModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnModify.Location = new System.Drawing.Point(139, 3);
@@ -115,7 +115,7 @@
             // btnStudent
             // 
             this.btnStudent.BackColor = System.Drawing.Color.Transparent;
-            this.btnStudent.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnStudent.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnStudent.Image = null;
             this.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStudent.Location = new System.Drawing.Point(3, 3);
@@ -128,7 +128,7 @@
             // btnLog
             // 
             this.btnLog.BackColor = System.Drawing.Color.Transparent;
-            this.btnLog.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnLog.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnLog.Image = null;
             this.btnLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLog.Location = new System.Drawing.Point(71, 3);
@@ -141,7 +141,7 @@
             // btnCreateID
             // 
             this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnCreateID.Image = null;
             this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreateID.Location = new System.Drawing.Point(287, 3);

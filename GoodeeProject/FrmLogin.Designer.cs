@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tboxPW = new System.Windows.Forms.TextBox();
+            this.tboxID = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
-            this.iTalk_Label4 = new iTalk.iTalk_Label();
-            this.iTalk_Label3 = new iTalk.iTalk_Label();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
             this.btnFindPW = new iTalk.iTalk_Button_1();
             this.btnLogin = new iTalk.iTalk_Button_1();
+            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator2 = new iTalk.iTalk_Separator();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox2
+            // tboxPW
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(137, 325);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 14);
-            this.textBox2.TabIndex = 21;
+            this.tboxPW.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tboxPW.Location = new System.Drawing.Point(137, 325);
+            this.tboxPW.Name = "tboxPW";
+            this.tboxPW.PasswordChar = '*';
+            this.tboxPW.Size = new System.Drawing.Size(175, 14);
+            this.tboxPW.TabIndex = 21;
             // 
-            // textBox1
+            // tboxID
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(137, 281);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 14);
-            this.textBox1.TabIndex = 19;
+            this.tboxID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tboxID.Location = new System.Drawing.Point(137, 281);
+            this.tboxID.Name = "tboxID";
+            this.tboxID.Size = new System.Drawing.Size(175, 14);
+            this.tboxID.TabIndex = 19;
             // 
             // pictureBox1
             // 
@@ -95,32 +96,6 @@
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // iTalk_Label4
-            // 
-            this.iTalk_Label4.AutoSize = true;
-            this.iTalk_Label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label4.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label4.Location = new System.Drawing.Point(140, 347);
-            this.iTalk_Label4.MaximumSize = new System.Drawing.Size(0, 2);
-            this.iTalk_Label4.Name = "iTalk_Label4";
-            this.iTalk_Label4.Size = new System.Drawing.Size(172, 2);
-            this.iTalk_Label4.TabIndex = 20;
-            this.iTalk_Label4.Text = "                                                       ";
-            // 
-            // iTalk_Label3
-            // 
-            this.iTalk_Label3.AutoSize = true;
-            this.iTalk_Label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label3.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label3.Location = new System.Drawing.Point(140, 303);
-            this.iTalk_Label3.MaximumSize = new System.Drawing.Size(0, 2);
-            this.iTalk_Label3.Name = "iTalk_Label3";
-            this.iTalk_Label3.Size = new System.Drawing.Size(172, 2);
-            this.iTalk_Label3.TabIndex = 18;
-            this.iTalk_Label3.Text = "                                                       ";
             // 
             // iTalk_Label2
             // 
@@ -173,19 +148,35 @@
             this.btnLogin.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(137, 294);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(175, 10);
+            this.iTalk_Separator1.TabIndex = 25;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
+            // 
+            // iTalk_Separator2
+            // 
+            this.iTalk_Separator2.Location = new System.Drawing.Point(137, 338);
+            this.iTalk_Separator2.Name = "iTalk_Separator2";
+            this.iTalk_Separator2.Size = new System.Drawing.Size(175, 10);
+            this.iTalk_Separator2.TabIndex = 26;
+            this.iTalk_Separator2.Text = "iTalk_Separator2";
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(362, 458);
+            this.Controls.Add(this.iTalk_Separator2);
+            this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnMinimum);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.iTalk_Label4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.iTalk_Label3);
+            this.Controls.Add(this.tboxPW);
+            this.Controls.Add(this.tboxID);
             this.Controls.Add(this.iTalk_Label2);
             this.Controls.Add(this.iTalk_Label1);
             this.Controls.Add(this.btnFindPW);
@@ -205,15 +196,15 @@
 
         private iTalk.iTalk_Button_1 btnMinimum;
         private iTalk.iTalk_Button_1 btnExit;
-        private System.Windows.Forms.TextBox textBox2;
-        private iTalk.iTalk_Label iTalk_Label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private iTalk.iTalk_Label iTalk_Label3;
+        private System.Windows.Forms.TextBox tboxPW;
+        private System.Windows.Forms.TextBox tboxID;
         private iTalk.iTalk_Label iTalk_Label2;
         private iTalk.iTalk_Label iTalk_Label1;
         private iTalk.iTalk_Button_1 btnFindPW;
         private iTalk.iTalk_Button_1 btnLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private iTalk.iTalk_Separator iTalk_Separator1;
+        private iTalk.iTalk_Separator iTalk_Separator2;
     }
 }
 
