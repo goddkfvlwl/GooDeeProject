@@ -33,22 +33,26 @@
             // 
             // portfolioDetail1
             // 
+            this.portfolioDetail1.AutoSize = true;
             this.portfolioDetail1.Location = new System.Drawing.Point(0, 0);
             this.portfolioDetail1.Name = "portfolioDetail1";
             this.portfolioDetail1.Size = new System.Drawing.Size(798, 1500);
             this.portfolioDetail1.TabIndex = 0;
+            this.portfolioDetail1.TabStop = false;
             // 
             // Portfolio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.Controls.Add(this.portfolioDetail1);
             this.MinimumSize = new System.Drawing.Size(126, 39);
             this.Name = "Portfolio";
-            this.Size = new System.Drawing.Size(798, 454);
+            this.Size = new System.Drawing.Size(815, 454);
             this.Load += new System.EventHandler(this.Portfolio_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

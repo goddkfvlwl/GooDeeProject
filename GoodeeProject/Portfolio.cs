@@ -19,7 +19,6 @@ namespace GoodeeProject
 
         private void Portfolio_Load(object sender, EventArgs e)
         {
-            
         }
     }
 }

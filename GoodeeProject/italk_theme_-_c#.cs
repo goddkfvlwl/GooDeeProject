@@ -2501,6 +2501,17 @@ namespace iTalk
             G.Dispose();
             B.Dispose();
         }
+
+        internal int GetLineFromCharIndex(iTalk_TextBox_Big iTalk_TextBox_Big1)
+        {
+            TextBox textbox1 = new TextBox();
+            textbox1.Multiline = true;
+            textbox1.WordWrap = true;
+            textbox1.Size = iTalk_TextBox_Big1.Size;
+            textbox1.Text = iTalk_TextBox_Big1.Text;
+            var a = textbox1.GetLineFromCharIndex(textbox1.Text.Length);
+            return a;
+        }
     }
 
     #endregion
@@ -2717,7 +2728,6 @@ namespace iTalk
             G.Dispose();
             B.Dispose();
         }
-
     }
 
     #endregion
