@@ -36,6 +36,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnStudent = new iTalk.iTalk_Button_1();
             this.btnLog = new iTalk.iTalk_Button_1();
+            this.btnCreateID = new iTalk.iTalk_Button_1();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -137,11 +138,25 @@
             this.btnLog.Text = "로그관리";
             this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // btnCreateID
+            // 
+            this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.btnCreateID.Image = null;
+            this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateID.Location = new System.Drawing.Point(287, 3);
+            this.btnCreateID.Name = "btnCreateID";
+            this.btnCreateID.Size = new System.Drawing.Size(70, 31);
+            this.btnCreateID.TabIndex = 7;
+            this.btnCreateID.Text = "관리자생성";
+            this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // CtlProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.Controls.Add(this.btnCreateID);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblEmailID);
             this.Controls.Add(this.lblName);
@@ -166,5 +181,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal iTalk.iTalk_Button_1 btnStudent;
         internal iTalk.iTalk_Button_1 btnLog;
+        internal iTalk.iTalk_Button_1 btnCreateID;
     }
 }
