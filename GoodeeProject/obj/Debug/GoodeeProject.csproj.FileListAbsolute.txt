@@ -15,3 +15,20 @@ C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBT
 C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
 C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
 C:\Users\GDC1\Desktop\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe.config
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.exe
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.pdb
