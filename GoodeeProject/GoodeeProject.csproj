@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,12 +47,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountInfo.cs" />
     <Compile Include="CtlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CtlProfile.Designer.cs">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBConnection.cs" />
     <Compile Include="DetailMenu\CtlCompanyInfoDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +97,8 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GoodeeDAO\GoodeeDAO.cs" />
+    <Compile Include="IGoodee.cs" />
     <Compile Include="italk_theme_-_c#.cs" />
     <Compile Include="Portfolio.cs">
       <SubType>UserControl</SubType>
@@ -107,6 +112,7 @@
     <Compile Include="PortfolioDetail.Designer.cs">
       <DependentUpon>PortfolioDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemberInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CtlProfile.resx">
@@ -185,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\profile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Query.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
