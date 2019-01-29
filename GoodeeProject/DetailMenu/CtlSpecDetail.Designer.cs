@@ -100,6 +100,7 @@
             this.iTalk_Label2.TabIndex = 14;
             this.iTalk_Label2.Text = "포트폴리오";
             this.iTalk_Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.iTalk_Label2.Click += new System.EventHandler(this.iTalk_Label2_Click);
             // 
             // CtlSpecDetail
             // 

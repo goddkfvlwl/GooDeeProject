@@ -95,6 +95,18 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="italk_theme_-_c#.cs" />
+    <Compile Include="Portfolio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Portfolio.Designer.cs">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PortfolioDetail.Designer.cs">
+      <DependentUpon>PortfolioDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CtlProfile.resx">
@@ -120,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portfolio.resx">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortfolioDetail.resx">
+      <DependentUpon>PortfolioDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

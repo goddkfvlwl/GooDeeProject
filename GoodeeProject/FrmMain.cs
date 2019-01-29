@@ -20,7 +20,7 @@ namespace GoodeeProject
         CtlSurveyAdminDetail surveyAdmin;
         CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
-
+        
 
         public FrmMain()
         {
@@ -28,6 +28,7 @@ namespace GoodeeProject
             //사용자가 수강생일때
             //ctlProfile1.Size = new Size(224, 111);
             //ctlProfile1.Location = new Point(767, 29);
+            
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -45,7 +46,13 @@ namespace GoodeeProject
             spec = new CtlSpecDetail();
             panel2.Controls.Add(spec);
             spec.Location = new Point(192, 1);
+            spec.Controls["iTalk_Label2"].Click += FrmMain_Click;
+        }
 
+        private void FrmMain_Click(object sender, EventArgs e)
+        {
+            portfolio1.Visible = true;
+            portfolio1.BringToFront();
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
