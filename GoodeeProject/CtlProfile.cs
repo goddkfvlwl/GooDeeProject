@@ -23,5 +23,11 @@ namespace GoodeeProject
         {
 
         }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            FrmModify fm = new FrmModify();
+            fm.ShowDialog();
+        }
     }
 }
