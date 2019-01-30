@@ -66,6 +66,7 @@
             this.lblMenu1.TabIndex = 32;
             this.lblMenu1.Text = "구인정보";
             this.lblMenu1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMenu1.Click += new System.EventHandler(this.lblMenu1_Click_1);
             // 
             // iTalk_ChatBubble_L1
             // 

@@ -14,6 +14,7 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
+        public Panel Panel2 { get { return panel2; } set { panel2 = value; } }
 
         private static string id;
         private static char authority;
@@ -92,10 +93,16 @@ namespace GoodeeProject
             sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
             companyInfo = new CtlCompanyInfoDetail();
+            companyInfo.Parent = this;
             panel2.Controls.Add(companyInfo);
+            
             companyInfo.Location = new Point(192, 211);
+            //companyInfo.Controls["lblMenu1"].Click 
         }
 
+        
+
+       
         private void btnSurvey_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -158,7 +165,7 @@ namespace GoodeeProject
             }
         }
 
-        private void RemoveUserControl()
+        public void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
             panel2.Controls.Remove(companyInfo);

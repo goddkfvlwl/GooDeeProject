@@ -15,6 +15,21 @@ namespace GoodeeProject
         public CtlCompanyInfoDetail()
         {
             InitializeComponent();
+           
+        }
+
+        
+        private void lblMenu1_Click_1(object sender, EventArgs e)
+        {
+            JobInformation information = new JobInformation();
+            information.Location = new Point(190, 3);
+
+            Panel panel = (Panel)Parent;
+            panel.Controls.Add(information);
+            FrmMain main = (FrmMain)panel.Parent;
+            main.RemoveUserControl();
+
+            
         }
     }
 }

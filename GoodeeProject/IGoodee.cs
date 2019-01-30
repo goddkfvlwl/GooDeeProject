@@ -10,5 +10,7 @@ namespace GoodeeProject
     {
         AccountInfo AccountLogin(string id, string pw);
         MemberInfo SelectMember();
+        bool InsetFirstAreaCode(string fa, string fn);
+        bool InsertJob(string jc, string jn);
     }
 }

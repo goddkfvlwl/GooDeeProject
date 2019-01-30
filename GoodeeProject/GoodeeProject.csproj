@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="CodeDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeDB.Designer.cs">
+      <DependentUpon>CodeDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -98,11 +104,38 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GoodeeDAO\GoodeeDAO.cs" />
+    <Compile Include="GyeonggiArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GyeonggiArea.Designer.cs">
+      <DependentUpon>GyeonggiArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="IGoodee.cs" />
     <Compile Include="italk_theme_-_c#.cs" />
+    <Compile Include="JobAreaChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobAreaChoice.Designer.cs">
+      <DependentUpon>JobAreaChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobInformation.Designer.cs">
+      <DependentUpon>JobInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="MemberInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Area.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Area.Designer.cs">
+      <DependentUpon>Area.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CodeDB.resx">
+      <DependentUpon>CodeDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +160,15 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GyeonggiArea.resx">
+      <DependentUpon>GyeonggiArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobAreaChoice.resx">
+      <DependentUpon>JobAreaChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobInformation.resx">
+      <DependentUpon>JobInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -137,6 +179,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Area.resx">
+      <DependentUpon>Area.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -176,6 +221,35 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Query.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

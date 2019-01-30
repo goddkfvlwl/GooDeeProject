@@ -58,5 +58,119 @@ namespace GoodeeProject.GoodeeDAO
 
             return mi;
         }
+
+        public bool InsetFirstAreaCode(string fa, string fn)
+        {
+            string proc = "InsertFistArea_Code";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@areaCode", fa);
+            sqlParameters[1] = new SqlParameter("@firstAreaName", fn);
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        
+
+        internal bool InsetFirstAreaCode(string code, string name, string firstcode)
+        {
+            string proc = "AreaInsert";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@secondAreaCode", code);
+            sqlParameters[1] = new SqlParameter("@secondAreaName", name);
+            sqlParameters[2] = new SqlParameter("@firstAreaCode", firstcode);
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool InsertJob(string jc, string jn)
+        {
+            string proc = "InsertFirstJob";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@jobCode", jc);
+            sqlParameters[1] = new SqlParameter("@jobName", jn);
+           
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        internal bool InsertJob(string jobCode, string jobName, string firstJobCode)
+        {
+            string proc = "InsertSecondJob";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@secondeJobCode", jobCode);
+            sqlParameters[1] = new SqlParameter("@job_Name", jobName);
+            sqlParameters[2] = new SqlParameter("@firstJobCode", firstJobCode);
+
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        internal bool InsertDetailJob(string jobCode, string jobName, string secondJobCode)
+        {
+            string proc = "InsertDetailJob";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@detailJobCode", jobCode);
+            sqlParameters[1] = new SqlParameter("@jobName", jobName);
+            sqlParameters[2] = new SqlParameter("@secondJobCode", secondJobCode);
+
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
-}
+    }
+
