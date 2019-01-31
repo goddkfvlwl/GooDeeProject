@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,10 +13,6 @@ namespace GoodeeProject
 {
     public partial class FrmLogin : Form
     {
-        AccountInfo ai;
-
-        private string tempPW;
-
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;
@@ -55,19 +52,17 @@ namespace GoodeeProject
             
             if (!(String.IsNullOrEmpty(tboxID.Text) && String.IsNullOrEmpty(tboxPW.Text)))
             {
-                ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
-                if (ai.Id != null)
+                FrmMain.Ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
+                if (FrmMain.Ai.Id != null)
                 {
-                    FrmMain.Id = ai.Id;
-                    
-                    FrmMain.Authority = ai.Authority;
-                    if (ai.Authority == 'C')
+                    if (FrmMain.Ai.Authority == 'C')
                     {
                         //기업로그인일 때
                     }
                     else
                     {
-                        FrmMain.Mi = gd.SelectMember(ai.Id);
+                        FrmMain.Ai.Pw = tboxPW.Text;
+                        FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         this.Visible = false;
@@ -82,7 +77,7 @@ namespace GoodeeProject
             {
                 MessageBox.Show("ID 혹은 비밀번호를 입력해주세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
+
     }
 }

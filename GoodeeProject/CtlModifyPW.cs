@@ -15,6 +15,7 @@ namespace GoodeeProject
     public partial class CtlModifyPW : UserControl
     {
         private string key;
+        private bool pwCheck = false;
 
         public CtlModifyPW()
         {
@@ -87,18 +88,50 @@ namespace GoodeeProject
             return check;
         }
 
-        private void btnOK_Click(object sender, EventArgs e)
+        private void tboxNewPW_TextChanged(object sender, EventArgs e)
         {
-            if (CaptchaResult())
+            NewPWCheck();
+        }
+        
+        private void tboxNewREPW_TextChanged(object sender, EventArgs e)
+        {
+            NewPWCheck();
+        }
+
+        private void NewPWCheck()
+        {
+            if (tboxNewPW.Text == tboxNewREPW.Text && tboxNewPW.Text != "")
             {
-                MessageBox.Show("성공");
+                lblError.ForeColor = Color.Blue;
+                lblError.Text = "비밀번호가 일치합니다.";
+                pwCheck = true;
             }
             else
             {
-                MessageBox.Show("Test");
-                CtlModifyPW_Load(null, null);
+                lblError.ForeColor = Color.Red;
+                lblError.Text = "비밀번호가 일치하지 않습니다.";
+                pwCheck = false;
             }
+        }
 
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            if (FrmMain.Ai.Pw == tboxNowPW.Text && pwCheck == true)
+            {
+                if (CaptchaResult())
+                {
+                    MessageBox.Show("성공");
+                }
+                else
+                {
+                    MessageBox.Show("자동방지입력이 올바르지 않습니다.");
+                    CtlModifyPW_Load(null, null);
+                }
+            }
+            else
+            {
+                MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

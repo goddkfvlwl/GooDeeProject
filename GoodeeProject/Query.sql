@@ -10,14 +10,17 @@ Go
 
 --멤버인포 select 프로시저
 CREATE PROCEDURE [dbo].SelectMember
-<<<<<<< HEAD
-AS
-	SELECT * from dbo.MemberInfo;
-=======
 	@id nvarchar(320)
 AS
 	SELECT * from dbo.MemberInfo where ID = @id;
->>>>>>> fe71cc2cedb19fb00d09dfd274c6de495963138f
 RETURN 0
 
 Go
+
+--비밀번호 수정 update  프로시저
+CREATE PROCEDURE [dbo].UpdatePassWord
+	@id NVARCHAR(320),
+	@pw VARBINARY(500)
+AS
+	update AccountInfo set Password = @pw where ID = @id;
+RETURN 0
