@@ -46,6 +46,7 @@
             this.btnSaveToPDF.TabIndex = 2;
             this.btnSaveToPDF.Text = "PDF저장";
             this.btnSaveToPDF.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSaveToPDF.Click += new System.EventHandler(this.btnSaveToPDF_Click);
             // 
             // btnSave
             // 

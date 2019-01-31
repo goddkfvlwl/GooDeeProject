@@ -48,3 +48,10 @@ C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\Go
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe.config
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.Charting.dll
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.dll
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.xml
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.Charting.xml
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\de\PdfSharp.resources.dll
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\de\PdfSharp.Charting.resources.dll
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete

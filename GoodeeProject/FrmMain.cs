@@ -85,7 +85,6 @@ namespace GoodeeProject
         private void btnSpec_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
 

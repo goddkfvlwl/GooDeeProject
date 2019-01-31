@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Net;
 using System.IO;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
 
 namespace GoodeeProject
 {
@@ -176,6 +178,28 @@ namespace GoodeeProject
             {
                 MessageBox.Show("저장된 포트폴리오가 없습니다.");
                 return;
+            }
+        }
+
+        private void btnSaveToPDF_Click(object sender, EventArgs e)
+        {
+            PdfDocument doc = new PdfDocument();
+            Control body = this.Controls["portfolioDetail1"].Controls["PanelPortfolioBody"];
+            using (Graphics gfx = this.Controls["portfolioDetail1"].CreateGraphics())
+            {
+                using (Bitmap bmp = new Bitmap(body.Width, body.Height, gfx))
+                {
+                    body.DrawToBitmap(bmp, new Rectangle(0, 0, body.Width, body.Height));
+                    bmp.Save(@"C:\C#\GoodeeProject\GoodeeProject\aaa.bmp");
+                    Bitmap bit = new Bitmap(bmp, new Size(585, 840));
+                    PdfPage page = doc.AddPage();
+                    page.Size = PdfSharp.PageSize.A4;
+                    XGraphics gf = XGraphics.FromPdfPage(page);
+                    XImage image = bit;
+                    gf.DrawImage(image, 0, 0, image.PixelWidth, image.PixelHeight);
+                    doc.Save(@"C:\C#\GoodeeProject\GoodeeProject\aaa.pdf");
+                    doc.Close();
+                }
             }
         }
     }
