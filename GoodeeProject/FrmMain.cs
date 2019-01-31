@@ -36,11 +36,7 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
-
-<<<<<<< HEAD
-=======
-            MessageBox.Show(mi.Score.ToString());
->>>>>>> c2b6b34f3909fe4626ea546968c34c86a178a568
+            
             if (Authority == 'S')
             {
                 //사용자가 수강생일때
