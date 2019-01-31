@@ -82,6 +82,7 @@
     <Compile Include="DetailMenu\CtlSurveyUserDetail.Designer.cs">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="IFormControl.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +94,12 @@
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSendEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSendEmail.Designer.cs">
+      <DependentUpon>FrmSendEmail.cs</DependentUpon>
     </Compile>
     <Compile Include="italk_theme_-_c#.cs" />
     <Compile Include="Program.cs" />
@@ -120,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSendEmail.resx">
+      <DependentUpon>FrmSendEmail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -167,6 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\profile2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\326572-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

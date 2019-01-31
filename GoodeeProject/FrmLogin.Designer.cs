@@ -80,7 +80,7 @@
             this.btnMinimum.TabIndex = 23;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnMinimum.Click += new System.EventHandler(this.btnMinimum_Click);
+            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
             // 
             // btnExit
             // 
@@ -94,7 +94,7 @@
             this.btnExit.TabIndex = 22;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // iTalk_Label4
             // 
@@ -158,6 +158,7 @@
             this.btnFindPW.TabIndex = 15;
             this.btnFindPW.Text = "비밀번호 찾기";
             this.btnFindPW.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnFindPW.Click += new System.EventHandler(this.btnFindPW_Click);
             // 
             // btnLogin
             // 
@@ -193,8 +194,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";
             this.Text = "FrmLogin";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseMove);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
