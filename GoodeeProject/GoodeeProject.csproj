@@ -48,6 +48,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="Agreement_enterprise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agreement_enterprise.Designer.cs">
+      <DependentUpon>Agreement_enterprise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agreement_enterprise_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agreement_enterprise_list.Designer.cs">
+      <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AreaExam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AreaExam.Designer.cs">
+      <DependentUpon>AreaExam.cs</DependentUpon>
+    </Compile>
     <Compile Include="CodeDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +151,15 @@
     <Compile Include="Area.Designer.cs">
       <DependentUpon>Area.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Agreement_enterprise.resx">
+      <DependentUpon>Agreement_enterprise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agreement_enterprise_list.resx">
+      <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AreaExam.resx">
+      <DependentUpon>AreaExam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CodeDB.resx">
       <DependentUpon>CodeDB.cs</DependentUpon>
     </EmbeddedResource>

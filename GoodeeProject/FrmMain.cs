@@ -83,6 +83,9 @@ namespace GoodeeProject
 
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
+            Agreement_enterprise agreement = new Agreement_enterprise();
+            panel2.Controls.Add(agreement);
+            agreement.Location = new Point(192, 3);
         }
 
         private void btnInfo_Click(object sender, EventArgs e)

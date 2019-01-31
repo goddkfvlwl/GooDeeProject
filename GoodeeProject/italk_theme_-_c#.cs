@@ -2783,6 +2783,8 @@ namespace iTalk
                 }
             }
         }
+
+        public Font SelectionFont { get; internal set; }
         #endregion
         #region EventArgs
 

@@ -10,7 +10,9 @@ namespace GoodeeProject
     {
         AccountInfo AccountLogin(string id, string pw);
         MemberInfo SelectMember();
+        #region 사람인 코드 DB저장용 (일회성)
         bool InsetFirstAreaCode(string fa, string fn);
-        bool InsertJob(string jc, string jn);
+        bool InsertJob(string jc, string jn); 
+        #endregion
     }
 }
