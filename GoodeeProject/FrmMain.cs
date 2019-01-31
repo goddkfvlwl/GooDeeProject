@@ -18,7 +18,7 @@ namespace GoodeeProject
         private static string id;
         private static char authority;
 
-        //로그인 한 사용자의 정보를 담을 리스트
+        //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
 
         CtlSpecDetail spec;
@@ -36,8 +36,7 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
-
-            MessageBox.Show(mi.Score.ToString());
+            
             if (Authority == 'S')
             {
                 //사용자가 수강생일때
@@ -57,6 +56,7 @@ namespace GoodeeProject
         private void BtnStudent_Click(object sender, EventArgs e)
         {
             studentManagement1.Visible = true;
+            studentManagement1.BringToFront();
             GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
             studentManagement1.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
             studentManagement1.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
@@ -92,6 +92,7 @@ namespace GoodeeProject
             spec = new CtlSpecDetail();
             panel2.Controls.Add(spec);
             spec.Location = new Point(192, 1);
+            spec.BringToFront();
             spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
         }
 

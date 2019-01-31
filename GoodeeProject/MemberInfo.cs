@@ -9,8 +9,6 @@ namespace GoodeeProject
     class MemberInfo
     {
         private string id;
-        private string curriculum;
-        private string className;
         private string name;
         private DateTime birthDate;
         private char gender;
@@ -19,29 +17,29 @@ namespace GoodeeProject
         private string hopePay;
         private char army;
         private float score;
+        private string curriculum;
+        private string className;
 
         public MemberInfo()
         {
         }
 
-        public MemberInfo(string id, string curriculum, string className, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score)
+        public MemberInfo(string id, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score, string curriculum, string className)
         {
-            this.id = id;
-            this.curriculum = curriculum;
+            this.Id = id;
+            this.Name = name;
+            this.BirthDate = birthDate;
+            this.Gender = gender;
+            this.Mobile = mobile;
+            this.Address = address;
+            this.HopePay = hopePay;
+            this.Army = army;
+            this.Score = score;
+            this.Curriculum = curriculum;
             this.className = className;
-            this.name = name;
-            this.birthDate = birthDate;
-            this.gender = gender;
-            this.mobile = mobile;
-            this.address = address;
-            this.hopePay = hopePay;
-            this.army = army;
-            this.score = score;
         }
 
         public string Id { get => id; set => id = value; }
-        public string Curriculum { get => curriculum; set => curriculum = value; }
-        public string ClassName { get => className; set => className = value; }
         public string Name { get => name; set => name = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
         public char Gender { get => gender; set => gender = value; }
@@ -50,5 +48,7 @@ namespace GoodeeProject
         public string HopePay { get => hopePay; set => hopePay = value; }
         public char Army { get => army; set => army = value; }
         public float Score { get => score; set => score = value; }
+        public string Curriculum { get => curriculum; set => curriculum = value; }
+        public string ClassName { get => className; set => className = value; }
     }
 }
