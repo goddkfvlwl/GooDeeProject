@@ -30,6 +30,7 @@
         {
             this.tboxPW = new System.Windows.Forms.TextBox();
             this.tboxID = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
@@ -38,7 +39,6 @@
             this.btnLogin = new iTalk.iTalk_Button_1();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.iTalk_Separator2 = new iTalk.iTalk_Separator();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +58,6 @@
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(175, 14);
             this.tboxID.TabIndex = 19;
-            // 
             // btnMinimum
             // 
             this.btnMinimum.BackColor = System.Drawing.Color.Transparent;

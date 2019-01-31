@@ -43,6 +43,36 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
+        internal void InsertMember(MemberInfo member)
+        {
+            string proc = "InsertMember";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = new SqlParameter("id", member.Id);
+            parameters[1] = new SqlParameter("name", member.Name);
+            parameters[2] = new SqlParameter("gender", member.Gender);
+            parameters[3] = new SqlParameter("birthDate", member.BirthDate);
+            parameters[4] = new SqlParameter("mobile", member.Mobile);
+            parameters[5] = new SqlParameter("address", member.Address);
+            
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
+            }
+        }
+
+        public List<MemberDefault> SelectMemberList()
+        {
+            string proc = "SelectMemberList";
+            con = new DBConnection();
+            List<MemberDefault> list = new List<MemberDefault>();
+            DataTable dt = con.ExecuteSelect(proc);
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(new MemberDefault(item["Class_name"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString()));
+            }
+            return list;
+        }
         public MemberInfo SelectMember(string id)
         {
             string proc = "SelectMember";
