@@ -68,8 +68,6 @@ namespace GoodeeProject
                     else
                     {
                         FrmMain.Mi = gd.SelectMember();
-
-
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         this.Visible = false;

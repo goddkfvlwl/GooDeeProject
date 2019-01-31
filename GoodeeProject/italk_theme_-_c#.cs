@@ -2502,15 +2502,15 @@ namespace iTalk
             B.Dispose();
         }
 
-        internal int GetLineFromCharIndex(iTalk_TextBox_Big iTalk_TextBox_Big1)
+        internal int GetLineFromCharIndex(iTalk_TextBox_Big textBox)
         {
-            TextBox textbox1 = new TextBox();
-            textbox1.Multiline = true;
-            textbox1.WordWrap = true;
-            textbox1.Size = iTalk_TextBox_Big1.Size;
-            textbox1.Text = iTalk_TextBox_Big1.Text;
-            var a = textbox1.GetLineFromCharIndex(textbox1.Text.Length);
-            return a;
+            TextBox temp = new TextBox();
+            temp.Multiline = true;
+            temp.WordWrap = true;
+            temp.Size = textBox.Size;
+            temp.Text = textBox.Text;
+            int lineCount = temp.GetLineFromCharIndex(temp.Text.Length);
+            return lineCount;
         }
     }
 
@@ -2727,6 +2727,16 @@ namespace iTalk
             e.Graphics.DrawImage((Image)B.Clone(), 0, 0);
             G.Dispose();
             B.Dispose();
+        }
+        internal int GetLineFromCharIndex(iTalk_TextBox_Small textBox)
+        {
+            TextBox temp = new TextBox();
+            temp.Multiline = true;
+            temp.WordWrap = true;
+            temp.Size = textBox.Size;
+            temp.Text = textBox.Text;
+            int lineCount = temp.GetLineFromCharIndex(temp.Text.Length);
+            return lineCount;
         }
     }
 

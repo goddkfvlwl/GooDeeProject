@@ -16,3 +16,7 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResourc
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache

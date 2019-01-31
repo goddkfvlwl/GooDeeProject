@@ -16,10 +16,5 @@ namespace GoodeeProject
         {
             InitializeComponent();
         }
-
-        private void iTalk_Label2_Click(object sender, EventArgs e)
-        {
-            Portfolio portfolio = new Portfolio();
-        }
     }
 }
