@@ -93,6 +93,12 @@ namespace GoodeeProject
             {
                 MessageBox.Show("성공");
             }
+            else
+            {
+                MessageBox.Show("Test");
+                CtlModifyPW_Load(null, null);
+            }
+
         }
     }
 }

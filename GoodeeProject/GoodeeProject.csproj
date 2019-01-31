@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="CtlModifyMemberInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlModifyMemberInfo.Designer.cs">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyPW.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="MemberInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CtlModifyMemberInfo.resx">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyPW.resx">
       <DependentUpon>CtlModifyPW.cs</DependentUpon>
     </EmbeddedResource>

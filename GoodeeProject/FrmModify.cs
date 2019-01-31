@@ -41,7 +41,8 @@ namespace GoodeeProject
             bottomPanel.Width = btnModifyMember.Width;
             bottomPanel.Left = btnModifyMember.Left;
 
-
+            CtlModifyMemberInfo cm = new CtlModifyMemberInfo();
+            panel1.Controls.Add(cm);
         }
 
         private void FrmModify_MouseDown(object sender, MouseEventArgs e)
