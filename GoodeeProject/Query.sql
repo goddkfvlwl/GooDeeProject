@@ -9,9 +9,15 @@ RETURN 0
 Go
 
 --멤버인포 select 프로시저
-CREATE PROCEDURE [dbo].SelectMember
-AS
-	SELECT * from dbo.MemberInfo;
-RETURN 0
+--CREATE PROCEDURE [dbo].SelectMember
+
+--AS
+--	SELECT * from dbo.MemberInfo;
+
+--	@id nvarchar(320)
+--AS
+--	SELECT * from dbo.MemberInfo where ID = @id;
+
+--RETURN 0
 
 Go

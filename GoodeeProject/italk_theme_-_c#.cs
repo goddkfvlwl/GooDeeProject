@@ -2501,6 +2501,17 @@ namespace iTalk
             G.Dispose();
             B.Dispose();
         }
+
+        internal int GetLineFromCharIndex(iTalk_TextBox_Big textBox)
+        {
+            TextBox temp = new TextBox();
+            temp.Multiline = true;
+            temp.WordWrap = true;
+            temp.Size = textBox.Size;
+            temp.Text = textBox.Text;
+            int lineCount = temp.GetLineFromCharIndex(temp.Text.Length);
+            return lineCount;
+        }
     }
 
     #endregion
@@ -2717,7 +2728,16 @@ namespace iTalk
             G.Dispose();
             B.Dispose();
         }
-
+        internal int GetLineFromCharIndex(iTalk_TextBox_Small textBox)
+        {
+            TextBox temp = new TextBox();
+            temp.Multiline = true;
+            temp.WordWrap = true;
+            temp.Size = textBox.Size;
+            temp.Text = textBox.Text;
+            int lineCount = temp.GetLineFromCharIndex(temp.Text.Length);
+            return lineCount;
+        }
     }
 
     #endregion

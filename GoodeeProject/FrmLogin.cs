@@ -14,7 +14,7 @@ namespace GoodeeProject
     {
         AccountInfo ai;
 
-        private string tempPW;
+        //private string tempPW;
 
         private int movePointX;
         private int movePointY;
@@ -67,9 +67,7 @@ namespace GoodeeProject
                     }
                     else
                     {
-                        FrmMain.Mi = gd.SelectMember();
-
-
+                        FrmMain.Mi = gd.SelectMember(ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         this.Visible = false;

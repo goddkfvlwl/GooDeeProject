@@ -28,19 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblName = new iTalk.iTalk_Label();
             this.pboxProFile = new System.Windows.Forms.PictureBox();
+            this.lblName = new iTalk.iTalk_Label();
             this.lblEmailID = new iTalk.iTalk_Label();
             this.btnLogOut = new iTalk.iTalk_Button_1();
             this.btnModify = new iTalk.iTalk_Button_1();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCreateID = new iTalk.iTalk_Button_1();
             this.btnStudent = new iTalk.iTalk_Button_1();
             this.btnLog = new iTalk.iTalk_Button_1();
-            this.btnCreateID = new iTalk.iTalk_Button_1();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).BeginInit();
             this.SuspendLayout();
             // 
+            // pboxProFile
+            // 
+            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
+            this.pboxProFile.Location = new System.Drawing.Point(15, 28);
+            this.pboxProFile.Name = "pboxProFile";
+            this.pboxProFile.Size = new System.Drawing.Size(60, 60);
+            this.pboxProFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxProFile.TabIndex = 0;
+            this.pboxProFile.TabStop = false;
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -52,16 +62,6 @@
             this.lblName.Size = new System.Drawing.Size(31, 15);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "이름";
-            // 
-            // pboxProFile
-            // 
-            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
-            this.pboxProFile.Location = new System.Drawing.Point(15, 28);
-            this.pboxProFile.Name = "pboxProFile";
-            this.pboxProFile.Size = new System.Drawing.Size(60, 60);
-            this.pboxProFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxProFile.TabIndex = 0;
-            this.pboxProFile.TabStop = false;
             // 
             // lblEmailID
             // 
@@ -100,6 +100,7 @@
             this.btnModify.TabIndex = 4;
             this.btnModify.Text = "정보수정";
             this.btnModify.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -111,6 +112,19 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 34);
             this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // btnCreateID
+            // 
+            this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnCreateID.Image = null;
+            this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateID.Location = new System.Drawing.Point(287, 3);
+            this.btnCreateID.Name = "btnCreateID";
+            this.btnCreateID.Size = new System.Drawing.Size(70, 31);
+            this.btnCreateID.TabIndex = 7;
+            this.btnCreateID.Text = "관리자생성";
+            this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // btnStudent
             // 
@@ -137,20 +151,6 @@
             this.btnLog.TabIndex = 6;
             this.btnLog.Text = "로그관리";
             this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // btnCreateID
-            // 
-            this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8F);
-            this.btnCreateID.Image = null;
-            this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateID.Location = new System.Drawing.Point(287, 3);
-            this.btnCreateID.Name = "btnCreateID";
-            this.btnCreateID.Size = new System.Drawing.Size(70, 31);
-            this.btnCreateID.TabIndex = 7;
-            this.btnCreateID.Text = "관리자생성";
-            this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
             // CtlProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -164,8 +164,8 @@
             this.Name = "CtlProfile";
             this.Size = new System.Drawing.Size(360, 111);
             this.Load += new System.EventHandler(this.CtlProfile_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

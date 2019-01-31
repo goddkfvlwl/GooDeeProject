@@ -72,6 +72,18 @@
     <Compile Include="CodeDB.Designer.cs">
       <DependentUpon>CodeDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlModifyMemberInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlModifyMemberInfo.Designer.cs">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlModifyPW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlModifyPW.Designer.cs">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -142,6 +154,25 @@
     <Compile Include="JobInformation.Designer.cs">
       <DependentUpon>JobInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="MediaButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MediaButton.Designer.cs">
+      <DependentUpon>MediaButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberDefault.cs" />
+    <Compile Include="Portfolio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Portfolio.Designer.cs">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PortfolioDetail.Designer.cs">
+      <DependentUpon>PortfolioDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="MemberInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +193,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CodeDB.resx">
       <DependentUpon>CodeDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="StudentManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentManagement.Designer.cs">
+      <DependentUpon>StudentManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModify.Designer.cs">
+      <DependentUpon>FrmModify.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CtlModifyMemberInfo.resx">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlModifyPW.resx">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
@@ -196,6 +245,18 @@
     <EmbeddedResource Include="JobInformation.resx">
       <DependentUpon>JobInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MediaButton.resx">
+      <DependentUpon>MediaButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portfolio.resx">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortfolioDetail.resx">
+      <DependentUpon>PortfolioDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModify.resx">
+      <DependentUpon>FrmModify.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -208,6 +269,9 @@
     </Compile>
     <EmbeddedResource Include="Area.resx">
       <DependentUpon>Area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentManagement.resx">
+      <DependentUpon>StudentManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -277,6 +341,17 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="MSDAOSP">
+      <Guid>{E0E270C2-C0BE-11D0-8FE4-00A0C90A6341}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>1033</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <None Include="Resources\ModifyMember1.png" />
+    <None Include="Resources\ModifyPW1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
