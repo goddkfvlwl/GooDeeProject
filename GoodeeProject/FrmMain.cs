@@ -18,7 +18,7 @@ namespace GoodeeProject
         private static string id;
         private static char authority;
 
-        //로그인 한 사용자의 정보를 담을 리스트
+        //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
 
         CtlSpecDetail spec;
@@ -36,8 +36,6 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
-
-            MessageBox.Show(mi.Score.ToString());
 
             if (Authority == 'S')
             {

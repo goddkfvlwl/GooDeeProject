@@ -9,7 +9,6 @@ namespace GoodeeProject
     class MemberInfo
     {
         private string id;
-        private int classNum;
         private string name;
         private DateTime birthDate;
         private char gender;
@@ -18,15 +17,16 @@ namespace GoodeeProject
         private string hopePay;
         private char army;
         private float score;
+        private string curriculum;
+        private string className;
 
         public MemberInfo()
         {
         }
 
-        public MemberInfo(string id, int classNum, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score)
+        public MemberInfo(string id, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score, string curriculum, string className)
         {
             this.Id = id;
-            this.ClassNum = classNum;
             this.Name = name;
             this.BirthDate = birthDate;
             this.Gender = gender;
@@ -35,10 +35,11 @@ namespace GoodeeProject
             this.HopePay = hopePay;
             this.Army = army;
             this.Score = score;
+            this.Curriculum = curriculum;
+            this.className = className;
         }
 
         public string Id { get => id; set => id = value; }
-        public int ClassNum { get => classNum; set => classNum = value; }
         public string Name { get => name; set => name = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
         public char Gender { get => gender; set => gender = value; }
@@ -47,5 +48,7 @@ namespace GoodeeProject
         public string HopePay { get => hopePay; set => hopePay = value; }
         public char Army { get => army; set => army = value; }
         public float Score { get => score; set => score = value; }
+        public string Curriculum { get => curriculum; set => curriculum = value; }
+        public string ClassName { get => className; set => className = value; }
     }
 }
