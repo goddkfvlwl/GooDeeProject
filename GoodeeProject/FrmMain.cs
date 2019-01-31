@@ -60,14 +60,15 @@ namespace GoodeeProject
             GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
             studentManagement1.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
             studentManagement1.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            studentManagement1.gViewStudentInfo.Columns[0].HeaderText = "과정명";
-            studentManagement1.gViewStudentInfo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            studentManagement1.gViewStudentInfo.Columns[1].HeaderText = "이름";
-            studentManagement1.gViewStudentInfo.Columns[2].HeaderText = "생년월일";
-            studentManagement1.gViewStudentInfo.Columns[3].HeaderText = "성별";
-            studentManagement1.gViewStudentInfo.Columns[4].HeaderText = "휴대폰";
-            studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "주소";
-            studentManagement1.gViewStudentInfo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            studentManagement1.gViewStudentInfo.Columns[0].HeaderText = "분류";
+            studentManagement1.gViewStudentInfo.Columns[1].HeaderText = "과정명";
+            studentManagement1.gViewStudentInfo.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            studentManagement1.gViewStudentInfo.Columns[2].HeaderText = "이름";
+            studentManagement1.gViewStudentInfo.Columns[3].HeaderText = "생년월일";
+            studentManagement1.gViewStudentInfo.Columns[4].HeaderText = "성별";
+            studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "휴대폰";
+            studentManagement1.gViewStudentInfo.Columns[6].HeaderText = "주소";
+            studentManagement1.gViewStudentInfo.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
 
         //public FrmMain(string id, char authority) : this()

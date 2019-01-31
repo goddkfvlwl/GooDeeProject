@@ -8,6 +8,7 @@ namespace GoodeeProject
 {
     class MemberDefault
     {
+        string Curriculum;
         string class_name;
         string name;
         DateTime birthDate;
@@ -15,8 +16,9 @@ namespace GoodeeProject
         string mobile;
         string address;
 
-        public MemberDefault(string class_name, string name, DateTime birthDate, char gender, string mobile, string address)
+        public MemberDefault(string curriculum, string class_name, string name, DateTime birthDate, char gender, string mobile, string address)
         {
+            Curriculum = curriculum;
             this.class_name = class_name;
             this.name = name;
             this.birthDate = birthDate;
@@ -25,6 +27,7 @@ namespace GoodeeProject
             this.address = address;
         }
 
+        public string Curriculum1 { get => Curriculum; set => Curriculum = value; }
         public string Class_name { get => class_name; set => class_name = value; }
         public string Name { get => name; set => name = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }

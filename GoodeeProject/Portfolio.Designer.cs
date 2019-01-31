@@ -31,6 +31,7 @@
             this.btnSaveToPDF = new iTalk.iTalk_Button_1();
             this.btnSave = new iTalk.iTalk_Button_1();
             this.portfolioDetail1 = new GoodeeProject.PortfolioDetail();
+            this.btnOpen = new iTalk.iTalk_Button_1();
             this.SuspendLayout();
             // 
             // btnSaveToPDF
@@ -39,7 +40,7 @@
             this.btnSaveToPDF.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnSaveToPDF.Image = null;
             this.btnSaveToPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaveToPDF.Location = new System.Drawing.Point(172, 0);
+            this.btnSaveToPDF.Location = new System.Drawing.Point(344, 0);
             this.btnSaveToPDF.Name = "btnSaveToPDF";
             this.btnSaveToPDF.Size = new System.Drawing.Size(166, 40);
             this.btnSaveToPDF.TabIndex = 2;
@@ -68,17 +69,31 @@
             this.portfolioDetail1.Size = new System.Drawing.Size(815, 400);
             this.portfolioDetail1.TabIndex = 0;
             // 
+            // btnOpen
+            // 
+            this.btnOpen.BackColor = System.Drawing.Color.Transparent;
+            this.btnOpen.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnOpen.Image = null;
+            this.btnOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpen.Location = new System.Drawing.Point(172, 0);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(166, 40);
+            this.btnOpen.TabIndex = 3;
+            this.btnOpen.Text = "불러오기";
+            this.btnOpen.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnOpen.Click += new System.EventHandler(this.iTalk_Button_11_Click_1);
+            // 
             // Portfolio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnSaveToPDF);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.portfolioDetail1);
             this.Name = "Portfolio";
             this.Size = new System.Drawing.Size(815, 454);
-            this.Load += new System.EventHandler(this.Portfolio_Load);
             this.ResumeLayout(false);
 
         }
@@ -88,5 +103,6 @@
         private PortfolioDetail portfolioDetail1;
         private iTalk.iTalk_Button_1 btnSave;
         private iTalk.iTalk_Button_1 btnSaveToPDF;
+        private iTalk.iTalk_Button_1 btnOpen;
     }
 }

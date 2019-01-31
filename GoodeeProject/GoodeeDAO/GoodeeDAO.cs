@@ -47,14 +47,15 @@ namespace GoodeeProject.GoodeeDAO
         {
             string proc = "InsertMember";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[6];
+            SqlParameter[] parameters = new SqlParameter[8];
             parameters[0] = new SqlParameter("id", member.Id);
             parameters[1] = new SqlParameter("name", member.Name);
             parameters[2] = new SqlParameter("gender", member.Gender);
             parameters[3] = new SqlParameter("birthDate", member.BirthDate);
             parameters[4] = new SqlParameter("mobile", member.Mobile);
             parameters[5] = new SqlParameter("address", member.Address);
-            
+            parameters[6] = new SqlParameter("curriculum", member.Curriculum);
+            parameters[7] = new SqlParameter("class", member.ClassName);
             if (con.ExecuteInsert(proc, parameters))
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
@@ -69,7 +70,7 @@ namespace GoodeeProject.GoodeeDAO
             DataTable dt = con.ExecuteSelect(proc);
             foreach (DataRow item in dt.Rows)
             {
-                list.Add(new MemberDefault(item["Class_name"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString()));
+                list.Add(new MemberDefault(item["Class"].ToString(), item["Curriculum"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString()));
             }
             return list;
         }
@@ -86,35 +87,19 @@ namespace GoodeeProject.GoodeeDAO
             DataTable dt = con.SelectWithParams(proc, pms);
             if (dt.Rows.Count == 1)
             {
-                //mi = new MemberInfo
-                //{
-                //    Id = dt.Rows[0][0].ToString(),
-                //    ClassNum = dt.Rows[0][1].ToString() == null? 0 : Int32.Parse(dt.Rows[0][1].ToString()),
-                //    Name = dt.Rows[0][2].ToString() == null? " " : dt.Rows[0][2].ToString(),
-                //    BirthDate = DateTime.Parse(dt.Rows[0][3].ToString()),
-                //    Gender = char.Parse(dt.Rows[0][4].ToString()),
-                //    Mobile = dt.Rows[0][5].ToString(),
-                //    Address = dt.Rows[0][6].ToString(),
-                //    HopePay = dt.Rows[0][7].ToString() == null? "0" : dt.Rows[0][7].ToString(),
-                //    Army = dt.Rows[0][8].ToString() == null ? ' ' : char.Parse(dt.Rows[0][8].ToString()),
-                //    Score = dt.Rows[0][9].ToString() == null ? 0 : float.Parse(dt.Rows[0][9].ToString())
-                //};
                 mi = new MemberInfo();
-
                 mi.Id = dt.Rows[0][0].ToString();
-                mi.ClassNum = dt.Rows[0][1].ToString() == null ? 0 : Int32.Parse(dt.Rows[0][1].ToString());
-                mi.Name = dt.Rows[0][2].ToString() == null ? " " : dt.Rows[0][2].ToString();
-                mi.BirthDate = DateTime.Parse(dt.Rows[0][3].ToString());
-                mi.Gender = char.Parse(dt.Rows[0][4].ToString());
-                mi.Mobile = dt.Rows[0][5].ToString();
-                mi.Address = dt.Rows[0][6].ToString();
-                mi.HopePay = dt.Rows[0][7].ToString() == null ? "0" : dt.Rows[0][7].ToString();
-                mi.Army = dt.Rows[0][8].ToString() == null ? ' ' : char.Parse(dt.Rows[0][8].ToString());
-                mi.Score = dt.Rows[0][9].ToString() == null ? 0 : float.Parse(dt.Rows[0][9].ToString());
-
-
+                mi.Name = dt.Rows[0][1].ToString() == null ? " " : dt.Rows[0][1].ToString();
+                mi.BirthDate = DateTime.Parse(dt.Rows[0][2].ToString());
+                mi.Gender = char.Parse(dt.Rows[0][3].ToString());
+                mi.Mobile = dt.Rows[0][4].ToString();
+                mi.Address = dt.Rows[0][5].ToString();
+                mi.HopePay = dt.Rows[0][6].ToString() == "" ? "0" : dt.Rows[0][6].ToString();
+                mi.Army = dt.Rows[0][7].ToString() == "" ? 'N' : char.Parse(dt.Rows[0][7].ToString());
+                mi.Score = dt.Rows[0][8].ToString() == "" ? 0 : float.Parse(dt.Rows[0][8].ToString());
+                mi.Curriculum = dt.Rows[0][9].ToString();
+                mi.ClassName = dt.Rows[0][10].ToString();
             }
-
             return mi;
         }
     }

@@ -1,24 +1,17 @@
 ﻿<Portfolio>
   <Info>
-    <projectName>
-    </projectName>
-    <StartDate>2019-01-31</StartDate>
+    <projectName>adsf</projectName>
+    <StartDate>2018-12-06</StartDate>
     <EndDate>2019-01-31</EndDate>
-    <MemberCount>0</MemberCount>
-    <ProjectPart>
-    </ProjectPart>
+    <MemberCount>2</MemberCount>
+    <ProjectPart>asdfasdf</ProjectPart>
   </Info>
   <UseTechnology>
-    <DevelopEnvironment>
-    </DevelopEnvironment>
-    <UseTools>
-    </UseTools>
-    <UseTechnique>
-    </UseTechnique>
+    <DevelopEnvironment>sdafasd</DevelopEnvironment>
+    <UseTools>sadfasdfsad</UseTools>
+    <UseTechnique>sadfasdf</UseTechnique>
   </UseTechnology>
   <Introduction>
-    <textboxTitle value="text0">text0</textboxTitle>
-    <picture2 Width="200" Height="200" location="ftp://52.231.66.167:3333/image1.jpg">image1</picture2>
-    <picture3 Width="540" Height="684" location="ftp://52.231.66.167:3333/image2.jpg">image2</picture3>
+    <textboxTitle value="Title">text0</textboxTitle>
   </Introduction>
 </Portfolio>

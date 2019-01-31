@@ -58,14 +58,24 @@ namespace GoodeeProject
             textbox.Name = "textbox" + i;
             textbox.Width = introductionPanel.Width - 10;
             textbox.TextChanged += BigTextBox_TextChanged;
+            textbox.MouseClick += Textbox_MouseClick;
             textbox.Multiline = true;
             introductionPanel.Controls.Add(textbox);
+        }
+
+        private void Textbox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                control = sender as iTalk.iTalk_TextBox_Big;
+                contextMenuStrip1.Show(control, e.Location); 
+            }
         }
 
         internal void btnAddPictureBox_Click(object sender, EventArgs e)
         {
             PictureBox picture = new PictureBox();
-            int i = this.introductionPanel.Controls.Count + 1;
+            int i = this.introductionPanel.Controls.Count;
             picture.Name = "picture" + i;
             picture.BorderStyle = BorderStyle.FixedSingle;
             picture.Size = new Size(200, 200);

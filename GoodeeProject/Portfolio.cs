@@ -27,6 +27,29 @@ namespace GoodeeProject
 
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
+            bool isDirectoryExist = false;
+            string id = FrmMain.Id;
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://52.231.66.167:3333/");
+            request.Method = WebRequestMethods.Ftp.ListDirectory;
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+
+            while (!reader.EndOfStream)
+            {
+                string strr = reader.ReadLine();
+                if (id.Contains(strr))
+                {
+                    isDirectoryExist = true;
+                    break;
+                }
+            }
+            reader.Close();
+            if (!isDirectoryExist)
+            {
+                request = (FtpWebRequest)WebRequest.Create("ftp://52.231.66.167:3333/" + id);
+                request.Method = WebRequestMethods.Ftp.MakeDirectory;
+                response = (FtpWebResponse)request.GetResponse();
+            }
             Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
@@ -65,7 +88,7 @@ namespace GoodeeProject
             XmlElement introduction = xml.CreateElement("Introduction");
             root.AppendChild(introduction);
             int i = 0;
-            FtpWebRequest request = null;
+
             foreach (Control item in introductionInfo.Controls)
             {
                 XmlElement temp = xml.CreateElement(item.Name);
@@ -73,7 +96,8 @@ namespace GoodeeProject
                 {
                     temp.InnerText = "text" + i;
                     temp.SetAttribute("value", item.Text);
-                }else
+                }
+                else
                 {
                     request = (FtpWebRequest)WebRequest.Create("ftp://52.231.66.167:3333/image" + i + ".jpg");
                     request.Method = WebRequestMethods.Ftp.UploadFile;
@@ -97,46 +121,45 @@ namespace GoodeeProject
             writer.Flush();
             writer.Close();
 
-            request = (FtpWebRequest)WebRequest.Create("ftp://52.231.66.167:3333/" + "aaa.xml");
+            request = (FtpWebRequest)WebRequest.Create("ftp://52.231.66.167:3333/" + id + "/" + id + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
-
             using (Stream fileStream = File.OpenRead(@"C:\C#\GoodeeProject\CreateXmlEx2.xml"))
             using (Stream ftpStream = request.GetRequestStream())
             {
                 fileStream.CopyTo(ftpStream);
+                fileStream.Close();
             }
-            
         }
 
-        private void Portfolio_Load(object sender, EventArgs e)
+        private void iTalk_Button_11_Click_1(object sender, EventArgs e)
         {
+            string id = FrmMain.Id;
             try
             {
                 Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
                 Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
                 Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
-
                 XmlDocument doc = new XmlDocument();
-                doc.Load("ftp://52.231.66.167:3333/" + "aaa.xml");
+                doc.Load("ftp://52.231.66.167:3333/" + id + "/" + id + ".xml");
                 projectInfo.Controls["txtProjectTitle"].Text = doc.SelectSingleNode("//projectName").InnerText;
                 projectInfo.Controls["dpProjectStartDate"].Text = doc.SelectSingleNode("//StartDate").InnerText;
                 projectInfo.Controls["dpProjectEndDate"].Text = doc.SelectSingleNode("//EndDate").InnerText;
-                projectInfo.Controls["MemberCount"].Text = doc.SelectSingleNode("//MemberCount").InnerText;
+                (projectInfo.Controls["MemberCount"] as iTalk.iTalk_NumericUpDown).Value = long.Parse(doc.SelectSingleNode("//MemberCount").InnerText);
                 projectInfo.Controls["txtProjectPart"].Text = doc.SelectSingleNode("//ProjectPart").InnerText;
                 useTechnologyInfo.Controls["panel4"].Controls["txtDevEnvironment"].Text = doc.SelectSingleNode("//DevelopEnvironment").InnerText;
                 useTechnologyInfo.Controls["panel5"].Controls["txtUseTools"].Text = doc.SelectSingleNode("//UseTools").InnerText;
                 useTechnologyInfo.Controls["panel6"].Controls["txtUseTechnique"].Text = doc.SelectSingleNode("//UseTechnique").InnerText;
-                int i = 1;
+                int i = 0;
                 foreach (XmlNode item in doc.SelectSingleNode("//Introduction").ChildNodes)
                 {
                     if (item.Name.Contains("Title"))
                     {
-                        introductionInfo.Controls["textBoxTitle"].Text = item.InnerText;
+                        introductionInfo.Controls["textBoxTitle"].Text = item.Attributes["value"].Value.ToString();
                     }
-                    else if (item.Name.Contains("textBox") && !item.Name.Contains("Title"))
+                    else if (item.Name.Contains("textbox"))
                     {
                         portfolioDetail1.btnAddTextBox_Click(null, null);
-                        introductionInfo.Controls["textbox" + i].Text = item.InnerText;
+                        introductionInfo.Controls["textbox" + i].Text = item.Attributes["value"].Value.ToString();
                     }
                     else if (item.Name.Contains("picture"))
                     {
@@ -151,6 +174,7 @@ namespace GoodeeProject
             }
             catch (WebException)
             {
+                MessageBox.Show("저장된 포트폴리오가 없습니다.");
                 return;
             }
         }

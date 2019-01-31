@@ -9,7 +9,8 @@ namespace GoodeeProject
     class MemberInfo
     {
         private string id;
-        private int classNum;
+        private string curriculum;
+        private string className;
         private string name;
         private DateTime birthDate;
         private char gender;
@@ -23,22 +24,24 @@ namespace GoodeeProject
         {
         }
 
-        public MemberInfo(string id, int classNum, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score)
+        public MemberInfo(string id, string curriculum, string className, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score)
         {
-            this.Id = id;
-            this.ClassNum = classNum;
-            this.Name = name;
-            this.BirthDate = birthDate;
-            this.Gender = gender;
-            this.Mobile = mobile;
-            this.Address = address;
-            this.HopePay = hopePay;
-            this.Army = army;
-            this.Score = score;
+            this.id = id;
+            this.curriculum = curriculum;
+            this.className = className;
+            this.name = name;
+            this.birthDate = birthDate;
+            this.gender = gender;
+            this.mobile = mobile;
+            this.address = address;
+            this.hopePay = hopePay;
+            this.army = army;
+            this.score = score;
         }
 
         public string Id { get => id; set => id = value; }
-        public int ClassNum { get => classNum; set => classNum = value; }
+        public string Curriculum { get => curriculum; set => curriculum = value; }
+        public string ClassName { get => className; set => className = value; }
         public string Name { get => name; set => name = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
         public char Gender { get => gender; set => gender = value; }

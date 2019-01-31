@@ -43,10 +43,6 @@
             this.btnBoard = new System.Windows.Forms.Button();
             this.btnSpec = new System.Windows.Forms.Button();
             this.studentManagement1 = new GoodeeProject.StudentManagement();
-            this.ctlProfile1 = new GoodeeProject.CtlProfile();
-            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.btnMinimum = new iTalk.iTalk_Button_1();
-            this.btnExit = new iTalk.iTalk_Button_1();
             this.portfolio1 = new GoodeeProject.Portfolio();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
