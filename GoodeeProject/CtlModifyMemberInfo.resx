@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="user-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="board-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\board-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="survey-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\survey-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chat-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\chat-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="profile2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\profile2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="info-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\info-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="write-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\write-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="구디로고" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\구디로고.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ModifyPW" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ModifyPW1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ModifyMember" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ModifyMember1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

@@ -24,6 +24,7 @@ namespace GoodeeProject
         {
             InitializeComponent();
             gd = GoodeeDAO.GoodeeDAO.getInstance();
+            
         }
 
         private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
@@ -67,9 +68,9 @@ namespace GoodeeProject
                     }
                     else
                     {
-                        FrmMain.Mi = gd.SelectMember();
-
-
+                        //FrmMain.Mi = new MemberInfo();
+                        FrmMain.Mi = gd.SelectMember(ai.Id);
+                        
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         this.Visible = false;

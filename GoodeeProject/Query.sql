@@ -10,8 +10,9 @@ Go
 
 --멤버인포 select 프로시저
 CREATE PROCEDURE [dbo].SelectMember
+	@id nvarchar(320)
 AS
-	SELECT * from dbo.MemberInfo;
+	SELECT * from dbo.MemberInfo where ID = @id;
 RETURN 0
 
 Go
