@@ -58,17 +58,6 @@
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(175, 14);
             this.tboxID.TabIndex = 19;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(283, 232);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnMinimum
             // 
             this.btnMinimum.BackColor = System.Drawing.Color.Transparent;
@@ -164,6 +153,16 @@
             this.iTalk_Separator2.TabIndex = 26;
             this.iTalk_Separator2.Text = "iTalk_Separator2";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
+            this.pictureBox1.Location = new System.Drawing.Point(43, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(283, 232);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -183,6 +182,7 @@
             this.Controls.Add(this.btnLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseMove);

@@ -30,6 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ctlProfile1 = new GoodeeProject.CtlProfile();
+            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
+            this.btnMinimum = new iTalk.iTalk_Button_1();
+            this.btnExit = new iTalk.iTalk_Button_1();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnChat = new System.Windows.Forms.Button();
@@ -74,6 +78,48 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
+            // ctlProfile1
+            // 
+            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
+            this.ctlProfile1.Name = "ctlProfile1";
+            this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
+            this.ctlProfile1.TabIndex = 27;
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
+            this.iTalk_Separator1.TabIndex = 7;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
+            // 
+            // btnMinimum
+            // 
+            this.btnMinimum.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimum.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnMinimum.Image = null;
+            this.btnMinimum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMinimum.Location = new System.Drawing.Point(949, 3);
+            this.btnMinimum.Name = "btnMinimum";
+            this.btnMinimum.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimum.TabIndex = 25;
+            this.btnMinimum.Text = "_";
+            this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnMinimum.Click += new System.EventHandler(this.btnMinimum_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnExit.Image = null;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(975, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 24;
+            this.btnExit.Text = "X";
+            this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // panel2
             // 
@@ -272,6 +318,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MinimumSize = new System.Drawing.Size(126, 39);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTalk_ThemeContainer1";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.panel1.ResumeLayout(false);

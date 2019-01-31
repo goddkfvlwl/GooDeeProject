@@ -48,6 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="CtlModifyMemberInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlModifyMemberInfo.Designer.cs">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlModifyPW.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlModifyPW.Designer.cs">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,6 +134,18 @@
     <Compile Include="StudentManagement.Designer.cs">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModify.Designer.cs">
+      <DependentUpon>FrmModify.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CtlModifyMemberInfo.resx">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlModifyPW.resx">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PortfolioDetail.resx">
       <DependentUpon>PortfolioDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModify.resx">
+      <DependentUpon>FrmModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -215,6 +242,8 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <None Include="Resources\ModifyMember1.png" />
+    <None Include="Resources\ModifyPW1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

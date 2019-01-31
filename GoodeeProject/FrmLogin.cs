@@ -67,7 +67,7 @@ namespace GoodeeProject
                     }
                     else
                     {
-                        FrmMain.Mi = gd.SelectMember();
+                        FrmMain.Mi = gd.SelectMember(ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         this.Visible = false;

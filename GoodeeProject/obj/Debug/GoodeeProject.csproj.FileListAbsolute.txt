@@ -1,6 +1,10 @@
 C:\C#\GoodeeProject\GoodeeProject\bin\Debug\GoodeeProject.exe.config
 C:\C#\GoodeeProject\GoodeeProject\bin\Debug\GoodeeProject.exe
 C:\C#\GoodeeProject\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyPW.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
@@ -11,12 +15,11 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.Portfolio.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioDetail.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
-C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
-C:\C#\GoodeeProject\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
-C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
