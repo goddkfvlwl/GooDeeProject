@@ -42,7 +42,7 @@
             this.btnSaveToPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveToPDF.Location = new System.Drawing.Point(344, 0);
             this.btnSaveToPDF.Name = "btnSaveToPDF";
-            this.btnSaveToPDF.Size = new System.Drawing.Size(166, 40);
+            this.btnSaveToPDF.Size = new System.Drawing.Size(166, 30);
             this.btnSaveToPDF.TabIndex = 2;
             this.btnSaveToPDF.Text = "PDF저장";
             this.btnSaveToPDF.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -56,7 +56,7 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(166, 40);
+            this.btnSave.Size = new System.Drawing.Size(166, 30);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "저장";
             this.btnSave.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -65,9 +65,9 @@
             // portfolioDetail1
             // 
             this.portfolioDetail1.AutoScroll = true;
-            this.portfolioDetail1.Location = new System.Drawing.Point(0, 46);
+            this.portfolioDetail1.Location = new System.Drawing.Point(0, 36);
             this.portfolioDetail1.Name = "portfolioDetail1";
-            this.portfolioDetail1.Size = new System.Drawing.Size(815, 400);
+            this.portfolioDetail1.Size = new System.Drawing.Size(815, 410);
             this.portfolioDetail1.TabIndex = 0;
             // 
             // btnOpen
@@ -78,7 +78,7 @@
             this.btnOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOpen.Location = new System.Drawing.Point(172, 0);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(166, 40);
+            this.btnOpen.Size = new System.Drawing.Size(166, 30);
             this.btnOpen.TabIndex = 3;
             this.btnOpen.Text = "불러오기";
             this.btnOpen.TextAlignment = System.Drawing.StringAlignment.Center;

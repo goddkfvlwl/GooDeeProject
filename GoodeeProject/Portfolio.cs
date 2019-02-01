@@ -136,11 +136,15 @@ namespace GoodeeProject
         private void iTalk_Button_11_Click_1(object sender, EventArgs e)
         {
             string id = FrmMain.Id;
+            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["portfolio"].Controls["projectInfoPanel"];
+            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["portfolio"].Controls["useTechnologyPanel"];
+            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["portfolio"].Controls["introductionPanel"];
+            for (int i = introductionInfo.Controls.Count; i > 1; i--)
+            {
+                introductionInfo.Controls.RemoveAt(i - 1);
+            }
             try
             {
-                Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
-                Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
-                Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
                 XmlDocument doc = new XmlDocument();
                 doc.Load("ftp://52.231.66.167:3333/" + id + "/" + id + ".xml");
                 projectInfo.Controls["txtProjectTitle"].Text = doc.SelectSingleNode("//projectName").InnerText;
@@ -152,6 +156,7 @@ namespace GoodeeProject
                 useTechnologyInfo.Controls["panel5"].Controls["txtUseTools"].Text = doc.SelectSingleNode("//UseTools").InnerText;
                 useTechnologyInfo.Controls["panel6"].Controls["txtUseTechnique"].Text = doc.SelectSingleNode("//UseTechnique").InnerText;
                 int i = 0;
+
                 foreach (XmlNode item in doc.SelectSingleNode("//Introduction").ChildNodes)
                 {
                     if (item.Name.Contains("Title"))
@@ -185,20 +190,49 @@ namespace GoodeeProject
         {
             PdfDocument doc = new PdfDocument();
             Control body = this.Controls["portfolioDetail1"].Controls["PanelPortfolioBody"];
-            using (Graphics gfx = this.Controls["portfolioDetail1"].CreateGraphics())
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "PDF File (*.pdf) *.pdf |";
+            save.AddExtension = true;
+            save.DefaultExt = ".pdf";
+            if (save.ShowDialog() != DialogResult.Cancel)
             {
-                using (Bitmap bmp = new Bitmap(body.Width, body.Height, gfx))
+                string path = save.FileName;
+
+                using (Graphics gfx = this.Controls["portfolioDetail1"].CreateGraphics())
                 {
-                    body.DrawToBitmap(bmp, new Rectangle(0, 0, body.Width, body.Height));
-                    bmp.Save(@"C:\C#\GoodeeProject\GoodeeProject\aaa.bmp");
-                    Bitmap bit = new Bitmap(bmp, new Size(585, 840));
-                    PdfPage page = doc.AddPage();
-                    page.Size = PdfSharp.PageSize.A4;
-                    XGraphics gf = XGraphics.FromPdfPage(page);
-                    XImage image = bit;
-                    gf.DrawImage(image, 0, 0, image.PixelWidth, image.PixelHeight);
-                    doc.Save(@"C:\C#\GoodeeProject\GoodeeProject\aaa.pdf");
-                    doc.Close();
+                    using (Bitmap bmp = new Bitmap(body.Width, body.Height, gfx))
+                    {
+                        body.Focus();
+                        if (body.Height > 840)
+                        {
+                            body.DrawToBitmap(bmp,new Rectangle(0, 0, body.Width, body.Height));
+                            for (int i = 0; i < Math.Ceiling(body.Height / 840.0); i++)
+                            {
+                                //Rectangle r = new Rectangle(0, i * 840, body.Width, 840);
+                                Bitmap bit = new Bitmap(585, 840);
+                                Graphics g = Graphics.FromImage(bit);
+                                g.DrawImage(bmp, new Rectangle(0, 0, 585, 840), new Rectangle(0, i * 840, 585, 840), GraphicsUnit.Pixel);
+                                g.Dispose();
+                                bit.Save(@"C:\Users\goodee.DESKTOP-V47D6IG\Documents\GJHFTP\" + i + ".bmp");
+                                PdfPage page = doc.AddPage();
+                                page.Size = PdfSharp.PageSize.A4;
+                                XGraphics gf = XGraphics.FromPdfPage(page);
+                                XImage image = bit;
+                                gf.DrawImage(image, 0, 0, image.PixelWidth, image.PixelHeight);
+                            }
+                        }else
+                        {
+                            body.DrawToBitmap(bmp, new Rectangle(0, 0, body.Width, body.Height));
+                            Bitmap bit = new Bitmap(bmp, new Size(585, body.Height));
+                            PdfPage page = doc.AddPage();
+                            page.Size = PdfSharp.PageSize.A4;
+                            XGraphics gf = XGraphics.FromPdfPage(page);
+                            XImage image = bit;
+                            gf.DrawImage(image, 0, 0, image.PixelWidth, image.PixelHeight);
+                        }
+                        doc.Save(path);
+                        doc.Close();
+                    }
                 }
             }
         }
