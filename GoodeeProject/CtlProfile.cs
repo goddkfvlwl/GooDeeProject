@@ -29,5 +29,10 @@ namespace GoodeeProject
             FrmModify fm = new FrmModify();
             fm.ShowDialog();
         }
+
+        private void btnCreateID_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

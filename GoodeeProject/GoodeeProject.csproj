@@ -97,6 +97,19 @@
     <Compile Include="DetailMenu\CtlSurveyUserDetail.Designer.cs">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCreateID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateID.Designer.cs">
+      <DependentUpon>FrmCreateID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModifyPW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModifyPW.Designer.cs">
+      <DependentUpon>FrmModifyPW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFormControl.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +122,21 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="FrmSendEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSendEmail.Designer.cs">
+      <DependentUpon>FrmSendEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModify.Designer.cs">
+      <DependentUpon>FrmModify.cs</DependentUpon>
+    </Compile>
+>>>>>>> dff3ca2507f7f8c5f71fd4e5ac373eb1bef8cdf8
     <Compile Include="GoodeeDAO\GoodeeDAO.cs" />
     <Compile Include="IGoodee.cs" />
     <Compile Include="italk_theme_-_c#.cs" />
@@ -164,17 +192,28 @@
     <EmbeddedResource Include="DetailMenu\CtlSurveyUserDetail.resx">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateID.resx">
+      <DependentUpon>FrmCreateID.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PortfolioDetail.resx">
       <DependentUpon>PortfolioDetail.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="FrmModifyPW.resx">
+      <DependentUpon>FrmModifyPW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSendEmail.resx">
+      <DependentUpon>FrmSendEmail.cs</DependentUpon>
+>>>>>>> dff3ca2507f7f8c5f71fd4e5ac373eb1bef8cdf8
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>
@@ -230,6 +269,7 @@
     <None Include="Resources\profile2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\326572-48.png" />
     <Content Include="Query.sql" />
     <None Include="Resources\reload24.png" />
     <None Include="Resources\reload.png" />

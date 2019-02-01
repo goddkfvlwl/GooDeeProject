@@ -139,11 +139,15 @@ namespace GoodeeProject
             {
                 MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+<<<<<<< HEAD
         }
 
         private void btnReload_Click(object sender, EventArgs e)
         {
             CtlModifyPW_Load(null, null);
+=======
+>>>>>>> dff3ca2507f7f8c5f71fd4e5ac373eb1bef8cdf8
         }
+
     }
 }

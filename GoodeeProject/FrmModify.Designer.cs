@@ -50,6 +50,7 @@
             this.btnMinimum.TabIndex = 25;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
             // 
             // btnExit
             // 
@@ -63,7 +64,7 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // panel1
             // 
@@ -141,8 +142,8 @@
             this.Name = "FrmModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmModify";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmModify_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmModify_MouseMove);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

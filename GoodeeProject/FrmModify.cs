@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class FrmModify : Form
+    public partial class FrmModify : Form, IFormControl
     {
         private int movePointX;
         private int movePointY;
@@ -30,11 +30,6 @@ namespace GoodeeProject
             panel1.Controls.Add(cp);
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnModifyMember_Click(object sender, EventArgs e)
         {
             bottomPanel.Visible = true;
@@ -43,20 +38,30 @@ namespace GoodeeProject
 
             CtlModifyMemberInfo cm = new CtlModifyMemberInfo();
             panel1.Controls.Add(cm);
-        }
+        }      
 
-        private void FrmModify_MouseDown(object sender, MouseEventArgs e)
+        public void Frm_MouseDown(object sender, MouseEventArgs e)
         {
             movePointX = e.X;
             movePointY = e.Y;
         }
 
-        private void FrmModify_MouseMove(object sender, MouseEventArgs e)
+        public void Frm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
+        }
+
+        public void BtnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void BtnMinimum_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
