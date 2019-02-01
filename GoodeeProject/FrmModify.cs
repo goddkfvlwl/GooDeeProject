@@ -63,5 +63,12 @@ namespace GoodeeProject
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
     }
 }

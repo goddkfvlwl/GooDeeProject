@@ -194,6 +194,12 @@ namespace GoodeeProject
         {
             VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
         }
-        
+
+        private void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
     }
 }

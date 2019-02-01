@@ -14,10 +14,10 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
+
         public FrmModifyPW()
         {
             InitializeComponent();
-            Frm_DrawLine();
         }
 
         public void BtnExit_Click(object sender, EventArgs e)
@@ -35,12 +35,7 @@ namespace GoodeeProject
             movePointX = e.X;
             movePointY = e.Y;
         }
-
-        public void Frm_DrawLine()
-        {
-            Graphics graphics = CreateGraphics();
-            graphics.DrawRectangle(new Pen(Color.Red), new Rectangle(new Point(1, 1), new Size(this.Width-1, this.Height-1)));
-        }
+        
         public void Frm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -49,9 +44,11 @@ namespace GoodeeProject
             }
         }
 
-        private void FrmModifyPW_Load(object sender, EventArgs e)
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {
-
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
     }
 }

@@ -151,8 +151,6 @@
             this.btnLog.TabIndex = 6;
             this.btnLog.Text = "로그관리";
             this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
-<<<<<<< HEAD
-=======
             // 
             // btnCreateID
             // 
@@ -178,7 +176,6 @@
             this.pboxProFile.TabIndex = 0;
             this.pboxProFile.TabStop = false;
             // 
->>>>>>> dff3ca2507f7f8c5f71fd4e5ac373eb1bef8cdf8
             // CtlProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
