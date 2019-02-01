@@ -18,12 +18,15 @@ namespace GoodeeProject
         private int movePointY;
         string tempPassword = "";
         int remainTime;
-        bool check = false;
+        private string email;
+
+        public string Email { get => email; set => email = value; }
 
         public FrmSendEmail()
         {
             InitializeComponent();
             btn_Change.Enabled = false;
+            Frm_DrawLine();
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)
@@ -52,9 +55,20 @@ namespace GoodeeProject
   
         private void SendMail()
         {
-            MailAddress fromAddr = new MailAddress("pca03160@naver.com", "SendMail", Encoding.UTF8);
-            var toAddr = new MailAddress(tb_Email.Text);
+            MailAddress fromAddr;
+            MailMessage mail;
+            MailAddress toAddr;
 
+            fromAddr = new MailAddress("pca03160@naver.com", "SendMail", Encoding.UTF8);
+            try
+            {
+                toAddr = new MailAddress(tb_Email.Text);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("잘못된 형식의 이메일입니다");
+                return;
+            }
 
             SmtpClient smtp = new SmtpClient("smtp.naver.com", 587);
             smtp.UseDefaultCredentials = false;
@@ -62,7 +76,7 @@ namespace GoodeeProject
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
             smtp.Credentials = new NetworkCredential("pca03160@naver.com", "cg40277589");
 
-            MailMessage mail = new MailMessage(fromAddr, toAddr);
+            mail = new MailMessage(fromAddr, toAddr);
             mail.Subject = "비밀번호 변경 인증 이메일";
 
             Random ran = new Random();
@@ -93,6 +107,7 @@ namespace GoodeeProject
             {
                 smtp.Send(mail);
                 MessageBox.Show("메일 전송 완료");
+                email = tb_Email.Text;
             }
             catch (Exception es)
             {
@@ -124,18 +139,33 @@ namespace GoodeeProject
         {
             if (tempPassword == tb_Check.Text)
             {
-                check = true;
                 MessageBox.Show("인증성공");
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = Properties.Resources._326572_48;
                 timer1.Enabled = false;
                 btn_Change.Enabled = true;
             }
+            else
+            {
+                MessageBox.Show("잘못된 인증번호입니다.");
+            }
         }
 
         private void btn_Change_Click(object sender, EventArgs e)
         {
+            FrmModifyPW modify = new FrmModifyPW();
+            modify.Owner = this;
+            modify.Show();
+            this.Close();
+        }
 
+        public void Frm_DrawLine()
+        {
+            Rectangle rec = new Rectangle(new Point(100, 100), new Size(this.Width - 4, this.Height - 4));
+            Graphics graphics = this.CreateGraphics();
+              
+            graphics.DrawRectangle(new Pen(Color.Red, 2),rec);
+            //graphics.Dispose();
         }
     }
 }

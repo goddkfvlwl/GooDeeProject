@@ -9,6 +9,6 @@ namespace GoodeeProject
     interface IGoodee
     {
         AccountInfo AccountLogin(string id, string pw);
-        MemberInfo SelectMember();
+        MemberInfo SelectMember(string id);
     }
 }

@@ -33,6 +33,7 @@
             this.tb_Email = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_Change = new iTalk.iTalk_Button_1();
             this.iTalk_Label3 = new iTalk.iTalk_Label();
             this.iTalk_Separator3 = new iTalk.iTalk_Separator();
             this.iTalk_Separator2 = new iTalk.iTalk_Separator();
@@ -45,14 +46,13 @@
             this.btn_Send = new iTalk.iTalk_Button_1();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.btn_Change = new iTalk.iTalk_Button_1();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Check
             // 
             this.tb_Check.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Check.Location = new System.Drawing.Point(126, 189);
+            this.tb_Check.Location = new System.Drawing.Point(126, 217);
             this.tb_Check.Name = "tb_Check";
             this.tb_Check.Size = new System.Drawing.Size(175, 14);
             this.tb_Check.TabIndex = 37;
@@ -62,7 +62,7 @@
             this.tb_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Email.Location = new System.Drawing.Point(126, 148);
             this.tb_Email.Name = "tb_Email";
-            this.tb_Email.Size = new System.Drawing.Size(280, 14);
+            this.tb_Email.Size = new System.Drawing.Size(279, 14);
             this.tb_Email.TabIndex = 33;
             // 
             // timer1
@@ -73,11 +73,25 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(443, 186);
+            this.pictureBox1.Location = new System.Drawing.Point(443, 212);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(25, 25);
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
+            // 
+            // btn_Change
+            // 
+            this.btn_Change.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Change.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btn_Change.Image = null;
+            this.btn_Change.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Change.Location = new System.Drawing.Point(178, 289);
+            this.btn_Change.Name = "btn_Change";
+            this.btn_Change.Size = new System.Drawing.Size(147, 29);
+            this.btn_Change.TabIndex = 55;
+            this.btn_Change.Text = "변경";
+            this.btn_Change.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btn_Change.Click += new System.EventHandler(this.btn_Change_Click);
             // 
             // iTalk_Label3
             // 
@@ -93,7 +107,7 @@
             // 
             // iTalk_Separator3
             // 
-            this.iTalk_Separator3.Location = new System.Drawing.Point(126, 201);
+            this.iTalk_Separator3.Location = new System.Drawing.Point(126, 229);
             this.iTalk_Separator3.Name = "iTalk_Separator3";
             this.iTalk_Separator3.Size = new System.Drawing.Size(172, 10);
             this.iTalk_Separator3.TabIndex = 51;
@@ -103,7 +117,7 @@
             // 
             this.iTalk_Separator2.Location = new System.Drawing.Point(123, 160);
             this.iTalk_Separator2.Name = "iTalk_Separator2";
-            this.iTalk_Separator2.Size = new System.Drawing.Size(283, 10);
+            this.iTalk_Separator2.Size = new System.Drawing.Size(282, 10);
             this.iTalk_Separator2.TabIndex = 50;
             this.iTalk_Separator2.Text = "iTalk_Separator2";
             // 
@@ -149,7 +163,7 @@
             this.lbl_Time.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Time.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Time.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lbl_Time.Location = new System.Drawing.Point(377, 186);
+            this.lbl_Time.Location = new System.Drawing.Point(377, 214);
             this.lbl_Time.Name = "lbl_Time";
             this.lbl_Time.Size = new System.Drawing.Size(0, 21);
             this.lbl_Time.TabIndex = 44;
@@ -160,7 +174,7 @@
             this.btn_Check.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Check.Image = null;
             this.btn_Check.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Check.Location = new System.Drawing.Point(314, 182);
+            this.btn_Check.Location = new System.Drawing.Point(314, 210);
             this.btn_Check.Name = "btn_Check";
             this.btn_Check.Size = new System.Drawing.Size(57, 25);
             this.btn_Check.TabIndex = 41;
@@ -174,7 +188,7 @@
             this.iTalk_Label5.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label5.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label5.Location = new System.Drawing.Point(41, 182);
+            this.iTalk_Label5.Location = new System.Drawing.Point(41, 210);
             this.iTalk_Label5.Name = "iTalk_Label5";
             this.iTalk_Label5.Size = new System.Drawing.Size(74, 21);
             this.iTalk_Label5.TabIndex = 38;
@@ -186,7 +200,7 @@
             this.btn_Send.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Send.Image = null;
             this.btn_Send.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Send.Location = new System.Drawing.Point(411, 142);
+            this.btn_Send.Location = new System.Drawing.Point(411, 147);
             this.btn_Send.Name = "btn_Send";
             this.btn_Send.Size = new System.Drawing.Size(57, 25);
             this.btn_Send.TabIndex = 36;
@@ -218,20 +232,6 @@
             this.iTalk_Label1.TabIndex = 32;
             this.iTalk_Label1.Text = "비밀번호변경";
             // 
-            // btn_Change
-            // 
-            this.btn_Change.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Change.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btn_Change.Image = null;
-            this.btn_Change.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Change.Location = new System.Drawing.Point(191, 289);
-            this.btn_Change.Name = "btn_Change";
-            this.btn_Change.Size = new System.Drawing.Size(147, 29);
-            this.btn_Change.TabIndex = 55;
-            this.btn_Change.Text = "변경";
-            this.btn_Change.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btn_Change.Click += new System.EventHandler(this.btn_Change_Click);
-            // 
             // FrmSendEmail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -256,6 +256,7 @@
             this.Controls.Add(this.iTalk_Label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSendEmail";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSendEmail";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
