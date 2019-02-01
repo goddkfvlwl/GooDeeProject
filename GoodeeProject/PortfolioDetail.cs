@@ -56,11 +56,11 @@ namespace GoodeeProject
             iTalk.iTalk_TextBox_Big textbox = new iTalk.iTalk_TextBox_Big();
             int i = this.introductionPanel.Controls.Count;
             textbox.Name = "textbox" + i;
-            textbox.Width = introductionPanel.Width - 10;
+            textbox.Width = PanelPortfolioBody.Width - 10;
             textbox.TextChanged += BigTextBox_TextChanged;
             textbox.MouseClick += Textbox_MouseClick;
             textbox.Multiline = true;
-            PanelPortfolioBody.Controls.Add(textbox);
+            introductionPanel.Controls.Add(textbox);
         }
 
         private void Textbox_MouseClick(object sender, MouseEventArgs e)
@@ -90,7 +90,7 @@ namespace GoodeeProject
                 picture.MouseDown += Picture_MouseDown;
                 picture.MouseUp += Picture_MouseUp;
                 picture.ImageLocation = open.FileName;
-                PanelPortfolioBody.Controls.Add(picture); 
+                introductionPanel.Controls.Add(picture); 
             }
         }
 
