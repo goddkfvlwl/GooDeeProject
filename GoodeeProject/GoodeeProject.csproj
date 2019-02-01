@@ -231,6 +231,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Query.sql" />
+    <None Include="Resources\reload24.png" />
+    <None Include="Resources\reload.png" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MSDAOSP">

@@ -31,7 +31,6 @@
             this.tboxNowPW = new System.Windows.Forms.TextBox();
             this.tboxNewPW = new System.Windows.Forms.TextBox();
             this.tboxNewREPW = new System.Windows.Forms.TextBox();
-            this.pboxCaptcha = new System.Windows.Forms.PictureBox();
             this.lblError = new iTalk.iTalk_Label();
             this.btnOK = new iTalk.iTalk_Button_1();
             this.tboxCaptcha = new iTalk.iTalk_TextBox_Small();
@@ -45,6 +44,8 @@
             this.iTalk_Label3 = new iTalk.iTalk_Label();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.lblNotice = new iTalk.iTalk_Label();
+            this.btnReload = new iTalk.iTalk_Button_1();
+            this.pboxCaptcha = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pboxCaptcha)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,15 +80,6 @@
             this.tboxNewREPW.Size = new System.Drawing.Size(175, 20);
             this.tboxNewREPW.TabIndex = 34;
             this.tboxNewREPW.TextChanged += new System.EventHandler(this.tboxNewREPW_TextChanged);
-            // 
-            // pboxCaptcha
-            // 
-            this.pboxCaptcha.Location = new System.Drawing.Point(83, 337);
-            this.pboxCaptcha.Name = "pboxCaptcha";
-            this.pboxCaptcha.Size = new System.Drawing.Size(249, 114);
-            this.pboxCaptcha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxCaptcha.TabIndex = 37;
-            this.pboxCaptcha.TabStop = false;
             // 
             // lblError
             // 
@@ -198,11 +190,11 @@
             this.iTalk_Label4.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label4.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.iTalk_Label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label4.Location = new System.Drawing.Point(79, 141);
+            this.iTalk_Label4.Location = new System.Drawing.Point(44, 141);
             this.iTalk_Label4.Name = "iTalk_Label4";
-            this.iTalk_Label4.Size = new System.Drawing.Size(69, 20);
+            this.iTalk_Label4.Size = new System.Drawing.Size(104, 20);
             this.iTalk_Label4.TabIndex = 27;
-            this.iTalk_Label4.Text = "비밀번호";
+            this.iTalk_Label4.Text = "현재 비밀번호";
             // 
             // iTalk_Label3
             // 
@@ -240,11 +232,34 @@
             this.lblNotice.TabIndex = 0;
             this.lblNotice.Text = "* 다른 아이디/사이트에서 사용한 적 없는 비밀번호";
             // 
+            // btnReload
+            // 
+            this.btnReload.BackColor = System.Drawing.Color.Transparent;
+            this.btnReload.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnReload.Image = global::GoodeeProject.Properties.Resources.reload24;
+            this.btnReload.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnReload.Location = new System.Drawing.Point(336, 424);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(24, 27);
+            this.btnReload.TabIndex = 41;
+            this.btnReload.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // pboxCaptcha
+            // 
+            this.pboxCaptcha.Location = new System.Drawing.Point(83, 337);
+            this.pboxCaptcha.Name = "pboxCaptcha";
+            this.pboxCaptcha.Size = new System.Drawing.Size(249, 114);
+            this.pboxCaptcha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxCaptcha.TabIndex = 37;
+            this.pboxCaptcha.TabStop = false;
+            // 
             // CtlModifyPW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.tboxCaptcha);
@@ -290,5 +305,6 @@
         private iTalk.iTalk_TextBox_Small tboxCaptcha;
         private iTalk.iTalk_Button_1 btnOK;
         private iTalk.iTalk_Label lblError;
+        private iTalk.iTalk_Button_1 btnReload;
     }
 }

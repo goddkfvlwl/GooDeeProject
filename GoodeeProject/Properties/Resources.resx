@@ -121,11 +121,17 @@
   <data name="user-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="reload" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reload.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="board-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\board-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="survey-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\survey-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ModifyPW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ModifyPW1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chat-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\chat-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,10 +148,10 @@
   <data name="구디로고" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\구디로고.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ModifyPW" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ModifyPW1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ModifyMember" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ModifyMember1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reload24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reload24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -22,5 +22,5 @@ CREATE PROCEDURE [dbo].UpdatePassWord
 	@id NVARCHAR(320),
 	@pw VARBINARY(500)
 AS
-	update AccountInfo set Password = @pw where ID = @id;
+	update AccountInfo set Password = hashbytes('md5', @pw) where ID = @id;
 RETURN 0

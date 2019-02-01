@@ -14,7 +14,7 @@ namespace GoodeeProject.GoodeeDAO
 
         private static GoodeeDAO gd;
 
-        public static GoodeeDAO getInstance()
+        public static GoodeeDAO GetInstance()
         {
             if (gd == null)
             {
@@ -117,6 +117,22 @@ namespace GoodeeProject.GoodeeDAO
             }
 
             return mi;
+        }
+
+        public bool UpdatePassWord(string id, string pw)
+        {
+            string proc = "UpdatePassWord";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[2];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("pw", pw);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
         }
     }
 }

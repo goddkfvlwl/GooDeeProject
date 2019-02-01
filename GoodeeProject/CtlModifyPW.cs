@@ -16,10 +16,12 @@ namespace GoodeeProject
     {
         private string key;
         private bool pwCheck = false;
+        GoodeeDAO.GoodeeDAO gd;
 
         public CtlModifyPW()
         {
             InitializeComponent();
+            gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
         private void CtlModifyPW_Load(object sender, EventArgs e)
@@ -120,7 +122,12 @@ namespace GoodeeProject
             {
                 if (CaptchaResult())
                 {
-                    MessageBox.Show("성공");
+                    if (gd.UpdatePassWord(FrmMain.Mi.Id, tboxNewPW.Text))
+                    {
+                        MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.ParentForm.Close();
+                    }
+                    
                 }
                 else
                 {
@@ -132,6 +139,11 @@ namespace GoodeeProject
             {
                 MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            CtlModifyPW_Load(null, null);
         }
     }
 }

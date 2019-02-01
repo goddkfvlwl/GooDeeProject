@@ -20,7 +20,7 @@ namespace GoodeeProject
         public FrmLogin()
         {
             InitializeComponent();
-            gd = GoodeeDAO.GoodeeDAO.getInstance();
+            gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
         private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
@@ -79,5 +79,11 @@ namespace GoodeeProject
             }
         }
 
+        private void FrmLogin_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
     }
 }
