@@ -14,7 +14,7 @@ namespace GoodeeProject.GoodeeDAO
 
         private static GoodeeDAO gd;
 
-        public static GoodeeDAO getInstance()
+        public static GoodeeDAO GetInstance()
         {
             if (gd == null)
             {
@@ -102,22 +102,24 @@ namespace GoodeeProject.GoodeeDAO
                 mi = new MemberInfo();
 
                 mi.Id = dt.Rows[0][0].ToString();
-                mi.ClassNum = dt.Rows[0][1].ToString() == null ? 0 : Int32.Parse(dt.Rows[0][1].ToString());
-                mi.Name = dt.Rows[0][2].ToString() == null ? " " : dt.Rows[0][2].ToString();
-                mi.BirthDate = DateTime.Parse(dt.Rows[0][3].ToString());
-                mi.Gender = char.Parse(dt.Rows[0][4].ToString());
-                mi.Mobile = dt.Rows[0][5].ToString();
-                mi.Address = dt.Rows[0][6].ToString();
-                mi.HopePay = dt.Rows[0][7].ToString() == null ? "0" : dt.Rows[0][7].ToString();
-                mi.Army = dt.Rows[0][8].ToString() == null ? ' ' : char.Parse(dt.Rows[0][8].ToString());
-                mi.Score = dt.Rows[0][9].ToString() == null ? 0 : float.Parse(dt.Rows[0][9].ToString());
-
+                mi.Name = dt.Rows[0][1].ToString() == null ? " " : dt.Rows[0][1].ToString();
+                mi.BirthDate = DateTime.Parse(dt.Rows[0][2].ToString());
+                mi.Gender = dt.Rows[0][3].ToString().Replace("109", "") == "\0" ? ' ' : char.Parse(dt.Rows[0][3].ToString());
+                mi.Mobile = dt.Rows[0][4].ToString();
+                mi.Address = dt.Rows[0][5].ToString();
+                mi.HopePay = dt.Rows[0][6].ToString() == null ? "0" : dt.Rows[0][6].ToString();
+                mi.Army = dt.Rows[0][7].ToString().Contains(Convert.DBNull.ToString()) ? 'N' : char.Parse(dt.Rows[0][7].ToString());
+                //mi.Army = dt.Rows[0][7].ToString();
+                mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
+                mi.Curriculum = dt.Rows[0][9].ToString();
+                mi.ClassName = dt.Rows[0][10].ToString();
 
             }
 
             return mi;
         }
 
+<<<<<<< HEAD
         public bool InsetFirstAreaCode(string fa, string fn)
         {
             string proc = "InsertFistArea_Code";
@@ -232,5 +234,22 @@ namespace GoodeeProject.GoodeeDAO
         }
         
     }
+=======
+        public bool UpdatePassWord(string id, string pw)
+        {
+            string proc = "UpdatePassWord";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[2];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("pw", pw);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+>>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
     }
 

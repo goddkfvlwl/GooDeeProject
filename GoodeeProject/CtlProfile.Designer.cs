@@ -151,6 +151,31 @@
             this.btnLog.TabIndex = 6;
             this.btnLog.Text = "로그관리";
             this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // btnCreateID
+            // 
+            this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnCreateID.Image = null;
+            this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateID.Location = new System.Drawing.Point(287, 3);
+            this.btnCreateID.Name = "btnCreateID";
+            this.btnCreateID.Size = new System.Drawing.Size(70, 31);
+            this.btnCreateID.TabIndex = 7;
+            this.btnCreateID.Text = "관리자생성";
+            this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCreateID.Click += new System.EventHandler(this.btnCreateID_Click);
+            // 
+            // pboxProFile
+            // 
+            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
+            this.pboxProFile.Location = new System.Drawing.Point(15, 28);
+            this.pboxProFile.Name = "pboxProFile";
+            this.pboxProFile.Size = new System.Drawing.Size(60, 60);
+            this.pboxProFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxProFile.TabIndex = 0;
+            this.pboxProFile.TabStop = false;
+            // 
             // CtlProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);

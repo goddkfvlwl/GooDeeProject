@@ -15,6 +15,10 @@ namespace GoodeeProject
         #endregion
 
         MemberInfo SelectMember(string id);
+<<<<<<< HEAD
 
+=======
+        bool UpdatePassWord(string id, string pw);
+>>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
     }
 }
