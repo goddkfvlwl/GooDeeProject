@@ -154,11 +154,11 @@
     <Compile Include="JobInformation.Designer.cs">
       <DependentUpon>JobInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="MediaButton.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="MedioButton.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MediaButton.Designer.cs">
-      <DependentUpon>MediaButton.cs</DependentUpon>
+    <Compile Include="MedioButton.Designer.cs">
+      <DependentUpon>MedioButton.cs</DependentUpon>
     </Compile>
     <Compile Include="MemberDefault.cs" />
     <Compile Include="Portfolio.cs">
@@ -245,8 +245,8 @@
     <EmbeddedResource Include="JobInformation.resx">
       <DependentUpon>JobInformation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MediaButton.resx">
-      <DependentUpon>MediaButton.cs</DependentUpon>
+    <EmbeddedResource Include="MedioButton.resx">
+      <DependentUpon>MedioButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
@@ -314,6 +314,14 @@
     <Content Include="Query.sql" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -346,6 +354,24 @@
       <VersionMajor>1</VersionMajor>
       <VersionMinor>5</VersionMinor>
       <Lcid>1033</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPNSSCI">
+      <Guid>{453E9E02-8BA4-474C-BFA0-37727E44F6AE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>

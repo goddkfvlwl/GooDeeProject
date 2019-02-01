@@ -19,6 +19,8 @@ namespace GoodeeProject
         }
         string fileName = "";
         
+       
+
         private void picAdd_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -61,24 +63,17 @@ namespace GoodeeProject
                 boardBoby.SelectionColor = colorDialog1.Color;
             }
         }
-        MediaButton medeioButton;
+        
         private void MedioButton_Click(object sender, EventArgs e)
         {
-            medeioButton = new MediaButton();
-
-            medeioButton.Location = new Point(62,80);
-            medeioButton.Parent = this;
-          
-            this.Controls.Add(medeioButton);
-
-            medeioButton.BringToFront();
+            MedioButton medio = new MedioButton();
+            //medio.Parent = this;
+            medio.ShowDialog();
         }
 
         public void RemoveControl()
         {
-            //medeioButton.Parent.Controls.Remove(medeioButton);
-            //medeioButton.Dispose();
-            this.Controls.Remove(medeioButton);
+
         }
 
         

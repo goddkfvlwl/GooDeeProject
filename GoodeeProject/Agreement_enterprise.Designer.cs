@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agreement_enterprise));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.boardBoby = new System.Windows.Forms.RichTextBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
@@ -43,6 +44,10 @@
             this.picAdd = new iTalk.iTalk_Button_1();
             this.iTalk_TextBox_Small1 = new iTalk.iTalk_TextBox_Small();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
+            this.iTalk_TextBox_Small2 = new iTalk.iTalk_TextBox_Small();
+            this.iTalk_Label3 = new iTalk.iTalk_Label();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -53,7 +58,7 @@
             // 
             this.boardBoby.Location = new System.Drawing.Point(22, 167);
             this.boardBoby.Name = "boardBoby";
-            this.boardBoby.Size = new System.Drawing.Size(764, 240);
+            this.boardBoby.Size = new System.Drawing.Size(476, 198);
             this.boardBoby.TabIndex = 15;
             this.boardBoby.Text = "";
             // 
@@ -204,10 +209,49 @@
             this.iTalk_Label2.TabIndex = 1;
             this.iTalk_Label2.Text = "제 목";
             // 
+            // iTalk_TextBox_Small2
+            // 
+            this.iTalk_TextBox_Small2.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_TextBox_Small2.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.iTalk_TextBox_Small2.ForeColor = System.Drawing.Color.DimGray;
+            this.iTalk_TextBox_Small2.Location = new System.Drawing.Point(78, 371);
+            this.iTalk_TextBox_Small2.MaxLength = 32767;
+            this.iTalk_TextBox_Small2.Multiline = false;
+            this.iTalk_TextBox_Small2.Name = "iTalk_TextBox_Small2";
+            this.iTalk_TextBox_Small2.ReadOnly = false;
+            this.iTalk_TextBox_Small2.Size = new System.Drawing.Size(708, 28);
+            this.iTalk_TextBox_Small2.TabIndex = 23;
+            this.iTalk_TextBox_Small2.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.iTalk_TextBox_Small2.UseSystemPasswordChar = false;
+            // 
+            // iTalk_Label3
+            // 
+            this.iTalk_Label3.AutoSize = true;
+            this.iTalk_Label3.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Label3.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.iTalk_Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label3.Location = new System.Drawing.Point(22, 379);
+            this.iTalk_Label3.Name = "iTalk_Label3";
+            this.iTalk_Label3.Size = new System.Drawing.Size(51, 13);
+            this.iTalk_Label3.TabIndex = 24;
+            this.iTalk_Label3.Text = "첨부파일";
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(504, 167);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(282, 198);
+            this.axWindowsMediaPlayer1.TabIndex = 25;
+            // 
             // Agreement_enterprise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.iTalk_Label3);
+            this.Controls.Add(this.iTalk_TextBox_Small2);
             this.Controls.Add(this.iTalk_Button_13);
             this.Controls.Add(this.iTalk_Button_12);
             this.Controls.Add(this.MedioButton);
@@ -222,6 +266,7 @@
             this.Controls.Add(this.iTalk_Label2);
             this.Name = "Agreement_enterprise";
             this.Size = new System.Drawing.Size(803, 445);
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +288,8 @@
         private iTalk.iTalk_Button_1 MedioButton;
         private iTalk.iTalk_Button_1 iTalk_Button_12;
         private iTalk.iTalk_Button_1 iTalk_Button_13;
+        private iTalk.iTalk_TextBox_Small iTalk_TextBox_Small2;
+        private iTalk.iTalk_Label iTalk_Label3;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }

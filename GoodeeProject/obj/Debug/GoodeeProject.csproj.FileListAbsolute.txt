@@ -31,4 +31,9 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.MediaButton.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.MedioButton.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\Interop.WMPLib.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.WMPLib.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.WMPNSSCI.dll
