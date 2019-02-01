@@ -68,9 +68,10 @@ namespace GoodeeProject
         {
             MedioButton medio = new MedioButton();
             //medio.Parent = this;
-            medio.ShowDialog();
+            medio.Show();
         }
 
+       
         public void RemoveControl()
         {
 

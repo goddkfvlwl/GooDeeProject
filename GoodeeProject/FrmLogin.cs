@@ -13,13 +13,12 @@ namespace GoodeeProject
 {
     public partial class FrmLogin : Form, IFormControl
     {
-<<<<<<< HEAD
+
         AccountInfo ai;
 
         //private string tempPW;
 
-=======
->>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
+
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;

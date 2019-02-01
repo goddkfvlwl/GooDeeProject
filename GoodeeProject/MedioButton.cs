@@ -17,15 +17,17 @@ namespace GoodeeProject
             InitializeComponent();
         }
         iTalk.iTalk_Button_1 myPcChoiceButton;
-        iTalk.iTalk_Label urlInput;
-        iTalk.iTalk_TextBox_Small urlText;
-        iTalk.iTalk_Button_1 urlAddButton;
+        //iTalk.iTalk_Label urlInput;
+        //iTalk.iTalk_TextBox_Small urlText;
+        //iTalk.iTalk_Button_1 urlAddButton;
+
         private void iTalk_HeaderLabel1_Click(object sender, EventArgs e)
         {
             LinkAddLabel.ForeColor = Color.Gray;
             mediaLabel.ForeColor = Color.Coral;
             
             myPcChoiceButton = new iTalk.iTalk_Button_1();
+            
             myPcChoiceButton.Location = new Point(112, 107);
             
             this.Controls.Add(myPcChoiceButton);
@@ -42,31 +44,32 @@ namespace GoodeeProject
 
                 MessageBox.Show(openFileDialog1.FileName);
 
+
             }
         }
 
         private void LinkAddLabel_Click(object sender, EventArgs e)
         {
-            mediaLabel.ForeColor = Color.Gray;
-            LinkAddLabel.ForeColor = Color.Coral;
+            //mediaLabel.ForeColor = Color.Gray;
+            //LinkAddLabel.ForeColor = Color.Coral;
 
-            urlInput = new iTalk.iTalk_Label();
-            urlText = new iTalk.iTalk_TextBox_Small();
-            urlAddButton = new iTalk.iTalk_Button_1();
-            urlInput.Location = new Point(38, 74);
-            urlText.Location = new Point(42, 111);
-            urlText.Size = new Size(294, 28);
-            urlAddButton.Location = new Point(280, 177);
-            urlAddButton.Size = new Size(56, 24);
+            //urlInput = new iTalk.iTalk_Label();
+            //urlText = new iTalk.iTalk_TextBox_Small();
+            //urlAddButton = new iTalk.iTalk_Button_1();
+            //urlInput.Location = new Point(38, 74);
+            //urlText.Location = new Point(42, 111);
+            //urlText.Size = new Size(294, 28);
+            //urlAddButton.Location = new Point(280, 177);
+            //urlAddButton.Size = new Size(56, 24);
 
-            this.Controls.Add(urlInput);
-            this.Controls.Add(urlText);
-            this.Controls.Add(urlAddButton);
+            //this.Controls.Add(urlInput);
+            //this.Controls.Add(urlText);
+            //this.Controls.Add(urlAddButton);
 
-            urlInput.Text = "URL입력";
-            urlAddButton.Text = "완료";
+            //urlInput.Text = "URL입력";
+            //urlAddButton.Text = "완료";
 
-            urlAddButton.Click += UrlAddButton_Click;
+            //urlAddButton.Click += UrlAddButton_Click;
 
         }
 
@@ -80,8 +83,8 @@ namespace GoodeeProject
 
         public void RemoveControl()
         {
-            myPcChoiceButton.Dispose();
-            urlInput.Dispose();
+            //myPcChoiceButton.Dispose();
+            //urlInput.Dispose();
         }
 
         

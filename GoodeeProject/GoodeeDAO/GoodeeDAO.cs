@@ -28,13 +28,13 @@ namespace GoodeeProject.GoodeeDAO
             AccountInfo ai = new AccountInfo();
             string proc = "AccountLogin";
             con = new DBConnection();
-            
+
             SqlParameter[] pms = new SqlParameter[2];
             pms[0] = new SqlParameter("id", id);
             pms[1] = new SqlParameter("pw", pw);
 
             DataTable dt = con.SelectWithParams(proc, pms);
-            
+
             if (dt.Rows.Count == 1)
             {
                 ai = new AccountInfo(dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), char.Parse(dt.Rows[0][2].ToString()));
@@ -54,7 +54,7 @@ namespace GoodeeProject.GoodeeDAO
             parameters[3] = new SqlParameter("birthDate", member.BirthDate);
             parameters[4] = new SqlParameter("mobile", member.Mobile);
             parameters[5] = new SqlParameter("address", member.Address);
-            
+
             if (con.ExecuteInsert(proc, parameters))
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
@@ -119,7 +119,7 @@ namespace GoodeeProject.GoodeeDAO
             return mi;
         }
 
-<<<<<<< HEAD
+
         public bool InsetFirstAreaCode(string fa, string fn)
         {
             string proc = "InsertFistArea_Code";
@@ -141,7 +141,7 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
-        
+
 
         internal bool InsetFirstAreaCode(string code, string name, string firstcode)
         {
@@ -174,7 +174,7 @@ namespace GoodeeProject.GoodeeDAO
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@jobCode", jc);
             sqlParameters[1] = new SqlParameter("@jobName", jn);
-           
+
 
             try
             {
@@ -232,9 +232,8 @@ namespace GoodeeProject.GoodeeDAO
                 throw;
             }
         }
-        
-    }
-=======
+
+
         public bool UpdatePassWord(string id, string pw)
         {
             string proc = "UpdatePassWord";
@@ -250,6 +249,7 @@ namespace GoodeeProject.GoodeeDAO
             }
             return result;
         }
->>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
+
     }
+}
 

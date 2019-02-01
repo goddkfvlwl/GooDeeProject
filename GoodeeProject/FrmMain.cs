@@ -15,11 +15,9 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
-<<<<<<< HEAD
+
         public Panel Panel2 { get { return panel2; } set { panel2 = value; } }
-=======
-        
->>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
+
 
         //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();

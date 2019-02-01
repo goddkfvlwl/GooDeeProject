@@ -252,7 +252,7 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
+
     <EmbeddedResource Include="GyeonggiArea.resx">
       <DependentUpon>GyeonggiArea.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,10 +264,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MedioButton.resx">
       <DependentUpon>MedioButton.cs</DependentUpon>
-=======
+      </EmbeddedResource>
+
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>
->>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
+
     </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>

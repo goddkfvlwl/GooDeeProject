@@ -1,29 +1,35 @@
-<<<<<<< HEAD
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\GoodeeProject.exe.config
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\GoodeeProject.exe
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\Interop.WMPLib.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\AxInterop.WMPLib.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.WMPLib.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.WMPNSSCI.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise_list.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.AreaExam.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CodeDB.resources
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyPW.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmCreateID.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.GyeonggiArea.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.JobAreaChoice.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.JobInformation.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.MedioButton.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Portfolio.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioDetail.resources
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModifyPW.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmSendEmail.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Area.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
@@ -32,36 +38,3 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.MedioButton.resources
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\Interop.WMPLib.dll
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\AxInterop.WMPLib.dll
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.WMPLib.dll
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\AxInterop.WMPLib.dll
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\Interop.WMPNSSCI.dll
-=======
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe.config
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.pdb
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmCreateID.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.Portfolio.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.PortfolioDetail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmModifyPW.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmSendEmail.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.exe
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.pdb
-C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
->>>>>>> 0abd41c8e3530463e0c9361d9844163cb3b2d6b4
