@@ -136,9 +136,9 @@ namespace GoodeeProject
         private void iTalk_Button_11_Click_1(object sender, EventArgs e)
         {
             string id = FrmMain.Id;
-            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["portfolio"].Controls["projectInfoPanel"];
-            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["portfolio"].Controls["useTechnologyPanel"];
-            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["portfolio"].Controls["introductionPanel"];
+            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
+            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
+            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
             for (int i = introductionInfo.Controls.Count; i > 1; i--)
             {
                 introductionInfo.Controls.RemoveAt(i - 1);
