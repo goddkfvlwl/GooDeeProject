@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -35,6 +36,13 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
+            
+            //if (mi.Picture != null)
+            //{
+            //    MemoryStream ms = new MemoryStream(Convert.ToByte(mi.Picture));
+
+            //    ctlProfile1.pboxProFile.Image = Image.FromStream(ms);
+            //}
 
             if (ai.Authority == 'S')
             {

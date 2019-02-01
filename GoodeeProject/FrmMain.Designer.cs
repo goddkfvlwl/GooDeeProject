@@ -68,7 +68,7 @@
             // ctlProfile1
             // 
             this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(0, 0);
+            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
             this.ctlProfile1.Name = "ctlProfile1";
             this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
             this.ctlProfile1.TabIndex = 0;
@@ -117,6 +117,7 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel2
             // 
