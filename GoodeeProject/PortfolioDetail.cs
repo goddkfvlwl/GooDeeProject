@@ -15,11 +15,13 @@ namespace GoodeeProject
         int size;
         Point point;
         Control control;
+        
         public PortfolioDetail()
         {
             InitializeComponent();
             txtProjectPart.MinimumSize = txtProjectPart.Size;
             size = txtUseTools.Height;
+            
         }
 
         protected override Point ScrollToControl(Control activeControl)
@@ -27,37 +29,19 @@ namespace GoodeeProject
             return this.AutoScrollPosition;
         }
 
-        private void BigTextBox_TextChanged(object sender, EventArgs e)
+        private void TextBox_TextChanged(object sender, EventArgs e)
         {
-            AutoSizingTextBox_Big(sender);
-        }
-
-        private void SmallTextBox_TextChanged(object sender, EventArgs e)
-        {
-            AutoSizingTextBox_Small(sender);
-        }
-
-        private void AutoSizingTextBox_Big(object sender)
-        {
-            iTalk.iTalk_TextBox_Big textbox = sender as iTalk.iTalk_TextBox_Big;
-            textbox.Height = (textbox.Font.Height + textbox.Padding.Vertical)
-                            * (textbox.GetLineFromCharIndex(textbox) + 3);
-        }
-
-        private void AutoSizingTextBox_Small(object sender)
-        {
-            iTalk.iTalk_TextBox_Small textbox = sender as iTalk.iTalk_TextBox_Small;
-            textbox.Height = (textbox.Font.Height + textbox.Padding.Vertical)
-                            * (textbox.GetLineFromCharIndex(textbox) + 3);
+            TextBox textbox = sender as TextBox;
+            textbox.Height = textbox.Font.Height * (textbox.GetLineFromCharIndex(textbox.Text.Length) + 2);
         }
 
         internal void btnAddTextBox_Click(object sender, EventArgs e)
         {
-            iTalk.iTalk_TextBox_Big textbox = new iTalk.iTalk_TextBox_Big();
+            TextBox textbox = new TextBox();
             int i = this.introductionPanel.Controls.Count;
             textbox.Name = "textbox" + i;
             textbox.Width = PanelPortfolioBody.Width - 10;
-            textbox.TextChanged += BigTextBox_TextChanged;
+            textbox.TextChanged += TextBox_TextChanged;
             textbox.MouseClick += Textbox_MouseClick;
             textbox.Multiline = true;
             introductionPanel.Controls.Add(textbox);
@@ -67,7 +51,7 @@ namespace GoodeeProject
         {
             if (e.Button == MouseButtons.Right)
             {
-                control = sender as iTalk.iTalk_TextBox_Big;
+                control = sender as TextBox;
                 contextMenuStrip1.Show(control, e.Location);
             }
         }
@@ -128,5 +112,7 @@ namespace GoodeeProject
         {
             control.Dispose();
         }
+
+        
     }
 }

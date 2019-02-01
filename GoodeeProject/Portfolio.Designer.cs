@@ -28,11 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnOpen = new iTalk.iTalk_Button_1();
             this.btnSaveToPDF = new iTalk.iTalk_Button_1();
             this.btnSave = new iTalk.iTalk_Button_1();
             this.portfolioDetail1 = new GoodeeProject.PortfolioDetail();
-            this.btnOpen = new iTalk.iTalk_Button_1();
             this.SuspendLayout();
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.BackColor = System.Drawing.Color.Transparent;
+            this.btnOpen.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnOpen.Image = null;
+            this.btnOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpen.Location = new System.Drawing.Point(172, 0);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(166, 30);
+            this.btnOpen.TabIndex = 3;
+            this.btnOpen.Text = "불러오기";
+            this.btnOpen.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnOpen.Click += new System.EventHandler(this.iTalk_Button_11_Click_1);
             // 
             // btnSaveToPDF
             // 
@@ -69,20 +83,6 @@
             this.portfolioDetail1.Name = "portfolioDetail1";
             this.portfolioDetail1.Size = new System.Drawing.Size(815, 410);
             this.portfolioDetail1.TabIndex = 0;
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.BackColor = System.Drawing.Color.Transparent;
-            this.btnOpen.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnOpen.Image = null;
-            this.btnOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpen.Location = new System.Drawing.Point(172, 0);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(166, 30);
-            this.btnOpen.TabIndex = 3;
-            this.btnOpen.Text = "불러오기";
-            this.btnOpen.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnOpen.Click += new System.EventHandler(this.iTalk_Button_11_Click_1);
             // 
             // Portfolio
             // 

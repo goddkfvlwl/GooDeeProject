@@ -117,7 +117,7 @@ namespace GoodeeProject
                 i++;
                 introduction.AppendChild(temp);
             }
-            XmlTextWriter writer = new XmlTextWriter(@"C:\C#\GoodeeProject\CreateXmlEx2.xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter(Application.StartupPath + "/" + "xml.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             xml.WriteContentTo(writer);
             writer.Flush();
@@ -125,7 +125,7 @@ namespace GoodeeProject
 
             request = (FtpWebRequest)WebRequest.Create("ftp://52.231.66.167:3333/" + id + "/" + id + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
-            using (Stream fileStream = File.OpenRead(@"C:\C#\GoodeeProject\CreateXmlEx2.xml"))
+            using (Stream fileStream = File.OpenRead(Application.StartupPath + "/" + "xml.xml"))
             using (Stream ftpStream = request.GetRequestStream())
             {
                 fileStream.CopyTo(ftpStream);
@@ -170,11 +170,12 @@ namespace GoodeeProject
                     }
                     else if (item.Name.Contains("picture"))
                     {
-                        portfolioDetail1.btnAddPictureBox_Click(null, null);
-                        (introductionInfo.Controls["picture" + i] as PictureBox).Size = new Size(int.Parse(item.Attributes["Width"].Value), int.Parse(item.Attributes["Height"].Value));
+                        PictureBox p = new PictureBox();
+                        introductionInfo.Controls.Add(p);
+                        (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).Size = new Size(int.Parse(item.Attributes["Width"].Value), int.Parse(item.Attributes["Height"].Value));
                         WebClient web = new WebClient();
-                        web.DownloadFile(item.Attributes["location"].Value, @"C:\C#\GoodeeProject\" + item.Name + "jpg");
-                        (introductionInfo.Controls["picture" + i] as PictureBox).ImageLocation = @"C:\C#\GoodeeProject\" + item.Name + "jpg";
+                        web.DownloadFile(item.Attributes["location"].Value, Application.StartupPath + "/" + item.Name + "jpg");
+                        (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).ImageLocation = Application.StartupPath + "/" + item.Name + "jpg";
                     }
                     i++;
                 }
@@ -190,10 +191,25 @@ namespace GoodeeProject
         {
             PdfDocument doc = new PdfDocument();
             Control body = this.Controls["portfolioDetail1"].Controls["PanelPortfolioBody"];
+            body.Controls["AddButtonPanel"].Visible = false;
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "PDF File (*.pdf) *.pdf |";
             save.AddExtension = true;
             save.DefaultExt = ".pdf";
+            int pagecount = 1;
+            for (int i = 0; i < body.Controls["introductionPanel"].Controls.Count; i++)
+            {
+                if(body.Controls["introductionPanel"].Top + body.Controls["introductionPanel"].Controls[i].Bottom > pagecount * 840 && !body.Controls["introductionPanel"].Controls[i].Name.Contains("block"))
+                {
+                    Panel p = new Panel();
+                    p.Name = "block" + i;
+                    p.Width = body.Width;
+                    p.Height = body.Controls["introductionPanel"].Controls[i].Height - ((body.Controls["introductionPanel"].Top + body.Controls["introductionPanel"].Controls[i].Bottom) - pagecount * 840);
+                    body.Controls["introductionPanel"].Controls.Add(p);
+                    body.Controls["introductionPanel"].Controls.SetChildIndex(p, i);
+                    pagecount++;
+                }
+            }
             if (save.ShowDialog() != DialogResult.Cancel)
             {
                 string path = save.FileName;
@@ -203,17 +219,16 @@ namespace GoodeeProject
                     using (Bitmap bmp = new Bitmap(body.Width, body.Height, gfx))
                     {
                         body.Focus();
-                        if (body.Height > 840)
+                        if (body.Height >= 840)
                         {
                             body.DrawToBitmap(bmp,new Rectangle(0, 0, body.Width, body.Height));
                             for (int i = 0; i < Math.Ceiling(body.Height / 840.0); i++)
                             {
-                                //Rectangle r = new Rectangle(0, i * 840, body.Width, 840);
+                                Bitmap resizingBit = new Bitmap(bmp, new Size(585, body.Height));
                                 Bitmap bit = new Bitmap(585, 840);
                                 Graphics g = Graphics.FromImage(bit);
-                                g.DrawImage(bmp, new Rectangle(0, 0, 585, 840), new Rectangle(0, i * 840, 585, 840), GraphicsUnit.Pixel);
+                                g.DrawImage(resizingBit, new Rectangle(0, 0, 585, 840), new Rectangle(0, i * 840, 585, 840), GraphicsUnit.Pixel);
                                 g.Dispose();
-                                bit.Save(@"C:\Users\goodee.DESKTOP-V47D6IG\Documents\GJHFTP\" + i + ".bmp");
                                 PdfPage page = doc.AddPage();
                                 page.Size = PdfSharp.PageSize.A4;
                                 XGraphics gf = XGraphics.FromPdfPage(page);
@@ -223,7 +238,7 @@ namespace GoodeeProject
                         }else
                         {
                             body.DrawToBitmap(bmp, new Rectangle(0, 0, body.Width, body.Height));
-                            Bitmap bit = new Bitmap(bmp, new Size(585, body.Height));
+                            Bitmap bit = new Bitmap(bmp, new Size(585, 840));
                             PdfPage page = doc.AddPage();
                             page.Size = PdfSharp.PageSize.A4;
                             XGraphics gf = XGraphics.FromPdfPage(page);
@@ -235,6 +250,7 @@ namespace GoodeeProject
                     }
                 }
             }
+            body.Controls["AddButtonPanel"].Visible = true;
         }
     }
 }
