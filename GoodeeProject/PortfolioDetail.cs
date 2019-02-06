@@ -21,7 +21,6 @@ namespace GoodeeProject
             InitializeComponent();
             txtProjectPart.MinimumSize = txtProjectPart.Size;
             size = txtUseTools.Height;
-            
         }
 
         protected override Point ScrollToControl(Control activeControl)

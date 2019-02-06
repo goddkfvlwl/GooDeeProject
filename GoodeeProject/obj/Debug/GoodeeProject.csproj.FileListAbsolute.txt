@@ -87,3 +87,4 @@ E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.ca
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
+E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources

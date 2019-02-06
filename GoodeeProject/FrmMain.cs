@@ -55,6 +55,9 @@ namespace GoodeeProject
 
         private void BtnStudent_Click(object sender, EventArgs e)
         {
+            StudentManagement studentManagement1 = new StudentManagement();
+            panel2.Controls.Add(studentManagement1);
+            studentManagement1.Location = new Point(185, 0);
             studentManagement1.Visible = true;
             studentManagement1.BringToFront();
             GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
@@ -69,6 +72,7 @@ namespace GoodeeProject
             studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "휴대폰";
             studentManagement1.gViewStudentInfo.Columns[6].HeaderText = "주소";
             studentManagement1.gViewStudentInfo.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            studentManagement1.gViewStudentInfo.Columns[7].Visible = false;
         }
 
         //public FrmMain(string id, char authority) : this()
@@ -97,8 +101,22 @@ namespace GoodeeProject
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
-            portfolio1.Visible = true;
-            portfolio1.BringToFront();
+            if (authority == 'S')
+            {
+                Portfolio portfolio1 = new Portfolio();
+                panel2.Controls.Add(portfolio1);
+                portfolio1.Location = new Point(185, 0);
+                portfolio1.Visible = true;
+                portfolio1.Controls["portfolioDetail1"].AutoSize = true;
+                VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+                portfolio1.BringToFront(); 
+            }else if(authority == 'M')
+            {
+                PortfolioManager manager = new PortfolioManager();
+                panel2.Controls.Add(manager);
+                manager.Location = new Point(185, 0);
+                manager.BringToFront();
+            }
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
@@ -190,18 +208,6 @@ namespace GoodeeProject
             panel2.Controls.Remove(surveyAdmin);
             panel2.Controls.Remove(surveyUser);
             panel2.Controls.Remove(mbti);
-        }
-
-        private void portfolio1_Load(object sender, EventArgs e)
-        {
-            portfolio1.Controls["portfolioDetail1"].AutoSize = true;
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-            portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
-        }
-
-        private void PortfolioDetail1_Resize(object sender, EventArgs e)
-        {
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
         }
     }
 }

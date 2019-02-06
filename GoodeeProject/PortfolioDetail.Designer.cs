@@ -209,7 +209,7 @@
             this.PanelPortfolioBody.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelPortfolioBody.Location = new System.Drawing.Point(0, 0);
             this.PanelPortfolioBody.Name = "PanelPortfolioBody";
-            this.PanelPortfolioBody.Size = new System.Drawing.Size(781, 525);
+            this.PanelPortfolioBody.Size = new System.Drawing.Size(798, 525);
             this.PanelPortfolioBody.TabIndex = 21;
             // 
             // AddButtonPanel
@@ -464,7 +464,7 @@
             this.AutoScroll = true;
             this.Controls.Add(this.PanelPortfolioBody);
             this.Name = "PortfolioDetail";
-            this.Size = new System.Drawing.Size(781, 454);
+            this.Size = new System.Drawing.Size(815, 454);
             this.projectInfoPanel.ResumeLayout(false);
             this.projectInfoPanel.PerformLayout();
             this.useTechnologyPanel.ResumeLayout(false);

@@ -31,7 +31,6 @@
             this.btnReadExl = new iTalk.iTalk_Button_1();
             this.gViewStudentInfo = new System.Windows.Forms.DataGridView();
             this.btnWriteExl = new iTalk.iTalk_Button_1();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,10 +70,7 @@
             this.btnWriteExl.TabIndex = 2;
             this.btnWriteExl.Text = "수강생 명단 엑셀 출력";
             this.btnWriteExl.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.btnWriteExl.Click += new System.EventHandler(this.btnWriteExl_Click);
             // 
             // StudentManagement
             // 
@@ -85,7 +81,6 @@
             this.Controls.Add(this.btnReadExl);
             this.Name = "StudentManagement";
             this.Size = new System.Drawing.Size(815, 454);
-            this.Load += new System.EventHandler(this.StudentManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).EndInit();
             this.ResumeLayout(false);
 
@@ -96,6 +91,5 @@
         private iTalk.iTalk_Button_1 btnReadExl;
         private iTalk.iTalk_Button_1 btnWriteExl;
         internal System.Windows.Forms.DataGridView gViewStudentInfo;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

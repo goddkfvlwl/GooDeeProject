@@ -70,7 +70,7 @@ namespace GoodeeProject.GoodeeDAO
             DataTable dt = con.ExecuteSelect(proc);
             foreach (DataRow item in dt.Rows)
             {
-                list.Add(new MemberDefault(item["Class"].ToString(), item["Curriculum"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString()));
+                list.Add(new MemberDefault(item["Class"].ToString(), item["Curriculum"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), item["Gender"].ToString(), item["Mobile"].ToString(), item["Address"].ToString(), item["ID"].ToString()));
             }
             return list;
         }
