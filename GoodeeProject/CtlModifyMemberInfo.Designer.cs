@@ -40,6 +40,7 @@
             this.tboxMobile = new iTalk.iTalk_TextBox_Small();
             this.pboxPic = new System.Windows.Forms.PictureBox();
             this.btnPicture = new iTalk.iTalk_Button_1();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,6 +185,7 @@
             this.pboxPic.Location = new System.Drawing.Point(24, 15);
             this.pboxPic.Name = "pboxPic";
             this.pboxPic.Size = new System.Drawing.Size(150, 183);
+            this.pboxPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxPic.TabIndex = 11;
             this.pboxPic.TabStop = false;
             // 
@@ -200,11 +202,15 @@
             this.btnPicture.Text = "찾아보기";
             this.btnPicture.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // CtlModifyMemberInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.Controls.Add(this.btnPicture);
             this.Controls.Add(this.pboxPic);
             this.Controls.Add(this.tboxMobile);
@@ -232,14 +238,15 @@
         private iTalk.iTalk_Button_1 btnSearhAddr;
         private iTalk.iTalk_Label iTalk_Label1;
         private iTalk.iTalk_Label iTalk_Label3;
-        private iTalk.iTalk_TextBox_Small tboxAddr;
         private iTalk.iTalk_Label iTalk_Label4;
-        private iTalk.iTalk_TextBox_Small tboxDetailAddr;
         private iTalk.iTalk_Button_1 btnModify;
         private iTalk.iTalk_TextBox_Small tboxHopePay;
         private iTalk.iTalk_Label iTalk_Label2;
         private iTalk.iTalk_TextBox_Small tboxMobile;
         private System.Windows.Forms.PictureBox pboxPic;
         private iTalk.iTalk_Button_1 btnPicture;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        internal iTalk.iTalk_TextBox_Small tboxAddr;
+        internal iTalk.iTalk_TextBox_Small tboxDetailAddr;
     }
 }

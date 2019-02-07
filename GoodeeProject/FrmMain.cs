@@ -46,7 +46,7 @@ namespace GoodeeProject
             else
             {
                 mi.Picture = Properties.Resources.profile2;
-                ctlProfile1.pboxProFile.Image = Properties.Resources.profile2;
+                ctlProfile1.pboxProFile.Image = mi.Picture;
             }
 
             if (ai.Authority == 'S')

@@ -160,6 +160,6 @@
         internal iTalk.iTalk_Label lblJibunAddr;
         internal iTalk.iTalk_Label lblPostal;
         private iTalk.iTalk_Separator iTalk_Separator1;
-        private iTalk.iTalk_Button_1 btnChoice;
+        internal iTalk.iTalk_Button_1 btnChoice;
     }
 }

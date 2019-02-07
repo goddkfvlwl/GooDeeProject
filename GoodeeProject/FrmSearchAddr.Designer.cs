@@ -118,6 +118,7 @@
             this.Controls.Add(this.tboxSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmSearchAddr";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "주소검색";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);

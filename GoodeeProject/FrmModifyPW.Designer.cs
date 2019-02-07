@@ -35,7 +35,7 @@
             // 
             // ctlModifyPW1
             // 
-            this.ctlModifyPW1.BackColor = System.Drawing.Color.White;
+            this.ctlModifyPW1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.ctlModifyPW1.Location = new System.Drawing.Point(0, 25);
             this.ctlModifyPW1.Name = "ctlModifyPW1";
             this.ctlModifyPW1.Size = new System.Drawing.Size(399, 571);
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.ClientSize = new System.Drawing.Size(399, 598);
             this.Controls.Add(this.btnMinimum);
             this.Controls.Add(this.btnExit);

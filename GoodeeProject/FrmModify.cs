@@ -12,8 +12,14 @@ namespace GoodeeProject
 {
     public partial class FrmModify : Form, IFormControl
     {
+        CtlModifyMemberInfo cm;
+        CtlModifyPW cp;
+
+        private string addr;
         private int movePointX;
         private int movePointY;
+
+        public string Addr { get => addr; set => addr = value; }
 
         public FrmModify()
         {
@@ -22,21 +28,23 @@ namespace GoodeeProject
 
         private void btnSurvey_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Remove(cm);
             bottomPanel.Visible = true;
             bottomPanel.Width = btnModifyPW.Width;
             bottomPanel.Left = btnModifyPW.Left;
 
-            CtlModifyPW cp = new CtlModifyPW();
+            cp = new CtlModifyPW();
             panel1.Controls.Add(cp);
         }
 
         private void btnModifyMember_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Remove(cp);
             bottomPanel.Visible = true;
             bottomPanel.Width = btnModifyMember.Width;
             bottomPanel.Left = btnModifyMember.Left;
 
-            CtlModifyMemberInfo cm = new CtlModifyMemberInfo();
+            cm = new CtlModifyMemberInfo();
             panel1.Controls.Add(cm);
         }      
 

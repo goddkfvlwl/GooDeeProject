@@ -55,7 +55,6 @@ namespace GoodeeProject
             movePointX = e.X;
             movePointY = e.Y;
         }
-
         public void Frm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -67,73 +66,102 @@ namespace GoodeeProject
         private void btnSearch_Click(object sender, EventArgs e)
         {
             lp.Controls.Clear();
-            PaintRect(Color.FromArgb(240, 238, 233));
+            currentPage = 1;
 
-            this.Size = new Size(724, 600);
-            
-
-            btnPrev = new iTalk.iTalk_Button_1();
-            btnNext = new iTalk.iTalk_Button_1();
-            btnPrev.Click += BtnPrev_Click;
-            btnNext.Click += BtnNext_Click;
-
-            this.Controls.Add(lp);
-            this.Controls.Add(btnPrev);
-            this.Controls.Add(btnNext);
-
-            lp.Size = new Size(710, 332);
-            lp.Location = new Point(5, 166);
-            lp.AutoScroll = true;
-            lp.BackColor = Color.White;
-
-            btnPrev.Size = new Size(44, 27);
-            btnNext.Size = new Size(44, 27);
-
-            btnPrev.Text = "<<";
-            btnNext.Text = ">>";
-
-            btnPrev.Location = new Point(315, 512);
-            btnNext.Location = new Point(395, 512);
-
-            PaintRect(Color.DimGray);
             string confirmKey = "U01TX0FVVEgyMDE5MDIwNzA5NDQ1NTEwODQ5MjM=";
             int countPerPage = 10;
-            string keyword = "풍무로96번길";
+            string keyword = tboxSearch.Text;
 
-            var url = "http://www.juso.go.kr/addrlink/addrLinkApi.do?currentPage="+ currentPage + "&countPerPage=" + countPerPage + "&confmKey=" + confirmKey +"&resultType=json&keyword=" + keyword;
-
-            var jObj = JObject.Parse(GetJson(url));
-            var itemsArr = JArray.Parse(jObj["results"]["juso"].ToString());
-
-            resultCount = Int32.Parse(jObj["results"]["common"]["totalCount"].ToString());
-
-            lblText.Text = "\"" + tboxSearch.Text + "\" 을(를) 검색한 결과 총" + resultCount + "건 입니다.";
-
-            if (resultCount % 10 == 0)
+            if (!String.IsNullOrEmpty(keyword))
             {
-                totalPageNum = resultCount / 10;
+                try
+                {
+                    var url = "http://www.juso.go.kr/addrlink/addrLinkApi.do?currentPage=" + currentPage + "&countPerPage=" + countPerPage + "&confmKey=" + confirmKey + "&resultType=json&keyword=" + keyword;
+
+                    var jObj = JObject.Parse(GetJson(url));
+                    var itemsArr = JArray.Parse(jObj["results"]["juso"].ToString());
+
+                    resultCount = Int32.Parse(jObj["results"]["common"]["totalCount"].ToString());
+
+                    lblText.Text = "\"" + tboxSearch.Text + "\" 을(를) 검색한 결과 총" + resultCount + "건 입니다.";
+
+                    if (resultCount % 10 == 0)
+                    {
+                        totalPageNum = resultCount / 10;
+                    }
+                    else
+                    {
+                        totalPageNum = (resultCount / 10) + 1;
+                    }
+
+                    CtlAddr[] addr = new CtlAddr[resultCount];
+
+                    for (int i = 0; i < resultCount; i++)
+                    {
+                        addr[i] = new CtlAddr();
+                        addr[i].Location = new Point(0, 0);
+                        addr[i].btnChoice.Click += BtnChoice_Click;
+                        lp.Controls.Add(addr[i]);
+                        try
+                        {
+                            addr[i].lblRoadAddr.Text = itemsArr[i]["roadAddr"].ToString();
+                            addr[i].lblPostal.Text = itemsArr[i]["zipNo"].ToString();
+                            addr[i].lblJibunAddr.Text = itemsArr[i]["jibunAddr"].ToString();
+                        }
+                        catch (ArgumentOutOfRangeException)
+                        {
+                            lp.Controls.Remove(addr[i]);
+                            break;
+                        }
+                    }
+                    btnPrev = new iTalk.iTalk_Button_1();
+                    btnNext = new iTalk.iTalk_Button_1();
+                    btnPrev.Click += BtnPrev_Click;
+                    btnNext.Click += BtnNext_Click;
+
+                    this.Controls.Add(lp);
+                    this.Controls.Add(btnPrev);
+                    this.Controls.Add(btnNext);
+
+                    PaintRect(Color.FromArgb(240, 238, 233));
+
+                    this.Size = new Size(724, 600);
+
+                    lp.Size = new Size(710, 332);
+                    lp.Location = new Point(5, 166);
+                    lp.AutoScroll = true;
+                    lp.BackColor = Color.White;
+
+                    btnPrev.Size = new Size(44, 27);
+                    btnNext.Size = new Size(44, 27);
+
+                    btnPrev.Text = "<<";
+                    btnNext.Text = ">>";
+
+                    btnPrev.Location = new Point(315, 512);
+                    btnNext.Location = new Point(395, 512);
+
+                    PaintRect(Color.DimGray);
+                }
+                catch (Newtonsoft.Json.JsonReaderException)
+                {
+                    MessageBox.Show("올바른 주소를 입력해주세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                totalPageNum = (resultCount / 10) + 1;
+                MessageBox.Show("검색어를 입력해주세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
-            CtlAddr[] addr = new CtlAddr[resultCount];
-            for (int i = 0; i < resultCount; i++)
-            {
-                addr[i] = new CtlAddr();
-                addr[i].Location = new Point(0, 0);
-                lp.Controls.Add(addr[i]);
-                try
-                {
-                    addr[i].lblRoadAddr.Text = itemsArr[i]["roadAddr"].ToString();
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    lp.Controls.Remove(addr[i]);
-                    break;
-                }
-            }
+        private void BtnChoice_Click(object sender, EventArgs e)
+        {
+            iTalk.iTalk_Button_1 btn = (iTalk.iTalk_Button_1)sender;
+            string roadAddr = btn.Parent.Controls["lblRoadAddr"].Text;
+
+            FrmModify FrmModify = (FrmModify)Owner;
+            FrmModify.Addr = roadAddr;
+            this.Close();
         }
 
         private void BtnNext_Click(object sender, EventArgs e)
