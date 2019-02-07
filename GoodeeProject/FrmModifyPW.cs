@@ -14,6 +14,7 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
+<<<<<<< HEAD
         private string email;
         public string Email { get { return email; } set { email = value; } }
         public FrmModifyPW()
@@ -22,6 +23,12 @@ namespace GoodeeProject
             Frm_DrawLine();
             FrmSendEmail frm = (FrmSendEmail)Owner;
             email = frm.Email;
+=======
+
+        public FrmModifyPW()
+        {
+            InitializeComponent();
+>>>>>>> 996aec1cc9d09b2f48bbda1986dd0beb3bb2a7fe
         }
 
         public void BtnExit_Click(object sender, EventArgs e)
@@ -39,12 +46,7 @@ namespace GoodeeProject
             movePointX = e.X;
             movePointY = e.Y;
         }
-
-        public void Frm_DrawLine()
-        {
-            Graphics graphics = CreateGraphics();
-            graphics.DrawRectangle(new Pen(Color.Red), new Rectangle(new Point(1, 1), new Size(this.Width-1, this.Height-1)));
-        }
+        
         public void Frm_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -52,5 +54,15 @@ namespace GoodeeProject
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
         }
+<<<<<<< HEAD
+=======
+
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
+>>>>>>> 996aec1cc9d09b2f48bbda1986dd0beb3bb2a7fe
     }
 }
