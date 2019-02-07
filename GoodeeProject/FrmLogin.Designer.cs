@@ -30,15 +30,15 @@
         {
             this.tboxPW = new System.Windows.Forms.TextBox();
             this.tboxID = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iTalk_Separator2 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
             this.btnFindPW = new iTalk.iTalk_Button_1();
             this.btnLogin = new iTalk.iTalk_Button_1();
-            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.iTalk_Separator2 = new iTalk.iTalk_Separator();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +58,32 @@
             this.tboxID.Name = "tboxID";
             this.tboxID.Size = new System.Drawing.Size(175, 14);
             this.tboxID.TabIndex = 19;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
+            this.pictureBox1.Location = new System.Drawing.Point(43, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(283, 232);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
+            // 
+            // iTalk_Separator2
+            // 
+            this.iTalk_Separator2.Location = new System.Drawing.Point(137, 338);
+            this.iTalk_Separator2.Name = "iTalk_Separator2";
+            this.iTalk_Separator2.Size = new System.Drawing.Size(175, 10);
+            this.iTalk_Separator2.TabIndex = 26;
+            this.iTalk_Separator2.Text = "iTalk_Separator2";
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(137, 294);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(175, 10);
+            this.iTalk_Separator1.TabIndex = 25;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
             // btnMinimum
             // 
@@ -139,32 +165,6 @@
             this.btnLogin.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(137, 294);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(175, 10);
-            this.iTalk_Separator1.TabIndex = 25;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
-            // iTalk_Separator2
-            // 
-            this.iTalk_Separator2.Location = new System.Drawing.Point(137, 338);
-            this.iTalk_Separator2.Name = "iTalk_Separator2";
-            this.iTalk_Separator2.Size = new System.Drawing.Size(175, 10);
-            this.iTalk_Separator2.TabIndex = 26;
-            this.iTalk_Separator2.Text = "iTalk_Separator2";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(283, 232);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -186,6 +186,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

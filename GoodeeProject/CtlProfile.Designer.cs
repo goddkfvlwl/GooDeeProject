@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pboxProFile = new System.Windows.Forms.PictureBox();
             this.lblName = new iTalk.iTalk_Label();
             this.lblEmailID = new iTalk.iTalk_Label();
             this.btnLogOut = new iTalk.iTalk_Button_1();
@@ -36,10 +37,19 @@
             this.btnStudent = new iTalk.iTalk_Button_1();
             this.btnLog = new iTalk.iTalk_Button_1();
             this.btnCreateID = new iTalk.iTalk_Button_1();
-            this.pboxProFile = new System.Windows.Forms.PictureBox();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pboxProFile
+            // 
+            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
+            this.pboxProFile.Location = new System.Drawing.Point(15, 28);
+            this.pboxProFile.Name = "pboxProFile";
+            this.pboxProFile.Size = new System.Drawing.Size(60, 60);
+            this.pboxProFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxProFile.TabIndex = 0;
+            this.pboxProFile.TabStop = false;
             // 
             // lblName
             // 
@@ -77,6 +87,7 @@
             this.btnLogOut.TabIndex = 3;
             this.btnLogOut.Text = "로그아웃";
             this.btnLogOut.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnModify
             // 
@@ -143,16 +154,6 @@
             this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnCreateID.Click += new System.EventHandler(this.btnCreateID_Click);
             // 
-            // pboxProFile
-            // 
-            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
-            this.pboxProFile.Location = new System.Drawing.Point(15, 28);
-            this.pboxProFile.Name = "pboxProFile";
-            this.pboxProFile.Size = new System.Drawing.Size(60, 60);
-            this.pboxProFile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxProFile.TabIndex = 0;
-            this.pboxProFile.TabStop = false;
-            // 
             // CtlProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -166,8 +167,8 @@
             this.Name = "CtlProfile";
             this.Size = new System.Drawing.Size(360, 111);
             this.Load += new System.EventHandler(this.CtlProfile_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -137,15 +137,28 @@
     <Compile Include="GoodeeDAO\GoodeeDAO.cs" />
     <Compile Include="IGoodee.cs" />
     <Compile Include="italk_theme_-_c#.cs" />
+    <Compile Include="MemberDefault.cs" />
+    <Compile Include="Portfolio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Portfolio.Designer.cs">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PortfolioDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PortfolioDetail.Designer.cs">
+      <DependentUpon>PortfolioDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="MemberInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CtlModifyMemberInfo.resx">
-      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CtlModifyPW.resx">
-      <DependentUpon>CtlModifyPW.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="StudentManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StudentManagement.Designer.cs">
+      <DependentUpon>StudentManagement.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,14 +186,20 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmModify.resx">
+      <DependentUpon>FrmModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Portfolio.resx">
+      <DependentUpon>Portfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortfolioDetail.resx">
+      <DependentUpon>PortfolioDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModifyPW.resx">
       <DependentUpon>FrmModifyPW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSendEmail.resx">
       <DependentUpon>FrmSendEmail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmModify.resx">
-      <DependentUpon>FrmModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,6 +211,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="StudentManagement.resx">
+      <DependentUpon>StudentManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -232,6 +254,19 @@
   <ItemGroup>
     <None Include="Resources\326572-48.png" />
     <Content Include="Query.sql" />
+    <None Include="Resources\reload24.png" />
+    <None Include="Resources\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MSDAOSP">
+      <Guid>{E0E270C2-C0BE-11D0-8FE4-00A0C90A6341}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>1033</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <None Include="Resources\ModifyMember1.png" />
     <None Include="Resources\ModifyPW1.png" />
   </ItemGroup>

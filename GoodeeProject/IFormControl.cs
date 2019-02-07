@@ -16,5 +16,7 @@ namespace GoodeeProject
         void BtnExit_Click(object sender, EventArgs e);
 
         void BtnMinimum_Click(object sender, EventArgs e);
+
+        void Frm_BorderPaint(object sender, PaintEventArgs e);
     }
 }

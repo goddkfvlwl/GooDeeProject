@@ -122,5 +122,32 @@ namespace GoodeeProject
             con.Close();
             return result;
         }
+
+        internal bool ExecuteUpdate(string proc, SqlParameter[] pms)
+        {
+            bool result = false;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+
+            OpenConnection();
+
+            if (pms != null)
+            {
+                cmd.Parameters.AddRange(pms);
+            }
+            int r = cmd.ExecuteNonQuery();
+
+
+            if (r == 1)
+            {
+                result = true;
+            }
+
+            con.Close();
+            return result;
+        }
     }
 }

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,12 +16,11 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
+        
 
-        private static string id;
-        private static char authority;
-
-        //로그인 한 사용자의 정보를 담을 리스트
+        //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
+        static AccountInfo ai = new AccountInfo();
 
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
@@ -27,19 +28,23 @@ namespace GoodeeProject
         CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
         
-        public static string Id { get => id; set => id = value; }
-        public static char Authority { get => authority; set => authority = value; }
         internal static MemberInfo Mi { get => mi; set => mi = value; }
+        internal static AccountInfo Ai { get => ai; set => ai = value; }
 
         public FrmMain()
         {
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
+            
+            //if (mi.Picture != null)
+            //{
+            //    MemoryStream ms = new MemoryStream(Convert.ToByte(mi.Picture));
 
-            MessageBox.Show(mi.Score.ToString());
+            //    ctlProfile1.pboxProFile.Image = Image.FromStream(ms);
+            //}
 
-            if (Authority == 'S')
+            if (ai.Authority == 'S')
             {
                 //사용자가 수강생일때
                 ctlProfile1.btnLog.Visible = false;
@@ -47,18 +52,29 @@ namespace GoodeeProject
                 ctlProfile1.Size = new Size(224, 111);
                 ctlProfile1.Location = new Point(767, 29);
             }
-            else if (Authority == 'A')
+            else if (ai.Authority == 'A')
             {
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
             }
+            ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
 
-        //public FrmMain(string id, char authority) : this()
-        //{
-        //    this.Id = id;
-        //    this.Authority = authority;
-        //}
+        private void BtnStudent_Click(object sender, EventArgs e)
+        {
+            studentManagement1.Visible = true;
+            GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
+            studentManagement1.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
+            studentManagement1.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            studentManagement1.gViewStudentInfo.Columns[0].HeaderText = "과정명";
+            studentManagement1.gViewStudentInfo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            studentManagement1.gViewStudentInfo.Columns[1].HeaderText = "이름";
+            studentManagement1.gViewStudentInfo.Columns[2].HeaderText = "생년월일";
+            studentManagement1.gViewStudentInfo.Columns[3].HeaderText = "성별";
+            studentManagement1.gViewStudentInfo.Columns[4].HeaderText = "휴대폰";
+            studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "주소";
+            studentManagement1.gViewStudentInfo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -75,7 +91,13 @@ namespace GoodeeProject
             spec = new CtlSpecDetail();
             panel2.Controls.Add(spec);
             spec.Location = new Point(192, 1);
+            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+        }
 
+        private void BtnPortfolio_Click(object sender, EventArgs e)
+        {
+            portfolio1.Visible = true;
+            portfolio1.BringToFront();
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
@@ -105,7 +127,7 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
 
-            if (Authority == 'S')
+            if (ai.Authority == 'S')
             {
                 //사용자
                 surveyUser = new CtlSurveyUserDetail();
@@ -167,6 +189,25 @@ namespace GoodeeProject
             panel2.Controls.Remove(surveyAdmin);
             panel2.Controls.Remove(surveyUser);
             panel2.Controls.Remove(mbti);
+        }
+
+        private void portfolio1_Load(object sender, EventArgs e)
+        {
+            portfolio1.Controls["portfolioDetail1"].AutoSize = true;
+            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+            portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
+        }
+
+        private void PortfolioDetail1_Resize(object sender, EventArgs e)
+        {
+            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+        }
+
+        private void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
     }
 }

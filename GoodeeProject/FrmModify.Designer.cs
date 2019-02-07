@@ -142,6 +142,7 @@
             this.Name = "FrmModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmModify";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             this.panel1.ResumeLayout(false);

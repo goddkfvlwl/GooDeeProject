@@ -10,5 +10,6 @@ namespace GoodeeProject
     {
         AccountInfo AccountLogin(string id, string pw);
         MemberInfo SelectMember(string id);
+        bool UpdatePassWord(string id, string pw);
     }
 }
