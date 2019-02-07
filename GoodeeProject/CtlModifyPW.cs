@@ -99,6 +99,9 @@ namespace GoodeeProject
                 CtlModifyPW_Load(null, null);
             }
         }
+        //private void ChangePassword(string email)
+        //{
 
+        //}
     }
 }

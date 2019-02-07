@@ -14,10 +14,14 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
+        private string email;
+        public string Email { get { return email; } set { email = value; } }
         public FrmModifyPW()
         {
             InitializeComponent();
             Frm_DrawLine();
+            FrmSendEmail frm = (FrmSendEmail)Owner;
+            email = frm.Email;
         }
 
         public void BtnExit_Click(object sender, EventArgs e)
@@ -47,11 +51,6 @@ namespace GoodeeProject
             {
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
-        }
-
-        private void FrmModifyPW_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
