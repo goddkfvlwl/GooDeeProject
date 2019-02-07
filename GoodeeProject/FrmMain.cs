@@ -37,12 +37,17 @@ namespace GoodeeProject
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
             
-            //if (mi.Picture != null)
-            //{
-            //    MemoryStream ms = new MemoryStream(Convert.ToByte(mi.Picture));
+            if (mi.Picture != null)
+            {
+                //MemoryStream ms = new MemoryStream(Convert.ToByte(mi.Picture));
 
-            //    ctlProfile1.pboxProFile.Image = Image.FromStream(ms);
-            //}
+                //ctlProfile1.pboxProFile.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                mi.Picture = Properties.Resources.profile2;
+                ctlProfile1.pboxProFile.Image = Properties.Resources.profile2;
+            }
 
             if (ai.Authority == 'S')
             {
@@ -201,13 +206,6 @@ namespace GoodeeProject
         private void PortfolioDetail1_Resize(object sender, EventArgs e)
         {
             VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-        }
-
-        private void Frm_BorderPaint(object sender, PaintEventArgs e)
-        {
-            Rectangle borderRectangle = this.ClientRectangle;
-            borderRectangle.Inflate(0, 0);
-            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
     }
 }

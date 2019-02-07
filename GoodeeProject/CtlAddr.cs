@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class CtlModifyMemberInfo : UserControl
+    public partial class CtlAddr : UserControl
     {
-        public CtlModifyMemberInfo()
+        public CtlAddr()
         {
             InitializeComponent();
-            
-        }
-
-        private void btnSearhAddr_Click(object sender, EventArgs e)
-        {
-            FrmSearchAddr sa = new FrmSearchAddr();
-            sa.Show();
         }
     }
 }

@@ -43,7 +43,6 @@
             // 
             // pboxProFile
             // 
-            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
             this.pboxProFile.Location = new System.Drawing.Point(15, 28);
             this.pboxProFile.Name = "pboxProFile";
             this.pboxProFile.Size = new System.Drawing.Size(60, 60);
