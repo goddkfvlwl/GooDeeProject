@@ -18,5 +18,10 @@ namespace GoodeeProject
 
         bool UpdatePassWord(string id, string pw);
 
+        #region 게시판
+        bool InsertBoard(AgreementBoard b);
+        List<AgreementBoard> OutBoard(); 
+        #endregion
+
     }
 }

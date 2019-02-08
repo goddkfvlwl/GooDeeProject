@@ -20,6 +20,7 @@ namespace GoodeeProject
         //iTalk.iTalk_Label urlInput;
         //iTalk.iTalk_TextBox_Small urlText;
         //iTalk.iTalk_Button_1 urlAddButton;
+        string url = "";
 
         private void iTalk_HeaderLabel1_Click(object sender, EventArgs e)
         {
@@ -39,12 +40,16 @@ namespace GoodeeProject
 
         private void MyPcChoiceButton_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            string formats = "All Videos Files |*.dat; *.wmv; *.3g2; *.3gp; *.3gp2; *.3gpp; *.amv; *.asf;  *.avi; *.bin; *.cue; *.divx; *.dv; *.flv; *.gxf; *.iso; *.m1v; *.m2v; *.m2t; *.m2ts; *.m4v; " +
+                      " *.mkv; *.mov; *.mp2; *.mp2v; *.mp4; *.mp4v; *.mpa; *.mpe; *.mpeg; *.mpeg1; *.mpeg2; *.mpeg4; *.mpg; *.mpv2; *.mts; *.nsv; *.nuv; *.ogg; *.ogm; *.ogv; *.ogx; *.ps; *.rec; *.rm; *.rmvb; *.tod; *.ts; *.tts; *.vob; *.vro; *.webm";
+
+            openFileDialog.Filter = formats;
+
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-
-                MessageBox.Show(openFileDialog1.FileName);
-
-
+                mediaFileName.Text = "첨부파일 :" + openFileDialog.FileName;
+                url = openFileDialog.FileName;
             }
         }
 
@@ -87,6 +92,10 @@ namespace GoodeeProject
             //urlInput.Dispose();
         }
 
-        
+        private void Upload_Click(object sender, EventArgs e)
+        {
+            Agreement_enterprise.Attachments = url;
+            this.Close();
+        }
     }
 }

@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            
 
             this.ctlProfile1 = new GoodeeProject.CtlProfile();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
@@ -39,8 +38,7 @@
             this.btnExit = new iTalk.iTalk_Button_1();
 
             this.panel2 = new System.Windows.Forms.Panel();
-            this.portfolio1 = new GoodeeProject.Portfolio();
-            this.studentManagement1 = new GoodeeProject.StudentManagement();
+            
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnChat = new System.Windows.Forms.Button();
             this.btnMBTI = new System.Windows.Forms.Button();
@@ -169,14 +167,7 @@
             this.portfolio1.Size = new System.Drawing.Size(815, 454);
             this.portfolio1.TabIndex = 9;
             this.portfolio1.Visible = false;
-            // 
-            // studentManagement1
-            // 
-            this.studentManagement1.Location = new System.Drawing.Point(185, 0);
-            this.studentManagement1.Name = "studentManagement1";
-            this.studentManagement1.Size = new System.Drawing.Size(815, 454);
-            this.studentManagement1.TabIndex = 8;
-            this.studentManagement1.Visible = false;
+            
             // 
             // sidePanel
             // 

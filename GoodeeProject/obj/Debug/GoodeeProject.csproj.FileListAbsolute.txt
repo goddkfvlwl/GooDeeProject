@@ -38,3 +38,10 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\NetSpell.SpellChecker.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\PrintRichTextBox.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\RichTextBoxEx.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\NetSpell.SpellChecker.xml
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\Database1.mdf
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\Database1_log.ldf

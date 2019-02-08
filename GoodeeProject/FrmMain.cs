@@ -117,7 +117,7 @@ namespace GoodeeProject
             panel2.Controls.Add(companyInfo);
             
             companyInfo.Location = new Point(192, 211);
-            //companyInfo.Controls["lblMenu1"].Click 
+            
         }
 
         

@@ -28,6 +28,8 @@ namespace GoodeeProject
             return con;
         }
 
+        
+
         internal DataTable SelectWithParams(string proc, SqlParameter[] pm)
         {
             SqlDataAdapter da = new SqlDataAdapter();
@@ -148,6 +150,25 @@ namespace GoodeeProject
 
             con.Close();
             return result;
+        }
+
+        internal SqlDataReader GetEntryBoard(string sp)
+        {
+            SqlConnection sqlCon = OpenConnection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = sp;
+            try
+            {
+                return cmd.ExecuteReader();
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
         }
     }
 }

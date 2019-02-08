@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // iTalk_Button_12
@@ -44,31 +45,33 @@
             this.iTalk_Button_12.TabIndex = 1;
             this.iTalk_Button_12.Text = "글쓰기";
             this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
             // 
-            // listBox1
+            // dataGridView1
             // 
-            this.listBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(32, 47);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(752, 340);
-            this.listBox1.TabIndex = 2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(19, 34);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(781, 353);
+            this.dataGridView1.TabIndex = 2;
             // 
-            // Agreement_enterprise
+            // Agreement_enterprise_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.iTalk_Button_12);
-            this.Name = "Agreement_enterprise";
+            this.Name = "Agreement_enterprise_list";
             this.Size = new System.Drawing.Size(815, 454);
+            this.Load += new System.EventHandler(this.Agreement_enterprise_list_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private iTalk.iTalk_Button_1 iTalk_Button_12;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

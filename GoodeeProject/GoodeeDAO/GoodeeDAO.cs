@@ -250,6 +250,54 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+        public bool InsertBoard(AgreementBoard b)
+        {
+            string proc = "BoardInsert";
+
+            con = new DBConnection();
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+            sqlParameters[0] = new SqlParameter("@title", b.Title);
+            sqlParameters[1] = new SqlParameter("@body", b.Body);
+            sqlParameters[2] = new SqlParameter("@writeDate", b.WriteDate);
+            sqlParameters[3] = new SqlParameter("@id", b.Id);
+
+            try
+            {
+                return con.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<AgreementBoard> OutBoard()
+        {
+            List<AgreementBoard> lst = new List<AgreementBoard>();
+            string sp = "SelectListBoard";
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetEntryBoard(sp);
+                while (reader.Read())
+                {
+                    lst.Add(new AgreementBoard()
+                    {
+                        Id = reader["ID"].ToString(),
+                        Title = reader["Title"].ToString(),
+                        WriteDate = DateTime.Parse(reader["WriteDate"].ToString())
+
+                    });
+                }
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            return lst;
+        }
     }
 }
 
