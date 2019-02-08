@@ -58,7 +58,7 @@ namespace GoodeeProject
             request.Headers.Add("X-Naver-Client-Secret", "HgQRbnV8Z1");
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             string status = response.StatusCode.ToString();
-            
+
             Stream input = response.GetResponseStream();
             pboxCaptcha.Image = Image.FromStream(input);
         }
@@ -66,7 +66,7 @@ namespace GoodeeProject
         private bool CaptchaResult()
         {
             bool check = false;
-            string code = "1"; 
+            string code = "1";
             string key = this.key;  // 캡차 키 발급시 받은 키값
             string value = tboxCaptcha.Text;  // 사용자가 입력한 캡차 이미지 글자값
             string url = "https://openapi.naver.com/v1/captcha/nkey?code=" + code + "&key=" + key + "&value=" + value;
@@ -94,7 +94,7 @@ namespace GoodeeProject
         {
             NewPWCheck();
         }
-        
+
         private void tboxNewREPW_TextChanged(object sender, EventArgs e)
         {
             NewPWCheck();
@@ -118,39 +118,74 @@ namespace GoodeeProject
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            if (FrmMain.Ai.Pw == tboxNowPW.Text && pwCheck == true)
+            string email = "";
+            bool chkForm;
+            try
             {
-                if (CaptchaResult())
+                FrmModifyPW frm = (FrmModifyPW)Parent;
+                chkForm = frm.CheckForm;
+                email = frm.Email;
+            }
+            catch (Exception)
+            {
+                chkForm = false;
+            }
+
+            if (chkForm)
+            {
+              
+                AccountInfo asd = gd.AccountLogin(email, tboxNowPW.Text);
+
+                if (asd != null && pwCheck == true)
                 {
-                    if (gd.UpdatePassWord(FrmMain.Mi.Id, tboxNewPW.Text))
+                    if (CaptchaResult())
                     {
-                        MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.ParentForm.Close();
+                        if (gd.UpdatePassWord(asd.Id, tboxNewPW.Text))
+                        {
+                            MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.ParentForm.Close();
+                        }
                     }
-                    
+                    else
+                    {
+                        MessageBox.Show("자동방지입력이 올바르지 않습니다.");
+                        CtlModifyPW_Load(null, null);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("자동방지입력이 올바르지 않습니다.");
-                    CtlModifyPW_Load(null, null);
-                }
+                    MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } 
             }
             else
             {
-                MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (FrmMain.Ai.Pw == tboxNowPW.Text && pwCheck == true)
+                {
+                    if (CaptchaResult())
+                    {
+                        if (gd.UpdatePassWord(FrmMain.Mi.Id, tboxNewPW.Text))
+                        {
+                            MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.ParentForm.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("자동방지입력이 올바르지 않습니다.");
+                        CtlModifyPW_Load(null, null);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
-        //private void ChangePassword(string email)
-        //{
 
-<<<<<<< HEAD
-        //}
-=======
+
         private void btnReload_Click(object sender, EventArgs e)
         {
             CtlModifyPW_Load(null, null);
         }
-
->>>>>>> 996aec1cc9d09b2f48bbda1986dd0beb3bb2a7fe
     }
 }

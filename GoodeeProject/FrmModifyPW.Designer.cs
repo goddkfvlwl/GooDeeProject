@@ -81,10 +81,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmModifyPW";
             this.Text = "FrmModifyPW";
-<<<<<<< HEAD
-=======
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
->>>>>>> 996aec1cc9d09b2f48bbda1986dd0beb3bb2a7fe
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             this.ResumeLayout(false);

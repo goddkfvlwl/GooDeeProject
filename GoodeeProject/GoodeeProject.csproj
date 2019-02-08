@@ -159,6 +159,9 @@
     <Compile Include="StudentManagement.Designer.cs">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CtlModifyPW.resx">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </EmbeddedResource>

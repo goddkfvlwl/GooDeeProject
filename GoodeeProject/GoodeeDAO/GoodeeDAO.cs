@@ -134,5 +134,10 @@ namespace GoodeeProject.GoodeeDAO
             }
             return result;
         }
+
+        public bool InsertAdmin(MemberInfo info, string password)
+        {
+            string proc = "InsertAdmin"
+        }
     }
 }

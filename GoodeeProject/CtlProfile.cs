@@ -32,7 +32,9 @@ namespace GoodeeProject
 
         private void btnCreateID_Click(object sender, EventArgs e)
         {
-
+            FrmCreateID createID = new FrmCreateID();
+            createID.Show();
+            
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
