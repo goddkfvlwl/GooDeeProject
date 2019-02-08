@@ -13,6 +13,8 @@ namespace GoodeeProject
 {
     public partial class FrmLogin : Form, IFormControl
     {
+        FrmModify modify = new FrmModify();
+
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;

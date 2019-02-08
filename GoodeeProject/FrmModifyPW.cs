@@ -12,12 +12,15 @@ namespace GoodeeProject
 {
     public partial class FrmModifyPW : Form, IFormControl
     {
+        
+
         private int movePointX;
         private int movePointY;
 
         public FrmModifyPW()
         {
             InitializeComponent();
+            
         }
 
         public void BtnExit_Click(object sender, EventArgs e)

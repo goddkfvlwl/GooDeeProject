@@ -296,8 +296,8 @@
         private System.Windows.Forms.Button btnSpec;
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Separator iTalk_Separator1;
-        private CtlProfile ctlProfile1;
         private StudentManagement studentManagement1;
         private Portfolio portfolio1;
+        internal CtlProfile ctlProfile1;
     }
 }
