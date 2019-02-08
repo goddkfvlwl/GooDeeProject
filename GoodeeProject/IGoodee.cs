@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,5 +12,6 @@ namespace GoodeeProject
         AccountInfo AccountLogin(string id, string pw);
         MemberInfo SelectMember(string id);
         bool UpdatePassWord(string id, string pw);
+        bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture);
     }
 }

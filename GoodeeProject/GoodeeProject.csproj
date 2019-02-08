@@ -180,6 +180,9 @@
     <EmbeddedResource Include="CtlModifyMemberInfo.resx">
       <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtlModifyPW.resx">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </EmbeddedResource>

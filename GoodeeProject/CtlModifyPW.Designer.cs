@@ -129,7 +129,7 @@
             this.iTalk_Label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
             this.iTalk_Label7.Location = new System.Drawing.Point(103, 319);
             this.iTalk_Label7.Name = "iTalk_Label7";
-            this.iTalk_Label7.Size = new System.Drawing.Size(212, 13);
+            this.iTalk_Label7.Size = new System.Drawing.Size(209, 13);
             this.iTalk_Label7.TabIndex = 36;
             this.iTalk_Label7.Text = "아래 이미지를 보이는 대로 입력해주세요.";
             // 
@@ -280,6 +280,7 @@
             this.Name = "CtlModifyPW";
             this.Size = new System.Drawing.Size(399, 571);
             this.Load += new System.EventHandler(this.CtlModifyPW_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CtlModifyPW_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pboxCaptcha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
