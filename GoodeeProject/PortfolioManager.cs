@@ -42,15 +42,16 @@ namespace GoodeeProject
                 PortfolioDetail portfolio = new PortfolioDetail();
                 panel1.Controls.Add(portfolio);
                 portfolio.Location = new Point(0, 0);
+                portfolio.Size = new Size(815, 410);
                 portfolio.BringToFront();
                 string id = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
                 Control projectInfo = portfolio.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
                 Control useTechnologyInfo = portfolio.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
                 Control introductionInfo = portfolio.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
-                for (int i = introductionInfo.Controls.Count; i > 1; i--)
-                {
-                    introductionInfo.Controls.RemoveAt(i - 1);
-                }
+                //for (int i = introductionInfo.Controls.Count; i > 1; i--)
+                //{
+                //    introductionInfo.Controls.RemoveAt(i - 1);
+                //}
                 try
                 {
                     XmlDocument doc = new XmlDocument();

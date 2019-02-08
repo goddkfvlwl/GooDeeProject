@@ -12,6 +12,10 @@ using System.Net;
 using System.IO;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
+using Word = Microsoft.Office.Interop.Word;
+using System.Resources;
 
 namespace GoodeeProject
 {
@@ -45,6 +49,7 @@ namespace GoodeeProject
                     break;
                 }
             }
+
             reader.Close();
             if (!isDirectoryExist)
             {
@@ -52,6 +57,7 @@ namespace GoodeeProject
                 request.Method = WebRequestMethods.Ftp.MakeDirectory;
                 response = (FtpWebResponse)request.GetResponse();
             }
+
             Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
@@ -71,7 +77,7 @@ namespace GoodeeProject
             endDate.InnerText = projectInfo.Controls["dpProjectEndDate"].Text;
             info.AppendChild(endDate);
             XmlElement memberCount = xml.CreateElement("MemberCount");
-            memberCount.InnerText = (projectInfo.Controls["MemberCount"] as iTalk.iTalk_NumericUpDown).Value.ToString();
+            memberCount.InnerText = (projectInfo.Controls["MemberCount"] as NumericUpDown).Value.ToString();
             info.AppendChild(memberCount);
             XmlElement part = xml.CreateElement("ProjectPart");
             part.InnerText = projectInfo.Controls["txtProjectPart"].Text;
@@ -117,6 +123,7 @@ namespace GoodeeProject
                 i++;
                 introduction.AppendChild(temp);
             }
+
             XmlTextWriter writer = new XmlTextWriter(Application.StartupPath + "/" + "xml.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             xml.WriteContentTo(writer);
@@ -139,10 +146,12 @@ namespace GoodeeProject
             Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
+
             for (int i = introductionInfo.Controls.Count; i > 1; i--)
             {
                 introductionInfo.Controls.RemoveAt(i - 1);
             }
+
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -150,7 +159,7 @@ namespace GoodeeProject
                 projectInfo.Controls["txtProjectTitle"].Text = doc.SelectSingleNode("//projectName").InnerText;
                 projectInfo.Controls["dpProjectStartDate"].Text = doc.SelectSingleNode("//StartDate").InnerText;
                 projectInfo.Controls["dpProjectEndDate"].Text = doc.SelectSingleNode("//EndDate").InnerText;
-                (projectInfo.Controls["MemberCount"] as iTalk.iTalk_NumericUpDown).Value = long.Parse(doc.SelectSingleNode("//MemberCount").InnerText);
+                (projectInfo.Controls["MemberCount"] as NumericUpDown).Value = long.Parse(doc.SelectSingleNode("//MemberCount").InnerText);
                 projectInfo.Controls["txtProjectPart"].Text = doc.SelectSingleNode("//ProjectPart").InnerText;
                 useTechnologyInfo.Controls["panel4"].Controls["txtDevEnvironment"].Text = doc.SelectSingleNode("//DevelopEnvironment").InnerText;
                 useTechnologyInfo.Controls["panel5"].Controls["txtUseTools"].Text = doc.SelectSingleNode("//UseTools").InnerText;
@@ -171,6 +180,14 @@ namespace GoodeeProject
                     else if (item.Name.Contains("picture"))
                     {
                         PictureBox p = new PictureBox();
+                        int count = introductionInfo.Controls.Count;
+                        p.Name = "picture" + i;
+                        p.MinimumSize = new Size(200, 200);
+                        p.MaximumSize = new Size(580, 580);
+                        p.SizeMode = PictureBoxSizeMode.StretchImage;
+                        p.MouseClick += this.portfolioDetail1.Picture_MouseClick;
+                        p.MouseDown += this.portfolioDetail1.Picture_MouseDown;
+                        p.MouseUp += this.portfolioDetail1.Picture_MouseUp;
                         introductionInfo.Controls.Add(p);
                         (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).Size = new Size(int.Parse(item.Attributes["Width"].Value), int.Parse(item.Attributes["Height"].Value));
                         WebClient web = new WebClient();
@@ -189,68 +206,54 @@ namespace GoodeeProject
 
         private void btnSaveToPDF_Click(object sender, EventArgs e)
         {
-            PdfDocument doc = new PdfDocument();
-            Control body = this.Controls["portfolioDetail1"].Controls["PanelPortfolioBody"];
-            body.Controls["AddButtonPanel"].Visible = false;
-            SaveFileDialog save = new SaveFileDialog();
-            save.Filter = "PDF File (*.pdf) *.pdf |";
-            save.AddExtension = true;
-            save.DefaultExt = ".pdf";
-            int pagecount = 1;
-            for (int i = 0; i < body.Controls["introductionPanel"].Controls.Count; i++)
+            var missingValue = System.Reflection.Missing.Value;
+            Word.Application app = new Word.Application();
+            Word.Document doc = app.Documents.Open(Application.StartupPath + "/Resources/Project Portfolio.docx");
+            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
+            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
+            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
+            doc.Tables[1].Cell(3, 2).Range.Text = projectInfo.Controls["txtProjectTitle"].Text;
+            doc.Tables[1].Cell(4, 2).Range.Text = projectInfo.Controls["dpProjectStartDate"].Text + " ~ " + projectInfo.Controls["dpProjectEndDate"].Text;
+            doc.Tables[1].Cell(5, 2).Range.Text = projectInfo.Controls["MemberCount"].Text;
+            doc.Tables[1].Cell(6, 2).Range.Text = projectInfo.Controls["txtProjectPart"].Text;
+            doc.Tables[1].Cell(8, 2).Range.Text = useTechnologyInfo.Controls["panel4"].Controls["txtDevEnvironment"].Text;
+            doc.Tables[1].Cell(9, 2).Range.Text = useTechnologyInfo.Controls["panel5"].Controls["txtUseTools"].Text; 
+            doc.Tables[1].Cell(10, 2).Range.Text = useTechnologyInfo.Controls["panel6"].Controls["txtUseTechnique"].Text; 
+            doc.Tables[1].Cell(12, 1).Range.Text = introductionInfo.Controls["textboxTitle"].Text;
+            for (int i = 1; i < introductionInfo.Controls.Count; i++)
             {
-                if(body.Controls["introductionPanel"].Top + body.Controls["introductionPanel"].Controls[i].Bottom > pagecount * 840 && !body.Controls["introductionPanel"].Controls[i].Name.Contains("block"))
+                doc.Tables[1].Cell(doc.Tables[1].Rows.Count, 1).HeightRule = Word.WdRowHeightRule.wdRowHeightAuto;
+                if (introductionInfo.Controls[i].Name.Contains("text"))
                 {
-                    Panel p = new Panel();
-                    p.Name = "block" + i;
-                    p.Width = body.Width;
-                    p.Height = body.Controls["introductionPanel"].Controls[i].Height - ((body.Controls["introductionPanel"].Top + body.Controls["introductionPanel"].Controls[i].Bottom) - pagecount * 840);
-                    body.Controls["introductionPanel"].Controls.Add(p);
-                    body.Controls["introductionPanel"].Controls.SetChildIndex(p, i);
-                    pagecount++;
+                    doc.Tables[1].Cell(doc.Tables[1].Rows.Count, 1).Range.Text = introductionInfo.Controls[i].Text;
+                }else
+                {
+                    doc.Tables[1].Rows.Add();
+                    Bitmap bit = new Bitmap((introductionInfo.Controls[i] as PictureBox).Image, (introductionInfo.Controls[i] as PictureBox).Size);
+                    bit.Save(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
+                    doc.Tables[1].Cell(doc.Tables[1].Rows.Count, 1).Range.InlineShapes.AddPicture(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
+                    if (i < introductionInfo.Controls.Count)
+                    {
+                        doc.Tables[1].Rows.Add();
+                    }
+                    File.Delete(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
                 }
             }
+            doc.SaveAs2(Application.StartupPath + "/DocTo.doc");
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "PDF File (*.pdf) *.pdf|";
+            save.DefaultExt = ".pdf";
+            save.OverwritePrompt = false;
             if (save.ShowDialog() != DialogResult.Cancel)
             {
-                string path = save.FileName;
-
-                using (Graphics gfx = this.Controls["portfolioDetail1"].CreateGraphics())
-                {
-                    using (Bitmap bmp = new Bitmap(body.Width, body.Height, gfx))
-                    {
-                        body.Focus();
-                        if (body.Height >= 840)
-                        {
-                            body.DrawToBitmap(bmp,new Rectangle(0, 0, body.Width, body.Height));
-                            for (int i = 0; i < Math.Ceiling(body.Height / 840.0); i++)
-                            {
-                                Bitmap resizingBit = new Bitmap(bmp, new Size(585, body.Height));
-                                Bitmap bit = new Bitmap(585, 840);
-                                Graphics g = Graphics.FromImage(bit);
-                                g.DrawImage(resizingBit, new Rectangle(0, 0, 585, 840), new Rectangle(0, i * 840, 585, 840), GraphicsUnit.Pixel);
-                                g.Dispose();
-                                PdfPage page = doc.AddPage();
-                                page.Size = PdfSharp.PageSize.A4;
-                                XGraphics gf = XGraphics.FromPdfPage(page);
-                                XImage image = bit;
-                                gf.DrawImage(image, 0, 0, image.PixelWidth, image.PixelHeight);
-                            }
-                        }else
-                        {
-                            body.DrawToBitmap(bmp, new Rectangle(0, 0, body.Width, body.Height));
-                            Bitmap bit = new Bitmap(bmp, new Size(585, 840));
-                            PdfPage page = doc.AddPage();
-                            page.Size = PdfSharp.PageSize.A4;
-                            XGraphics gf = XGraphics.FromPdfPage(page);
-                            XImage image = bit;
-                            gf.DrawImage(image, 0, 0, image.PixelWidth, image.PixelHeight);
-                        }
-                        doc.Save(path);
-                        doc.Close();
-                    }
-                }
+                doc.ExportAsFixedFormat(save.FileName, Word.WdExportFormat.wdExportFormatPDF);
             }
-            body.Controls["AddButtonPanel"].Visible = true;
+            
+            doc.Close();
+            app.Quit();
+            Marshal.FinalReleaseComObject(doc);
+            Marshal.FinalReleaseComObject(app);
+            File.Delete(Application.StartupPath + "/DocTo.doc");
         }
     }
 }

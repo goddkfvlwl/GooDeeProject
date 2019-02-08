@@ -32,14 +32,22 @@
             this.dpProjectStartDate = new System.Windows.Forms.DateTimePicker();
             this.dpProjectEndDate = new System.Windows.Forms.DateTimePicker();
             this.projectInfoPanel = new System.Windows.Forms.Panel();
+            this.MemberCount = new System.Windows.Forms.NumericUpDown();
+            this.ProjectPart = new System.Windows.Forms.TextBox();
+            this.MemberCountInfo = new System.Windows.Forms.TextBox();
+            this.DevPeriod = new System.Windows.Forms.TextBox();
+            this.ProjectName = new System.Windows.Forms.TextBox();
             this.txtProjectPart = new System.Windows.Forms.TextBox();
             this.txtProjectTitle = new System.Windows.Forms.TextBox();
             this.useTechnologyPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtDevEnvironment = new System.Windows.Forms.TextBox();
+            this.DevEnvironment = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtUseTools = new System.Windows.Forms.TextBox();
+            this.UseTools = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.UseTechnique = new System.Windows.Forms.TextBox();
             this.txtUseTechnique = new System.Windows.Forms.TextBox();
             this.PanelPortfolioBody = new System.Windows.Forms.FlowLayoutPanel();
             this.AddButtonPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,20 +59,13 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.lblProjectPortfolio = new iTalk.iTalk_HeaderLabel();
-            this.lblProjectTitle = new iTalk.iTalk_Label();
-            this.lblProjectPeriod = new iTalk.iTalk_Label();
-            this.MemberCount = new iTalk.iTalk_NumericUpDown();
-            this.lblProjectMemberCount = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.lblProjectPart = new iTalk.iTalk_Label();
             this.lblProjectInfo = new iTalk.iTalk_HeaderLabel();
             this.iTalk_HeaderLabel3 = new iTalk.iTalk_HeaderLabel();
-            this.lblDevEnvironment = new iTalk.iTalk_Label();
-            this.lblUseTools = new iTalk.iTalk_Label();
-            this.lblUseTechnique = new iTalk.iTalk_Label();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.lblIntroduction = new iTalk.iTalk_HeaderLabel();
             this.projectInfoPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberCount)).BeginInit();
             this.useTechnologyPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -79,7 +80,7 @@
             // dpProjectStartDate
             // 
             this.dpProjectStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpProjectStartDate.Location = new System.Drawing.Point(94, 97);
+            this.dpProjectStartDate.Location = new System.Drawing.Point(103, 99);
             this.dpProjectStartDate.Name = "dpProjectStartDate";
             this.dpProjectStartDate.Size = new System.Drawing.Size(90, 21);
             this.dpProjectStartDate.TabIndex = 14;
@@ -87,7 +88,7 @@
             // dpProjectEndDate
             // 
             this.dpProjectEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpProjectEndDate.Location = new System.Drawing.Point(215, 97);
+            this.dpProjectEndDate.Location = new System.Drawing.Point(224, 99);
             this.dpProjectEndDate.Name = "dpProjectEndDate";
             this.dpProjectEndDate.Size = new System.Drawing.Size(90, 21);
             this.dpProjectEndDate.TabIndex = 15;
@@ -95,36 +96,83 @@
             // projectInfoPanel
             // 
             this.projectInfoPanel.AutoSize = true;
+            this.projectInfoPanel.Controls.Add(this.MemberCount);
+            this.projectInfoPanel.Controls.Add(this.ProjectPart);
+            this.projectInfoPanel.Controls.Add(this.MemberCountInfo);
+            this.projectInfoPanel.Controls.Add(this.DevPeriod);
+            this.projectInfoPanel.Controls.Add(this.ProjectName);
             this.projectInfoPanel.Controls.Add(this.txtProjectPart);
             this.projectInfoPanel.Controls.Add(this.txtProjectTitle);
-            this.projectInfoPanel.Controls.Add(this.lblProjectTitle);
-            this.projectInfoPanel.Controls.Add(this.lblProjectPeriod);
-            this.projectInfoPanel.Controls.Add(this.MemberCount);
-            this.projectInfoPanel.Controls.Add(this.lblProjectMemberCount);
             this.projectInfoPanel.Controls.Add(this.iTalk_Label1);
-            this.projectInfoPanel.Controls.Add(this.lblProjectPart);
             this.projectInfoPanel.Controls.Add(this.dpProjectEndDate);
             this.projectInfoPanel.Controls.Add(this.lblProjectInfo);
             this.projectInfoPanel.Controls.Add(this.dpProjectStartDate);
             this.projectInfoPanel.Location = new System.Drawing.Point(3, 49);
             this.projectInfoPanel.Name = "projectInfoPanel";
-            this.projectInfoPanel.Size = new System.Drawing.Size(795, 203);
+            this.projectInfoPanel.Size = new System.Drawing.Size(730, 203);
             this.projectInfoPanel.TabIndex = 20;
+            // 
+            // MemberCount
+            // 
+            this.MemberCount.Location = new System.Drawing.Point(103, 139);
+            this.MemberCount.Name = "MemberCount";
+            this.MemberCount.Size = new System.Drawing.Size(120, 21);
+            this.MemberCount.TabIndex = 25;
+            // 
+            // ProjectPart
+            // 
+            this.ProjectPart.Location = new System.Drawing.Point(3, 179);
+            this.ProjectPart.Name = "ProjectPart";
+            this.ProjectPart.ReadOnly = true;
+            this.ProjectPart.Size = new System.Drawing.Size(100, 21);
+            this.ProjectPart.TabIndex = 24;
+            this.ProjectPart.Text = "담당업무";
+            this.ProjectPart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MemberCountInfo
+            // 
+            this.MemberCountInfo.Location = new System.Drawing.Point(3, 139);
+            this.MemberCountInfo.Name = "MemberCountInfo";
+            this.MemberCountInfo.ReadOnly = true;
+            this.MemberCountInfo.Size = new System.Drawing.Size(100, 21);
+            this.MemberCountInfo.TabIndex = 23;
+            this.MemberCountInfo.Text = "참여인원";
+            this.MemberCountInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // DevPeriod
+            // 
+            this.DevPeriod.Location = new System.Drawing.Point(3, 99);
+            this.DevPeriod.Name = "DevPeriod";
+            this.DevPeriod.ReadOnly = true;
+            this.DevPeriod.Size = new System.Drawing.Size(100, 21);
+            this.DevPeriod.TabIndex = 22;
+            this.DevPeriod.Text = "개발기간";
+            this.DevPeriod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ProjectName
+            // 
+            this.ProjectName.Location = new System.Drawing.Point(3, 55);
+            this.ProjectName.Name = "ProjectName";
+            this.ProjectName.ReadOnly = true;
+            this.ProjectName.Size = new System.Drawing.Size(100, 21);
+            this.ProjectName.TabIndex = 21;
+            this.ProjectName.Text = "프로젝트명";
+            this.ProjectName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtProjectPart
             // 
-            this.txtProjectPart.Location = new System.Drawing.Point(84, 179);
+            this.txtProjectPart.Location = new System.Drawing.Point(103, 179);
             this.txtProjectPart.Multiline = true;
             this.txtProjectPart.Name = "txtProjectPart";
-            this.txtProjectPart.Size = new System.Drawing.Size(708, 21);
+            this.txtProjectPart.Size = new System.Drawing.Size(624, 21);
             this.txtProjectPart.TabIndex = 20;
             this.txtProjectPart.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // txtProjectTitle
             // 
-            this.txtProjectTitle.Location = new System.Drawing.Point(94, 59);
+            this.txtProjectTitle.Location = new System.Drawing.Point(103, 55);
             this.txtProjectTitle.Name = "txtProjectTitle";
-            this.txtProjectTitle.Size = new System.Drawing.Size(211, 21);
+            this.txtProjectTitle.Size = new System.Drawing.Size(624, 21);
             this.txtProjectTitle.TabIndex = 19;
             this.txtProjectTitle.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
@@ -137,69 +185,100 @@
             this.useTechnologyPanel.Controls.Add(this.panel6);
             this.useTechnologyPanel.Location = new System.Drawing.Point(3, 258);
             this.useTechnologyPanel.Name = "useTechnologyPanel";
-            this.useTechnologyPanel.Size = new System.Drawing.Size(798, 150);
+            this.useTechnologyPanel.Size = new System.Drawing.Size(795, 150);
             this.useTechnologyPanel.TabIndex = 22;
             // 
             // panel4
             // 
             this.panel4.AutoSize = true;
-            this.panel4.Controls.Add(this.lblDevEnvironment);
             this.panel4.Controls.Add(this.txtDevEnvironment);
+            this.panel4.Controls.Add(this.DevEnvironment);
             this.panel4.Location = new System.Drawing.Point(3, 31);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(792, 35);
+            this.panel4.Size = new System.Drawing.Size(789, 35);
             this.panel4.TabIndex = 22;
             // 
             // txtDevEnvironment
             // 
-            this.txtDevEnvironment.Location = new System.Drawing.Point(81, 11);
+            this.txtDevEnvironment.Location = new System.Drawing.Point(106, 11);
             this.txtDevEnvironment.Multiline = true;
             this.txtDevEnvironment.Name = "txtDevEnvironment";
-            this.txtDevEnvironment.Size = new System.Drawing.Size(708, 21);
+            this.txtDevEnvironment.Size = new System.Drawing.Size(680, 21);
             this.txtDevEnvironment.TabIndex = 21;
             this.txtDevEnvironment.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // DevEnvironment
+            // 
+            this.DevEnvironment.Location = new System.Drawing.Point(6, 11);
+            this.DevEnvironment.Name = "DevEnvironment";
+            this.DevEnvironment.ReadOnly = true;
+            this.DevEnvironment.Size = new System.Drawing.Size(100, 21);
+            this.DevEnvironment.TabIndex = 25;
+            this.DevEnvironment.Text = "개발환경";
+            this.DevEnvironment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel5
             // 
             this.panel5.AutoSize = true;
-            this.panel5.Controls.Add(this.lblUseTools);
             this.panel5.Controls.Add(this.txtUseTools);
+            this.panel5.Controls.Add(this.UseTools);
             this.panel5.Location = new System.Drawing.Point(3, 72);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(792, 34);
+            this.panel5.Size = new System.Drawing.Size(789, 34);
             this.panel5.TabIndex = 23;
             // 
             // txtUseTools
             // 
-            this.txtUseTools.Location = new System.Drawing.Point(81, 10);
+            this.txtUseTools.Location = new System.Drawing.Point(106, 10);
             this.txtUseTools.Multiline = true;
             this.txtUseTools.Name = "txtUseTools";
-            this.txtUseTools.Size = new System.Drawing.Size(708, 21);
+            this.txtUseTools.Size = new System.Drawing.Size(680, 21);
             this.txtUseTools.TabIndex = 23;
             this.txtUseTools.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // UseTools
+            // 
+            this.UseTools.Location = new System.Drawing.Point(6, 10);
+            this.UseTools.Name = "UseTools";
+            this.UseTools.ReadOnly = true;
+            this.UseTools.Size = new System.Drawing.Size(100, 21);
+            this.UseTools.TabIndex = 26;
+            this.UseTools.Text = "사용도구";
+            this.UseTools.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel6
             // 
             this.panel6.AutoSize = true;
+            this.panel6.Controls.Add(this.UseTechnique);
             this.panel6.Controls.Add(this.txtUseTechnique);
-            this.panel6.Controls.Add(this.lblUseTechnique);
             this.panel6.Location = new System.Drawing.Point(3, 112);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(792, 35);
+            this.panel6.Size = new System.Drawing.Size(789, 35);
             this.panel6.TabIndex = 23;
+            // 
+            // UseTechnique
+            // 
+            this.UseTechnique.Location = new System.Drawing.Point(6, 11);
+            this.UseTechnique.Name = "UseTechnique";
+            this.UseTechnique.ReadOnly = true;
+            this.UseTechnique.Size = new System.Drawing.Size(100, 21);
+            this.UseTechnique.TabIndex = 27;
+            this.UseTechnique.Text = "사용기술";
+            this.UseTechnique.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtUseTechnique
             // 
-            this.txtUseTechnique.Location = new System.Drawing.Point(81, 11);
+            this.txtUseTechnique.Location = new System.Drawing.Point(106, 11);
             this.txtUseTechnique.Multiline = true;
             this.txtUseTechnique.Name = "txtUseTechnique";
-            this.txtUseTechnique.Size = new System.Drawing.Size(708, 21);
+            this.txtUseTechnique.Size = new System.Drawing.Size(680, 21);
             this.txtUseTechnique.TabIndex = 24;
             this.txtUseTechnique.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // PanelPortfolioBody
             // 
             this.PanelPortfolioBody.AutoSize = true;
+            this.PanelPortfolioBody.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PanelPortfolioBody.Controls.Add(this.lblProjectPortfolio);
             this.PanelPortfolioBody.Controls.Add(this.projectInfoPanel);
             this.PanelPortfolioBody.Controls.Add(this.useTechnologyPanel);
@@ -209,7 +288,7 @@
             this.PanelPortfolioBody.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelPortfolioBody.Location = new System.Drawing.Point(0, 0);
             this.PanelPortfolioBody.Name = "PanelPortfolioBody";
-            this.PanelPortfolioBody.Size = new System.Drawing.Size(798, 525);
+            this.PanelPortfolioBody.Size = new System.Drawing.Size(764, 529);
             this.PanelPortfolioBody.TabIndex = 21;
             // 
             // AddButtonPanel
@@ -297,81 +376,17 @@
             this.lblProjectPortfolio.TabIndex = 6;
             this.lblProjectPortfolio.Text = "Project Portfolio";
             // 
-            // lblProjectTitle
-            // 
-            this.lblProjectTitle.AutoSize = true;
-            this.lblProjectTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectTitle.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblProjectTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblProjectTitle.Location = new System.Drawing.Point(15, 59);
-            this.lblProjectTitle.Name = "lblProjectTitle";
-            this.lblProjectTitle.Size = new System.Drawing.Size(73, 17);
-            this.lblProjectTitle.TabIndex = 8;
-            this.lblProjectTitle.Text = "프로젝트명";
-            // 
-            // lblProjectPeriod
-            // 
-            this.lblProjectPeriod.AutoSize = true;
-            this.lblProjectPeriod.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectPeriod.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblProjectPeriod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblProjectPeriod.Location = new System.Drawing.Point(15, 99);
-            this.lblProjectPeriod.Name = "lblProjectPeriod";
-            this.lblProjectPeriod.Size = new System.Drawing.Size(60, 17);
-            this.lblProjectPeriod.TabIndex = 9;
-            this.lblProjectPeriod.Text = "개발기간";
-            // 
-            // MemberCount
-            // 
-            this.MemberCount.BackColor = System.Drawing.Color.Transparent;
-            this.MemberCount.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.MemberCount.ForeColor = System.Drawing.Color.DimGray;
-            this.MemberCount.Location = new System.Drawing.Point(94, 134);
-            this.MemberCount.Maximum = ((long)(100));
-            this.MemberCount.Minimum = ((long)(0));
-            this.MemberCount.MinimumSize = new System.Drawing.Size(62, 28);
-            this.MemberCount.Name = "MemberCount";
-            this.MemberCount.Size = new System.Drawing.Size(70, 28);
-            this.MemberCount.TabIndex = 17;
-            this.MemberCount.Text = "iTalk_NumericUpDown1";
-            this.MemberCount.TextAlignment = iTalk.iTalk_NumericUpDown._TextAlignment.Near;
-            this.MemberCount.Value = ((long)(0));
-            // 
-            // lblProjectMemberCount
-            // 
-            this.lblProjectMemberCount.AutoSize = true;
-            this.lblProjectMemberCount.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectMemberCount.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblProjectMemberCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblProjectMemberCount.Location = new System.Drawing.Point(15, 139);
-            this.lblProjectMemberCount.Name = "lblProjectMemberCount";
-            this.lblProjectMemberCount.Size = new System.Drawing.Size(60, 17);
-            this.lblProjectMemberCount.TabIndex = 10;
-            this.lblProjectMemberCount.Text = "참여인원";
-            // 
             // iTalk_Label1
             // 
             this.iTalk_Label1.AutoSize = true;
             this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(194, 101);
+            this.iTalk_Label1.Location = new System.Drawing.Point(201, 103);
             this.iTalk_Label1.Name = "iTalk_Label1";
             this.iTalk_Label1.Size = new System.Drawing.Size(15, 13);
             this.iTalk_Label1.TabIndex = 16;
             this.iTalk_Label1.Text = "~";
-            // 
-            // lblProjectPart
-            // 
-            this.lblProjectPart.AutoSize = true;
-            this.lblProjectPart.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectPart.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblProjectPart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblProjectPart.Location = new System.Drawing.Point(15, 179);
-            this.lblProjectPart.Name = "lblProjectPart";
-            this.lblProjectPart.Size = new System.Drawing.Size(60, 17);
-            this.lblProjectPart.TabIndex = 11;
-            this.lblProjectPart.Text = "담당업무";
             // 
             // lblProjectInfo
             // 
@@ -396,42 +411,6 @@
             this.iTalk_HeaderLabel3.Size = new System.Drawing.Size(159, 28);
             this.iTalk_HeaderLabel3.TabIndex = 0;
             this.iTalk_HeaderLabel3.Text = "Use Technology";
-            // 
-            // lblDevEnvironment
-            // 
-            this.lblDevEnvironment.AutoSize = true;
-            this.lblDevEnvironment.BackColor = System.Drawing.Color.Transparent;
-            this.lblDevEnvironment.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblDevEnvironment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblDevEnvironment.Location = new System.Drawing.Point(5, 13);
-            this.lblDevEnvironment.Name = "lblDevEnvironment";
-            this.lblDevEnvironment.Size = new System.Drawing.Size(60, 17);
-            this.lblDevEnvironment.TabIndex = 1;
-            this.lblDevEnvironment.Text = "개발환경";
-            // 
-            // lblUseTools
-            // 
-            this.lblUseTools.AutoSize = true;
-            this.lblUseTools.BackColor = System.Drawing.Color.Transparent;
-            this.lblUseTools.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblUseTools.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblUseTools.Location = new System.Drawing.Point(5, 12);
-            this.lblUseTools.Name = "lblUseTools";
-            this.lblUseTools.Size = new System.Drawing.Size(60, 17);
-            this.lblUseTools.TabIndex = 2;
-            this.lblUseTools.Text = "사용도구";
-            // 
-            // lblUseTechnique
-            // 
-            this.lblUseTechnique.AutoSize = true;
-            this.lblUseTechnique.BackColor = System.Drawing.Color.Transparent;
-            this.lblUseTechnique.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.lblUseTechnique.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblUseTechnique.Location = new System.Drawing.Point(5, 13);
-            this.lblUseTechnique.Name = "lblUseTechnique";
-            this.lblUseTechnique.Size = new System.Drawing.Size(60, 17);
-            this.lblUseTechnique.TabIndex = 3;
-            this.lblUseTechnique.Text = "사용기술";
             // 
             // iTalk_Label2
             // 
@@ -464,9 +443,10 @@
             this.AutoScroll = true;
             this.Controls.Add(this.PanelPortfolioBody);
             this.Name = "PortfolioDetail";
-            this.Size = new System.Drawing.Size(815, 454);
+            this.Size = new System.Drawing.Size(764, 454);
             this.projectInfoPanel.ResumeLayout(false);
             this.projectInfoPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MemberCount)).EndInit();
             this.useTechnologyPanel.ResumeLayout(false);
             this.useTechnologyPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -492,20 +472,12 @@
         #endregion
 
         private iTalk.iTalk_HeaderLabel lblProjectPortfolio;
-        private iTalk.iTalk_Label lblProjectTitle;
-        private iTalk.iTalk_Label lblProjectPeriod;
-        private iTalk.iTalk_Label lblProjectMemberCount;
-        private iTalk.iTalk_Label lblProjectPart;
         private iTalk.iTalk_HeaderLabel lblProjectInfo;
         private System.Windows.Forms.DateTimePicker dpProjectStartDate;
         private System.Windows.Forms.DateTimePicker dpProjectEndDate;
         private iTalk.iTalk_Label iTalk_Label1;
-        private iTalk.iTalk_NumericUpDown MemberCount;
         private System.Windows.Forms.Panel projectInfoPanel;
         private System.Windows.Forms.FlowLayoutPanel PanelPortfolioBody;
-        private iTalk.iTalk_Label lblUseTechnique;
-        private iTalk.iTalk_Label lblUseTools;
-        private iTalk.iTalk_Label lblDevEnvironment;
         private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel3;
         private System.Windows.Forms.FlowLayoutPanel AddButtonPanel;
         private System.Windows.Forms.Button btnAddTextBox;
@@ -519,12 +491,20 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.FlowLayoutPanel useTechnologyPanel;
-        private System.Windows.Forms.FlowLayoutPanel introductionPanel;
         private System.Windows.Forms.TextBox txtProjectPart;
         private System.Windows.Forms.TextBox txtProjectTitle;
         private System.Windows.Forms.TextBox txtDevEnvironment;
         private System.Windows.Forms.TextBox txtUseTools;
         private System.Windows.Forms.TextBox txtUseTechnique;
         private System.Windows.Forms.TextBox textboxTitle;
+        private System.Windows.Forms.TextBox ProjectPart;
+        private System.Windows.Forms.TextBox MemberCountInfo;
+        private System.Windows.Forms.TextBox DevPeriod;
+        private System.Windows.Forms.TextBox ProjectName;
+        private System.Windows.Forms.TextBox DevEnvironment;
+        private System.Windows.Forms.TextBox UseTools;
+        private System.Windows.Forms.TextBox UseTechnique;
+        private System.Windows.Forms.NumericUpDown MemberCount;
+        internal System.Windows.Forms.FlowLayoutPanel introductionPanel;
     }
 }

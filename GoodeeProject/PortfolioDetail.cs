@@ -42,8 +42,25 @@ namespace GoodeeProject
             textbox.Width = PanelPortfolioBody.Width - 10;
             textbox.TextChanged += TextBox_TextChanged;
             textbox.MouseClick += Textbox_MouseClick;
+            textbox.LostFocus += Textbox_LostFocus;
+            //textbox.GotFocus += Textbox_GotFocus;
             textbox.Multiline = true;
             introductionPanel.Controls.Add(textbox);
+        }
+
+        //private void Textbox_GotFocus(object sender, EventArgs e)
+        //{
+        //    (sender as TextBox).Focus();
+        //    if ((sender as TextBox).BorderStyle != BorderStyle.Fixed3D)
+        //    {
+        //        (sender as TextBox).BorderStyle = BorderStyle.Fixed3D; 
+        //    }
+        //}
+
+        private void Textbox_LostFocus(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            textbox.BorderStyle = BorderStyle.None;
         }
 
         private void Textbox_MouseClick(object sender, MouseEventArgs e)
@@ -77,7 +94,7 @@ namespace GoodeeProject
             }
         }
 
-        private void Picture_MouseClick(object sender, MouseEventArgs e)
+        internal void Picture_MouseClick(object sender, MouseEventArgs e)
         {
             OpenFileDialog openfile = new OpenFileDialog();
             PictureBox picture = sender as PictureBox;
@@ -88,7 +105,7 @@ namespace GoodeeProject
             }
         }
 
-        private void Picture_MouseUp(object sender, MouseEventArgs e)
+        internal void Picture_MouseUp(object sender, MouseEventArgs e)
         {
             PictureBox picture = sender as PictureBox;
             if (e.Button == MouseButtons.Left)
@@ -99,7 +116,7 @@ namespace GoodeeProject
             }
         }
 
-        private void Picture_MouseDown(object sender, MouseEventArgs e)
+        internal void Picture_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -111,7 +128,5 @@ namespace GoodeeProject
         {
             control.Dispose();
         }
-
-        
     }
 }

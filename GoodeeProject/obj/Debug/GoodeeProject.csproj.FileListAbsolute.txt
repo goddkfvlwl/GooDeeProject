@@ -88,3 +88,5 @@ E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\Resources\Project Portfolio.docx
