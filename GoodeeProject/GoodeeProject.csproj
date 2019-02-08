@@ -57,6 +57,9 @@
     <Reference Include="RichTextBoxEx, Version=1.0.6541.36291, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RichTextBoxEx.1.0.0\lib\RichTextBoxEx.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -96,6 +99,12 @@
     </Compile>
     <Compile Include="CodeDB.Designer.cs">
       <DependentUpon>CodeDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlAddr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlAddr.Designer.cs">
+      <DependentUpon>CtlAddr.cs</DependentUpon>
     </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
@@ -157,6 +166,12 @@
     </Compile>
     <Compile Include="FrmModifyPW.Designer.cs">
       <DependentUpon>FrmModifyPW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchAddr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchAddr.Designer.cs">
+      <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </Compile>
     <Compile Include="IFormControl.cs" />
     <Compile Include="FrmLogin.cs">
@@ -250,6 +265,15 @@
     <Compile Include="StudentManagement.Designer.cs">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CtlAddr.resx">
+      <DependentUpon>CtlAddr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlModifyMemberInfo.resx">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlModifyPW.resx">
+      <DependentUpon>CtlModifyPW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,6 +316,9 @@
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchAddr.resx">
+      <DependentUpon>FrmSearchAddr.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
     </EmbeddedResource>
@@ -320,7 +347,9 @@
     <EmbeddedResource Include="StudentManagement.resx">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -330,6 +359,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="test.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,14 @@ namespace GoodeeProject
 
         bool UpdatePassWord(string id, string pw);
 
+
         #region 게시판
         bool InsertBoard(AgreementBoard b);
         List<AgreementBoard> OutBoard(); 
         #endregion
+
+
+        bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture);
 
     }
 }

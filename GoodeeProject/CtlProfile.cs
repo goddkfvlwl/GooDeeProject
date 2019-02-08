@@ -34,5 +34,12 @@ namespace GoodeeProject
         {
 
         }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.Close();
+            FrmLogin fr = new FrmLogin();
+            fr.Visible = true;
+        }
     }
 }

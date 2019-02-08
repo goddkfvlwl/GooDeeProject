@@ -89,7 +89,7 @@
             // ctlProfile1
             // 
             this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(0, 0);
+            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
             this.ctlProfile1.Name = "ctlProfile1";
             this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
             this.ctlProfile1.TabIndex = 0;
@@ -138,6 +138,10 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
+
+
+
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
 
             // 
             // panel2
@@ -354,7 +358,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTalk_ThemeContainer1";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);

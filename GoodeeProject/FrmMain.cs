@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +39,19 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
+            
+            if (mi.Picture != null)
+            {
+                ctlProfile1.pboxProFile.Image = mi.Picture;
+            }
+            else
+            {
+                //ResourceManager rm = Properties.Resources.ResourceManager;
+                //mi.Picture = rm.GetObject("profile2.png") as string;
+                //ctlProfile1.pboxProFile.ImageLocation = mi.Picture;
+                mi.Picture = Properties.Resources.profile2;
+                ctlProfile1.pboxProFile.Image = mi.Picture;
+            }
 
             if (ai.Authority == 'S')
             {
@@ -205,12 +220,6 @@ namespace GoodeeProject
         {
             VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
         }
-
-        private void Frm_BorderPaint(object sender, PaintEventArgs e)
-        {
-            Rectangle borderRectangle = this.ClientRectangle;
-            borderRectangle.Inflate(0, 0);
-            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
-        }
+        
     }
 }

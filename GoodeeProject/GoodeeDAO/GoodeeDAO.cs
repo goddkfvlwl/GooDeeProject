@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -113,6 +115,18 @@ namespace GoodeeProject.GoodeeDAO
                 mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
                 mi.Curriculum = dt.Rows[0][9].ToString();
                 mi.ClassName = dt.Rows[0][10].ToString();
+
+                if (String.IsNullOrEmpty(dt.Rows[0][11].ToString()))
+                {
+                    mi.Picture = Properties.Resources.profile2;
+
+                }
+                else
+                {
+                    var imgArr = (byte[])dt.Rows[0][11];
+                    MemoryStream ms = new MemoryStream(imgArr, 0, imgArr.Length);
+                    mi.Picture = Image.FromStream(ms);
+                }
 
             }
 
@@ -250,6 +264,7 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+
         public bool InsertBoard(AgreementBoard b)
         {
             string proc = "BoardInsert";
@@ -297,6 +312,44 @@ namespace GoodeeProject.GoodeeDAO
                 throw;
             }
             return lst;
+        }
+
+        public bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture)
+        {
+            string proc = "UpdateMemberInfo";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[5];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("mobile", mobile);
+            pms[2] = new SqlParameter("addr", address); 
+            pms[3] = new SqlParameter("hopepay", hopePay);
+
+            SqlParameter imageParameter = new SqlParameter("picture", SqlDbType.Image);
+            imageParameter.Value = DBNull.Value;
+      
+            if (picture == null)
+            {
+                pms[4] = imageParameter;
+            }
+            else
+            {
+                pms[4] = new SqlParameter("picture", imageToByteArray(picture));
+            }
+            
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public byte[] imageToByteArray(Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.ToArray();
         }
     }
 }

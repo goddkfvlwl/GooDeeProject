@@ -11,6 +11,7 @@ using RichTextBoxEx;
 using PrintRichTextBox;
 using System.IO;
 using GoodeeProject.GoodeeDAO;
+using System.Net;
 
 namespace GoodeeProject
 {
@@ -133,27 +134,71 @@ namespace GoodeeProject
             DateTime date =  DateTime.Now;
             string id = FrmMain.Ai.Id;
 
-            if (!string.IsNullOrEmpty(title)||!string.IsNullOrEmpty(r)||!string.IsNullOrEmpty(id))
-            {
-                var agb = new AgreementBoard()
-                {
-                    Title = title,
-                    Body = r,
-                    WriteDate = date,
-                    Id = id
-                };
-                
-                try
-                {
-                    new GoodeeDAO.GoodeeDAO().InsertBoard(agb);
-                }
-                catch (Exception)
-                {
+            //ftp서버에 업로드
 
-                    throw;
-                }
+            FtpWebRequest req = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/CompanyBoard/aaa.rtf");
+            req.Method = WebRequestMethods.Ftp.UploadFile;
+
+            byte[] data;
+            boardBoby.SaveFile(Application.StartupPath + "/a.rtf");
+            using (StreamReader reader = new StreamReader(Application.StartupPath + "/a.rtf"))
+            {
+                data = Encoding.UTF8.GetBytes(reader.ReadToEnd());
             }
 
+            // RequestStream에 데이타를 쓴다
+            req.ContentLength = data.Length;
+            using (Stream reqStream = req.GetRequestStream())
+            {
+                reqStream.Write(data, 0, data.Length);
+            }
+
+            using (FtpWebResponse resp = (FtpWebResponse)req.GetResponse())
+            {
+                // FTP 결과 상태 출력
+                MessageBox.Show("Upload: {0}", resp.StatusDescription);
+            }
+            // 입력파일을 바이트 배열로 읽음
+            //byte[] data;
+
+            //using (StreamReader reader = new StreamReader(inputFile))
+            //{
+            //    data = Encoding.UTF8.GetBytes(reader.ReadToEnd());
+            //}
+            //try
+            //{
+            //    boardBoby.SaveFile("ftp://52.165.176.111:3333/CompanyBoard");
+            //    MessageBox.Show("성공");
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("실패");
+            //}
+
+
+
+            //boardBoby.SaveFile()
+            //if (!string.IsNullOrEmpty(title)||!string.IsNullOrEmpty(r)||!string.IsNullOrEmpty(id))
+            //{
+            //    var agb = new AgreementBoard()
+            //    {
+            //        Title = title,
+            //        Body = r,
+            //        WriteDate = date,
+            //        Id = id
+            //    };
+
+            //    try
+            //    {
+            //        new GoodeeDAO.GoodeeDAO().InsertBoard(agb);
+            //    }
+            //    catch (Exception)
+            //    {
+
+            //        throw;
+            //    }
+            //}
+            File.Delete(Application.StartupPath + "/a.rtf");
         }
 
         string rtf = "";
