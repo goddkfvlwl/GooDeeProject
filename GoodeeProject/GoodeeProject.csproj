@@ -155,6 +155,12 @@
     <Compile Include="DetailMenu\CtlSurveyUserDetail.Designer.cs">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailView.Designer.cs">
+      <DependentUpon>DetailView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCreateID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DetailMenu\CtlSurveyUserDetail.resx">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailView.resx">
+      <DependentUpon>DetailView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCreateID.resx">
       <DependentUpon>FrmCreateID.cs</DependentUpon>

@@ -52,3 +52,4 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojA
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.DetailView.resources

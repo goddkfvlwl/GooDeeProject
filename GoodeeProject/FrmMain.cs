@@ -30,7 +30,9 @@ namespace GoodeeProject
         CtlSurveyAdminDetail surveyAdmin;
         CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
-        
+        Agreement_enterprise_list agreement;
+
+
         internal static MemberInfo Mi { get => mi; set => mi = value; }
         internal static AccountInfo Ai { get => ai; set => ai = value; }
 
@@ -115,7 +117,7 @@ namespace GoodeeProject
 
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
-            Agreement_enterprise agreement = new Agreement_enterprise();
+            agreement = new Agreement_enterprise_list();
             panel2.Controls.Add(agreement);
             agreement.Location = new Point(192, 3);
         }
@@ -207,6 +209,7 @@ namespace GoodeeProject
             panel2.Controls.Remove(surveyAdmin);
             panel2.Controls.Remove(surveyUser);
             panel2.Controls.Remove(mbti);
+            panel2.Controls.Remove(agreement);
         }
 
         private void portfolio1_Load(object sender, EventArgs e)

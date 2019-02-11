@@ -30,6 +30,7 @@
         {
             this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iTalk_HeaderLabel1 = new iTalk.iTalk_HeaderLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,17 +50,32 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 34);
+            this.dataGridView1.Location = new System.Drawing.Point(19, 68);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(781, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(781, 321);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // iTalk_HeaderLabel1
+            // 
+            this.iTalk_HeaderLabel1.AutoSize = true;
+            this.iTalk_HeaderLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_HeaderLabel1.Font = new System.Drawing.Font("함초롬돋움", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_HeaderLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.iTalk_HeaderLabel1.Location = new System.Drawing.Point(11, 11);
+            this.iTalk_HeaderLabel1.Name = "iTalk_HeaderLabel1";
+            this.iTalk_HeaderLabel1.Size = new System.Drawing.Size(115, 43);
+            this.iTalk_HeaderLabel1.TabIndex = 3;
+            this.iTalk_HeaderLabel1.Text = "게시판";
             // 
             // Agreement_enterprise_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.iTalk_HeaderLabel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.iTalk_Button_12);
             this.Name = "Agreement_enterprise_list";
@@ -67,11 +83,13 @@
             this.Load += new System.EventHandler(this.Agreement_enterprise_list_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
         private iTalk.iTalk_Button_1 iTalk_Button_12;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel1;
     }
 }

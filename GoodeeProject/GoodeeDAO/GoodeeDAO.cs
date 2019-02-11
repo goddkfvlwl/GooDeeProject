@@ -45,6 +45,56 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
+        public AgreementBoard ReadCountUP(int postNum)
+        {
+            string proc = "ReadBoard";
+
+            SqlParameter sqlparameters = new SqlParameter();
+            sqlparameters = new SqlParameter("BoardNum", postNum);
+            AgreementBoard ab =new AgreementBoard();
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlparameters);
+                while (reader.Read())
+                {
+                    if (!string.IsNullOrEmpty(reader["Body"].ToString()))
+                    {
+                        System.Windows.Forms.MessageBox.Show(reader["BoardNum"].ToString());
+                        System.Windows.Forms.MessageBox.Show(reader["Title"].ToString());
+                        System.Windows.Forms.MessageBox.Show(reader["Body"].ToString());
+                        System.Windows.Forms.MessageBox.Show(reader["WriteDate"].ToString());
+                        System.Windows.Forms.MessageBox.Show(reader["hits"].ToString());
+                        System.Windows.Forms.MessageBox.Show(reader["ID"].ToString());
+                        ab = new AgreementBoard()
+                        {
+                            BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
+                            Title = reader["Title"].ToString(),
+                            Body = reader["Body"].ToString(),
+                            WriteDate = DateTime.Parse(reader["WriteDate"].ToString()),
+                            Hits = Int32.Parse(reader["hits"].ToString()),
+                            Id = reader["ID"].ToString()
+
+                        };
+                        //ab = new AgreementBoard();
+
+                        //ab.BoardNum = Int32.Parse(reader["BoardNum"].ToString());
+                        //ab.Title = reader["Title"].ToString();
+                        //ab.Body = reader["Body"].ToString();
+                        //ab.WriteDate = DateTime.Parse(reader["WriteDate"].ToString());
+                        //ab.Hits = Int32.Parse(reader["hits"].ToString());
+                        //ab.Id = reader["ID"].ToString();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return ab;
+        }
+
         internal void InsertMember(MemberInfo member)
         {
             string proc = "InsertMember";
@@ -299,9 +349,10 @@ namespace GoodeeProject.GoodeeDAO
                 {
                     lst.Add(new AgreementBoard()
                     {
-                        Id = reader["ID"].ToString(),
+                        BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
                         Title = reader["Title"].ToString(),
-                        WriteDate = DateTime.Parse(reader["WriteDate"].ToString())
+                        WriteDate = DateTime.Parse(reader["WriteDate"].ToString()),
+                        Id = reader["ID"].ToString()
 
                     });
                 }

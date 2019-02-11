@@ -32,9 +32,6 @@
             this.boardBoby = new System.Windows.Forms.RichTextBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
-            this.iTalk_Button_11 = new iTalk.iTalk_Button_1();
             this.attachments = new iTalk.iTalk_ComboBox();
             this.iTalk_Label3 = new iTalk.iTalk_Label();
             this.iTalk_Button_13 = new iTalk.iTalk_Button_1();
@@ -47,7 +44,6 @@
             this.picAdd = new iTalk.iTalk_Button_1();
             this.Title = new iTalk.iTalk_TextBox_Small();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -58,46 +54,9 @@
             // 
             this.boardBoby.Location = new System.Drawing.Point(22, 167);
             this.boardBoby.Name = "boardBoby";
-            this.boardBoby.Size = new System.Drawing.Size(369, 192);
+            this.boardBoby.Size = new System.Drawing.Size(764, 201);
             this.boardBoby.TabIndex = 15;
             this.boardBoby.Text = "";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.AccessibleName = "";
-            this.richTextBox1.Location = new System.Drawing.Point(417, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(369, 130);
-            this.richTextBox1.TabIndex = 29;
-            this.richTextBox1.Text = "";
-            // 
-            // iTalk_Button_12
-            // 
-            this.iTalk_Button_12.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_12.Font = new System.Drawing.Font("함초롬돋움", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_12.Image = null;
-            this.iTalk_Button_12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_12.Location = new System.Drawing.Point(668, 410);
-            this.iTalk_Button_12.Name = "iTalk_Button_12";
-            this.iTalk_Button_12.Size = new System.Drawing.Size(56, 24);
-            this.iTalk_Button_12.TabIndex = 30;
-            this.iTalk_Button_12.Text = "로드";
-            this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
-            // 
-            // iTalk_Button_11
-            // 
-            this.iTalk_Button_11.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_11.Font = new System.Drawing.Font("함초롬돋움", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_11.Image = null;
-            this.iTalk_Button_11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_11.Location = new System.Drawing.Point(606, 410);
-            this.iTalk_Button_11.Name = "iTalk_Button_11";
-            this.iTalk_Button_11.Size = new System.Drawing.Size(56, 24);
-            this.iTalk_Button_11.TabIndex = 28;
-            this.iTalk_Button_11.Text = "글 변환";
-            this.iTalk_Button_11.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.iTalk_Button_11.Click += new System.EventHandler(this.iTalk_Button_11_Click);
             // 
             // attachments
             // 
@@ -251,6 +210,7 @@
             this.Title.Text = "게시글 제목을 입력하세요";
             this.Title.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
             this.Title.UseSystemPasswordChar = false;
+            this.Title.Click += new System.EventHandler(this.Title_Click);
             // 
             // iTalk_Label2
             // 
@@ -264,22 +224,10 @@
             this.iTalk_Label2.TabIndex = 1;
             this.iTalk_Label2.Text = "제 목";
             // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(417, 167);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(369, 192);
-            this.richTextBox2.TabIndex = 31;
-            this.richTextBox2.Text = "";
-            // 
             // Agreement_enterprise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.iTalk_Button_12);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.iTalk_Button_11);
             this.Controls.Add(this.attachments);
             this.Controls.Add(this.iTalk_Label3);
             this.Controls.Add(this.iTalk_Button_13);
@@ -317,9 +265,5 @@
         private iTalk.iTalk_Button_1 iTalk_Button_13;
         private iTalk.iTalk_Label iTalk_Label3;
         private iTalk.iTalk_ComboBox attachments;
-        private iTalk.iTalk_Button_1 iTalk_Button_11;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private iTalk.iTalk_Button_1 iTalk_Button_12;
-        private System.Windows.Forms.RichTextBox richTextBox2;
     }
 }

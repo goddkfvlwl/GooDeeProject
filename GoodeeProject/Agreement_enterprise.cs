@@ -129,14 +129,37 @@ namespace GoodeeProject
 
         private void save_Click(object sender, EventArgs e)
         {
+
             string title = Title.Text;
-            string r = richTextBox1.Text;
+            
+            string path = "ftp://52.165.176.111:3333/CompanyBoard/"+title+".rtf";    // 뒤에 파일 이름 필요
+            
             DateTime date =  DateTime.Now;
             string id = FrmMain.Ai.Id;
 
-            //ftp서버에 업로드
+            if (!String.IsNullOrEmpty(title) || !String.IsNullOrEmpty(path))
+            {
+                var board = new AgreementBoard()
+                {
+                    Title = title,
+                    Body = path,
+                    WriteDate = date,
+                    Id = id
+                };
+                try
+                {
+                    new GoodeeDAO.GoodeeDAO().InsertBoard(board);
+                }
+                catch (Exception se)
+                {
+                    MessageBox.Show("저장실패 원인 : \n" + se.Message);
+                    
+                    
+                }
+            }
 
-            FtpWebRequest req = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/CompanyBoard/aaa.rtf");
+            //ftp서버에 업로드
+            FtpWebRequest req = (FtpWebRequest)WebRequest.Create(path);
             req.Method = WebRequestMethods.Ftp.UploadFile;
 
             byte[] data;
@@ -153,65 +176,34 @@ namespace GoodeeProject
                 reqStream.Write(data, 0, data.Length);
             }
 
-            using (FtpWebResponse resp = (FtpWebResponse)req.GetResponse())
-            {
-                // FTP 결과 상태 출력
-                MessageBox.Show("Upload: {0}", resp.StatusDescription);
-            }
-            // 입력파일을 바이트 배열로 읽음
-            //byte[] data;
-
-            //using (StreamReader reader = new StreamReader(inputFile))
+            //using (FtpWebResponse resp = (FtpWebResponse)req.GetResponse())
             //{
-            //    data = Encoding.UTF8.GetBytes(reader.ReadToEnd());
+            //    // FTP 결과 상태 출력
+            //    MessageBox.Show("Upload: {0}", resp.StatusDescription);
             //}
-            //try
-            //{
-            //    boardBoby.SaveFile("ftp://52.165.176.111:3333/CompanyBoard");
-            //    MessageBox.Show("성공");
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("실패");
-            //}
-
-
-
-            //boardBoby.SaveFile()
-            //if (!string.IsNullOrEmpty(title)||!string.IsNullOrEmpty(r)||!string.IsNullOrEmpty(id))
-            //{
-            //    var agb = new AgreementBoard()
-            //    {
-            //        Title = title,
-            //        Body = r,
-            //        WriteDate = date,
-            //        Id = id
-            //    };
-
-            //    try
-            //    {
-            //        new GoodeeDAO.GoodeeDAO().InsertBoard(agb);
-            //    }
-            //    catch (Exception)
-            //    {
-
-            //        throw;
-            //    }
-            //}
+            
             File.Delete(Application.StartupPath + "/a.rtf");
+
+
         }
 
         string rtf = "";
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text = boardBoby.Rtf;
-            rtf = richTextBox1.Text;
+            //richTextBox1.Text = boardBoby.Rtf;
+            //rtf = richTextBox1.Text;
         }
 
         private void iTalk_Button_12_Click(object sender, EventArgs e)
         {
-            richTextBox2.Rtf = rtf;
+            //richTextBox2.Rtf = rtf;
             
+        }
+
+        
+        private void Title_Click(object sender, EventArgs e)
+        {
+            this.Title.Text = " ";
         }
     }
 }

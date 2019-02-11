@@ -71,6 +71,27 @@ namespace GoodeeProject
             return ds.Tables[0];
         }
 
+        internal SqlDataReader GetPost(string proc, SqlParameter sqlparameters)
+        {
+            SqlConnection sqlCon = OpenConnection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+            cmd.Parameters.Add(sqlparameters);
+
+            try
+            {
+                return cmd.ExecuteReader();
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+        }
+
         internal bool ExecuteInsert(string proc, SqlParameter[] pm)
         {
             bool result = false;

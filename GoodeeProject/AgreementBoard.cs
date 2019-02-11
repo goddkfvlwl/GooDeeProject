@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GoodeeProject
 {
-    class AgreementBoard
+    public class AgreementBoard
     {
         private int boardNum;   // 게시판 번호
         private string title;   // 제목
-        private string body;    // 본문내용 
+        private string body;    // ftp경로
         private DateTime writeDate; // 작성날짜
         private int hits;   // 조회수
         private string id;  // 작성자(현재 로그인이된)의 ID
