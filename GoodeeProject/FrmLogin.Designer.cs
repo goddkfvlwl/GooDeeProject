@@ -186,6 +186,7 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);

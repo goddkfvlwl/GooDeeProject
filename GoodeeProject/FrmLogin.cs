@@ -92,5 +92,12 @@ namespace GoodeeProject
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
+
+        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //SaveLog s = new SaveLog();
+            //SaveLog.LogList.Add()
+            //s.WriteLog("버튼 동작", FrmMain.Mi.Name);
+        }
     }
 }
