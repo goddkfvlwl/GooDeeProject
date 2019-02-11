@@ -35,7 +35,7 @@ namespace GoodeeProject
         {
             bool isDirectoryExist = false;
             string id = FrmMain.Id;
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/");
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio");
             request.Method = WebRequestMethods.Ftp.ListDirectory;
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -53,7 +53,7 @@ namespace GoodeeProject
             reader.Close();
             if (!isDirectoryExist)
             {
-                request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/" + id);
+                request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id);
                 request.Method = WebRequestMethods.Ftp.MakeDirectory;
                 response = (FtpWebResponse)request.GetResponse();
             }
@@ -107,7 +107,7 @@ namespace GoodeeProject
                 }
                 else
                 {
-                    request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/image" + i + ".jpg");
+                    request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/image" + i + ".jpg");
                     request.Method = WebRequestMethods.Ftp.UploadFile;
 
                     using (Stream fileStream = File.OpenRead((item as PictureBox).ImageLocation))
@@ -118,7 +118,7 @@ namespace GoodeeProject
                     temp.InnerText = "image" + i;
                     temp.SetAttribute("Width", item.Size.Width.ToString());
                     temp.SetAttribute("Height", item.Size.Height.ToString());
-                    temp.SetAttribute("location", "ftp://52.165.176.111:3333/image" + i + ".jpg");
+                    temp.SetAttribute("location", "ftp://52.165.176.111:3333/Portfolio/" + id + "/image" + i + ".jpg");
                 }
                 i++;
                 introduction.AppendChild(temp);
@@ -130,7 +130,7 @@ namespace GoodeeProject
             writer.Flush();
             writer.Close();
 
-            request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/" + id + "/" + id + ".xml");
+            request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + id + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
             using (Stream fileStream = File.OpenRead(Application.StartupPath + "/" + "xml.xml"))
             using (Stream ftpStream = request.GetRequestStream())
@@ -155,7 +155,7 @@ namespace GoodeeProject
             try
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("ftp://52.165.176.111:3333/" + id + "/" + id + ".xml");
+                doc.Load("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + id + ".xml");
                 projectInfo.Controls["txtProjectTitle"].Text = doc.SelectSingleNode("//projectName").InnerText;
                 projectInfo.Controls["dpProjectStartDate"].Text = doc.SelectSingleNode("//StartDate").InnerText;
                 projectInfo.Controls["dpProjectEndDate"].Text = doc.SelectSingleNode("//EndDate").InnerText;

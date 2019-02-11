@@ -48,15 +48,6 @@ namespace GoodeeProject
             introductionPanel.Controls.Add(textbox);
         }
 
-        //private void Textbox_GotFocus(object sender, EventArgs e)
-        //{
-        //    (sender as TextBox).Focus();
-        //    if ((sender as TextBox).BorderStyle != BorderStyle.Fixed3D)
-        //    {
-        //        (sender as TextBox).BorderStyle = BorderStyle.Fixed3D; 
-        //    }
-        //}
-
         private void Textbox_LostFocus(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
