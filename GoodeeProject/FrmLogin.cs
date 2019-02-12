@@ -15,9 +15,12 @@ namespace GoodeeProject
     {
         FrmModify modify = new FrmModify();
         SaveLog s = new SaveLog();
+        static bool logoutCheck = false;
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;
+
+        public static bool LogoutCheck { get => logoutCheck; set => logoutCheck = value; }
 
         public FrmLogin()
         {
@@ -27,6 +30,7 @@ namespace GoodeeProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             if (!(String.IsNullOrEmpty(tboxID.Text) && String.IsNullOrEmpty(tboxPW.Text)))
             {
                 FrmMain.Ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
@@ -96,14 +100,16 @@ namespace GoodeeProject
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (FrmMain.Ai.Id != null)
+
+            if (FrmMain.Ai.Id != null && LogoutCheck == false)
             {
                 s.AddList("프로그램 종료");
-                //SaveLog.LogList.Add()
                 s.WriteLog();
                 s.SendLog(FrmMain.Ai.Id);
-                s.DeleteLog(); 
+                s.DeleteLog();
             }
         }
+
+        
     }
 }

@@ -16,6 +16,7 @@ namespace GoodeeProject
 {
     public partial class FrmSearchAddr : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         Rectangle borderRectangle;
         iTalk.iTalk_Button_1 btnPrev;
         iTalk.iTalk_Button_1 btnNext;
@@ -65,6 +66,7 @@ namespace GoodeeProject
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            s.AddList("주소검색");
             lp.Controls.Clear();
             currentPage = 1;
 

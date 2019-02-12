@@ -14,6 +14,8 @@ namespace GoodeeProject
 {
     public partial class CtlModifyPW : UserControl
     {
+        SaveLog s = new SaveLog();
+
         private string key;
         private bool pwCheck = false;
         GoodeeDAO.GoodeeDAO gd;
@@ -125,6 +127,7 @@ namespace GoodeeProject
                 {
                     if (gd.UpdatePassWord(FrmMain.Mi.Id, tboxNewPW.Text))
                     {
+                        s.AddList("정보수정 완료");
                         MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.ParentForm.Close();
                     }
