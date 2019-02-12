@@ -14,7 +14,7 @@ namespace GoodeeProject
     public partial class FrmLogin : Form, IFormControl
     {
         FrmModify modify = new FrmModify();
-
+        SaveLog s = new SaveLog();
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;
@@ -42,6 +42,7 @@ namespace GoodeeProject
                         FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
+                        s.AddList("로그인");
                         this.Visible = false;
                     }
                 }
@@ -58,6 +59,7 @@ namespace GoodeeProject
         private void btnFindPW_Click(object sender, EventArgs e)
         {
             FrmSendEmail fs = new FrmSendEmail();
+            s.AddList("비밀번호 찾기");
             fs.Show();
         }
 
@@ -95,9 +97,12 @@ namespace GoodeeProject
 
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //SaveLog s = new SaveLog();
+            s.AddList("프로그램 종료");
             //SaveLog.LogList.Add()
-            //s.WriteLog("버튼 동작", FrmMain.Mi.Name);
+            s.WriteLog();
+            s.SendLog(FrmMain.Ai.Id);
+            s.DeleteLog();
+            
         }
     }
 }

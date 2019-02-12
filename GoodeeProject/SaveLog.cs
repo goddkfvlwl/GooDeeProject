@@ -11,32 +11,55 @@ namespace GoodeeProject
 {
     internal class SaveLog
     {
-        static List<string> logList = new List<string>();
+        private string time;
+        private string active;
+
+        static List<SaveLog> logList = new List<SaveLog>();
 
         string filePath;
 
-        public static List<string> LogList { get => logList; set => logList = value; }
+        public static List<SaveLog> LogList { get => logList; set => logList = value; }
+        public string Time { get => time; set => time = value; }
+        public string Active { get => active; set => active = value; }
 
-        public void WriteLog(string active, string id)
+        public void AddList(string active)
+        {
+            DateTime now = DateTime.Now;
+
+            logList.Add(new SaveLog
+            {
+                Time = String.Format("{0:yyyy/MM/dd HH:mm:ss}", now),
+                Active = active
+            });
+        }
+
+        public void WriteLog()
         {
             //string dirPath = @"C:\Users\GDC1\Documents";
             string dirPath = Application.StartupPath;
 
-            filePath = dirPath + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + id + ".log";
+            filePath = dirPath + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + FrmMain.Ai.Id + ".log";
 
             FileInfo fi = new FileInfo(filePath);
 
             if (!fi.Exists)
             {
                 StreamWriter sw = File.CreateText(filePath);
-                sw.WriteLine("[{0}] {1}", DateTime.Now, active);
+                foreach (var item in logList)
+                {
+                    sw.WriteLine("[{0}] {1}", item.time, item.active);
+                }
+                //sw.WriteLine("[{0}] {1}", DateTime.Now, active);
                 sw.Flush();
                 sw.Close();
             }
             else
             {
                 StreamWriter sw = File.AppendText(filePath);
-                sw.WriteLine("[{0}] {1}", DateTime.Now, active);
+                foreach (var item in logList)
+                {
+                    sw.WriteLine("[{0}] {1}", item.time, item.active);
+                }
                 sw.Flush();
                 sw.Close();
             }
@@ -47,6 +70,8 @@ namespace GoodeeProject
         {
             StreamReader sr;
             FtpWebResponse resp;
+            
+            
             string fileList = "";
 
             string ftpUrl = "ftp://52.165.176.111:3333/Log/" + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + id + ".log";
