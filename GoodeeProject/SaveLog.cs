@@ -28,7 +28,7 @@ namespace GoodeeProject
 
             logList.Add(new SaveLog
             {
-                Time = String.Format("{0:yyyy/MM/dd HH:mm:ss}", now),
+                Time = now.ToString(),
                 Active = active
             });
         }
@@ -99,7 +99,7 @@ namespace GoodeeProject
             }
 
             FtpWebRequest req2 = WebRequest.Create(ftpUrl) as FtpWebRequest;
-            if (!fileList.Contains(id))
+            if (!fileList.Contains(DateTime.Now.ToShortDateString() + "_" + FrmMain.Ai.Id))
             {
                 //Console.WriteLine(WebRequestMethods.Ftp.ListDirectoryDetails);
                 req2.Method = WebRequestMethods.Ftp.UploadFile;

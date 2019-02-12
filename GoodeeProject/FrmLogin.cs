@@ -59,7 +59,6 @@ namespace GoodeeProject
         private void btnFindPW_Click(object sender, EventArgs e)
         {
             FrmSendEmail fs = new FrmSendEmail();
-            s.AddList("비밀번호 찾기");
             fs.Show();
         }
 
@@ -95,14 +94,16 @@ namespace GoodeeProject
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
 
-        private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            s.AddList("프로그램 종료");
-            //SaveLog.LogList.Add()
-            s.WriteLog();
-            s.SendLog(FrmMain.Ai.Id);
-            s.DeleteLog();
-            
+            if (FrmMain.Ai.Id != null)
+            {
+                s.AddList("프로그램 종료");
+                //SaveLog.LogList.Add()
+                s.WriteLog();
+                s.SendLog(FrmMain.Ai.Id);
+                s.DeleteLog(); 
+            }
         }
     }
 }
