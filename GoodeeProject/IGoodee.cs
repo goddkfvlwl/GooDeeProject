@@ -22,7 +22,8 @@ namespace GoodeeProject
 
         #region 게시판
         bool InsertBoard(AgreementBoard b);
-        List<AgreementBoard> OutBoard(); 
+        List<AgreementBoard> OutBoard();
+        bool DeleteBoard(int num);
         #endregion
 
 

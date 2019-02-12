@@ -60,12 +60,6 @@ namespace GoodeeProject.GoodeeDAO
                 {
                     if (!string.IsNullOrEmpty(reader["Body"].ToString()))
                     {
-                        System.Windows.Forms.MessageBox.Show(reader["BoardNum"].ToString());
-                        System.Windows.Forms.MessageBox.Show(reader["Title"].ToString());
-                        System.Windows.Forms.MessageBox.Show(reader["Body"].ToString());
-                        System.Windows.Forms.MessageBox.Show(reader["WriteDate"].ToString());
-                        System.Windows.Forms.MessageBox.Show(reader["hits"].ToString());
-                        System.Windows.Forms.MessageBox.Show(reader["ID"].ToString());
                         ab = new AgreementBoard()
                         {
                             BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
@@ -76,14 +70,7 @@ namespace GoodeeProject.GoodeeDAO
                             Id = reader["ID"].ToString()
 
                         };
-                        //ab = new AgreementBoard();
-
-                        //ab.BoardNum = Int32.Parse(reader["BoardNum"].ToString());
-                        //ab.Title = reader["Title"].ToString();
-                        //ab.Body = reader["Body"].ToString();
-                        //ab.WriteDate = DateTime.Parse(reader["WriteDate"].ToString());
-                        //ab.Hits = Int32.Parse(reader["hits"].ToString());
-                        //ab.Id = reader["ID"].ToString();
+                        
                     }
                 }
             }
@@ -352,7 +339,8 @@ namespace GoodeeProject.GoodeeDAO
                         BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
                         Title = reader["Title"].ToString(),
                         WriteDate = DateTime.Parse(reader["WriteDate"].ToString()),
-                        Id = reader["ID"].ToString()
+                        Id = reader["ID"].ToString(),
+                        Hits = Int32.Parse(reader["hits"].ToString())
 
                     });
                 }
@@ -401,6 +389,25 @@ namespace GoodeeProject.GoodeeDAO
             MemoryStream ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
             return ms.ToArray();
+        }
+
+        public bool DeleteBoard(int num)
+        {
+            string proc = "DeleteBoard";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter sqlparameters = new SqlParameter();
+            sqlparameters = new SqlParameter("@BoardNum", num);
+
+            try
+            {
+                return dbCon.ExecuteDelete(proc, sqlparameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

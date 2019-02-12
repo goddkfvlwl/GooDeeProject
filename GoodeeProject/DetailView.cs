@@ -38,7 +38,7 @@ namespace GoodeeProject
         private void DetailView_Load(object sender, EventArgs e)
         {
 
-            Title.Text = ab.Title;
+            title.Text = "제목 : " + ab.Title + "  | 협약기업게시판"; ;
 
             FtpWebRequest req = (FtpWebRequest)WebRequest.Create(ab.Body);
             req.Method = WebRequestMethods.Ftp.DownloadFile;
@@ -57,6 +57,42 @@ namespace GoodeeProject
 
                 // 로컬 파일로 출력
                 boardBoby.Rtf = data;
+            }
+        }
+
+        private void butDelete_Click(object sender, EventArgs e)
+        {
+            Uri serverUri = new Uri(ab.Body);
+            if (FtpDelete(serverUri))
+            {
+                gd.DeleteBoard(ab.BoardNum);
+                MessageBox.Show("정말삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                
+            }
+        }
+
+        private static bool FtpDelete(Uri serverUri)
+        {
+            try
+            {
+                if (serverUri.Scheme != Uri.UriSchemeFtp)   // 주소의 앞을 반환 즉 http://~~이면 http만 반환
+                {
+                    return false;
+                }
+                // Get the object used to communicate with the server.
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(serverUri);
+                request.Method = WebRequestMethods.Ftp.DeleteFile;
+
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                //Console.WriteLine("Delete status: {0}", response.StatusDescription);
+                response.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+
             }
         }
     }

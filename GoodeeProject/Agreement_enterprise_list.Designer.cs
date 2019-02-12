@@ -29,9 +29,8 @@
         private void InitializeComponent()
         {
             this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iTalk_HeaderLabel1 = new iTalk.iTalk_HeaderLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.agreementList1 = new MetroFramework.Controls.MetroListView();
             this.SuspendLayout();
             // 
             // iTalk_Button_12
@@ -48,17 +47,6 @@
             this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
             this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(19, 68);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(781, 321);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
             // iTalk_HeaderLabel1
             // 
             this.iTalk_HeaderLabel1.AutoSize = true;
@@ -71,17 +59,29 @@
             this.iTalk_HeaderLabel1.TabIndex = 3;
             this.iTalk_HeaderLabel1.Text = "게시판";
             // 
+            // agreementList1
+            // 
+            this.agreementList1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.agreementList1.FullRowSelect = true;
+            this.agreementList1.Location = new System.Drawing.Point(105, 73);
+            this.agreementList1.Name = "agreementList1";
+            this.agreementList1.OwnerDraw = true;
+            this.agreementList1.Size = new System.Drawing.Size(604, 309);
+            this.agreementList1.TabIndex = 4;
+            this.agreementList1.UseCompatibleStateImageBehavior = false;
+            this.agreementList1.UseSelectable = true;
+            this.agreementList1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.agreementList1_ItemSelectionChanged);
+            // 
             // Agreement_enterprise_list
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.agreementList1);
             this.Controls.Add(this.iTalk_HeaderLabel1);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.iTalk_Button_12);
             this.Name = "Agreement_enterprise_list";
             this.Size = new System.Drawing.Size(815, 454);
             this.Load += new System.EventHandler(this.Agreement_enterprise_list_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,7 +89,7 @@
 
         #endregion
         private iTalk.iTalk_Button_1 iTalk_Button_12;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel1;
+        private MetroFramework.Controls.MetroListView agreementList1;
     }
 }

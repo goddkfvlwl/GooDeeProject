@@ -44,6 +44,7 @@
             this.picAdd = new iTalk.iTalk_Button_1();
             this.Title = new iTalk.iTalk_TextBox_Small();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
+            this.richTextBoxEx1 = new RichTextBoxEx.RichTextBoxEx();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -54,7 +55,7 @@
             // 
             this.boardBoby.Location = new System.Drawing.Point(22, 167);
             this.boardBoby.Name = "boardBoby";
-            this.boardBoby.Size = new System.Drawing.Size(764, 201);
+            this.boardBoby.Size = new System.Drawing.Size(778, 83);
             this.boardBoby.TabIndex = 15;
             this.boardBoby.Text = "";
             // 
@@ -224,10 +225,30 @@
             this.iTalk_Label2.TabIndex = 1;
             this.iTalk_Label2.Text = "제 목";
             // 
+            // richTextBoxEx1
+            // 
+            this.richTextBoxEx1.AllowBullets = true;
+            this.richTextBoxEx1.AllowDefaultInsertText = true;
+            this.richTextBoxEx1.AllowDefaultSmartText = true;
+            this.richTextBoxEx1.AllowHyphenation = true;
+            this.richTextBoxEx1.AllowPictures = true;
+            this.richTextBoxEx1.AllowSpellCheck = true;
+            this.richTextBoxEx1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.richTextBoxEx1.FilePath = "";
+            this.richTextBoxEx1.Location = new System.Drawing.Point(22, 256);
+            this.richTextBoxEx1.Name = "richTextBoxEx1";
+            this.richTextBoxEx1.Rtf = "{\\rtf1\\ansi\\deff0{\\fonttbl{\\f0\\fnil\\fcharset0 Arial;}}\r\n\\viewkind4\\uc1\\pard\\lang1" +
+    "042\\fs20 richTextBoxEx1\\par\r\n}\r\n";
+            this.richTextBoxEx1.SetColorWithFont = true;
+            this.richTextBoxEx1.ShowToolStrip = true;
+            this.richTextBoxEx1.Size = new System.Drawing.Size(778, 99);
+            this.richTextBoxEx1.TabIndex = 28;
+            // 
             // Agreement_enterprise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.richTextBoxEx1);
             this.Controls.Add(this.attachments);
             this.Controls.Add(this.iTalk_Label3);
             this.Controls.Add(this.iTalk_Button_13);
@@ -265,5 +286,6 @@
         private iTalk.iTalk_Button_1 iTalk_Button_13;
         private iTalk.iTalk_Label iTalk_Label3;
         private iTalk.iTalk_ComboBox attachments;
+        private RichTextBoxEx.RichTextBoxEx richTextBoxEx1;
     }
 }
