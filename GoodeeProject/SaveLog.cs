@@ -13,14 +13,19 @@ namespace GoodeeProject
     {
         private string time;
         private string active;
+        private string filePath;
+        private static string fileList;
+        
+
 
         static List<SaveLog> logList = new List<SaveLog>();
 
-        string filePath;
+        
 
         public static List<SaveLog> LogList { get => logList; set => logList = value; }
         public string Time { get => time; set => time = value; }
         public string Active { get => active; set => active = value; }
+        public static string FileList { get => fileList; set => fileList = value; }
 
         public void AddList(string active)
         {
@@ -70,9 +75,6 @@ namespace GoodeeProject
         {
             StreamReader sr;
             FtpWebResponse resp;
-            
-            
-            string fileList = "";
 
             string ftpUrl = "ftp://52.165.176.111:3333/Log/" + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + id + ".log";
 

@@ -59,5 +59,12 @@ namespace GoodeeProject
         {
             s.AddList("수강생관리 클릭");
         }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            s.AddList("로그관리 클릭");
+            FrmLog fl = new FrmLog();
+            fl.Show();
+        }
     }
 }
