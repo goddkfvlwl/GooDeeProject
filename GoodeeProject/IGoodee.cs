@@ -26,6 +26,15 @@ namespace GoodeeProject
         bool DeleteBoard(int num);
         #endregion
 
+        #region 사람인
+        string SubAreaCount(string firstAreaName);
+        List<FirstSubArea> SubAreaName(string fristCode);
+        List<FirstSubArea> AllFirstAreaName();
+        List<FirstSubArea> ForeginAllFirstAreaName();
+        List<FirstSubArea> AllDetailArea(string area);
+        List<FirstSubJob> AllFirstJobName();
+        
+        #endregion
 
         bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture);
 

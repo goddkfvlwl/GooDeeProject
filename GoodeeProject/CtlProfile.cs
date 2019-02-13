@@ -12,8 +12,6 @@ namespace GoodeeProject
 {
     public partial class CtlProfile : UserControl
     {
-        CtlProfile proFile;
-
         public CtlProfile()
         {
             InitializeComponent();
@@ -27,6 +25,7 @@ namespace GoodeeProject
         private void btnModify_Click(object sender, EventArgs e)
         {
             FrmModify fm = new FrmModify();
+            fm.Owner = (FrmMain)this.Parent.Parent;
             fm.ShowDialog();
         }
 

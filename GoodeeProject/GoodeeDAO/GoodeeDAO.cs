@@ -16,6 +16,10 @@ namespace GoodeeProject.GoodeeDAO
 
         private static GoodeeDAO gd;
 
+        public GoodeeDAO()
+        {
+        }
+
         public static GoodeeDAO GetInstance()
         {
             if (gd == null)
@@ -408,6 +412,166 @@ namespace GoodeeProject.GoodeeDAO
             {
                 throw;
             }
+        }
+
+        public string SubAreaCount(string firstAreaName)
+        {
+            string sp = "FirstAreaCode";
+
+            string firstCode = "";
+            SqlParameter sqlparameters = new SqlParameter();
+            sqlparameters = new SqlParameter("firstAreaName", firstAreaName);
+            
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(sp, sqlparameters);
+                //System.Windows.Forms.MessageBox.Show(firstCode = reader["FirstArea_Code"].ToString());
+                while (reader.Read())
+                {
+                    firstCode = reader["FirstArea_Code"].ToString();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return firstCode;
+            
+        }
+
+        public List<FirstSubArea> SubAreaName(string fristCode)
+        {
+            string sp = "subAreaCodeName";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@firstAreaCode", fristCode);
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(sp, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        SubAreaName = reader["secondArea_Name"].ToString(),
+                        SubAreaCode = reader["secondArea_Code"].ToString()
+                    });
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return list;
+        }
+
+        public List<FirstSubArea> AllFirstAreaName()
+        {
+            string proc = "KoreaFirstAreaName";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().Select(proc);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        FirstAreaName1 = reader["FirstArea_Name"].ToString()
+                    });
+                        
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubArea> ForeginAllFirstAreaName()
+        {
+            string proc = "ForeignAreaName";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().Select(proc);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        FirstAreaName1 = reader["FirstArea_Name"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubJob> AllFirstJobName()
+        {
+            string proc = "AllFirstJob";
+            List<FirstSubJob> list = new List<FirstSubJob>();
+            try
+            {
+                SqlDataReader reader = new DBConnection().Select(proc);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubJob()
+                    {
+                        FirstJob_Code = reader["Job_Code"].ToString(),
+                        FirstJob_Name = reader["Job_Name"].ToString()
+                    });
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return list;
+        }
+
+        public List<FirstSubArea> AllDetailArea(string area)
+        {
+            string proc = "AllDetailArea";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("secondAreaName", area);
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        FirstAreaCode = reader["FirstArea_Code"].ToString(),
+                        SubAreaName = reader["secondArea_Name"].ToString(),
+                        SubAreaCode = reader["secondArea_Code"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
         }
     }
 }

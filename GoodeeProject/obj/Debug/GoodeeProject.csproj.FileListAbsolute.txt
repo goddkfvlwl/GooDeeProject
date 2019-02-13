@@ -56,3 +56,4 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.DetailV
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.Design.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.AreaJobSearch.resources

@@ -42,6 +42,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.iTalk_Label5 = new iTalk.iTalk_Label();
             this.pboxPic = new System.Windows.Forms.PictureBox();
+            this.iTalk_Label6 = new iTalk.iTalk_Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,11 +223,24 @@
             this.pboxPic.TabIndex = 11;
             this.pboxPic.TabStop = false;
             // 
+            // iTalk_Label6
+            // 
+            this.iTalk_Label6.AutoSize = true;
+            this.iTalk_Label6.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Label6.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.iTalk_Label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label6.Location = new System.Drawing.Point(272, 426);
+            this.iTalk_Label6.Name = "iTalk_Label6";
+            this.iTalk_Label6.Size = new System.Drawing.Size(29, 13);
+            this.iTalk_Label6.TabIndex = 14;
+            this.iTalk_Label6.Text = "만원";
+            // 
             // CtlModifyMemberInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.iTalk_Label6);
             this.Controls.Add(this.iTalk_Label5);
             this.Controls.Add(this.btnPicture);
             this.Controls.Add(this.pboxPic);
@@ -267,5 +281,6 @@
         internal iTalk.iTalk_TextBox_Small tboxDetailAddr;
         private iTalk.iTalk_Label iTalk_Label5;
         private System.Windows.Forms.PictureBox pboxPic;
+        private iTalk.iTalk_Label iTalk_Label6;
     }
 }

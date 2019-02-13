@@ -70,6 +70,8 @@ namespace GoodeeProject
                     //업데이트
                     gd.UpdateMemberInfo(FrmMain.Mi.Id, tboxMobile.Text, tboxAddr.Text + tboxDetailAddr.Text, tboxHopePay.Text, profileImg);
                     MessageBox.Show("수정 성공");
+                    this.ParentForm.Close();
+                    Invalidate();
                 }
                 else
                 {

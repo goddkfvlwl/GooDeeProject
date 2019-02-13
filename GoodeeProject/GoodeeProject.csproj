@@ -103,6 +103,12 @@
     <Compile Include="AreaExam.Designer.cs">
       <DependentUpon>AreaExam.cs</DependentUpon>
     </Compile>
+    <Compile Include="AreaJobSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AreaJobSearch.Designer.cs">
+      <DependentUpon>AreaJobSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="CodeDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,8 @@
     <Compile Include="DetailView.Designer.cs">
       <DependentUpon>DetailView.cs</DependentUpon>
     </Compile>
+    <Compile Include="FirstSubArea.cs" />
+    <Compile Include="FirstSubJob.cs" />
     <Compile Include="FrmCreateID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,9 +279,13 @@
     <EmbeddedResource Include="AreaExam.resx">
       <DependentUpon>AreaExam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AreaJobSearch.resx">
+      <DependentUpon>AreaJobSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CodeDB.resx">
       <DependentUpon>CodeDB.cs</DependentUpon>
     </EmbeddedResource>
+    <Compile Include="SaveLog.cs" />
     <Compile Include="StudentManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
