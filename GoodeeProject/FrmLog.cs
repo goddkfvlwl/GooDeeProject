@@ -158,6 +158,7 @@ namespace GoodeeProject
                 MessageBox.Show("읽어올 수 없습니다.");
             }
             pBarDown.Visible = false;
+            File.Delete(path);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
