@@ -118,6 +118,12 @@
     <Compile Include="FrmLog.Designer.cs">
       <DependentUpon>FrmLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogDetail.Designer.cs">
+      <DependentUpon>FrmLogDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmModifyPW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLog.resx">
       <DependentUpon>FrmLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogDetail.resx">
+      <DependentUpon>FrmLogDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

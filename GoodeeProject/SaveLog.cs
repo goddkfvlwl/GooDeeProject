@@ -16,12 +16,7 @@ namespace GoodeeProject
         private string filePath;
         private static string fileList;
         
-
-
         static List<SaveLog> logList = new List<SaveLog>();
-
-        
-
         public static List<SaveLog> LogList { get => logList; set => logList = value; }
         public string Time { get => time; set => time = value; }
         public string Active { get => active; set => active = value; }
@@ -55,7 +50,8 @@ namespace GoodeeProject
                     sw.WriteLine("[{0}] {1}", item.time, item.active);
                 }
                 //sw.WriteLine("[{0}] {1}", DateTime.Now, active);
-                sw.Flush();
+                //sw.Flush();
+                sw.Dispose();
                 sw.Close();
             }
             else
@@ -65,9 +61,12 @@ namespace GoodeeProject
                 {
                     sw.WriteLine("[{0}] {1}", item.time, item.active);
                 }
-                sw.Flush();
+                //sw.Flush();
+                sw.Dispose();
                 sw.Close();
+                
             }
+            
         }
 
 
