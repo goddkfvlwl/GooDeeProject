@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.iTalk_Separator2 = new iTalk.iTalk_Separator();
-            this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.lblMenu1 = new iTalk.iTalk_Label();
             this.iTalk_ChatBubble_L1 = new iTalk.iTalk_ChatBubble_L();
+            this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.SuspendLayout();
             // 
             // iTalk_Separator2
@@ -44,18 +44,6 @@
             this.iTalk_Separator2.Size = new System.Drawing.Size(120, 10);
             this.iTalk_Separator2.TabIndex = 32;
             this.iTalk_Separator2.Text = "iTalk_Separator2";
-            // 
-            // iTalk_Label2
-            // 
-            this.iTalk_Label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label2.Location = new System.Drawing.Point(19, 95);
-            this.iTalk_Label2.Name = "iTalk_Label2";
-            this.iTalk_Label2.Size = new System.Drawing.Size(137, 20);
-            this.iTalk_Label2.TabIndex = 31;
-            this.iTalk_Label2.Text = "결과목록";
-            this.iTalk_Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // iTalk_Label1
             // 
@@ -101,6 +89,18 @@
             this.iTalk_ChatBubble_L1.Size = new System.Drawing.Size(152, 120);
             this.iTalk_ChatBubble_L1.TabIndex = 27;
             // 
+            // iTalk_Label2
+            // 
+            this.iTalk_Label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label2.Location = new System.Drawing.Point(19, 95);
+            this.iTalk_Label2.Name = "iTalk_Label2";
+            this.iTalk_Label2.Size = new System.Drawing.Size(137, 20);
+            this.iTalk_Label2.TabIndex = 31;
+            this.iTalk_Label2.Text = "결과목록";
+            this.iTalk_Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CtlSurveyAdminDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -120,10 +120,10 @@
         #endregion
 
         internal iTalk.iTalk_Separator iTalk_Separator2;
-        internal iTalk.iTalk_Label iTalk_Label2;
         internal iTalk.iTalk_Label iTalk_Label1;
         internal iTalk.iTalk_Separator iTalk_Separator1;
         internal iTalk.iTalk_Label lblMenu1;
         internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;
+        internal iTalk.iTalk_Label iTalk_Label2;
     }
 }

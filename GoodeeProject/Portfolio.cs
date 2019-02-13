@@ -10,9 +10,6 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Net;
 using System.IO;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing;
-using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 using Word = Microsoft.Office.Interop.Word;
 using System.Resources;
@@ -132,12 +129,14 @@ namespace GoodeeProject
 
             request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + id + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
+            request.UseBinary = true;
             using (Stream fileStream = File.OpenRead(Application.StartupPath + "/" + "xml.xml"))
             using (Stream ftpStream = request.GetRequestStream())
             {
                 fileStream.CopyTo(ftpStream);
                 fileStream.Close();
             }
+            File.Delete(Application.StartupPath + "/" + "xml.xml");
         }
 
         private void iTalk_Button_11_Click_1(object sender, EventArgs e)

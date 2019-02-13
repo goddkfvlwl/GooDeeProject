@@ -92,7 +92,10 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
 
-            spec = new CtlSpecDetail();
+            if (spec == null)
+            {
+                spec = new CtlSpecDetail(); 
+            }
             panel2.Controls.Add(spec);
             spec.Location = new Point(192, 1);
             spec.BringToFront();
@@ -148,18 +151,40 @@ namespace GoodeeProject
 
             if (Authority == 'S')
             {
-                //사용자
-                surveyUser = new CtlSurveyUserDetail();
-                panel2.Controls.Add(surveyUser);
-                surveyUser.Location = new Point(192, 100);
+                SurveyList survey = new SurveyList();
+                panel2.Controls.Add(survey);
+                survey.Location = new Point(185, 0);
+                survey.BringToFront();
             }
             else
             {
                 //관리자, 최상위 관리자
-                surveyAdmin = new CtlSurveyAdminDetail();
+                if (surveyAdmin == null)
+                {
+                    surveyAdmin = new CtlSurveyAdminDetail(); 
+                }
                 panel2.Controls.Add(surveyAdmin);
-                surveyAdmin.Location = new Point(192, 71);
+                surveyAdmin.Location = new Point(192, 40);
+                surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
+                surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
+                surveyAdmin.BringToFront();
             }
+        }
+
+        private void lblMenu1_Click(object sender, EventArgs e)
+        {
+            SurveyList list = new SurveyList();
+            panel2.Controls.Add(list);
+            list.Location = new Point(185, 0);
+            list.BringToFront();
+        }
+
+        private void iTalk_Label1_Click(object sender, EventArgs e)
+        {
+            CreateSurvey survey = new CreateSurvey();
+            panel2.Controls.Add(survey);
+            survey.Location = new Point(185, 0);
+            survey.BringToFront();
         }
 
         private void btnMBTI_Click(object sender, EventArgs e)

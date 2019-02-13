@@ -36,12 +36,6 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="PdfSharp.Charting, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -57,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="CreateSurvey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CreateSurvey.Designer.cs">
+      <DependentUpon>CreateSurvey.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,6 +76,12 @@
       <DependentUpon>CtlProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
+    <Compile Include="DefaultSurvey.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DefaultSurvey.Designer.cs">
+      <DependentUpon>DefaultSurvey.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetailMenu\CtlCompanyInfoDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,6 +161,29 @@
     <Compile Include="FrmModify.Designer.cs">
       <DependentUpon>FrmModify.cs</DependentUpon>
     </Compile>
+    <Compile Include="Survey.cs" />
+    <Compile Include="SurveyDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyDetail.Designer.cs">
+      <DependentUpon>SurveyDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyList.Designer.cs">
+      <DependentUpon>SurveyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyResult.Designer.cs">
+      <DependentUpon>SurveyResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Survey_Items.cs" />
+    <EmbeddedResource Include="CreateSurvey.resx">
+      <DependentUpon>CreateSurvey.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyMemberInfo.resx">
       <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DefaultSurvey.resx">
+      <DependentUpon>DefaultSurvey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetailMenu\CtlCompanyInfoDetail.resx">
       <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
@@ -210,7 +242,15 @@
     <EmbeddedResource Include="StudentManagement.resx">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="SurveyDetail.resx">
+      <DependentUpon>SurveyDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurveyList.resx">
+      <DependentUpon>SurveyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurveyResult.resx">
+      <DependentUpon>SurveyResult.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

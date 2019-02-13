@@ -94,7 +94,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.portfolioDetail1);
             this.Name = "Portfolio";
-            this.Size = new System.Drawing.Size(815, 454);
+            this.Size = new System.Drawing.Size(818, 454);
             this.ResumeLayout(false);
 
         }

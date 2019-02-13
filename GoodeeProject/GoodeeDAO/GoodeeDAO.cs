@@ -102,5 +102,83 @@ namespace GoodeeProject.GoodeeDAO
             }
             return mi;
         }
+
+        public void InsertSurvey(string id, string name)
+        {
+            string proc = "InsertSurvey";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@Writer", id);
+            parameters[1] = new SqlParameter("@SurveyName", name);
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
+            }
+        }
+
+        public List<Survey> SelectSurvey(bool isActivation)
+        {
+            string proc = "SelectSurvey";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@isActivation", isActivation);
+            var dt = con.SelectWithParams(proc, parameters);
+            List<Survey> list = new List<Survey>();
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(new Survey(int.Parse(item["SurveyNum"].ToString()), item["SurveyName"].ToString(), item["Writer"].ToString(), bool.Parse(item["isActivation"].ToString())));
+            }
+            return list;
+        }
+
+        public void InsertSurveyItem(Survey_Items item)
+        {
+            string proc = "InsertSurvey_Item";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[7];
+            parameters[0] = new SqlParameter("@SurveyNum", item.SurveyNum);
+            parameters[1] = new SqlParameter("@Id", item.Id);
+            parameters[2] = new SqlParameter("@QuestionNum", item.QuestionNum);
+            parameters[3] = new SqlParameter("@Question", item.Question);
+            parameters[4] = new SqlParameter("@Answer", item.Answer);
+            parameters[5] = new SqlParameter("@Division", item.Division);
+            parameters[6] = new SqlParameter("@Survey_Date", item.Survey_date);
+            con.ExecuteInsert(proc, parameters);
+        }
+
+        public DataTable SelectSurveyMulti(int surveyNum)
+        {
+            string proc = "CountSurvey_Item";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@SurveyNum", surveyNum);
+            return con.SelectWithParams(proc, parameters);
+        }
+
+        public DataTable selectSurveyEssay(int surveyNum)
+        {
+            string proc = "SelectSurveyEssay";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@SurveyNum", surveyNum);
+            return con.SelectWithParams(proc, parameters);
+        }
+
+        public bool CheckSurvey(string id, int SurveyNum)
+        {
+            string proc = "CheckSurvey";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@id", id);
+            parameters[1] = new SqlParameter("@SurveyNum", SurveyNum);
+            var table = con.SelectWithParams(proc, parameters);
+            if (table.Rows.Count > 0)
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
+        }
     }
 }

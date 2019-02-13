@@ -39,7 +39,10 @@
             this.ProjectName = new System.Windows.Forms.TextBox();
             this.txtProjectPart = new System.Windows.Forms.TextBox();
             this.txtProjectTitle = new System.Windows.Forms.TextBox();
+            this.iTalk_Label1 = new iTalk.iTalk_Label();
+            this.lblProjectInfo = new iTalk.iTalk_HeaderLabel();
             this.useTechnologyPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.iTalk_HeaderLabel3 = new iTalk.iTalk_HeaderLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtDevEnvironment = new System.Windows.Forms.TextBox();
             this.DevEnvironment = new System.Windows.Forms.TextBox();
@@ -50,20 +53,17 @@
             this.UseTechnique = new System.Windows.Forms.TextBox();
             this.txtUseTechnique = new System.Windows.Forms.TextBox();
             this.PanelPortfolioBody = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblProjectPortfolio = new iTalk.iTalk_HeaderLabel();
             this.AddButtonPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddTextBox = new System.Windows.Forms.Button();
             this.btnAddPictureBox = new System.Windows.Forms.Button();
+            this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblIntroduction = new iTalk.iTalk_HeaderLabel();
             this.introductionPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.textboxTitle = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblProjectPortfolio = new iTalk.iTalk_HeaderLabel();
-            this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.lblProjectInfo = new iTalk.iTalk_HeaderLabel();
-            this.iTalk_HeaderLabel3 = new iTalk.iTalk_HeaderLabel();
-            this.iTalk_Label2 = new iTalk.iTalk_Label();
-            this.lblIntroduction = new iTalk.iTalk_HeaderLabel();
             this.projectInfoPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MemberCount)).BeginInit();
             this.useTechnologyPanel.SuspendLayout();
@@ -176,6 +176,30 @@
             this.txtProjectTitle.TabIndex = 19;
             this.txtProjectTitle.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
+            // iTalk_Label1
+            // 
+            this.iTalk_Label1.AutoSize = true;
+            this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label1.Location = new System.Drawing.Point(201, 103);
+            this.iTalk_Label1.Name = "iTalk_Label1";
+            this.iTalk_Label1.Size = new System.Drawing.Size(15, 13);
+            this.iTalk_Label1.TabIndex = 16;
+            this.iTalk_Label1.Text = "~";
+            // 
+            // lblProjectInfo
+            // 
+            this.lblProjectInfo.AutoSize = true;
+            this.lblProjectInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblProjectInfo.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProjectInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblProjectInfo.Location = new System.Drawing.Point(4, 4);
+            this.lblProjectInfo.Name = "lblProjectInfo";
+            this.lblProjectInfo.Size = new System.Drawing.Size(116, 28);
+            this.lblProjectInfo.TabIndex = 12;
+            this.lblProjectInfo.Text = "Project Info";
+            // 
             // useTechnologyPanel
             // 
             this.useTechnologyPanel.AutoSize = true;
@@ -187,6 +211,18 @@
             this.useTechnologyPanel.Name = "useTechnologyPanel";
             this.useTechnologyPanel.Size = new System.Drawing.Size(795, 150);
             this.useTechnologyPanel.TabIndex = 22;
+            // 
+            // iTalk_HeaderLabel3
+            // 
+            this.iTalk_HeaderLabel3.AutoSize = true;
+            this.iTalk_HeaderLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_HeaderLabel3.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_HeaderLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.iTalk_HeaderLabel3.Location = new System.Drawing.Point(3, 0);
+            this.iTalk_HeaderLabel3.Name = "iTalk_HeaderLabel3";
+            this.iTalk_HeaderLabel3.Size = new System.Drawing.Size(159, 28);
+            this.iTalk_HeaderLabel3.TabIndex = 0;
+            this.iTalk_HeaderLabel3.Text = "Use Technology";
             // 
             // panel4
             // 
@@ -288,8 +324,20 @@
             this.PanelPortfolioBody.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelPortfolioBody.Location = new System.Drawing.Point(0, 0);
             this.PanelPortfolioBody.Name = "PanelPortfolioBody";
-            this.PanelPortfolioBody.Size = new System.Drawing.Size(764, 529);
+            this.PanelPortfolioBody.Size = new System.Drawing.Size(747, 529);
             this.PanelPortfolioBody.TabIndex = 21;
+            // 
+            // lblProjectPortfolio
+            // 
+            this.lblProjectPortfolio.AutoSize = true;
+            this.lblProjectPortfolio.BackColor = System.Drawing.Color.Transparent;
+            this.lblProjectPortfolio.Font = new System.Drawing.Font("맑은 고딕", 25F);
+            this.lblProjectPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblProjectPortfolio.Location = new System.Drawing.Point(3, 0);
+            this.lblProjectPortfolio.Name = "lblProjectPortfolio";
+            this.lblProjectPortfolio.Size = new System.Drawing.Size(267, 46);
+            this.lblProjectPortfolio.TabIndex = 6;
+            this.lblProjectPortfolio.Text = "Project Portfolio";
             // 
             // AddButtonPanel
             // 
@@ -323,6 +371,18 @@
             this.btnAddPictureBox.UseVisualStyleBackColor = true;
             this.btnAddPictureBox.Click += new System.EventHandler(this.btnAddPictureBox_Click);
             // 
+            // iTalk_Label2
+            // 
+            this.iTalk_Label2.AutoSize = true;
+            this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Label2.Font = new System.Drawing.Font("맑은 고딕", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label2.Location = new System.Drawing.Point(168, 0);
+            this.iTalk_Label2.Name = "iTalk_Label2";
+            this.iTalk_Label2.Size = new System.Drawing.Size(458, 23);
+            this.iTalk_Label2.TabIndex = 2;
+            this.iTalk_Label2.Text = "이미지를 드레그하면 이미지의 크기를 조절할 수 있습니다.";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.lblIntroduction);
@@ -330,6 +390,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(789, 38);
             this.panel3.TabIndex = 22;
+            // 
+            // lblIntroduction
+            // 
+            this.lblIntroduction.AutoSize = true;
+            this.lblIntroduction.BackColor = System.Drawing.Color.Transparent;
+            this.lblIntroduction.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntroduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.lblIntroduction.Location = new System.Drawing.Point(3, 6);
+            this.lblIntroduction.Name = "lblIntroduction";
+            this.lblIntroduction.Size = new System.Drawing.Size(124, 28);
+            this.lblIntroduction.TabIndex = 7;
+            this.lblIntroduction.Text = "Introduction";
             // 
             // introductionPanel
             // 
@@ -364,78 +436,6 @@
             this.btnDelete.Text = "삭제";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // lblProjectPortfolio
-            // 
-            this.lblProjectPortfolio.AutoSize = true;
-            this.lblProjectPortfolio.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectPortfolio.Font = new System.Drawing.Font("맑은 고딕", 25F);
-            this.lblProjectPortfolio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblProjectPortfolio.Location = new System.Drawing.Point(3, 0);
-            this.lblProjectPortfolio.Name = "lblProjectPortfolio";
-            this.lblProjectPortfolio.Size = new System.Drawing.Size(267, 46);
-            this.lblProjectPortfolio.TabIndex = 6;
-            this.lblProjectPortfolio.Text = "Project Portfolio";
-            // 
-            // iTalk_Label1
-            // 
-            this.iTalk_Label1.AutoSize = true;
-            this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(201, 103);
-            this.iTalk_Label1.Name = "iTalk_Label1";
-            this.iTalk_Label1.Size = new System.Drawing.Size(15, 13);
-            this.iTalk_Label1.TabIndex = 16;
-            this.iTalk_Label1.Text = "~";
-            // 
-            // lblProjectInfo
-            // 
-            this.lblProjectInfo.AutoSize = true;
-            this.lblProjectInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectInfo.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProjectInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblProjectInfo.Location = new System.Drawing.Point(4, 4);
-            this.lblProjectInfo.Name = "lblProjectInfo";
-            this.lblProjectInfo.Size = new System.Drawing.Size(116, 28);
-            this.lblProjectInfo.TabIndex = 12;
-            this.lblProjectInfo.Text = "Project Info";
-            // 
-            // iTalk_HeaderLabel3
-            // 
-            this.iTalk_HeaderLabel3.AutoSize = true;
-            this.iTalk_HeaderLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_HeaderLabel3.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_HeaderLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.iTalk_HeaderLabel3.Location = new System.Drawing.Point(3, 0);
-            this.iTalk_HeaderLabel3.Name = "iTalk_HeaderLabel3";
-            this.iTalk_HeaderLabel3.Size = new System.Drawing.Size(159, 28);
-            this.iTalk_HeaderLabel3.TabIndex = 0;
-            this.iTalk_HeaderLabel3.Text = "Use Technology";
-            // 
-            // iTalk_Label2
-            // 
-            this.iTalk_Label2.AutoSize = true;
-            this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label2.Font = new System.Drawing.Font("맑은 고딕", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label2.Location = new System.Drawing.Point(168, 0);
-            this.iTalk_Label2.Name = "iTalk_Label2";
-            this.iTalk_Label2.Size = new System.Drawing.Size(458, 23);
-            this.iTalk_Label2.TabIndex = 2;
-            this.iTalk_Label2.Text = "이미지를 드레그하면 이미지의 크기를 조절할 수 있습니다.";
-            // 
-            // lblIntroduction
-            // 
-            this.lblIntroduction.AutoSize = true;
-            this.lblIntroduction.BackColor = System.Drawing.Color.Transparent;
-            this.lblIntroduction.Font = new System.Drawing.Font("맑은 고딕", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIntroduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.lblIntroduction.Location = new System.Drawing.Point(3, 6);
-            this.lblIntroduction.Name = "lblIntroduction";
-            this.lblIntroduction.Size = new System.Drawing.Size(124, 28);
-            this.lblIntroduction.TabIndex = 7;
-            this.lblIntroduction.Text = "Introduction";
-            // 
             // PortfolioDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -443,7 +443,7 @@
             this.AutoScroll = true;
             this.Controls.Add(this.PanelPortfolioBody);
             this.Name = "PortfolioDetail";
-            this.Size = new System.Drawing.Size(764, 454);
+            this.Size = new System.Drawing.Size(747, 454);
             this.projectInfoPanel.ResumeLayout(false);
             this.projectInfoPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MemberCount)).EndInit();

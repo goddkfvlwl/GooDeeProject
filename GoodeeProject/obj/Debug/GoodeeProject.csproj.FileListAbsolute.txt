@@ -22,7 +22,6 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResourc
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
-C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
@@ -48,13 +47,6 @@ C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\Go
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe.config
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.exe
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\GoodeeProject.pdb
-C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.Charting.dll
-C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.dll
-C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.xml
-C:\C#\GoodeeProject\GoodeeProject\bin\Debug\PdfSharp.Charting.xml
-C:\C#\GoodeeProject\GoodeeProject\bin\Debug\de\PdfSharp.resources.dll
-C:\C#\GoodeeProject\GoodeeProject\bin\Debug\de\PdfSharp.Charting.resources.dll
-C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 E:\TeamProject\GoodeeProject\bin\Debug\GoodeeProject.exe.config
 E:\TeamProject\GoodeeProject\bin\Debug\GoodeeProject.exe
 E:\TeamProject\GoodeeProject\bin\Debug\GoodeeProject.pdb
@@ -90,3 +82,9 @@ E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
 C:\C#\GoodeeProject\GoodeeProject\bin\Debug\Resources\Project Portfolio.docx
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CreateSurvey.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.DefaultSurvey.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyList.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyDetail.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyResult.resources

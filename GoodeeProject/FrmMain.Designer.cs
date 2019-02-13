@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ctlProfile1 = new GoodeeProject.CtlProfile();
+            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
@@ -40,8 +42,6 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnBoard = new System.Windows.Forms.Button();
             this.btnSpec = new System.Windows.Forms.Button();
-            this.ctlProfile1 = new GoodeeProject.CtlProfile();
-            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -62,6 +62,22 @@
             this.panel1.TabIndex = 26;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            // 
+            // ctlProfile1
+            // 
+            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
+            this.ctlProfile1.Name = "ctlProfile1";
+            this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
+            this.ctlProfile1.TabIndex = 27;
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
+            this.iTalk_Separator1.TabIndex = 7;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
             // pictureBox1
             // 
@@ -223,22 +239,6 @@
             this.btnSpec.Text = "   스펙관리";
             this.btnSpec.UseVisualStyleBackColor = false;
             this.btnSpec.Click += new System.EventHandler(this.btnSpec_Click);
-            // 
-            // ctlProfile1
-            // 
-            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
-            this.ctlProfile1.Name = "ctlProfile1";
-            this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
-            this.ctlProfile1.TabIndex = 27;
-            // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
-            this.iTalk_Separator1.TabIndex = 7;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
             // FrmMain
             // 
