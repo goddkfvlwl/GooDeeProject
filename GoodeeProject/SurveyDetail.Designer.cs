@@ -76,6 +76,7 @@
             this.btnModify.TabIndex = 6;
             this.btnModify.Text = "수정";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // lblWriter
             // 

@@ -212,7 +212,13 @@ namespace GoodeeProject
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
             doc.Tables[1].Cell(3, 2).Range.Text = projectInfo.Controls["txtProjectTitle"].Text;
-            doc.Tables[1].Cell(4, 2).Range.Text = projectInfo.Controls["dpProjectStartDate"].Text + " ~ " + projectInfo.Controls["dpProjectEndDate"].Text;
+            if (DateTime.Parse(projectInfo.Controls["dpProjectStartDate"].ToString()) < DateTime.Parse(projectInfo.Controls["dpProjectEndDate"].ToString()))
+            {
+                doc.Tables[1].Cell(4, 2).Range.Text = projectInfo.Controls["dpProjectStartDate"].Text + " ~ " + projectInfo.Controls["dpProjectEndDate"].Text;
+            }else
+            {
+                doc.Tables[1].Cell(4, 2).Range.Text = projectInfo.Controls["dpProjectEndDate"].Text + " ~ " + projectInfo.Controls["dpProjectStartDate"].Text;
+            }
             doc.Tables[1].Cell(5, 2).Range.Text = projectInfo.Controls["MemberCount"].Text;
             doc.Tables[1].Cell(6, 2).Range.Text = projectInfo.Controls["txtProjectPart"].Text;
             doc.Tables[1].Cell(8, 2).Range.Text = useTechnologyInfo.Controls["panel4"].Controls["txtDevEnvironment"].Text;

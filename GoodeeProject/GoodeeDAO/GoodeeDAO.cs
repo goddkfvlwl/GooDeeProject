@@ -182,5 +182,31 @@ namespace GoodeeProject.GoodeeDAO
                 return true;
             }
         }
+
+        public void DeleteSurvey(int surveyNum)
+        {
+            string proc = "ModifySurvey";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@SurveyNum", surveyNum);
+            con.ExecuteInsert(proc, parameters);
+        }
+
+        public bool CheckSurveyTitle(string surveyName)
+        {
+            string proc = "CheckSurveyTitle";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@SurveyName", surveyName);
+            var table = con.SelectWithParams(proc, parameters);
+            if (table.Rows.Count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }
