@@ -35,9 +35,11 @@ namespace GoodeeProject
             dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[2].HeaderText = "작성자";
             dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].HeaderText = "시작일";
+            dataGridView1.Columns[5].HeaderText = "종료일";
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if (bool.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString()) == false)
+                if (DateTime.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString()) <= DateTime.Today)
                 {
                     foreach (DataGridViewCell item in dataGridView1.Rows[i].Cells)
                     {
@@ -50,7 +52,7 @@ namespace GoodeeProject
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            SurveyDetail detail = new SurveyDetail(new Survey(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), bool.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString())));
+            SurveyDetail detail = new SurveyDetail(new Survey(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), bool.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()), DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()), DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString())));
             this.Parent.Controls.Add(detail);
             detail.Location = new Point(185, 0);
             detail.BringToFront();

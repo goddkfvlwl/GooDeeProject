@@ -138,7 +138,20 @@ namespace GoodeeProject
             File.Delete(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml");
 
             GoodeeDAO.GoodeeDAO DAO = new GoodeeDAO.GoodeeDAO();
-            DAO.InsertSurvey(FrmMain.Id, this.txtSurveyTitle.Text);
+            dtpStartDate.Value = new DateTime(dtpStartDate.Value.Year, dtpStartDate.Value.Month, dtpStartDate.Value.Day - 1, 23, 59, 59);
+            dtpEndDate.Value = new DateTime(dtpEndDate.Value.Year, dtpEndDate.Value.Month, dtpEndDate.Value.Day, 23, 59, 59);
+            DateTime start = default(DateTime);
+            DateTime end = default(DateTime);
+            if (dtpStartDate.Value > dtpEndDate.Value)
+            {
+                start = dtpEndDate.Value;
+                end = dtpStartDate.Value;
+            }else if(dtpStartDate.Value < dtpEndDate.Value)
+            {
+                start = dtpStartDate.Value;
+                end = dtpEndDate.Value;
+            }
+            DAO.InsertSurvey(FrmMain.Id, this.txtSurveyTitle.Text, start, end);
 
             this.Dispose();
             return;

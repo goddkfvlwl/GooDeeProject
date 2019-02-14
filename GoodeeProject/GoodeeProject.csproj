@@ -174,12 +174,6 @@
     <Compile Include="SurveyList.Designer.cs">
       <DependentUpon>SurveyList.cs</DependentUpon>
     </Compile>
-    <Compile Include="SurveyResult.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SurveyResult.Designer.cs">
-      <DependentUpon>SurveyResult.cs</DependentUpon>
-    </Compile>
     <Compile Include="Survey_Items.cs" />
     <EmbeddedResource Include="CreateSurvey.resx">
       <DependentUpon>CreateSurvey.cs</DependentUpon>
@@ -247,9 +241,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SurveyList.resx">
       <DependentUpon>SurveyList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SurveyResult.resx">
-      <DependentUpon>SurveyResult.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

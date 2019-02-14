@@ -87,4 +87,3 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.DefaultSurvey.resource
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyList.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyDetail.resources
-C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyResult.resources

@@ -33,6 +33,12 @@ namespace GoodeeProject
                 this.Dispose();
                 return;
             }
+            else if (FrmMain.Authority == 'S' && survey.EndDate < DateTime.Now)
+            {
+                MessageBox.Show("작성가능일이 지났습니다.");
+                this.Dispose();
+                return;
+            }
             this.panel1.Controls["lblNum"].Text = survey.SurveyNum.ToString();
             this.panel1.Controls["txtTitle"].Text = survey.SurveyName;
             this.panel1.Controls["lblWriter"].Text = survey.Writer;

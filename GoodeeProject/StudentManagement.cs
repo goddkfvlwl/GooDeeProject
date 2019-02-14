@@ -38,26 +38,32 @@ namespace GoodeeProject
 
                 while (xls.Read())
                 {
-                    MemberInfo member = new MemberInfo()
+                    if (!string.IsNullOrEmpty(xls["이메일"].ToString()) && !string.IsNullOrEmpty(xls["이름"].ToString()) && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString()) && !string.IsNullOrEmpty(xls["휴대폰"].ToString()) && !string.IsNullOrEmpty(xls["주소"].ToString()) && !string.IsNullOrEmpty(xls["과정명"].ToString()) && !string.IsNullOrEmpty(xls["분류"].ToString()))
                     {
-                        Id = xls["이메일"].ToString(),
-                        Name = xls["이름"].ToString(),
-                        Gender = xls["성별"].ToString() == "남자" ? 'm' : 'f',
-                        BirthDate = DateTime.Parse(xls["생년월일"].ToString()),
-                        Mobile = xls["휴대폰"].ToString(),
-                        Address = xls["주소"].ToString(),
-                        Curriculum = xls["과정명"].ToString(),
-                        ClassName = xls["분류"].ToString()
-                    };
-                    goodeeDAO.InsertMember(member);
-                } 
+                        MemberInfo member = new MemberInfo()
+                        {
+                            Id = xls["이메일"].ToString(),
+                            Name = xls["이름"].ToString(),
+                            Gender = xls["성별"].ToString() == "남자" ? 'm' : 'f',
+                            BirthDate = DateTime.Parse(xls["생년월일"].ToString()),
+                            Mobile = xls["휴대폰"].ToString(),
+                            Address = xls["주소"].ToString(),
+                            Curriculum = xls["과정명"].ToString() + " " + xls["회차"].ToString(),
+                            ClassName = xls["분류"].ToString()
+                        };
+                        goodeeDAO.InsertMember(member); 
+                    }
+                }
+                con.Close();
             }
         }
 
         private void btnWriteExl_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
-            saveFile.Filter = "Excel File (*.xls *.xlsx) | *.xls *.xlsx";
+            saveFile.Filter = "Excel File (*.xls) | *.xls";
+            saveFile.AddExtension = true;
+            saveFile.DefaultExt = ".xls";
             if (saveFile.ShowDialog() != DialogResult.Cancel)
             {
 
@@ -85,12 +91,15 @@ namespace GoodeeProject
                 {
                     worksheet.Cells[1][i + 3] = list[i].Curriculum;
                     worksheet.Cells[2][i + 3] = list[i].Class_name;
-                    worksheet.Cells[3][i + 3] = list[i].Class_name.Substring(list[i].Class_name.Length - 3);
+                    if (list[i].Class_name.Length > 3 && !string.IsNullOrEmpty(list[i].Class_name))
+                    {
+                        worksheet.Cells[3][i + 3] = list[i].Class_name.Substring(list[i].Class_name.Length - 3); 
+                    }
                     worksheet.Cells[4][i + 3] = list[i].Name;
                     worksheet.Cells[5][i + 3] = list[i].BirthDate;
                     worksheet.Cells[6][i + 3] = list[i].Gender == "m"? "남자" : "여자";
                     worksheet.Cells[7][i + 3] = list[i].Mobile;
-                    worksheet.Cells[8][i + 3] = "";
+                    worksheet.Cells[8][i + 3] = list[i].Id;
                     worksheet.Cells[9][i + 3] = list[i].Address;
                     worksheet.Cells[10][i + 3] = "학력";
                     worksheet.Cells[11][i + 3] = "최종학교";

@@ -33,9 +33,12 @@
             this.btnAddEssay = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.defaultSurvey1 = new GoodeeProject.DefaultSurvey();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtSurveyTitle = new System.Windows.Forms.TextBox();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.defaultSurvey1 = new GoodeeProject.DefaultSurvey();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,14 +89,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(100, 100);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // defaultSurvey1
-            // 
-            this.defaultSurvey1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.defaultSurvey1.Location = new System.Drawing.Point(3, 3);
-            this.defaultSurvey1.Name = "defaultSurvey1";
-            this.defaultSurvey1.Size = new System.Drawing.Size(759, 48);
-            this.defaultSurvey1.TabIndex = 2;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(272, 3);
@@ -110,11 +105,46 @@
             this.txtSurveyTitle.Name = "txtSurveyTitle";
             this.txtSurveyTitle.Size = new System.Drawing.Size(806, 21);
             this.txtSurveyTitle.TabIndex = 7;
+            this.txtSurveyTitle.Text = "설문 제목";
+            // 
+            // dtpStartDate
+            // 
+            this.dtpStartDate.Location = new System.Drawing.Point(353, 5);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(200, 21);
+            this.dtpStartDate.TabIndex = 8;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Location = new System.Drawing.Point(582, 5);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(200, 21);
+            this.dtpEndDate.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(559, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(14, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "~";
+            // 
+            // defaultSurvey1
+            // 
+            this.defaultSurvey1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.defaultSurvey1.Location = new System.Drawing.Point(3, 3);
+            this.defaultSurvey1.Name = "defaultSurvey1";
+            this.defaultSurvey1.Size = new System.Drawing.Size(759, 48);
+            this.defaultSurvey1.TabIndex = 2;
             // 
             // CreateSurvey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtpEndDate);
+            this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.txtSurveyTitle);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAddEssay);
@@ -139,5 +169,8 @@
         private DefaultSurvey defaultSurvey1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtSurveyTitle;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.Label label1;
     }
 }

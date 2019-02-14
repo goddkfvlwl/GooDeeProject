@@ -24,7 +24,6 @@ namespace GoodeeProject
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
-        CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
         
         public static string Id { get => id; set => id = value; }
@@ -231,7 +230,6 @@ namespace GoodeeProject
             panel2.Controls.Remove(spec);
             panel2.Controls.Remove(companyInfo);
             panel2.Controls.Remove(surveyAdmin);
-            panel2.Controls.Remove(surveyUser);
             panel2.Controls.Remove(mbti);
         }
     }

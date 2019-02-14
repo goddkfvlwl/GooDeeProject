@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnResult = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.lblWriter = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.SurveyDetailPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.btnResult = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,9 +58,19 @@
             this.panel1.Size = new System.Drawing.Size(815, 79);
             this.panel1.TabIndex = 1;
             // 
+            // btnResult
+            // 
+            this.btnResult.Location = new System.Drawing.Point(737, 47);
+            this.btnResult.Name = "btnResult";
+            this.btnResult.Size = new System.Drawing.Size(75, 23);
+            this.btnResult.TabIndex = 7;
+            this.btnResult.Text = "결과보기";
+            this.btnResult.UseVisualStyleBackColor = true;
+            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
+            // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(709, 7);
+            this.btnModify.Location = new System.Drawing.Point(737, 9);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 6;
@@ -138,16 +148,6 @@
             this.btnSubmit.Text = "설문 작성";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // btnResult
-            // 
-            this.btnResult.Location = new System.Drawing.Point(709, 45);
-            this.btnResult.Name = "btnResult";
-            this.btnResult.Size = new System.Drawing.Size(75, 23);
-            this.btnResult.TabIndex = 7;
-            this.btnResult.Text = "결과보기";
-            this.btnResult.UseVisualStyleBackColor = true;
-            this.btnResult.Click += new System.EventHandler(this.btnResult_Click);
             // 
             // SurveyDetail
             // 

@@ -103,13 +103,15 @@ namespace GoodeeProject.GoodeeDAO
             return mi;
         }
 
-        public void InsertSurvey(string id, string name)
+        public void InsertSurvey(string id, string name, DateTime startdate, DateTime enddate)
         {
             string proc = "InsertSurvey";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[2];
+            SqlParameter[] parameters = new SqlParameter[4];
             parameters[0] = new SqlParameter("@Writer", id);
             parameters[1] = new SqlParameter("@SurveyName", name);
+            parameters[2] = new SqlParameter("@StartDate", startdate);
+            parameters[3] = new SqlParameter("@EndDate", enddate);
             if (con.ExecuteInsert(proc, parameters))
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
@@ -126,7 +128,7 @@ namespace GoodeeProject.GoodeeDAO
             List<Survey> list = new List<Survey>();
             foreach (DataRow item in dt.Rows)
             {
-                list.Add(new Survey(int.Parse(item["SurveyNum"].ToString()), item["SurveyName"].ToString(), item["Writer"].ToString(), bool.Parse(item["isActivation"].ToString())));
+                list.Add(new Survey(int.Parse(item["SurveyNum"].ToString()), item["SurveyName"].ToString(), item["Writer"].ToString(), bool.Parse(item["isActivation"].ToString()), DateTime.Parse(item["StartDate"].ToString()), DateTime.Parse(item["EndDate"].ToString())));
             }
             return list;
         }

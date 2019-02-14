@@ -43,7 +43,6 @@ namespace GoodeeProject
             textbox.TextChanged += TextBox_TextChanged;
             textbox.MouseClick += Textbox_MouseClick;
             textbox.LostFocus += Textbox_LostFocus;
-            //textbox.GotFocus += Textbox_GotFocus;
             textbox.Multiline = true;
             introductionPanel.Controls.Add(textbox);
         }
