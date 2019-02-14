@@ -5,7 +5,6 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise_list.resources
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.AreaExam.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CodeDB.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlAddr.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
@@ -30,7 +29,6 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Portfol
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModifyPW.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmSendEmail.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.Area.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
@@ -56,4 +54,6 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.DetailV
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.Design.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.dll
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.AreaJobSearch.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.JobChoice.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.checkBoxAdd.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.oneJobMatResult.resources

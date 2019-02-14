@@ -97,17 +97,11 @@
     <Compile Include="Agreement_enterprise_list.Designer.cs">
       <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
     </Compile>
-    <Compile Include="AreaExam.cs">
+    <Compile Include="JobChoice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AreaExam.Designer.cs">
-      <DependentUpon>AreaExam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AreaJobSearch.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AreaJobSearch.Designer.cs">
-      <DependentUpon>AreaJobSearch.cs</DependentUpon>
+    <Compile Include="JobChoice.Designer.cs">
+      <DependentUpon>JobChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="CodeDB.cs">
       <SubType>Form</SubType>
@@ -249,6 +243,12 @@
       <DependentUpon>MedioButton.cs</DependentUpon>
     </Compile>
     <Compile Include="MemberDefault.cs" />
+    <Compile Include="oneJobMatResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="oneJobMatResult.Designer.cs">
+      <DependentUpon>oneJobMatResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portfolio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -270,17 +270,15 @@
     <Compile Include="Area.Designer.cs">
       <DependentUpon>Area.cs</DependentUpon>
     </Compile>
+    <Compile Include="XmlSaramin.cs" />
     <EmbeddedResource Include="Agreement_enterprise.resx">
       <DependentUpon>Agreement_enterprise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Agreement_enterprise_list.resx">
       <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AreaExam.resx">
-      <DependentUpon>AreaExam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AreaJobSearch.resx">
-      <DependentUpon>AreaJobSearch.cs</DependentUpon>
+    <EmbeddedResource Include="JobChoice.resx">
+      <DependentUpon>JobChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CodeDB.resx">
       <DependentUpon>CodeDB.cs</DependentUpon>
@@ -348,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSearchAddr.resx">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oneJobMatResult.resx">
+      <DependentUpon>oneJobMatResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
@@ -419,6 +420,8 @@
     <None Include="Resources\profile2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\loupe %281%29.png" />
+    <None Include="Resources\loupe.png" />
     <None Include="Resources\326572-48.png" />
     <Content Include="Database1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

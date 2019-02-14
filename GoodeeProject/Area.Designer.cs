@@ -1,6 +1,6 @@
 ﻿namespace GoodeeProject
 {
-    partial class Area
+    partial class CheckBoxAdd
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -33,17 +33,17 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(456, 238);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(462, 244);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // Area
+            // CheckBoxAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Name = "Area";
+            this.Name = "CheckBoxAdd";
             this.Size = new System.Drawing.Size(462, 244);
             this.ResumeLayout(false);
 

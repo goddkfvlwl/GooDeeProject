@@ -12,6 +12,7 @@ namespace GoodeeProject
 {
     public partial class JobAreaChoice : UserControl
     {
+        CheckBoxAdd area;
         GoodeeDAO.GoodeeDAO gd;
         static List<FirstSubArea> lst;
         FontFamily fm = new FontFamily("함초롬돋움");
@@ -27,12 +28,12 @@ namespace GoodeeProject
         
         private void iTalk_Button_12_Click(object sender, EventArgs e)
         {
-            Area seoul = new Area();
+            CheckBoxAdd seoul = new CheckBoxAdd();
             seoul.Location = new Point(254, 58);
             seoul.Parent = this;
             
         }
-
+        
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
             #region 지역버튼을 누르면 해당 서브지역이 생성
@@ -108,8 +109,9 @@ namespace GoodeeProject
         /// <param name="e"></param>
         private void KoreaArea_Click(object sender, EventArgs e)
         {
+            this.Controls.Remove(area);
             iTalk.iTalk_Button_1 button = (iTalk.iTalk_Button_1)sender;
-            Area area = new Area();
+            area = new CheckBoxAdd();
             
             area.Location = new Point(282, 77);
             area.Size = new Size(435, 237);
@@ -126,7 +128,6 @@ namespace GoodeeProject
                 area.flowLayoutPanel1.Controls.Add(_CheckBox);
 
             }
-
             
         }
 
@@ -136,17 +137,19 @@ namespace GoodeeProject
             // 현재 강서구 두개임
             iTalk.iTalk_CheckBox _CheckBox = (iTalk.iTalk_CheckBox)sender;
 
-            foreach (FirstSubArea item in new GoodeeDAO.GoodeeDAO().AllDetailArea(_CheckBox.Text))
+            lst = new GoodeeDAO.GoodeeDAO().AllDetailArea(_CheckBox.Text);
+            foreach (FirstSubArea item in lst)
             {
-                lst.Add(new FirstSubArea()
-                {
-                    SubAreaCode = item.SubAreaCode
-                });
+                MessageBox.Show(item.SubAreaCode);
             }
 
+            
 
         }
 
-
+        public void RemoveControl()
+        {
+            this.Controls.Remove(area);
+        }
     }
 }

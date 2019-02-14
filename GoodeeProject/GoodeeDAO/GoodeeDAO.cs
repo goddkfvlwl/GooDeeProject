@@ -573,6 +573,88 @@ namespace GoodeeProject.GoodeeDAO
             }
             return list;
         }
+
+        public string AllFirstAreaName(string firstJobName)
+        {
+            string proc = "selectJobCode";
+            string code = "";
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@jobName", firstJobName);
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    code = reader["Job_Code"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return code;
+        }
+
+        public List<FirstSubJob> selectSecondJob(string firstJobCode)
+        {
+            string proc = "selectSecondJob";
+            List<FirstSubJob> list = new List<FirstSubJob>();
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@firstJobCode", firstJobCode);
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubJob()
+                    {
+                        SecondJob_Code = reader["SecondJob_Code"].ToString(),
+                        SecondJob_Name = reader["job_Name"].ToString(),
+                        FirstJob_Code = reader["FirstJob_Code"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubJob> selectDetailJob(string secondJocCode)
+        {
+            string proc = "DetailJob";
+            List<FirstSubJob> list = new List<FirstSubJob>();
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@secondJobCode", secondJocCode);
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubJob()
+                    {
+                        Detailjob_Code = reader["DetailJob_Code"].ToString(),
+                        Detailjob_Name = reader["Job_Name"].ToString(),
+                        SecondJob_Code = reader["SecondJob_Code"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
     }
 }
 

@@ -33,7 +33,9 @@ namespace GoodeeProject
         List<FirstSubArea> ForeginAllFirstAreaName();
         List<FirstSubArea> AllDetailArea(string area);
         List<FirstSubJob> AllFirstJobName();
-        
+        string AllFirstAreaName(string firstJobName);
+        List<FirstSubJob> selectSecondJob(string firstJobCode);
+        List<FirstSubJob> selectDetailJob(string secondJocCode);
         #endregion
 
         bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture);

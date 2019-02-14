@@ -32,7 +32,6 @@
             this.koreaAreaPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.iTalk_RichTextBox1 = new iTalk.iTalk_RichTextBox();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
             this.SuspendLayout();
             // 
             // foreginAreaName
@@ -75,21 +74,10 @@
             this.iTalk_Label1.TabIndex = 3;
             this.iTalk_Label1.Text = "--------------------------------------------------------------\r\n\r\n";
             // 
-            // metroCheckBox1
-            // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Location = new System.Drawing.Point(377, 162);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(113, 15);
-            this.metroCheckBox1.TabIndex = 8;
-            this.metroCheckBox1.Text = "metroCheckBox1";
-            this.metroCheckBox1.UseSelectable = true;
-            // 
             // JobAreaChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.metroCheckBox1);
             this.Controls.Add(this.koreaAreaPanel);
             this.Controls.Add(this.foreginAreaName);
             this.Controls.Add(this.iTalk_RichTextBox1);
@@ -107,6 +95,5 @@
         private iTalk.iTalk_RichTextBox iTalk_RichTextBox1;
         private System.Windows.Forms.FlowLayoutPanel foreginAreaName;
         private System.Windows.Forms.FlowLayoutPanel koreaAreaPanel;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
     }
 }

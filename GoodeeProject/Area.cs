@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class Area : UserControl
+    public partial class CheckBoxAdd : UserControl
     {
-        public Area()
+        public CheckBoxAdd()
         {
             InitializeComponent();
+        }
+
+        public void RemoveControl()
+        {
+            this.Controls.Clear();
         }
     }
 }
