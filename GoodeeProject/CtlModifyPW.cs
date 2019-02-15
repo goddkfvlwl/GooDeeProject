@@ -14,6 +14,8 @@ namespace GoodeeProject
 {
     public partial class CtlModifyPW : UserControl
     {
+        SaveLog s = new SaveLog();
+
         private string key;
         private bool pwCheck = false;
         GoodeeDAO.GoodeeDAO gd;
@@ -141,6 +143,7 @@ namespace GoodeeProject
                 {
                     if (CaptchaResult())
                     {
+<<<<<<< HEAD
                         if (gd.UpdatePassWord(asd.Id, tboxNewPW.Text))
                         {
                             MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -151,6 +154,11 @@ namespace GoodeeProject
                     {
                         MessageBox.Show("자동방지입력이 올바르지 않습니다.");
                         CtlModifyPW_Load(null, null);
+=======
+                        s.AddList("정보수정 완료");
+                        MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.ParentForm.Close();
+>>>>>>> 87ce42d64a49ec553bb1362e3ed1ff46afc7d920
                     }
                 }
                 else

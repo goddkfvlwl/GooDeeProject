@@ -124,7 +124,7 @@
             this.btnModifyPW.Text = "비밀번호 수정";
             this.btnModifyPW.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModifyPW.UseVisualStyleBackColor = false;
-            this.btnModifyPW.Click += new System.EventHandler(this.btnSurvey_Click);
+            this.btnModifyPW.Click += new System.EventHandler(this.btnModifyPW_Click);
             // 
             // FrmModify
             // 
@@ -142,6 +142,7 @@
             this.Name = "FrmModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmModify";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmModify_FormClosed);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);

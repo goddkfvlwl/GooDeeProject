@@ -125,6 +125,7 @@
             this.btnStudent.TabIndex = 7;
             this.btnStudent.Text = "수강생관리";
             this.btnStudent.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
             // btnLog
             // 
@@ -138,6 +139,7 @@
             this.btnLog.TabIndex = 6;
             this.btnLog.Text = "로그관리";
             this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // btnCreateID
             // 

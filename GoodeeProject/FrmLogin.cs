@@ -13,9 +13,14 @@ namespace GoodeeProject
 {
     public partial class FrmLogin : Form, IFormControl
     {
+        FrmModify modify = new FrmModify();
+        SaveLog s = new SaveLog();
+        static bool logoutCheck = false;
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;
+
+        public static bool LogoutCheck { get => logoutCheck; set => logoutCheck = value; }
 
         public FrmLogin()
         {
@@ -25,6 +30,7 @@ namespace GoodeeProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            
             if (!(String.IsNullOrEmpty(tboxID.Text) && String.IsNullOrEmpty(tboxPW.Text)))
             {
                 FrmMain.Ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
@@ -40,6 +46,7 @@ namespace GoodeeProject
                         FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
+                        s.AddList("로그인");
                         this.Visible = false;
                     }
                 }
@@ -90,5 +97,19 @@ namespace GoodeeProject
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            if (FrmMain.Ai.Id != null && LogoutCheck == false)
+            {
+                s.AddList("프로그램 종료");
+                s.WriteLog();
+                s.SendLog(FrmMain.Ai.Id);
+                s.DeleteLog();
+            }
+        }
+
+        
     }
 }

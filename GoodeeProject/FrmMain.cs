@@ -22,6 +22,7 @@ namespace GoodeeProject
         //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
+        
 
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
@@ -34,10 +35,16 @@ namespace GoodeeProject
 
         public FrmMain()
         {
+            //InitializeComponent();
+            LoadFrm();
+        }
+
+        public void LoadFrm()
+        {
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
-            
+
             if (mi.Picture != null)
             {
                 ctlProfile1.pboxProFile.Image = mi.Picture;

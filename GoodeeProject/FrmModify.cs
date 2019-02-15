@@ -12,6 +12,8 @@ namespace GoodeeProject
 {
     public partial class FrmModify : Form, IFormControl
     {
+        GoodeeDAO.GoodeeDAO gd;
+
         CtlModifyMemberInfo cm;
         CtlModifyPW cp;
 
@@ -24,9 +26,10 @@ namespace GoodeeProject
         public FrmModify()
         {
             InitializeComponent();
+            gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
-        private void btnSurvey_Click(object sender, EventArgs e)
+        private void btnModifyPW_Click(object sender, EventArgs e)
         {
             panel1.Controls.Remove(cm);
             bottomPanel.Visible = true;
@@ -77,6 +80,14 @@ namespace GoodeeProject
             Rectangle borderRectangle = this.ClientRectangle;
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
+
+        private void FrmModify_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FrmMain fm = (FrmMain)Owner;
+            FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
+            fm.ctlProfile1.pboxProFile.Image = FrmMain.Mi.Picture;
+            
         }
     }
 }

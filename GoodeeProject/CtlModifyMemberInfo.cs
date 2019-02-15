@@ -14,6 +14,8 @@ namespace GoodeeProject
 {
     public partial class CtlModifyMemberInfo : UserControl
     {
+        SaveLog s = new SaveLog();
+
         Image profileImg;
         GoodeeDAO.GoodeeDAO gd;
 
@@ -70,6 +72,9 @@ namespace GoodeeProject
                     //업데이트
                     gd.UpdateMemberInfo(FrmMain.Mi.Id, tboxMobile.Text, tboxAddr.Text + tboxDetailAddr.Text, tboxHopePay.Text, profileImg);
                     MessageBox.Show("수정 성공");
+                    this.ParentForm.Close();
+                    s.AddList("정보수정 버튼 클릭");
+                    Invalidate();
                 }
                 else
                 {
