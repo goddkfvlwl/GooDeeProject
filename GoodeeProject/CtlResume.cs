@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class CtlAddr : UserControl
+    public partial class CtlResume : UserControl
     {
-        public CtlAddr()
+        public CtlResume()
         {
             InitializeComponent();
+        }
+
+        private void CtlResume_Load(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void CtlResume_Paint(object sender, PaintEventArgs e)
+        {
             
         }
     }

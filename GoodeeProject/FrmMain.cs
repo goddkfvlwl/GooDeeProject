@@ -15,6 +15,7 @@ namespace GoodeeProject
 {
     public partial class FrmMain : Form
     {
+        SaveLog s = new SaveLog();
         private int movePointX;
         private int movePointY;
         
@@ -98,14 +99,24 @@ namespace GoodeeProject
         private void btnSpec_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-
+            
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
 
             spec = new CtlSpecDetail();
             panel2.Controls.Add(spec);
+            spec.BringToFront();
             spec.Location = new Point(192, 1);
             spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+            spec.Controls["lblResume"].Click += BtnResume_Click;
+        }
+
+        private void BtnResume_Click(object sender, EventArgs e)
+        {
+            s.AddList("이력서 클릭");
+            CtlResume rs = new CtlResume();
+            panel2.Controls.Add(rs);
+            rs.Location = new Point(185, 0);
         }
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
