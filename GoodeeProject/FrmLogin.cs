@@ -20,7 +20,6 @@ namespace GoodeeProject
         public FrmLogin()
         {
             InitializeComponent();
-            MessageBox.Show("윤수야 제발 잠좀 그만자라 로아도 접고");
             gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 

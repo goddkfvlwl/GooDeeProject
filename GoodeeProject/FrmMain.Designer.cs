@@ -35,8 +35,6 @@
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.portfolio1 = new GoodeeProject.Portfolio();
-            this.studentManagement1 = new GoodeeProject.StudentManagement();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnChat = new System.Windows.Forms.Button();
             this.btnMBTI = new System.Windows.Forms.Button();
@@ -122,8 +120,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.portfolio1);
-            this.panel2.Controls.Add(this.studentManagement1);
             this.panel2.Controls.Add(this.sidePanel);
             this.panel2.Controls.Add(this.btnChat);
             this.panel2.Controls.Add(this.btnMBTI);
@@ -137,23 +133,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 454);
             this.panel2.TabIndex = 27;
-            // 
-            // portfolio1
-            // 
-            this.portfolio1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.portfolio1.Location = new System.Drawing.Point(185, 0);
-            this.portfolio1.Name = "portfolio1";
-            this.portfolio1.Size = new System.Drawing.Size(815, 454);
-            this.portfolio1.TabIndex = 9;
-            this.portfolio1.Visible = false;
-            // 
-            // studentManagement1
-            // 
-            this.studentManagement1.Location = new System.Drawing.Point(185, 0);
-            this.studentManagement1.Name = "studentManagement1";
-            this.studentManagement1.Size = new System.Drawing.Size(815, 454);
-            this.studentManagement1.TabIndex = 8;
-            this.studentManagement1.Visible = false;
             // 
             // sidePanel
             // 
@@ -275,7 +254,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTalk_ThemeContainer1";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -298,7 +276,5 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Separator iTalk_Separator1;
         private CtlProfile ctlProfile1;
-        private StudentManagement studentManagement1;
-        private Portfolio portfolio1;
     }
 }

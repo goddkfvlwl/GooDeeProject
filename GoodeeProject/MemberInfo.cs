@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +20,13 @@ namespace GoodeeProject
         private float score;
         private string curriculum;
         private string className;
-        private string picture;
+        private Image picture;
 
         public MemberInfo()
         {
         }
 
-        public MemberInfo(string id, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score, string curriculum, string className, string picture)
+        public MemberInfo(string id, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score, string curriculum, string className, Image picture)
         {
             this.Id = id;
             this.Name = name;
@@ -52,6 +53,6 @@ namespace GoodeeProject
         public float Score { get => score; set => score = value; }
         public string Curriculum { get => curriculum; set => curriculum = value; }
         public string ClassName { get => className; set => className = value; }
-        public string Picture { get => picture; set => picture = value; }
+        public Image Picture { get => picture; set => picture = value; }
     }
 }

@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -48,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="CtlAddr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlAddr.Designer.cs">
+      <DependentUpon>CtlAddr.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,6 +83,24 @@
     </Compile>
     <Compile Include="CtlProfile.Designer.cs">
       <DependentUpon>CtlProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlSelfIntroduce.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlSelfIntroduce.Designer.cs">
+      <DependentUpon>CtlSelfIntroduce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionItem.Designer.cs">
+      <DependentUpon>CtlSelfIntroductionItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionList.Designer.cs">
+      <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="DetailMenu\CtlCompanyInfoDetail.cs">
@@ -108,6 +144,12 @@
     </Compile>
     <Compile Include="FrmModifyPW.Designer.cs">
       <DependentUpon>FrmModifyPW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSearchAddr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSearchAddr.Designer.cs">
+      <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </Compile>
     <Compile Include="IFormControl.cs" />
     <Compile Include="FrmLogin.cs">
@@ -159,11 +201,26 @@
     <Compile Include="StudentManagement.Designer.cs">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CtlAddr.resx">
+      <DependentUpon>CtlAddr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlModifyMemberInfo.resx">
+      <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyPW.resx">
       <DependentUpon>CtlModifyPW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlProfile.resx">
       <DependentUpon>CtlProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlSelfIntroduce.resx">
+      <DependentUpon>CtlSelfIntroduce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlSelfIntroductionItem.resx">
+      <DependentUpon>CtlSelfIntroductionItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlSelfIntroductionList.resx">
+      <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetailMenu\CtlCompanyInfoDetail.resx">
       <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
@@ -192,6 +249,9 @@
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSearchAddr.resx">
+      <DependentUpon>FrmSearchAddr.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,6 +277,7 @@
     <EmbeddedResource Include="StudentManagement.resx">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -226,6 +287,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="test.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

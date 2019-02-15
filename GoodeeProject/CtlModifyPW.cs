@@ -28,6 +28,7 @@ namespace GoodeeProject
         {
             key = GetKey().Substring(8, 16);
             GetImage(key);
+
         }
 
         private string GetKey()
@@ -186,6 +187,13 @@ namespace GoodeeProject
         private void btnReload_Click(object sender, EventArgs e)
         {
             CtlModifyPW_Load(null, null);
+        }
+
+        private void CtlModifyPW_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
     }
 }

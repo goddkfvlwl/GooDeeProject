@@ -69,16 +69,40 @@ namespace GoodeeProject
             return ds.Tables[0];
         }
 
+        internal bool ExecuteScalar(string proc, SqlParameter[] parameters)
+        {
+            bool result = false;
+         
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = OpenConnection();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
+
+            int id = (int)cmd.ExecuteScalar();
+            if (id == 0)
+            {
+                result = true;
+            }
+
+            con.Close();
+            return result;
+        }
+
         internal bool ExecuteInsert(string proc, SqlParameter[] pm)
         {
             bool result = false;
-
+            OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = proc;
 
-            OpenConnection();
+      
 
             if (pm != null)
             {
@@ -88,7 +112,7 @@ namespace GoodeeProject
             int r = cmd.ExecuteNonQuery();
 
 
-            if (r == 1)
+            if (r >= 1)
             {
                 result = true;
             }

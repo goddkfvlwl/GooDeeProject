@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +43,53 @@ namespace GoodeeProject.GoodeeDAO
             }
 
             return ai;
+        }
+
+        internal bool CheckID(string email)
+        {
+            string proc = "CheckID";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ID", email);
+
+            return con.ExecuteScalar(proc, parameters);
+        }
+
+        internal bool InsertAdmin(MemberInfo info, string password)
+        {
+            string proc = "InsertAdmin";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[9];
+            parameters[0] = new SqlParameter("ID", info.Id);
+            parameters[1] = new SqlParameter("PW", password);
+            parameters[2] = new SqlParameter("Name", info.Name);
+            parameters[3] = new SqlParameter("BirthDate", info.BirthDate);
+            parameters[4] = new SqlParameter("Gender", info.Gender);
+            parameters[5] = new SqlParameter("Mobile", info.Mobile);
+            parameters[6] = new SqlParameter("Address", info.Address);
+            parameters[7] = new SqlParameter("Army", info.Army);
+
+            SqlParameter imageParameter = new SqlParameter("picture", SqlDbType.Image);
+            imageParameter.Value = DBNull.Value;
+
+            if (info.Picture == null)
+            {
+                parameters[8] = imageParameter;
+            }
+            else
+            {
+                parameters[8] = new SqlParameter("picture", ImageToByteArray(info.Picture));
+            }
+
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
         }
 
         internal void InsertMember(MemberInfo member)
@@ -114,6 +163,18 @@ namespace GoodeeProject.GoodeeDAO
                 mi.Curriculum = dt.Rows[0][9].ToString();
                 mi.ClassName = dt.Rows[0][10].ToString();
 
+                if (String.IsNullOrEmpty(dt.Rows[0][11].ToString()))
+                {
+                    mi.Picture = Properties.Resources.profile2;
+
+                }
+                else
+                {
+                    var imgArr = (byte[])dt.Rows[0][11];
+                    MemoryStream ms = new MemoryStream(imgArr, 0, imgArr.Length);
+                    mi.Picture = Image.FromStream(ms);
+                }
+
             }
 
             return mi;
@@ -135,9 +196,59 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
-        public bool InsertAdmin(MemberInfo info, string password)
+
+      
+        public bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture)
         {
-            string proc = "InsertAdmin"
+            string proc = "UpdateMemberInfo";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[5];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("mobile", mobile);
+            pms[2] = new SqlParameter("addr", address); 
+            pms[3] = new SqlParameter("hopepay", hopePay);
+
+            SqlParameter imageParameter = new SqlParameter("picture", SqlDbType.Image);
+            imageParameter.Value = DBNull.Value;
+      
+            if (picture == null)
+            {
+                pms[4] = imageParameter;
+            }
+            else
+            {
+                pms[4] = new SqlParameter("picture", ImageToByteArray(picture));
+            }
+            
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public DataTable SelectSelfIntroduction(string id)
+        {
+            string proc = "SelectSelfIntroduction";
+
+
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            DataTable dt = con.SelectWithParams(proc, pms);
+
+            return dt;
+
+        }
+
+        public byte[] ImageToByteArray(Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            return ms.ToArray();
         }
     }
 }

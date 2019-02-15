@@ -76,7 +76,7 @@
             // 
             // ctlModifyPW1
             // 
-            this.ctlModifyPW1.BackColor = System.Drawing.Color.White;
+            this.ctlModifyPW1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.ctlModifyPW1.Location = new System.Drawing.Point(0, 0);
             this.ctlModifyPW1.Name = "ctlModifyPW1";
             this.ctlModifyPW1.Size = new System.Drawing.Size(399, 571);

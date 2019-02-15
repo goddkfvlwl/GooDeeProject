@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,12 +38,18 @@ namespace GoodeeProject
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
             
-            //if (mi.Picture != null)
-            //{
-            //    MemoryStream ms = new MemoryStream(Convert.ToByte(mi.Picture));
-
-            //    ctlProfile1.pboxProFile.Image = Image.FromStream(ms);
-            //}
+            if (mi.Picture != null)
+            {
+                ctlProfile1.pboxProFile.Image = mi.Picture;
+            }
+            else
+            {
+                //ResourceManager rm = Properties.Resources.ResourceManager;
+                //mi.Picture = rm.GetObject("profile2.png") as string;
+                //ctlProfile1.pboxProFile.ImageLocation = mi.Picture;
+                mi.Picture = Properties.Resources.profile2;
+                ctlProfile1.pboxProFile.Image = mi.Picture;
+            }
 
             if (ai.Authority == 'S')
             {
@@ -92,6 +99,13 @@ namespace GoodeeProject
             panel2.Controls.Add(spec);
             spec.Location = new Point(192, 1);
             spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+            spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
+        }
+
+        private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
+        {
+            RemoveUserControl();
+            panel2.Controls.Add(new CtlSelfIntroductionList());
         }
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
@@ -202,12 +216,6 @@ namespace GoodeeProject
         {
             VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
         }
-
-        private void Frm_BorderPaint(object sender, PaintEventArgs e)
-        {
-            Rectangle borderRectangle = this.ClientRectangle;
-            borderRectangle.Inflate(0, 0);
-            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
-        }
+        
     }
 }

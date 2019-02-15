@@ -280,6 +280,7 @@
             this.Name = "CtlModifyPW";
             this.Size = new System.Drawing.Size(399, 571);
             this.Load += new System.EventHandler(this.CtlModifyPW_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CtlModifyPW_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pboxCaptcha)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
