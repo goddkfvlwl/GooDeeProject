@@ -117,6 +117,7 @@ namespace GoodeeProject
             CtlResume rs = new CtlResume();
             panel2.Controls.Add(rs);
             rs.Location = new Point(185, 0);
+            spec.SendToBack();
         }
 
         private void BtnPortfolio_Click(object sender, EventArgs e)

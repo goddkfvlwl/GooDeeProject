@@ -58,6 +58,18 @@
     <Compile Include="CtlAddr.Designer.cs">
       <DependentUpon>CtlAddr.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlEdu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlEdu.Designer.cs">
+      <DependentUpon>CtlEdu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlLicense.Designer.cs">
+      <DependentUpon>CtlLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -196,6 +208,12 @@
     </Compile>
     <EmbeddedResource Include="CtlAddr.resx">
       <DependentUpon>CtlAddr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlEdu.resx">
+      <DependentUpon>CtlEdu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlLicense.resx">
+      <DependentUpon>CtlLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyMemberInfo.resx">
       <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
