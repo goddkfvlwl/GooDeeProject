@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="Class.cs" />
     <Compile Include="CreateSurvey.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +148,12 @@
     <Compile Include="PortfolioList.Designer.cs">
       <DependentUpon>PortfolioList.cs</DependentUpon>
     </Compile>
+    <Compile Include="PortfolioListMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PortfolioListMenu.Designer.cs">
+      <DependentUpon>PortfolioListMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="PortfolioManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -228,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PortfolioList.resx">
       <DependentUpon>PortfolioList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortfolioListMenu.resx">
+      <DependentUpon>PortfolioListMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PortfolioManager.resx">
       <DependentUpon>PortfolioManager.cs</DependentUpon>

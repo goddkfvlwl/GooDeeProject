@@ -50,10 +50,16 @@
             // 
             // gViewStudentInfo
             // 
+            this.gViewStudentInfo.AllowUserToAddRows = false;
+            this.gViewStudentInfo.AllowUserToDeleteRows = false;
+            this.gViewStudentInfo.AllowUserToResizeColumns = false;
+            this.gViewStudentInfo.AllowUserToResizeRows = false;
             this.gViewStudentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewStudentInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gViewStudentInfo.Location = new System.Drawing.Point(0, 52);
             this.gViewStudentInfo.Name = "gViewStudentInfo";
+            this.gViewStudentInfo.ReadOnly = true;
+            this.gViewStudentInfo.RowHeadersVisible = false;
             this.gViewStudentInfo.RowTemplate.Height = 23;
             this.gViewStudentInfo.Size = new System.Drawing.Size(815, 402);
             this.gViewStudentInfo.TabIndex = 1;

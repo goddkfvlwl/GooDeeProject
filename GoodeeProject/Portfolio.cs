@@ -186,7 +186,7 @@ namespace GoodeeProject
             Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
-
+            
             for (int i = introductionInfo.Controls.Count; i > 1; i--)
             {
                 introductionInfo.Controls.RemoveAt(i - 1);
@@ -197,13 +197,31 @@ namespace GoodeeProject
                 XmlDocument doc = new XmlDocument();
                 doc.Load("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + portfolioName + "/" + portfolioName + ".xml");
                 projectInfo.Controls["txtProjectTitle"].Text = doc.SelectSingleNode("//projectName").InnerText;
+                
                 projectInfo.Controls["dpProjectStartDate"].Text = doc.SelectSingleNode("//StartDate").InnerText;
                 projectInfo.Controls["dpProjectEndDate"].Text = doc.SelectSingleNode("//EndDate").InnerText;
                 (projectInfo.Controls["MemberCount"] as NumericUpDown).Value = long.Parse(doc.SelectSingleNode("//MemberCount").InnerText);
                 projectInfo.Controls["txtProjectPart"].Text = doc.SelectSingleNode("//ProjectPart").InnerText;
+                
                 useTechnologyInfo.Controls["panel4"].Controls["txtDevEnvironment"].Text = doc.SelectSingleNode("//DevelopEnvironment").InnerText;
+                
                 useTechnologyInfo.Controls["panel5"].Controls["txtUseTools"].Text = doc.SelectSingleNode("//UseTools").InnerText;
+                
                 useTechnologyInfo.Controls["panel6"].Controls["txtUseTechnique"].Text = doc.SelectSingleNode("//UseTechnique").InnerText;
+
+                if (FrmMain.Authority != 'S')
+                {
+                    projectInfo.Controls["dpProjectStartDate"].Enabled = false;
+                    projectInfo.Controls["dpProjectEndDate"].Enabled = false;
+                    (projectInfo.Controls["MemberCount"] as NumericUpDown).ReadOnly = true;
+                    (projectInfo.Controls["MemberCount"] as NumericUpDown).Enabled = false;
+                    (projectInfo.Controls["txtProjectTitle"] as TextBox).ReadOnly = true;
+                    (projectInfo.Controls["txtProjectPart"] as TextBox).ReadOnly = true;
+                    (useTechnologyInfo.Controls["panel4"].Controls["txtDevEnvironment"] as TextBox).ReadOnly = true;
+                    (useTechnologyInfo.Controls["panel5"].Controls["txtUseTools"] as TextBox).ReadOnly = true;
+                    (useTechnologyInfo.Controls["panel6"].Controls["txtUseTechnique"] as TextBox).ReadOnly = true;
+                    this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["AddButtonPanel"].Visible = false;
+                }
                 int i = 0;
 
                 foreach (XmlNode item in doc.SelectSingleNode("//Introduction").ChildNodes)
@@ -211,11 +229,19 @@ namespace GoodeeProject
                     if (item.Name.Contains("Title"))
                     {
                         introductionInfo.Controls["textBoxTitle"].Text = item.Attributes["value"].Value.ToString();
+                        if (FrmMain.Authority != 'S')
+                        {
+                            (introductionInfo.Controls["textBoxTitle"] as TextBox).ReadOnly = true; 
+                        }
                     }
                     else if (item.Name.Contains("textbox"))
                     {
                         portfolioDetail1.btnAddTextBox_Click(null, null);
                         introductionInfo.Controls["textbox" + i].Text = item.Attributes["value"].Value.ToString();
+                        if (FrmMain.Authority != 'S')
+                        {
+                            (introductionInfo.Controls["textbox" + i] as TextBox).ReadOnly = true;
+                        }
                     }
                     else if (item.Name.Contains("picture"))
                     {
@@ -225,9 +251,12 @@ namespace GoodeeProject
                         p.MinimumSize = new Size(200, 200);
                         p.MaximumSize = new Size(580, 580);
                         p.SizeMode = PictureBoxSizeMode.StretchImage;
-                        p.MouseClick += this.portfolioDetail1.Picture_MouseClick;
-                        p.MouseDown += this.portfolioDetail1.Picture_MouseDown;
-                        p.MouseUp += this.portfolioDetail1.Picture_MouseUp;
+                        if (FrmMain.Authority == 'S')
+                        {
+                            p.MouseClick += this.portfolioDetail1.Picture_MouseClick;
+                            p.MouseDown += this.portfolioDetail1.Picture_MouseDown;
+                            p.MouseUp += this.portfolioDetail1.Picture_MouseUp; 
+                        }
                         introductionInfo.Controls.Add(p);
                         (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).Size = new Size(int.Parse(item.Attributes["Width"].Value), int.Parse(item.Attributes["Height"].Value));
                         WebClient web = new WebClient();

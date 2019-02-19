@@ -23,18 +23,33 @@ namespace GoodeeProject
         private void StudentManagement_Load(object sender, EventArgs e)
         {
             GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
-            this.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
+            var list = goodeeDAO.SelectMemberList();
+            this.gViewStudentInfo.Columns.Add("Class", "분류");
+            this.gViewStudentInfo.Columns.Add("Curriculum", "과정명");
+            this.gViewStudentInfo.Columns.Add("Turn", "회차");
+            this.gViewStudentInfo.Columns.Add("Name", "이름");
+            this.gViewStudentInfo.Columns.Add("BirthDay", "생년월일");
+            this.gViewStudentInfo.Columns.Add("Gender", "성별");
+            this.gViewStudentInfo.Columns.Add("Mobile", "휴대폰");
+            this.gViewStudentInfo.Columns.Add("Address", "주소");
             this.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.gViewStudentInfo.Columns[0].HeaderText = "분류";
-            this.gViewStudentInfo.Columns[1].HeaderText = "과정명";
-            this.gViewStudentInfo.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            this.gViewStudentInfo.Columns[2].HeaderText = "이름";
-            this.gViewStudentInfo.Columns[3].HeaderText = "생년월일";
-            this.gViewStudentInfo.Columns[4].HeaderText = "성별";
-            this.gViewStudentInfo.Columns[5].HeaderText = "휴대폰";
-            this.gViewStudentInfo.Columns[6].HeaderText = "주소";
-            this.gViewStudentInfo.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.gViewStudentInfo.Columns[7].Visible = false;
+            foreach (var item in list)
+            {
+                var c = goodeeDAO.SelectClass(item.ClassNum);
+                string className = c.Class_Name;
+                string curriculum = c.Curriculum;
+                string turn = c.Turn;
+                string gender = "";
+                if (item.Gender.ToString() == "m" || item.Gender.ToString() == "M")
+                {
+                    gender = "남자";
+                }else
+                {
+                    gender = "여자";
+                }
+                gViewStudentInfo.Rows.Add(new string[] { className, curriculum, turn, item.Name, item.BirthDate.ToShortDateString(), gender, item.Mobile, item.Address});
+            }
+            
         }
 
         private void btnReadExl_Click(object sender, EventArgs e)
@@ -59,17 +74,16 @@ namespace GoodeeProject
                         && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString()) 
                         && !string.IsNullOrEmpty(xls["휴대폰"].ToString()) && !string.IsNullOrEmpty(xls["주소"].ToString()))
                     {
-                        MemberInfo member = new MemberInfo()
-                        {
-                            Id = xls["이메일"].ToString(),
-                            Name = xls["이름"].ToString(),
-                            Gender = xls["성별"].ToString() == "남자" ? 'm' : 'f',
-                            BirthDate = DateTime.Parse(xls["생년월일"].ToString()),
-                            Mobile = xls["휴대폰"].ToString(),
-                            Address = xls["주소"].ToString(),
-                            Curriculum = xls["과정명"].ToString() + " " + xls["회차"].ToString(),
-                            ClassName = xls["분류"].ToString()
-                        };
+                        string[] member = new string[9];
+                        member[0] = xls["이메일"].ToString();
+                        member[1] = xls["이름"].ToString();
+                        member[2] = xls["성별"].ToString() == "남자" ? "m" : "f";
+                        member[3] = xls["생년월일"].ToString();
+                        member[4] = xls["휴대폰"].ToString();
+                        member[5] = xls["주소"].ToString();
+                        member[6] = xls["분류"].ToString();
+                        member[7] = xls["과정명"].ToString();
+                        member[8] = xls["회차"].ToString();
                         goodeeDAO.InsertMember(member); 
                     }
                 }
@@ -109,15 +123,13 @@ namespace GoodeeProject
 
                 for (int i = 0; i < list.Count; i++)
                 {
-                    worksheet.Cells[1][i + 3] = list[i].Curriculum;
-                    worksheet.Cells[2][i + 3] = list[i].Class_name;
-                    if (list[i].Class_name.Length > 3 && !string.IsNullOrEmpty(list[i].Class_name))
-                    {
-                        worksheet.Cells[3][i + 3] = list[i].Class_name.Substring(list[i].Class_name.Length - 3); 
-                    }
+                    var c = goodeeDAO.SelectClass(list[i].ClassNum);
+                    worksheet.Cells[1][i + 3] = c.Class_Name;
+                    worksheet.Cells[2][i + 3] = c.Curriculum;
+                    worksheet.Cells[3][i + 3] = c.Turn;
                     worksheet.Cells[4][i + 3] = list[i].Name;
                     worksheet.Cells[5][i + 3] = list[i].BirthDate;
-                    worksheet.Cells[6][i + 3] = list[i].Gender == "m"? "남자" : "여자";
+                    worksheet.Cells[6][i + 3] = list[i].Gender == 'm' ? "남자" : "여자";
                     worksheet.Cells[7][i + 3] = list[i].Mobile;
                     worksheet.Cells[8][i + 3] = list[i].Id;
                     worksheet.Cells[9][i + 3] = list[i].Address;

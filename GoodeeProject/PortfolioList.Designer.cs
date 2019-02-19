@@ -30,11 +30,13 @@
         {
             this.btnBack = new System.Windows.Forms.Button();
             this.btnAddPortfolio = new System.Windows.Forms.Button();
+            this.ListMenuLayout = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(677, 161);
+            this.btnBack.Location = new System.Drawing.Point(680, 3);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(123, 33);
             this.btnBack.TabIndex = 1;
@@ -44,7 +46,7 @@
             // 
             // btnAddPortfolio
             // 
-            this.btnAddPortfolio.Location = new System.Drawing.Point(677, 58);
+            this.btnAddPortfolio.Location = new System.Drawing.Point(680, 61);
             this.btnAddPortfolio.Name = "btnAddPortfolio";
             this.btnAddPortfolio.Size = new System.Drawing.Size(123, 33);
             this.btnAddPortfolio.TabIndex = 2;
@@ -52,10 +54,30 @@
             this.btnAddPortfolio.UseVisualStyleBackColor = true;
             this.btnAddPortfolio.Click += new System.EventHandler(this.btnAddPortfolio_Click);
             // 
+            // ListMenuLayout
+            // 
+            this.ListMenuLayout.AutoScroll = true;
+            this.ListMenuLayout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ListMenuLayout.Location = new System.Drawing.Point(0, 0);
+            this.ListMenuLayout.Name = "ListMenuLayout";
+            this.ListMenuLayout.Size = new System.Drawing.Size(660, 454);
+            this.ListMenuLayout.TabIndex = 3;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(680, 119);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(123, 33);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "삭제";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // PortfolioList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.ListMenuLayout);
             this.Controls.Add(this.btnAddPortfolio);
             this.Controls.Add(this.btnBack);
             this.Name = "PortfolioList";
@@ -68,5 +90,7 @@
         #endregion
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnAddPortfolio;
+        private System.Windows.Forms.FlowLayoutPanel ListMenuLayout;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

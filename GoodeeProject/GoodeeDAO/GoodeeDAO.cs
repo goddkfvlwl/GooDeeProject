@@ -43,18 +43,20 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
-        internal void InsertMember(MemberInfo member)
+        internal void InsertMember(string[] str)
         {
             string proc = "InsertMember";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[7];
-            parameters[0] = new SqlParameter("id", member.Id);
-            parameters[1] = new SqlParameter("name", member.Name);
-            parameters[2] = new SqlParameter("gender", member.Gender);
-            parameters[3] = new SqlParameter("birthDate", member.BirthDate);
-            parameters[4] = new SqlParameter("mobile", member.Mobile);
-            parameters[5] = new SqlParameter("address", member.Address);
-            parameters[6] = new SqlParameter("curriculum", member.ClassNum);
+            SqlParameter[] parameters = new SqlParameter[9];
+            parameters[0] = new SqlParameter("id", str[0]);
+            parameters[1] = new SqlParameter("name", str[1]);
+            parameters[2] = new SqlParameter("gender", str[2]);
+            parameters[3] = new SqlParameter("birthDate", DateTime.Parse(str[3]));
+            parameters[4] = new SqlParameter("mobile", str[4]);
+            parameters[5] = new SqlParameter("address", str[5]);
+            parameters[6] = new SqlParameter("ClassName", str[6]);
+            parameters[7] = new SqlParameter("Curriculum", str[7]);
+            parameters[8] = new SqlParameter("Turn", str[8]);
             if (con.ExecuteInsert(proc, parameters))
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
@@ -96,9 +98,34 @@ namespace GoodeeProject.GoodeeDAO
                 mi.HopePay = dt.Rows[0][6].ToString() == null ? "0" : dt.Rows[0][6].ToString();
                 mi.Army = dt.Rows[0][7].ToString().Contains(Convert.DBNull.ToString()) ? 'N' : char.Parse(dt.Rows[0][7].ToString());
                 mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
-                mi.ClassNum = int.Parse(dt.Rows[0][9].ToString());
+                //mi.ClassNum = int.Parse(dt.Rows[0][9].ToString());
             }
             return mi;
+        }
+        
+        public Class SelectClass(int classNum)
+        {
+            string proc = "SelectClass";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@ClassNum", classNum);
+
+            DataTable dt = con.SelectWithParams(proc, parameters);
+            Class c = new Class();
+            if (dt.Rows.Count == 1)
+            {
+                c.ClassNum = int.Parse(dt.Rows[0][0].ToString());
+                c.Class_Name = dt.Rows[0][1].ToString();
+                c.Curriculum = dt.Rows[0][2].ToString();
+                if (!string.IsNullOrEmpty(dt.Rows[0][3].ToString()) && !string.IsNullOrEmpty(dt.Rows[0][4].ToString()))
+                {
+                    c.Startdate = DateTime.Parse(dt.Rows[0][3].ToString());
+                    c.Enddate = DateTime.Parse(dt.Rows[0][4].ToString()); 
+                }
+                c.Turn = dt.Rows[0][5].ToString();
+                
+            }
+            return c;
         }
 
         public void InsertSurvey(string id, string name, DateTime startdate, DateTime enddate)

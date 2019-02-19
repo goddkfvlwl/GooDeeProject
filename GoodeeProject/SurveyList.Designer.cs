@@ -30,8 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rdoInclude = new System.Windows.Forms.RadioButton();
             this.rdoNotInclude = new System.Windows.Forms.RadioButton();
+            this.rdoInclude = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +46,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(815, 429);
@@ -61,17 +62,6 @@
             this.panel1.Size = new System.Drawing.Size(230, 23);
             this.panel1.TabIndex = 1;
             // 
-            // rdoInclude
-            // 
-            this.rdoInclude.AutoSize = true;
-            this.rdoInclude.Location = new System.Drawing.Point(3, 3);
-            this.rdoInclude.Name = "rdoInclude";
-            this.rdoInclude.Size = new System.Drawing.Size(103, 16);
-            this.rdoInclude.TabIndex = 0;
-            this.rdoInclude.Text = "이전 설문 포함";
-            this.rdoInclude.UseVisualStyleBackColor = true;
-            this.rdoInclude.CheckedChanged += new System.EventHandler(this.SurveyList_Load);
-            // 
             // rdoNotInclude
             // 
             this.rdoNotInclude.AutoSize = true;
@@ -84,6 +74,17 @@
             this.rdoNotInclude.Text = "이전 설문 미포함";
             this.rdoNotInclude.UseVisualStyleBackColor = true;
             this.rdoNotInclude.CheckedChanged += new System.EventHandler(this.SurveyList_Load);
+            // 
+            // rdoInclude
+            // 
+            this.rdoInclude.AutoSize = true;
+            this.rdoInclude.Location = new System.Drawing.Point(3, 3);
+            this.rdoInclude.Name = "rdoInclude";
+            this.rdoInclude.Size = new System.Drawing.Size(103, 16);
+            this.rdoInclude.TabIndex = 0;
+            this.rdoInclude.Text = "이전 설문 포함";
+            this.rdoInclude.UseVisualStyleBackColor = true;
+            this.rdoInclude.CheckedChanged += new System.EventHandler(this.SurveyList_Load);
             // 
             // SurveyList
             // 

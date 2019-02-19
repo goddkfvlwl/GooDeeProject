@@ -28,11 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnBack = new iTalk.iTalk_Button_1();
             this.btnSaveToPDF = new iTalk.iTalk_Button_1();
             this.btnSave = new iTalk.iTalk_Button_1();
             this.portfolioDetail1 = new GoodeeProject.PortfolioDetail();
-            this.btnBack = new iTalk.iTalk_Button_1();
             this.SuspendLayout();
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnBack.Image = null;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(344, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(166, 30);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "뒤로가기";
+            this.btnBack.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSaveToPDF
             // 
@@ -69,20 +83,6 @@
             this.portfolioDetail1.Name = "portfolioDetail1";
             this.portfolioDetail1.Size = new System.Drawing.Size(815, 410);
             this.portfolioDetail1.TabIndex = 0;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnBack.Image = null;
-            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Location = new System.Drawing.Point(344, 0);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(166, 30);
-            this.btnBack.TabIndex = 3;
-            this.btnBack.Text = "뒤로가기";
-            this.btnBack.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Portfolio
             // 

@@ -28,31 +28,33 @@ namespace GoodeeProject
             this.Dispose();
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                Portfolio portfolio = new Portfolio(this.dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString(),this.dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
-                this.Parent.Controls.Add(portfolio);
-                portfolio.Location = new Point(185, 0);
-                portfolio.BringToFront();
-            }
-        }
-
         private void PortfolioList_Load(object sender, EventArgs e)
         {
             GoodeeDAO.GoodeeDAO DAO = new GoodeeDAO.GoodeeDAO();
-            this.dataGridView1.DataSource = DAO.SelectPortfolioList(id);
-            dataGridView1.Columns[0].HeaderText = "ID";
-            dataGridView1.Columns[1].HeaderText = "프로잭트이름";
-            dataGridView1.Columns[2].HeaderText = "작성일";
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            if (dataGridView1.Rows.Count == 0)
+            var list = DAO.SelectPortfolioList(id);
+            foreach (DataRow item in list.Rows)
             {
-                btnAddPortfolio_Click(null, null);
-                this.Visible = false;
+                PortfolioListMenu menu = new PortfolioListMenu();
+                menu.Controls["lblTitle"].Text = item[1].ToString();
+                menu.Controls["lblWriteDate"].Text = item[2].ToString();
+                menu.DoubleClick += Menu_DoubleClick;
+                this.ListMenuLayout.Controls.Add(menu);
             }
+            if (FrmMain.Authority != 'S')
+            {
+                this.btnDelete.Visible = false;
+                this.btnAddPortfolio.Visible = false;
+            }
+            
+        }
+
+        private void Menu_DoubleClick(object sender, EventArgs e)
+        {
+            string portfolioTitle = (sender as PortfolioListMenu).Controls["lblTitle"].Text;
+            Portfolio portfolio = new Portfolio(id, portfolioTitle);
+            this.Parent.Controls.Add(portfolio);
+            portfolio.Location = new Point(185, 0);
+            portfolio.BringToFront();
         }
 
         private void btnAddPortfolio_Click(object sender, EventArgs e)
