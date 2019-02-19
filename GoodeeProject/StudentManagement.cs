@@ -20,6 +20,23 @@ namespace GoodeeProject
             InitializeComponent();
         }
 
+        private void StudentManagement_Load(object sender, EventArgs e)
+        {
+            GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
+            this.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
+            this.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.gViewStudentInfo.Columns[0].HeaderText = "분류";
+            this.gViewStudentInfo.Columns[1].HeaderText = "과정명";
+            this.gViewStudentInfo.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            this.gViewStudentInfo.Columns[2].HeaderText = "이름";
+            this.gViewStudentInfo.Columns[3].HeaderText = "생년월일";
+            this.gViewStudentInfo.Columns[4].HeaderText = "성별";
+            this.gViewStudentInfo.Columns[5].HeaderText = "휴대폰";
+            this.gViewStudentInfo.Columns[6].HeaderText = "주소";
+            this.gViewStudentInfo.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.gViewStudentInfo.Columns[7].Visible = false;
+        }
+
         private void btnReadExl_Click(object sender, EventArgs e)
         {
             string xlsPath = "";
@@ -38,7 +55,9 @@ namespace GoodeeProject
 
                 while (xls.Read())
                 {
-                    if (!string.IsNullOrEmpty(xls["이메일"].ToString()) && !string.IsNullOrEmpty(xls["이름"].ToString()) && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString()) && !string.IsNullOrEmpty(xls["휴대폰"].ToString()) && !string.IsNullOrEmpty(xls["주소"].ToString()) && !string.IsNullOrEmpty(xls["과정명"].ToString()) && !string.IsNullOrEmpty(xls["분류"].ToString()))
+                    if (!string.IsNullOrEmpty(xls["이메일"].ToString()) && !string.IsNullOrEmpty(xls["이름"].ToString())
+                        && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString()) 
+                        && !string.IsNullOrEmpty(xls["휴대폰"].ToString()) && !string.IsNullOrEmpty(xls["주소"].ToString()))
                     {
                         MemberInfo member = new MemberInfo()
                         {
@@ -56,6 +75,7 @@ namespace GoodeeProject
                 }
                 con.Close();
             }
+            this.StudentManagement_Load(null, null);
         }
 
         private void btnWriteExl_Click(object sender, EventArgs e)

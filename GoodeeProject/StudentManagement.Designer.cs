@@ -81,6 +81,7 @@
             this.Controls.Add(this.btnReadExl);
             this.Name = "StudentManagement";
             this.Size = new System.Drawing.Size(815, 454);
+            this.Load += new System.EventHandler(this.StudentManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).EndInit();
             this.ResumeLayout(false);
 

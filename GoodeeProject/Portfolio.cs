@@ -18,11 +18,16 @@ namespace GoodeeProject
 {
     public partial class Portfolio : UserControl
     {
+        string beforeName;
         public Portfolio()
         {
             InitializeComponent();
+            beforeName = "";
         }
-
+        public Portfolio(string id, string portfolioName) : this()
+        {
+            LoadPortfolio(id, portfolioName);
+        }
         protected override Point ScrollToControl(Control activeControl)
         {
             return this.AutoScrollPosition;
@@ -37,10 +42,14 @@ namespace GoodeeProject
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
 
+            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
+            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
+            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
+
             while (!reader.EndOfStream)
             {
                 string strr = reader.ReadLine();
-                if (id.Contains(strr))
+                if (id == strr)
                 {
                     isDirectoryExist = true;
                     break;
@@ -55,9 +64,29 @@ namespace GoodeeProject
                 response = (FtpWebResponse)request.GetResponse();
             }
 
-            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
-            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
-            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
+            request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id);
+            request.Method = WebRequestMethods.Ftp.ListDirectory;
+            response = (FtpWebResponse)request.GetResponse();
+            reader = new StreamReader(response.GetResponseStream());
+            isDirectoryExist = false;
+            while (!reader.EndOfStream)
+            {
+                string strr = reader.ReadLine();
+                if (projectInfo.Controls["txtProjectTitle"].Text == strr)
+                {
+                    isDirectoryExist = true;
+                    break;
+                }
+            }
+
+            if (!isDirectoryExist)
+            {
+                request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + projectInfo.Controls["txtProjectTitle"].Text);
+                request.Method = WebRequestMethods.Ftp.MakeDirectory;
+                response = (FtpWebResponse)request.GetResponse();
+            }
+
+            
             XmlDocument xml = new XmlDocument();
             xml.CreateXmlDeclaration("1.0", "utf-8-", null);
             XmlNode root = xml.CreateElement("Portfolio");
@@ -104,18 +133,21 @@ namespace GoodeeProject
                 }
                 else
                 {
-                    request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/image" + i + ".jpg");
+                    request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + projectInfo.Controls["txtProjectTitle"].Text + "/" + projectInfo.Controls["txtProjectTitle"].Text + i + ".jpg");
                     request.Method = WebRequestMethods.Ftp.UploadFile;
 
                     using (Stream fileStream = File.OpenRead((item as PictureBox).ImageLocation))
-                    using (Stream ftpStream = request.GetRequestStream())
                     {
-                        fileStream.CopyTo(ftpStream);
+                        using (Stream ftpStream = request.GetRequestStream())
+                        {
+                            fileStream.CopyTo(ftpStream);
+                        }
                     }
+                    
                     temp.InnerText = "image" + i;
                     temp.SetAttribute("Width", item.Size.Width.ToString());
                     temp.SetAttribute("Height", item.Size.Height.ToString());
-                    temp.SetAttribute("location", "ftp://52.165.176.111:3333/Portfolio/" + id + "/image" + i + ".jpg");
+                    temp.SetAttribute("location", "ftp://52.165.176.111:3333/Portfolio/" + id + "/" + projectInfo.Controls["txtProjectTitle"].Text + "/" + projectInfo.Controls["txtProjectTitle"].Text + i + ".jpg");
                 }
                 i++;
                 introduction.AppendChild(temp);
@@ -127,7 +159,7 @@ namespace GoodeeProject
             writer.Flush();
             writer.Close();
 
-            request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + id + ".xml");
+            request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + projectInfo.Controls["txtProjectTitle"].Text + "/" + projectInfo.Controls["txtProjectTitle"].Text + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.UseBinary = true;
             using (Stream fileStream = File.OpenRead(Application.StartupPath + "/" + "xml.xml"))
@@ -137,11 +169,20 @@ namespace GoodeeProject
                 fileStream.Close();
             }
             File.Delete(Application.StartupPath + "/" + "xml.xml");
+
+            GoodeeDAO.GoodeeDAO DAO = new GoodeeDAO.GoodeeDAO();
+            var check = DAO.InsertPortfolio(FrmMain.Id, projectInfo.Controls["txtProjectTitle"].Text, beforeName);
+            if (check)
+            {
+                MessageBox.Show("저장성공");
+            }else
+            {
+                MessageBox.Show("저장실패");
+            }
         }
 
-        private void iTalk_Button_11_Click_1(object sender, EventArgs e)
+        private void LoadPortfolio(string id, string portfolioName)
         {
-            string id = FrmMain.Id;
             Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
@@ -154,7 +195,7 @@ namespace GoodeeProject
             try
             {
                 XmlDocument doc = new XmlDocument();
-                doc.Load("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + id + ".xml");
+                doc.Load("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + portfolioName + "/" + portfolioName + ".xml");
                 projectInfo.Controls["txtProjectTitle"].Text = doc.SelectSingleNode("//projectName").InnerText;
                 projectInfo.Controls["dpProjectStartDate"].Text = doc.SelectSingleNode("//StartDate").InnerText;
                 projectInfo.Controls["dpProjectEndDate"].Text = doc.SelectSingleNode("//EndDate").InnerText;
@@ -190,8 +231,8 @@ namespace GoodeeProject
                         introductionInfo.Controls.Add(p);
                         (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).Size = new Size(int.Parse(item.Attributes["Width"].Value), int.Parse(item.Attributes["Height"].Value));
                         WebClient web = new WebClient();
-                        web.DownloadFile(item.Attributes["location"].Value, Application.StartupPath + "/" + item.Name + "jpg");
-                        (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).ImageLocation = Application.StartupPath + "/" + item.Name + "jpg";
+                        web.DownloadFile(item.Attributes["location"].Value, Application.StartupPath + "/" + item.Name + ".jpg");
+                        (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).ImageLocation = Application.StartupPath + "/" + item.Name + ".jpg";
                     }
                     i++;
                 }
@@ -201,6 +242,8 @@ namespace GoodeeProject
                 MessageBox.Show("저장된 포트폴리오가 없습니다.");
                 return;
             }
+
+            beforeName = projectInfo.Controls["txtProjectTitle"].Text;
         }
 
         private void btnSaveToPDF_Click(object sender, EventArgs e)
@@ -259,6 +302,11 @@ namespace GoodeeProject
             Marshal.FinalReleaseComObject(doc);
             Marshal.FinalReleaseComObject(app);
             File.Delete(Application.StartupPath + "/DocTo.doc");
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

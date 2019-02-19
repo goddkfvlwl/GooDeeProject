@@ -141,6 +141,12 @@
       <DependentUpon>PortfolioDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="MemberInfo.cs" />
+    <Compile Include="PortfolioList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PortfolioList.Designer.cs">
+      <DependentUpon>PortfolioList.cs</DependentUpon>
+    </Compile>
     <Compile Include="PortfolioManager.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PortfolioList.resx">
+      <DependentUpon>PortfolioList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PortfolioManager.resx">
       <DependentUpon>PortfolioManager.cs</DependentUpon>

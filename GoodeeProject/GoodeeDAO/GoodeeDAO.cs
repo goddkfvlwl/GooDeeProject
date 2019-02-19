@@ -47,30 +47,29 @@ namespace GoodeeProject.GoodeeDAO
         {
             string proc = "InsertMember";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[8];
+            SqlParameter[] parameters = new SqlParameter[7];
             parameters[0] = new SqlParameter("id", member.Id);
             parameters[1] = new SqlParameter("name", member.Name);
             parameters[2] = new SqlParameter("gender", member.Gender);
             parameters[3] = new SqlParameter("birthDate", member.BirthDate);
             parameters[4] = new SqlParameter("mobile", member.Mobile);
             parameters[5] = new SqlParameter("address", member.Address);
-            parameters[6] = new SqlParameter("curriculum", member.Curriculum);
-            parameters[7] = new SqlParameter("class", member.ClassName);
+            parameters[6] = new SqlParameter("curriculum", member.ClassNum);
             if (con.ExecuteInsert(proc, parameters))
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
             }
         }
 
-        public List<MemberDefault> SelectMemberList()
+        public List<MemberInfo> SelectMemberList()
         {
             string proc = "SelectMemberList";
             con = new DBConnection();
-            List<MemberDefault> list = new List<MemberDefault>();
+            List<MemberInfo> list = new List<MemberInfo>();
             DataTable dt = con.ExecuteSelect(proc);
             foreach (DataRow item in dt.Rows)
             {
-                list.Add(new MemberDefault(item["Class"].ToString(), item["Curriculum"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), item["Gender"].ToString(), item["Mobile"].ToString(), item["Address"].ToString(), item["ID"].ToString()));
+                list.Add(new MemberInfo(item["ID"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString(), int.Parse(item["ClassNum"].ToString())));
             }
             return list;
         }
@@ -97,8 +96,7 @@ namespace GoodeeProject.GoodeeDAO
                 mi.HopePay = dt.Rows[0][6].ToString() == null ? "0" : dt.Rows[0][6].ToString();
                 mi.Army = dt.Rows[0][7].ToString().Contains(Convert.DBNull.ToString()) ? 'N' : char.Parse(dt.Rows[0][7].ToString());
                 mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
-                mi.Curriculum = dt.Rows[0][9].ToString();
-                mi.ClassName = dt.Rows[0][10].ToString();
+                mi.ClassNum = int.Parse(dt.Rows[0][9].ToString());
             }
             return mi;
         }
@@ -207,6 +205,27 @@ namespace GoodeeProject.GoodeeDAO
             {
                 return true;
             }
+        }
+
+        public DataTable SelectPortfolioList(string id)
+        {
+            string proc = "SelectPortfolioList";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@ID", id);
+            var table = con.SelectWithParams(proc, parameters);
+            return table;
+        }
+
+        public bool InsertPortfolio(string id, string portfolioName, string beforeName)
+        {
+            string proc = "InsertPortfolio";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = new SqlParameter("@id", id);
+            parameters[1] = new SqlParameter("@portfolioName", portfolioName);
+            parameters[2] = new SqlParameter("@beforeName", beforeName);
+            return con.ExecuteInsert(proc, parameters);
         }
     }
 }

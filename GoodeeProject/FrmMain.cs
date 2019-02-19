@@ -25,7 +25,6 @@ namespace GoodeeProject
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
         CtlMBTIDetail mbti;
-        
         public static string Id { get => id; set => id = value; }
         public static char Authority { get => authority; set => authority = value; }
         internal static MemberInfo Mi { get => mi; set => mi = value; }
@@ -59,19 +58,6 @@ namespace GoodeeProject
             studentManagement1.Location = new Point(185, 0);
             studentManagement1.Visible = true;
             studentManagement1.BringToFront();
-            GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
-            studentManagement1.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
-            studentManagement1.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            studentManagement1.gViewStudentInfo.Columns[0].HeaderText = "분류";
-            studentManagement1.gViewStudentInfo.Columns[1].HeaderText = "과정명";
-            studentManagement1.gViewStudentInfo.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            studentManagement1.gViewStudentInfo.Columns[2].HeaderText = "이름";
-            studentManagement1.gViewStudentInfo.Columns[3].HeaderText = "생년월일";
-            studentManagement1.gViewStudentInfo.Columns[4].HeaderText = "성별";
-            studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "휴대폰";
-            studentManagement1.gViewStudentInfo.Columns[6].HeaderText = "주소";
-            studentManagement1.gViewStudentInfo.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            studentManagement1.gViewStudentInfo.Columns[7].Visible = false;
         }
 
         //public FrmMain(string id, char authority) : this()
@@ -87,32 +73,32 @@ namespace GoodeeProject
 
         private void btnSpec_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
-
             if (spec == null)
             {
-                spec = new CtlSpecDetail(); 
+                RemoveUserControl();
+                sidePanel.Visible = true;
+                sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
+                spec = new CtlSpecDetail();
+                panel2.Controls.Add(spec);
+                spec.Location = new Point(192, 1);
+                spec.BringToFront();
+                spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+            }else
+            {
+                sidePanel.Visible = false;
+                RemoveUserControl();
             }
-            panel2.Controls.Add(spec);
-            spec.Location = new Point(192, 1);
-            spec.BringToFront();
-            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
         }
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
             if (authority == 'S')
             {
-                Portfolio portfolio1 = new Portfolio();
-                panel2.Controls.Add(portfolio1);
-                portfolio1.Location = new Point(185, 0);
-                portfolio1.Visible = true;
-                portfolio1.Controls["portfolioDetail1"].AutoSize = true;
-                VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-                portfolio1.BringToFront(); 
-            }else if(authority == 'M')
+                PortfolioList list = new PortfolioList();
+                panel2.Controls.Add(list);
+                list.Location = new Point(185, 0);
+                list.BringToFront(); 
+            }else if(authority == 'A' || authority == 'M')
             {
                 PortfolioManager manager = new PortfolioManager();
                 panel2.Controls.Add(manager);
@@ -131,42 +117,58 @@ namespace GoodeeProject
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
+            if (companyInfo == null)
+            {
+                RemoveUserControl();
 
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
+                sidePanel.Visible = true;
+                sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
-            companyInfo = new CtlCompanyInfoDetail();
-            panel2.Controls.Add(companyInfo);
-            companyInfo.Location = new Point(192, 211);
+                companyInfo = new CtlCompanyInfoDetail();
+                panel2.Controls.Add(companyInfo);
+                companyInfo.Location = new Point(192, 211);
+            }
+            else
+            {
+                sidePanel.Visible = false;
+                RemoveUserControl();
+            }
         }
 
         private void btnSurvey_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
-
-            if (Authority == 'S')
+            if (surveyAdmin == null)
             {
-                SurveyList survey = new SurveyList();
-                panel2.Controls.Add(survey);
-                survey.Location = new Point(185, 0);
-                survey.BringToFront();
+                RemoveUserControl();
+
+                sidePanel.Visible = true;
+                sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
+
+                if (Authority == 'S')
+                {
+                    SurveyList survey = new SurveyList();
+                    panel2.Controls.Add(survey);
+                    survey.Location = new Point(185, 0);
+                    survey.BringToFront();
+                }
+                else
+                {
+                    //관리자, 최상위 관리자
+                    if (surveyAdmin == null)
+                    {
+                        surveyAdmin = new CtlSurveyAdminDetail();
+                    }
+                    panel2.Controls.Add(surveyAdmin);
+                    surveyAdmin.Location = new Point(192, 40);
+                    surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
+                    surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
+                    surveyAdmin.BringToFront();
+                }
             }
             else
             {
-                //관리자, 최상위 관리자
-                if (surveyAdmin == null)
-                {
-                    surveyAdmin = new CtlSurveyAdminDetail(); 
-                }
-                panel2.Controls.Add(surveyAdmin);
-                surveyAdmin.Location = new Point(192, 40);
-                surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
-                surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
-                surveyAdmin.BringToFront();
+                sidePanel.Visible = false;
+                RemoveUserControl();
             }
         }
 
@@ -228,9 +230,13 @@ namespace GoodeeProject
         private void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
+            spec = null;
             panel2.Controls.Remove(companyInfo);
+            companyInfo = null;
             panel2.Controls.Remove(surveyAdmin);
+            surveyAdmin = null;
             panel2.Controls.Remove(mbti);
+            surveyAdmin = null;
         }
     }
 }
