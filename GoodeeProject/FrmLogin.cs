@@ -48,7 +48,7 @@ namespace GoodeeProject
                     else
                     {
                         FrmMain.Ai.Pw = tboxPW.Text;
-                        FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
+                       // FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         s.AddList("로그인");

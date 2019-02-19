@@ -31,7 +31,7 @@
             this.iTalk_Button_13 = new iTalk.iTalk_Button_1();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
             this.iTalk_Button_11 = new iTalk.iTalk_Button_1();
-            this.iTalk_RichTextBox1 = new iTalk.iTalk_RichTextBox();
+            this.jobSearch = new iTalk.iTalk_RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -76,19 +76,20 @@
             this.iTalk_Button_11.TextAlignment = System.Drawing.StringAlignment.Center;
             this.iTalk_Button_11.Click += new System.EventHandler(this.iTalk_Button_11_Click);
             // 
-            // iTalk_RichTextBox1
+            // jobSearch
             // 
-            this.iTalk_RichTextBox1.AutoWordSelection = false;
-            this.iTalk_RichTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_RichTextBox1.Font = new System.Drawing.Font("함초롬돋움", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_RichTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.iTalk_RichTextBox1.Location = new System.Drawing.Point(43, 42);
-            this.iTalk_RichTextBox1.Name = "iTalk_RichTextBox1";
-            this.iTalk_RichTextBox1.ReadOnly = false;
-            this.iTalk_RichTextBox1.Size = new System.Drawing.Size(199, 42);
-            this.iTalk_RichTextBox1.TabIndex = 0;
-            this.iTalk_RichTextBox1.Text = "검색어 입력";
-            this.iTalk_RichTextBox1.WordWrap = true;
+            this.jobSearch.AutoWordSelection = false;
+            this.jobSearch.BackColor = System.Drawing.Color.Transparent;
+            this.jobSearch.Font = new System.Drawing.Font("함초롬돋움", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jobSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.jobSearch.Location = new System.Drawing.Point(43, 42);
+            this.jobSearch.Name = "jobSearch";
+            this.jobSearch.ReadOnly = false;
+            this.jobSearch.Size = new System.Drawing.Size(199, 42);
+            this.jobSearch.TabIndex = 0;
+            this.jobSearch.Text = "검색어 입력";
+            this.jobSearch.WordWrap = true;
+            this.jobSearch.Click += new System.EventHandler(this.jobSearch_Click);
             // 
             // pictureBox1
             // 
@@ -109,7 +110,7 @@
             this.Controls.Add(this.iTalk_Button_13);
             this.Controls.Add(this.iTalk_Label1);
             this.Controls.Add(this.iTalk_Button_11);
-            this.Controls.Add(this.iTalk_RichTextBox1);
+            this.Controls.Add(this.jobSearch);
             this.Name = "JobInformation";
             this.Size = new System.Drawing.Size(815, 454);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -120,7 +121,7 @@
 
         #endregion
         private iTalk.iTalk_Button_1 iTalk_Button_11;
-        private iTalk.iTalk_RichTextBox iTalk_RichTextBox1;
+        private iTalk.iTalk_RichTextBox jobSearch;
         private iTalk.iTalk_Label iTalk_Label1;
         private iTalk.iTalk_Button_1 iTalk_Button_13;
         private System.Windows.Forms.PictureBox pictureBox1;

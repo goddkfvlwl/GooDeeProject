@@ -57,3 +57,5 @@ C:\Users\1\Documents\GooDeeProject\GoodeeProject\bin\Debug\MetroFramework.Fonts.
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.JobChoice.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.checkBoxAdd.resources
 C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.oneJobMatResult.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.KREDIT_JOB.resources
+C:\Users\1\Documents\GooDeeProject\GoodeeProject\obj\Debug\GoodeeProject.KREDIT_JOBResult.resources

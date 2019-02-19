@@ -45,6 +45,7 @@
             this.iTalk_Label1.TabIndex = 34;
             this.iTalk_Label1.Text = "기업정보";
             this.iTalk_Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.iTalk_Label1.Click += new System.EventHandler(this.iTalk_Label1_Click);
             // 
             // iTalk_Separator1
             // 

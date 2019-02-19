@@ -97,6 +97,8 @@
     <Compile Include="Agreement_enterprise_list.Designer.cs">
       <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExtensionKREDIT.cs" />
+    <Compile Include="ExtensionXML.cs" />
     <Compile Include="JobChoice.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,6 +238,18 @@
     <Compile Include="JobInformation.Designer.cs">
       <DependentUpon>JobInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="KREDIT_JOBResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KREDIT_JOBResult.Designer.cs">
+      <DependentUpon>KREDIT_JOBResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KREDIT_JOB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KREDIT_JOB.Designer.cs">
+      <DependentUpon>KREDIT_JOB.cs</DependentUpon>
+    </Compile>
     <Compile Include="MedioButton.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +352,12 @@
     <EmbeddedResource Include="JobInformation.resx">
       <DependentUpon>JobInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KREDIT_JOB.resx">
+      <DependentUpon>KREDIT_JOB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KREDIT_JOBResult.resx">
+      <DependentUpon>KREDIT_JOBResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MedioButton.resx">
       <DependentUpon>MedioButton.cs</DependentUpon>
     </EmbeddedResource>
@@ -420,6 +440,8 @@
     <None Include="Resources\profile2.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\company1.png" />
+    <None Include="Resources\company.png" />
     <None Include="Resources\loupe %281%29.png" />
     <None Include="Resources\loupe.png" />
     <None Include="Resources\326572-48.png" />

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 using System.Net;
+using System.Xml.Linq;
 
 namespace GoodeeProject
 {
@@ -21,55 +22,58 @@ namespace GoodeeProject
         }
 
         FontFamily comNameFont = new FontFamily("휴먼둥근헤드라인");
-        FontFamily keywordFont = new FontFamily("함초롬돋움");
-        string attribute = "";
+        FontFamily keywordFont = new FontFamily("Microsoft Sans Serif");
+        string url = "";
         private void oneJobMatResult_Load(object sender, EventArgs e)
         {
             string job_category = "";
+            string key = ExtensionXML.Key;
 
             foreach (FirstSubJob item in JobChoice.Jlistcheck)
             {
-               job_category += "&job_category=" + item.Detailjob_Code;
+                job_category += "&job_category=" + item.Detailjob_Code;
             }
-            
+
+
             #region XML파싱
             string strXml = "http://api.saramin.co.kr/job-search?" + job_category;
-            MessageBox.Show(strXml);
-            Uri url = new Uri(strXml);
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            HttpWebResponse ress = request.GetResponse() as HttpWebResponse;
-            Stream stream = ress.GetResponseStream();
 
-            XmlDocument xml = new XmlDocument(); // XmlDocument 생성
-            xml.Load(stream);
+            XElement xml = strXml.SaraminXml(strXml);   // 루트노드의 자식이 출력될텐데 현재 사람인의 자식은 jobs
 
-            XmlNodeList list = xml.DocumentElement.SelectNodes("//company");
-            foreach (XmlNode item in list)
+            // jobs
+            IEnumerable<XElement> jobs = xml.Elements();
+            // job
+            IEnumerable<XElement> job = jobs.Elements();
+
+            var result = from xe in job.Elements("company")  // name
+                         select xe;
+
+            foreach (var item in result)
             {
-                companyName.Text = item.SelectSingleNode("name").InnerText;
-                companyName.Font = new Font(comNameFont, 10f);
+                url = item.Element("name").Attribute("href").Value;
+                companyName.Text = item.Value;
             }
 
-            XmlNodeList title = xml.DocumentElement.SelectNodes("//position");
-            foreach (XmlNode item in title)
+            var result2 = from xe in job.Elements("position")
+                          select xe;
+
+            foreach (var item in result2)
             {
-                companyTiltle.Text = item.SelectSingleNode("title").InnerText;
-                companyIntroduce.Text = item.SelectSingleNode("experience-level").InnerText + "  /  " + item.SelectSingleNode("required-education-level").InnerText + "  /  " + item.SelectSingleNode("job-type").InnerText;
+                //충남 & ; 아산시
+                string location = item.Element("location").Value;
+                location = location.Replace("&gt;", " ");
+
+                companyTiltle.Text = item.Element("title").Value;
+                companyIntroduce.Text = item.Element("experience-level").Value + " ｜ " + item.Element("required-education-level").Value + " ｜ " + item.Element("job-type").Value + " ｜ " + location;
             }
 
-            XmlNodeList job = xml.DocumentElement.SelectNodes("//job");
-            foreach (XmlNode item in job)
-            {
-                keword.Text = "[키워드] " + item.SelectSingleNode("keyword").InnerText;
-                keword.Font = new Font(keywordFont, 8f);
-            } 
             #endregion
 
         }
 
-        private void companyName_Click(object sender, EventArgs e)
+        private void oneJobMatResult_DoubleClick(object sender, EventArgs e)
         {
-            
+            System.Diagnostics.Process.Start(url);
         }
     }
 }

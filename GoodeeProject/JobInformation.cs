@@ -19,6 +19,7 @@ namespace GoodeeProject
         List<XmlSaramin> slist = new List<XmlSaramin>();
         JobAreaChoice choice;
         JobChoice achoice;
+        string search = "";
         public JobInformation()
         {
             InitializeComponent();
@@ -90,6 +91,11 @@ namespace GoodeeProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text != "검색어 입력")
+            {
+                search.JobKeyword(jobSearch.Text);
+            }
+
             RemoveControl();
             FlowLayoutPanel panel = new FlowLayoutPanel();
             oneJobMatResult oneJobMat = new oneJobMatResult();
@@ -99,6 +105,11 @@ namespace GoodeeProject
             panel.Controls.Add(oneJobMat);
             panel.VerticalScroll.Visible = true;    // 패널에 스크롤 생성
 
+        }
+
+        private void jobSearch_Click(object sender, EventArgs e)
+        {
+            jobSearch.Text = " ";
         }
     }
 }

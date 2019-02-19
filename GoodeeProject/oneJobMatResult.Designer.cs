@@ -45,7 +45,6 @@
             this.companyName.Size = new System.Drawing.Size(54, 15);
             this.companyName.TabIndex = 0;
             this.companyName.Text = "회사 이름";
-            this.companyName.Click += new System.EventHandler(this.companyName_Click);
             // 
             // companyTiltle
             // 
@@ -94,6 +93,7 @@
             this.Name = "oneJobMatResult";
             this.Size = new System.Drawing.Size(395, 108);
             this.Load += new System.EventHandler(this.oneJobMatResult_Load);
+            this.DoubleClick += new System.EventHandler(this.oneJobMatResult_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
