@@ -24,6 +24,7 @@ namespace GoodeeProject
         public CtlResume()
         {
             InitializeComponent();
+            this.Size = new Size(818, 454);
         }
 
         private void CtlResume_Load(object sender, EventArgs e)
@@ -175,6 +176,11 @@ namespace GoodeeProject
             flowpanelEdu.Controls.SetChildIndex(btnEdu, flowpanelEdu.Controls.Count - 1);
             flowpanelEdu.Controls.SetChildIndex(btnDelEdu, flowpanelEdu.Controls.Count);
             flowpanelEdu.AutoScroll = true;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
