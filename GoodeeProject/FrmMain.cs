@@ -72,24 +72,9 @@ namespace GoodeeProject
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
             }
-            ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
 
-        private void BtnStudent_Click(object sender, EventArgs e)
-        {
-            studentManagement1.Visible = true;
-            GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
-            studentManagement1.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
-            studentManagement1.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            studentManagement1.gViewStudentInfo.Columns[0].HeaderText = "과정명";
-            studentManagement1.gViewStudentInfo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            studentManagement1.gViewStudentInfo.Columns[1].HeaderText = "이름";
-            studentManagement1.gViewStudentInfo.Columns[2].HeaderText = "생년월일";
-            studentManagement1.gViewStudentInfo.Columns[3].HeaderText = "성별";
-            studentManagement1.gViewStudentInfo.Columns[4].HeaderText = "휴대폰";
-            studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "주소";
-            studentManagement1.gViewStudentInfo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
+        
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -107,7 +92,6 @@ namespace GoodeeProject
             panel2.Controls.Add(spec);
             spec.BringToFront();
             spec.Location = new Point(192, 1);
-            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
             spec.Controls["lblResume"].Click += BtnResume_Click;
         }
 
@@ -120,11 +104,7 @@ namespace GoodeeProject
             spec.SendToBack();
         }
 
-        private void BtnPortfolio_Click(object sender, EventArgs e)
-        {
-            portfolio1.Visible = true;
-            portfolio1.BringToFront();
-        }
+        
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
@@ -217,17 +197,7 @@ namespace GoodeeProject
             panel2.Controls.Remove(mbti);
         }
 
-        private void portfolio1_Load(object sender, EventArgs e)
-        {
-            portfolio1.Controls["portfolioDetail1"].AutoSize = true;
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-            portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
-        }
-
-        private void PortfolioDetail1_Resize(object sender, EventArgs e)
-        {
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-        }
+        
         
     }
 }

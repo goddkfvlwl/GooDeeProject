@@ -88,19 +88,6 @@ namespace GoodeeProject.GoodeeDAO
             DataTable dt = con.SelectWithParams(proc, pms);
             if (dt.Rows.Count == 1)
             {
-                //mi = new MemberInfo
-                //{
-                //    Id = dt.Rows[0][0].ToString(),
-                //    ClassNum = dt.Rows[0][1].ToString() == null? 0 : Int32.Parse(dt.Rows[0][1].ToString()),
-                //    Name = dt.Rows[0][2].ToString() == null? " " : dt.Rows[0][2].ToString(),
-                //    BirthDate = DateTime.Parse(dt.Rows[0][3].ToString()),
-                //    Gender = char.Parse(dt.Rows[0][4].ToString()),
-                //    Mobile = dt.Rows[0][5].ToString(),
-                //    Address = dt.Rows[0][6].ToString(),
-                //    HopePay = dt.Rows[0][7].ToString() == null? "0" : dt.Rows[0][7].ToString(),
-                //    Army = dt.Rows[0][8].ToString() == null ? ' ' : char.Parse(dt.Rows[0][8].ToString()),
-                //    Score = dt.Rows[0][9].ToString() == null ? 0 : float.Parse(dt.Rows[0][9].ToString())
-                //};
                 mi = new MemberInfo();
 
                 mi.Id = dt.Rows[0][0].ToString();
@@ -113,21 +100,18 @@ namespace GoodeeProject.GoodeeDAO
                 mi.Army = dt.Rows[0][7].ToString().Contains(Convert.DBNull.ToString()) ? 'N' : char.Parse(dt.Rows[0][7].ToString());
                 //mi.Army = dt.Rows[0][7].ToString();
                 mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
-                mi.Curriculum = dt.Rows[0][9].ToString();
-                mi.ClassName = dt.Rows[0][10].ToString();
-
-                if (String.IsNullOrEmpty(dt.Rows[0][11].ToString()))
+                if (String.IsNullOrEmpty(dt.Rows[0][9].ToString()))
                 {
                     mi.Picture = Properties.Resources.profile2;
 
                 }
                 else
                 {
-                    var imgArr = (byte[])dt.Rows[0][11];
+                    var imgArr = (byte[])dt.Rows[0][9];
                     MemoryStream ms = new MemoryStream(imgArr, 0, imgArr.Length);
                     mi.Picture = Image.FromStream(ms);
                 }
-
+                mi.ClassNum = dt.Rows[0][10].ToString() == Convert.DBNull.ToString() ? 0 : Int32.Parse(dt.Rows[0][10].ToString());
             }
 
             return mi;

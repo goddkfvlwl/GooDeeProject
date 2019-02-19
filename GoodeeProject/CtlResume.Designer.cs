@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pboxProfile = new System.Windows.Forms.PictureBox();
             this.tboxName = new System.Windows.Forms.TextBox();
             this.tboxRNum = new System.Windows.Forms.TextBox();
             this.tboxBirthDate = new System.Windows.Forms.TextBox();
@@ -37,22 +37,37 @@
             this.tboxEmail = new System.Windows.Forms.TextBox();
             this.PanelEdu = new System.Windows.Forms.Panel();
             this.flowpanelEdu = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowPanelAll = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelLicnese = new System.Windows.Forms.Panel();
+            this.flowpanelLicense = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelEduHistory = new System.Windows.Forms.Panel();
+            this.flowPanelEduHistory = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.iTalk_Separator12 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator11 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator10 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator9 = new iTalk.iTalk_Separator();
+            this.iTalk_HeaderLabel2 = new iTalk.iTalk_HeaderLabel();
             this.iTalk_Label11 = new iTalk.iTalk_Label();
             this.iTalk_Label10 = new iTalk.iTalk_Label();
             this.iTalk_Label9 = new iTalk.iTalk_Label();
             this.iTalk_Label8 = new iTalk.iTalk_Label();
             this.iTalk_Separator8 = new iTalk.iTalk_Separator();
-            this.flowPanelAll = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.flowpanelLicense = new System.Windows.Forms.FlowLayoutPanel();
+            this.iTalk_HeaderLabel1 = new iTalk.iTalk_HeaderLabel();
             this.iTalk_Label13 = new iTalk.iTalk_Label();
             this.iTalk_Label14 = new iTalk.iTalk_Label();
             this.iTalk_Label15 = new iTalk.iTalk_Label();
             this.iTalk_Separator7 = new iTalk.iTalk_Separator();
+            this.iTalk_HeaderLabel3 = new iTalk.iTalk_HeaderLabel();
+            this.iTalk_HeaderLabel4 = new iTalk.iTalk_HeaderLabel();
+            this.iTalk_Label16 = new iTalk.iTalk_Label();
+            this.radioArmyN = new iTalk.iTalk_RadioButton();
+            this.radioArmyY = new iTalk.iTalk_RadioButton();
+            this.iTalk_Label12 = new iTalk.iTalk_Label();
             this.iTalk_Separator6 = new iTalk.iTalk_Separator();
             this.iTalk_Label7 = new iTalk.iTalk_Label();
-            this.iTalk_RadioButton2 = new iTalk.iTalk_RadioButton();
-            this.iTalk_RadioButton1 = new iTalk.iTalk_RadioButton();
+            this.radioGenderW = new iTalk.iTalk_RadioButton();
+            this.radioGenderM = new iTalk.iTalk_RadioButton();
             this.iTalk_Label6 = new iTalk.iTalk_Label();
             this.iTalk_Separator5 = new iTalk.iTalk_Separator();
             this.iTalk_Label5 = new iTalk.iTalk_Label();
@@ -64,77 +79,67 @@
             this.iTalk_Label1 = new iTalk.iTalk_Label();
             this.iTalk_Separator2 = new iTalk.iTalk_Separator();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).BeginInit();
             this.PanelEdu.SuspendLayout();
             this.flowPanelAll.SuspendLayout();
+            this.panelLicnese.SuspendLayout();
+            this.panelEduHistory.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pboxProfile
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(25, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(170, 200);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pboxProfile.Location = new System.Drawing.Point(14, 24);
+            this.pboxProfile.Name = "pboxProfile";
+            this.pboxProfile.Size = new System.Drawing.Size(170, 200);
+            this.pboxProfile.TabIndex = 1;
+            this.pboxProfile.TabStop = false;
             // 
             // tboxName
             // 
             this.tboxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxName.Enabled = false;
-            this.tboxName.Location = new System.Drawing.Point(330, 25);
+            this.tboxName.Location = new System.Drawing.Point(319, 31);
             this.tboxName.Name = "tboxName";
-            this.tboxName.PasswordChar = '*';
             this.tboxName.Size = new System.Drawing.Size(175, 14);
             this.tboxName.TabIndex = 28;
             // 
             // tboxRNum
             // 
             this.tboxRNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxRNum.Enabled = false;
-            this.tboxRNum.Location = new System.Drawing.Point(330, 65);
+            this.tboxRNum.Location = new System.Drawing.Point(319, 71);
             this.tboxRNum.Name = "tboxRNum";
-            this.tboxRNum.PasswordChar = '*';
             this.tboxRNum.Size = new System.Drawing.Size(175, 14);
             this.tboxRNum.TabIndex = 31;
             // 
             // tboxBirthDate
             // 
             this.tboxBirthDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxBirthDate.Enabled = false;
-            this.tboxBirthDate.Location = new System.Drawing.Point(330, 108);
+            this.tboxBirthDate.Location = new System.Drawing.Point(319, 114);
             this.tboxBirthDate.Name = "tboxBirthDate";
-            this.tboxBirthDate.PasswordChar = '*';
             this.tboxBirthDate.Size = new System.Drawing.Size(175, 14);
             this.tboxBirthDate.TabIndex = 34;
             // 
             // tboxAddr
             // 
             this.tboxAddr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxAddr.Enabled = false;
-            this.tboxAddr.Location = new System.Drawing.Point(330, 152);
+            this.tboxAddr.Location = new System.Drawing.Point(319, 158);
             this.tboxAddr.Name = "tboxAddr";
-            this.tboxAddr.PasswordChar = '*';
             this.tboxAddr.Size = new System.Drawing.Size(175, 14);
             this.tboxAddr.TabIndex = 37;
             // 
             // tboxMobile
             // 
             this.tboxMobile.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxMobile.Enabled = false;
-            this.tboxMobile.Location = new System.Drawing.Point(330, 195);
+            this.tboxMobile.Location = new System.Drawing.Point(319, 201);
             this.tboxMobile.Name = "tboxMobile";
-            this.tboxMobile.PasswordChar = '*';
             this.tboxMobile.Size = new System.Drawing.Size(175, 14);
             this.tboxMobile.TabIndex = 40;
             // 
             // tboxEmail
             // 
             this.tboxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tboxEmail.Enabled = false;
-            this.tboxEmail.Location = new System.Drawing.Point(617, 195);
+            this.tboxEmail.Location = new System.Drawing.Point(606, 201);
             this.tboxEmail.Name = "tboxEmail";
-            this.tboxEmail.PasswordChar = '*';
             this.tboxEmail.Size = new System.Drawing.Size(175, 14);
             this.tboxEmail.TabIndex = 46;
             // 
@@ -146,9 +151,9 @@
             this.PanelEdu.Controls.Add(this.iTalk_Label9);
             this.PanelEdu.Controls.Add(this.iTalk_Label8);
             this.PanelEdu.Controls.Add(this.iTalk_Separator8);
-            this.PanelEdu.Location = new System.Drawing.Point(3, 3);
+            this.PanelEdu.Location = new System.Drawing.Point(3, 40);
             this.PanelEdu.Name = "PanelEdu";
-            this.PanelEdu.Size = new System.Drawing.Size(792, 234);
+            this.PanelEdu.Size = new System.Drawing.Size(786, 234);
             this.PanelEdu.TabIndex = 49;
             // 
             // flowpanelEdu
@@ -156,8 +161,114 @@
             this.flowpanelEdu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowpanelEdu.Location = new System.Drawing.Point(0, 44);
             this.flowpanelEdu.Name = "flowpanelEdu";
-            this.flowpanelEdu.Size = new System.Drawing.Size(792, 190);
+            this.flowpanelEdu.Size = new System.Drawing.Size(786, 190);
             this.flowpanelEdu.TabIndex = 54;
+            // 
+            // flowPanelAll
+            // 
+            this.flowPanelAll.Controls.Add(this.iTalk_HeaderLabel2);
+            this.flowPanelAll.Controls.Add(this.PanelEdu);
+            this.flowPanelAll.Controls.Add(this.iTalk_HeaderLabel1);
+            this.flowPanelAll.Controls.Add(this.panelLicnese);
+            this.flowPanelAll.Controls.Add(this.iTalk_HeaderLabel3);
+            this.flowPanelAll.Controls.Add(this.panelEduHistory);
+            this.flowPanelAll.Controls.Add(this.iTalk_HeaderLabel4);
+            this.flowPanelAll.Controls.Add(this.panel1);
+            this.flowPanelAll.Location = new System.Drawing.Point(3, 247);
+            this.flowPanelAll.Name = "flowPanelAll";
+            this.flowPanelAll.Size = new System.Drawing.Size(792, 1184);
+            this.flowPanelAll.TabIndex = 50;
+            // 
+            // panelLicnese
+            // 
+            this.panelLicnese.Controls.Add(this.flowpanelLicense);
+            this.panelLicnese.Controls.Add(this.iTalk_Label13);
+            this.panelLicnese.Controls.Add(this.iTalk_Label14);
+            this.panelLicnese.Controls.Add(this.iTalk_Label15);
+            this.panelLicnese.Controls.Add(this.iTalk_Separator7);
+            this.panelLicnese.Location = new System.Drawing.Point(3, 317);
+            this.panelLicnese.Name = "panelLicnese";
+            this.panelLicnese.Size = new System.Drawing.Size(786, 234);
+            this.panelLicnese.TabIndex = 54;
+            // 
+            // flowpanelLicense
+            // 
+            this.flowpanelLicense.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowpanelLicense.Location = new System.Drawing.Point(0, 44);
+            this.flowpanelLicense.Name = "flowpanelLicense";
+            this.flowpanelLicense.Size = new System.Drawing.Size(786, 190);
+            this.flowpanelLicense.TabIndex = 54;
+            // 
+            // panelEduHistory
+            // 
+            this.panelEduHistory.Controls.Add(this.flowPanelEduHistory);
+            this.panelEduHistory.Location = new System.Drawing.Point(3, 594);
+            this.panelEduHistory.Name = "panelEduHistory";
+            this.panelEduHistory.Size = new System.Drawing.Size(785, 415);
+            this.panelEduHistory.TabIndex = 56;
+            // 
+            // flowPanelEduHistory
+            // 
+            this.flowPanelEduHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowPanelEduHistory.Location = new System.Drawing.Point(0, 2);
+            this.flowPanelEduHistory.Name = "flowPanelEduHistory";
+            this.flowPanelEduHistory.Size = new System.Drawing.Size(785, 413);
+            this.flowPanelEduHistory.TabIndex = 57;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.iTalk_Label16);
+            this.panel1.Controls.Add(this.radioArmyN);
+            this.panel1.Controls.Add(this.radioArmyY);
+            this.panel1.Controls.Add(this.iTalk_Label12);
+            this.panel1.Location = new System.Drawing.Point(3, 1052);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(785, 117);
+            this.panel1.TabIndex = 58;
+            // 
+            // iTalk_Separator12
+            // 
+            this.iTalk_Separator12.Location = new System.Drawing.Point(3, 1257);
+            this.iTalk_Separator12.Name = "iTalk_Separator12";
+            this.iTalk_Separator12.Size = new System.Drawing.Size(792, 10);
+            this.iTalk_Separator12.TabIndex = 55;
+            this.iTalk_Separator12.Text = "iTalk_Separator12";
+            // 
+            // iTalk_Separator11
+            // 
+            this.iTalk_Separator11.Location = new System.Drawing.Point(3, 799);
+            this.iTalk_Separator11.Name = "iTalk_Separator11";
+            this.iTalk_Separator11.Size = new System.Drawing.Size(792, 10);
+            this.iTalk_Separator11.TabIndex = 54;
+            this.iTalk_Separator11.Text = "iTalk_Separator11";
+            // 
+            // iTalk_Separator10
+            // 
+            this.iTalk_Separator10.Location = new System.Drawing.Point(3, 519);
+            this.iTalk_Separator10.Name = "iTalk_Separator10";
+            this.iTalk_Separator10.Size = new System.Drawing.Size(792, 10);
+            this.iTalk_Separator10.TabIndex = 53;
+            this.iTalk_Separator10.Text = "iTalk_Separator10";
+            // 
+            // iTalk_Separator9
+            // 
+            this.iTalk_Separator9.Location = new System.Drawing.Point(3, 244);
+            this.iTalk_Separator9.Name = "iTalk_Separator9";
+            this.iTalk_Separator9.Size = new System.Drawing.Size(792, 10);
+            this.iTalk_Separator9.TabIndex = 52;
+            this.iTalk_Separator9.Text = "iTalk_Separator9";
+            // 
+            // iTalk_HeaderLabel2
+            // 
+            this.iTalk_HeaderLabel2.AutoSize = true;
+            this.iTalk_HeaderLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_HeaderLabel2.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_HeaderLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.iTalk_HeaderLabel2.Location = new System.Drawing.Point(3, 0);
+            this.iTalk_HeaderLabel2.Name = "iTalk_HeaderLabel2";
+            this.iTalk_HeaderLabel2.Size = new System.Drawing.Size(71, 37);
+            this.iTalk_HeaderLabel2.TabIndex = 52;
+            this.iTalk_HeaderLabel2.Text = "학력";
             // 
             // iTalk_Label11
             // 
@@ -215,34 +326,17 @@
             this.iTalk_Separator8.TabIndex = 49;
             this.iTalk_Separator8.Text = "iTalk_Separator8";
             // 
-            // flowPanelAll
+            // iTalk_HeaderLabel1
             // 
-            this.flowPanelAll.Controls.Add(this.PanelEdu);
-            this.flowPanelAll.Controls.Add(this.panel1);
-            this.flowPanelAll.Location = new System.Drawing.Point(3, 224);
-            this.flowPanelAll.Name = "flowPanelAll";
-            this.flowPanelAll.Size = new System.Drawing.Size(807, 567);
-            this.flowPanelAll.TabIndex = 50;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.flowpanelLicense);
-            this.panel1.Controls.Add(this.iTalk_Label13);
-            this.panel1.Controls.Add(this.iTalk_Label14);
-            this.panel1.Controls.Add(this.iTalk_Label15);
-            this.panel1.Controls.Add(this.iTalk_Separator7);
-            this.panel1.Location = new System.Drawing.Point(3, 243);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(792, 234);
-            this.panel1.TabIndex = 50;
-            // 
-            // flowpanelLicense
-            // 
-            this.flowpanelLicense.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowpanelLicense.Location = new System.Drawing.Point(0, 44);
-            this.flowpanelLicense.Name = "flowpanelLicense";
-            this.flowpanelLicense.Size = new System.Drawing.Size(792, 190);
-            this.flowpanelLicense.TabIndex = 54;
+            this.iTalk_HeaderLabel1.AutoSize = true;
+            this.iTalk_HeaderLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_HeaderLabel1.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_HeaderLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.iTalk_HeaderLabel1.Location = new System.Drawing.Point(3, 277);
+            this.iTalk_HeaderLabel1.Name = "iTalk_HeaderLabel1";
+            this.iTalk_HeaderLabel1.Size = new System.Drawing.Size(98, 37);
+            this.iTalk_HeaderLabel1.TabIndex = 53;
+            this.iTalk_HeaderLabel1.Text = "자격증";
             // 
             // iTalk_Label13
             // 
@@ -288,9 +382,81 @@
             this.iTalk_Separator7.TabIndex = 49;
             this.iTalk_Separator7.Text = "iTalk_Separator7";
             // 
+            // iTalk_HeaderLabel3
+            // 
+            this.iTalk_HeaderLabel3.AutoSize = true;
+            this.iTalk_HeaderLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_HeaderLabel3.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_HeaderLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.iTalk_HeaderLabel3.Location = new System.Drawing.Point(3, 554);
+            this.iTalk_HeaderLabel3.Name = "iTalk_HeaderLabel3";
+            this.iTalk_HeaderLabel3.Size = new System.Drawing.Size(134, 37);
+            this.iTalk_HeaderLabel3.TabIndex = 55;
+            this.iTalk_HeaderLabel3.Text = "교육 이력";
+            // 
+            // iTalk_HeaderLabel4
+            // 
+            this.iTalk_HeaderLabel4.AutoSize = true;
+            this.iTalk_HeaderLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_HeaderLabel4.Font = new System.Drawing.Font("맑은 고딕", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_HeaderLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.iTalk_HeaderLabel4.Location = new System.Drawing.Point(3, 1012);
+            this.iTalk_HeaderLabel4.Name = "iTalk_HeaderLabel4";
+            this.iTalk_HeaderLabel4.Size = new System.Drawing.Size(134, 37);
+            this.iTalk_HeaderLabel4.TabIndex = 57;
+            this.iTalk_HeaderLabel4.Text = "기타 사항";
+            // 
+            // iTalk_Label16
+            // 
+            this.iTalk_Label16.AutoSize = true;
+            this.iTalk_Label16.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Label16.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.iTalk_Label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label16.Location = new System.Drawing.Point(3, 76);
+            this.iTalk_Label16.Name = "iTalk_Label16";
+            this.iTalk_Label16.Size = new System.Drawing.Size(322, 21);
+            this.iTalk_Label16.TabIndex = 63;
+            this.iTalk_Label16.Text = "고용촉진지원금 대상자 (청년취업프로그램)";
+            // 
+            // radioArmyN
+            // 
+            this.radioArmyN.BackColor = System.Drawing.Color.Transparent;
+            this.radioArmyN.Checked = false;
+            this.radioArmyN.Enabled = false;
+            this.radioArmyN.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioArmyN.Location = new System.Drawing.Point(149, 30);
+            this.radioArmyN.Name = "radioArmyN";
+            this.radioArmyN.Size = new System.Drawing.Size(45, 15);
+            this.radioArmyN.TabIndex = 62;
+            this.radioArmyN.Text = "미필";
+            // 
+            // radioArmyY
+            // 
+            this.radioArmyY.BackColor = System.Drawing.Color.Transparent;
+            this.radioArmyY.Checked = false;
+            this.radioArmyY.Enabled = false;
+            this.radioArmyY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioArmyY.Location = new System.Drawing.Point(88, 30);
+            this.radioArmyY.Name = "radioArmyY";
+            this.radioArmyY.Size = new System.Drawing.Size(45, 15);
+            this.radioArmyY.TabIndex = 61;
+            this.radioArmyY.Text = "군필";
+            // 
+            // iTalk_Label12
+            // 
+            this.iTalk_Label12.AutoSize = true;
+            this.iTalk_Label12.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Label12.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_Label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label12.Location = new System.Drawing.Point(3, 26);
+            this.iTalk_Label12.Name = "iTalk_Label12";
+            this.iTalk_Label12.Size = new System.Drawing.Size(80, 21);
+            this.iTalk_Label12.TabIndex = 60;
+            this.iTalk_Label12.Text = "병역 여부";
+            // 
             // iTalk_Separator6
             // 
-            this.iTalk_Separator6.Location = new System.Drawing.Point(617, 208);
+            this.iTalk_Separator6.Location = new System.Drawing.Point(606, 214);
             this.iTalk_Separator6.Name = "iTalk_Separator6";
             this.iTalk_Separator6.Size = new System.Drawing.Size(175, 10);
             this.iTalk_Separator6.TabIndex = 47;
@@ -302,35 +468,35 @@
             this.iTalk_Label7.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label7.Location = new System.Drawing.Point(545, 188);
+            this.iTalk_Label7.Location = new System.Drawing.Point(534, 194);
             this.iTalk_Label7.Name = "iTalk_Label7";
             this.iTalk_Label7.Size = new System.Drawing.Size(54, 21);
             this.iTalk_Label7.TabIndex = 45;
             this.iTalk_Label7.Text = "E-mail";
             // 
-            // iTalk_RadioButton2
+            // radioGenderW
             // 
-            this.iTalk_RadioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_RadioButton2.Checked = false;
-            this.iTalk_RadioButton2.Enabled = false;
-            this.iTalk_RadioButton2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iTalk_RadioButton2.Location = new System.Drawing.Point(702, 62);
-            this.iTalk_RadioButton2.Name = "iTalk_RadioButton2";
-            this.iTalk_RadioButton2.Size = new System.Drawing.Size(45, 15);
-            this.iTalk_RadioButton2.TabIndex = 44;
-            this.iTalk_RadioButton2.Text = "여";
+            this.radioGenderW.BackColor = System.Drawing.Color.Transparent;
+            this.radioGenderW.Checked = false;
+            this.radioGenderW.Enabled = false;
+            this.radioGenderW.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioGenderW.Location = new System.Drawing.Point(691, 68);
+            this.radioGenderW.Name = "radioGenderW";
+            this.radioGenderW.Size = new System.Drawing.Size(45, 15);
+            this.radioGenderW.TabIndex = 44;
+            this.radioGenderW.Text = "여";
             // 
-            // iTalk_RadioButton1
+            // radioGenderM
             // 
-            this.iTalk_RadioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_RadioButton1.Checked = false;
-            this.iTalk_RadioButton1.Enabled = false;
-            this.iTalk_RadioButton1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iTalk_RadioButton1.Location = new System.Drawing.Point(617, 62);
-            this.iTalk_RadioButton1.Name = "iTalk_RadioButton1";
-            this.iTalk_RadioButton1.Size = new System.Drawing.Size(45, 15);
-            this.iTalk_RadioButton1.TabIndex = 43;
-            this.iTalk_RadioButton1.Text = "남";
+            this.radioGenderM.BackColor = System.Drawing.Color.Transparent;
+            this.radioGenderM.Checked = false;
+            this.radioGenderM.Enabled = false;
+            this.radioGenderM.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.radioGenderM.Location = new System.Drawing.Point(606, 68);
+            this.radioGenderM.Name = "radioGenderM";
+            this.radioGenderM.Size = new System.Drawing.Size(45, 15);
+            this.radioGenderM.TabIndex = 43;
+            this.radioGenderM.Text = "남";
             // 
             // iTalk_Label6
             // 
@@ -338,7 +504,7 @@
             this.iTalk_Label6.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label6.Location = new System.Drawing.Point(557, 58);
+            this.iTalk_Label6.Location = new System.Drawing.Point(546, 64);
             this.iTalk_Label6.Name = "iTalk_Label6";
             this.iTalk_Label6.Size = new System.Drawing.Size(42, 21);
             this.iTalk_Label6.TabIndex = 42;
@@ -346,7 +512,7 @@
             // 
             // iTalk_Separator5
             // 
-            this.iTalk_Separator5.Location = new System.Drawing.Point(330, 208);
+            this.iTalk_Separator5.Location = new System.Drawing.Point(319, 214);
             this.iTalk_Separator5.Name = "iTalk_Separator5";
             this.iTalk_Separator5.Size = new System.Drawing.Size(175, 10);
             this.iTalk_Separator5.TabIndex = 41;
@@ -358,7 +524,7 @@
             this.iTalk_Label5.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label5.Location = new System.Drawing.Point(218, 188);
+            this.iTalk_Label5.Location = new System.Drawing.Point(207, 194);
             this.iTalk_Label5.Name = "iTalk_Label5";
             this.iTalk_Label5.Size = new System.Drawing.Size(74, 21);
             this.iTalk_Label5.TabIndex = 39;
@@ -366,7 +532,7 @@
             // 
             // iTalk_Separator4
             // 
-            this.iTalk_Separator4.Location = new System.Drawing.Point(330, 165);
+            this.iTalk_Separator4.Location = new System.Drawing.Point(319, 171);
             this.iTalk_Separator4.Name = "iTalk_Separator4";
             this.iTalk_Separator4.Size = new System.Drawing.Size(175, 10);
             this.iTalk_Separator4.TabIndex = 38;
@@ -378,7 +544,7 @@
             this.iTalk_Label4.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label4.Location = new System.Drawing.Point(218, 145);
+            this.iTalk_Label4.Location = new System.Drawing.Point(207, 151);
             this.iTalk_Label4.Name = "iTalk_Label4";
             this.iTalk_Label4.Size = new System.Drawing.Size(42, 21);
             this.iTalk_Label4.TabIndex = 36;
@@ -386,7 +552,7 @@
             // 
             // iTalk_Separator3
             // 
-            this.iTalk_Separator3.Location = new System.Drawing.Point(330, 121);
+            this.iTalk_Separator3.Location = new System.Drawing.Point(319, 127);
             this.iTalk_Separator3.Name = "iTalk_Separator3";
             this.iTalk_Separator3.Size = new System.Drawing.Size(175, 10);
             this.iTalk_Separator3.TabIndex = 35;
@@ -398,7 +564,7 @@
             this.iTalk_Label3.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label3.Location = new System.Drawing.Point(218, 101);
+            this.iTalk_Label3.Location = new System.Drawing.Point(207, 107);
             this.iTalk_Label3.Name = "iTalk_Label3";
             this.iTalk_Label3.Size = new System.Drawing.Size(74, 21);
             this.iTalk_Label3.TabIndex = 33;
@@ -406,7 +572,7 @@
             // 
             // iTalk_Separator1
             // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(330, 78);
+            this.iTalk_Separator1.Location = new System.Drawing.Point(319, 84);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
             this.iTalk_Separator1.Size = new System.Drawing.Size(175, 10);
             this.iTalk_Separator1.TabIndex = 32;
@@ -418,7 +584,7 @@
             this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(218, 58);
+            this.iTalk_Label1.Location = new System.Drawing.Point(207, 64);
             this.iTalk_Label1.Name = "iTalk_Label1";
             this.iTalk_Label1.Size = new System.Drawing.Size(106, 21);
             this.iTalk_Label1.TabIndex = 30;
@@ -426,7 +592,7 @@
             // 
             // iTalk_Separator2
             // 
-            this.iTalk_Separator2.Location = new System.Drawing.Point(330, 38);
+            this.iTalk_Separator2.Location = new System.Drawing.Point(319, 44);
             this.iTalk_Separator2.Name = "iTalk_Separator2";
             this.iTalk_Separator2.Size = new System.Drawing.Size(175, 10);
             this.iTalk_Separator2.TabIndex = 29;
@@ -438,7 +604,7 @@
             this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label2.Location = new System.Drawing.Point(218, 18);
+            this.iTalk_Label2.Location = new System.Drawing.Point(207, 24);
             this.iTalk_Label2.Name = "iTalk_Label2";
             this.iTalk_Label2.Size = new System.Drawing.Size(42, 21);
             this.iTalk_Label2.TabIndex = 27;
@@ -450,12 +616,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.iTalk_Separator12);
+            this.Controls.Add(this.iTalk_Separator11);
+            this.Controls.Add(this.iTalk_Separator10);
+            this.Controls.Add(this.iTalk_Separator9);
             this.Controls.Add(this.flowPanelAll);
             this.Controls.Add(this.iTalk_Separator6);
             this.Controls.Add(this.tboxEmail);
             this.Controls.Add(this.iTalk_Label7);
-            this.Controls.Add(this.iTalk_RadioButton2);
-            this.Controls.Add(this.iTalk_RadioButton1);
+            this.Controls.Add(this.radioGenderW);
+            this.Controls.Add(this.radioGenderM);
             this.Controls.Add(this.iTalk_Label6);
             this.Controls.Add(this.iTalk_Separator5);
             this.Controls.Add(this.tboxMobile);
@@ -472,14 +642,18 @@
             this.Controls.Add(this.iTalk_Separator2);
             this.Controls.Add(this.tboxName);
             this.Controls.Add(this.iTalk_Label2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pboxProfile);
             this.Name = "CtlResume";
-            this.Size = new System.Drawing.Size(813, 454);
+            this.Size = new System.Drawing.Size(819, 454);
             this.Load += new System.EventHandler(this.CtlResume_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxProfile)).EndInit();
             this.PanelEdu.ResumeLayout(false);
             this.PanelEdu.PerformLayout();
             this.flowPanelAll.ResumeLayout(false);
+            this.flowPanelAll.PerformLayout();
+            this.panelLicnese.ResumeLayout(false);
+            this.panelLicnese.PerformLayout();
+            this.panelEduHistory.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -488,7 +662,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pboxProfile;
         private iTalk.iTalk_Separator iTalk_Separator2;
         private System.Windows.Forms.TextBox tboxName;
         private iTalk.iTalk_Label iTalk_Label2;
@@ -505,8 +679,8 @@
         private System.Windows.Forms.TextBox tboxMobile;
         private iTalk.iTalk_Label iTalk_Label5;
         private iTalk.iTalk_Label iTalk_Label6;
-        private iTalk.iTalk_RadioButton iTalk_RadioButton1;
-        private iTalk.iTalk_RadioButton iTalk_RadioButton2;
+        private iTalk.iTalk_RadioButton radioGenderM;
+        private iTalk.iTalk_RadioButton radioGenderW;
         private iTalk.iTalk_Separator iTalk_Separator6;
         private System.Windows.Forms.TextBox tboxEmail;
         private iTalk.iTalk_Label iTalk_Label7;
@@ -518,11 +692,26 @@
         private System.Windows.Forms.Panel PanelEdu;
         private System.Windows.Forms.FlowLayoutPanel flowpanelEdu;
         private System.Windows.Forms.FlowLayoutPanel flowPanelAll;
-        private System.Windows.Forms.Panel panel1;
+        private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel2;
+        private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel1;
+        private System.Windows.Forms.Panel panelLicnese;
         private System.Windows.Forms.FlowLayoutPanel flowpanelLicense;
         private iTalk.iTalk_Label iTalk_Label13;
         private iTalk.iTalk_Label iTalk_Label14;
         private iTalk.iTalk_Label iTalk_Label15;
         private iTalk.iTalk_Separator iTalk_Separator7;
+        private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel3;
+        private iTalk.iTalk_Separator iTalk_Separator9;
+        private System.Windows.Forms.Panel panelEduHistory;
+        private iTalk.iTalk_Separator iTalk_Separator10;
+        private iTalk.iTalk_Separator iTalk_Separator11;
+        private System.Windows.Forms.FlowLayoutPanel flowPanelEduHistory;
+        private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel4;
+        private System.Windows.Forms.Panel panel1;
+        private iTalk.iTalk_Label iTalk_Label16;
+        private iTalk.iTalk_RadioButton radioArmyN;
+        private iTalk.iTalk_RadioButton radioArmyY;
+        private iTalk.iTalk_Label iTalk_Label12;
+        private iTalk.iTalk_Separator iTalk_Separator12;
     }
 }

@@ -64,6 +64,12 @@
     <Compile Include="CtlEdu.Designer.cs">
       <DependentUpon>CtlEdu.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlEduHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlEduHistory.Designer.cs">
+      <DependentUpon>CtlEduHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtlEdu.resx">
       <DependentUpon>CtlEdu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlEduHistory.resx">
+      <DependentUpon>CtlEduHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlLicense.resx">
       <DependentUpon>CtlLicense.cs</DependentUpon>
