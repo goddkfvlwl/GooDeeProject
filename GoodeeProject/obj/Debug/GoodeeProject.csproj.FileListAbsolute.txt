@@ -89,3 +89,4 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyList.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyDetail.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioList.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioListMenu.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentInfo.resources

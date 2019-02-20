@@ -145,5 +145,15 @@ namespace GoodeeProject
                 Marshal.ReleaseComObject(app);
             }
         }
+
+        private void gViewStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void mnubtnIndividualRegist_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -254,5 +254,15 @@ namespace GoodeeProject.GoodeeDAO
             parameters[2] = new SqlParameter("@beforeName", beforeName);
             return con.ExecuteInsert(proc, parameters);
         }
+
+        public bool DeletePortfolio(string id, string portfolioName)
+        {
+            string proc = "DeletePortfolio";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@id", id);
+            parameters[1] = new SqlParameter("@portfolioName", portfolioName);
+            return con.ExecuteDelete(proc, parameters);
+        }
     }
 }
