@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tboxLiName = new System.Windows.Forms.TextBox();
+            this.mTboxDate = new System.Windows.Forms.MaskedTextBox();
+            this.tboxAgency = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // iTalk_Separator1
@@ -42,36 +42,36 @@
             this.iTalk_Separator1.TabIndex = 15;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
-            // textBox1
+            // tboxLiName
             // 
-            this.textBox1.Location = new System.Drawing.Point(4, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 21);
-            this.textBox1.TabIndex = 16;
+            this.tboxLiName.Location = new System.Drawing.Point(4, 7);
+            this.tboxLiName.Name = "tboxLiName";
+            this.tboxLiName.Size = new System.Drawing.Size(250, 21);
+            this.tboxLiName.TabIndex = 16;
             // 
-            // maskedTextBox1
+            // mTboxDate
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(292, 7);
-            this.maskedTextBox1.Mask = "0000-00-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(210, 21);
-            this.maskedTextBox1.TabIndex = 17;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.mTboxDate.Location = new System.Drawing.Point(292, 7);
+            this.mTboxDate.Mask = "0000-00-00";
+            this.mTboxDate.Name = "mTboxDate";
+            this.mTboxDate.Size = new System.Drawing.Size(210, 21);
+            this.mTboxDate.TabIndex = 17;
+            this.mTboxDate.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox2
+            // tboxAgency
             // 
-            this.textBox2.Location = new System.Drawing.Point(537, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 21);
-            this.textBox2.TabIndex = 18;
+            this.tboxAgency.Location = new System.Drawing.Point(537, 7);
+            this.tboxAgency.Name = "tboxAgency";
+            this.tboxAgency.Size = new System.Drawing.Size(192, 21);
+            this.tboxAgency.TabIndex = 18;
             // 
             // CtlLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tboxAgency);
+            this.Controls.Add(this.mTboxDate);
+            this.Controls.Add(this.tboxLiName);
             this.Controls.Add(this.iTalk_Separator1);
             this.Name = "CtlLicense";
             this.Size = new System.Drawing.Size(753, 36);
@@ -83,8 +83,8 @@
         #endregion
 
         private iTalk.iTalk_Separator iTalk_Separator1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        internal System.Windows.Forms.TextBox tboxLiName;
+        internal System.Windows.Forms.MaskedTextBox mTboxDate;
+        internal System.Windows.Forms.TextBox tboxAgency;
     }
 }

@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mTboxEnterPeriod = new System.Windows.Forms.MaskedTextBox();
+            this.mTboxGraduPeriod = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tboxSchoolName = new System.Windows.Forms.TextBox();
+            this.cboxSchoolType = new System.Windows.Forms.ComboBox();
+            this.cboxGraduType = new System.Windows.Forms.ComboBox();
+            this.tboxDepart = new System.Windows.Forms.TextBox();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.SuspendLayout();
             // 
-            // maskedTextBox1
+            // mTboxEnterPeriod
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(6, 7);
-            this.maskedTextBox1.Mask = "0000-00-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox1.TabIndex = 0;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.mTboxEnterPeriod.Location = new System.Drawing.Point(6, 7);
+            this.mTboxEnterPeriod.Mask = "0000-00-00";
+            this.mTboxEnterPeriod.Name = "mTboxEnterPeriod";
+            this.mTboxEnterPeriod.Size = new System.Drawing.Size(100, 21);
+            this.mTboxEnterPeriod.TabIndex = 0;
+            this.mTboxEnterPeriod.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox2
+            // mTboxGraduPeriod
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(126, 7);
-            this.maskedTextBox2.Mask = "0000-00-00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox2.TabIndex = 1;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.mTboxGraduPeriod.Location = new System.Drawing.Point(126, 7);
+            this.mTboxGraduPeriod.Mask = "0000-00-00";
+            this.mTboxGraduPeriod.Name = "mTboxGraduPeriod";
+            this.mTboxGraduPeriod.Size = new System.Drawing.Size(100, 21);
+            this.mTboxGraduPeriod.TabIndex = 1;
+            this.mTboxGraduPeriod.ValidatingType = typeof(System.DateTime);
             // 
             // label1
             // 
@@ -65,44 +65,44 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "~";
             // 
-            // textBox1
+            // tboxSchoolName
             // 
-            this.textBox1.Location = new System.Drawing.Point(246, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(158, 21);
-            this.textBox1.TabIndex = 3;
+            this.tboxSchoolName.Location = new System.Drawing.Point(246, 7);
+            this.tboxSchoolName.Name = "tboxSchoolName";
+            this.tboxSchoolName.Size = new System.Drawing.Size(158, 21);
+            this.tboxSchoolName.TabIndex = 3;
             // 
-            // comboBox1
+            // cboxSchoolType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cboxSchoolType.FormattingEnabled = true;
+            this.cboxSchoolType.Items.AddRange(new object[] {
             "고등학교",
             "대학교",
             "대학원"});
-            this.comboBox1.Location = new System.Drawing.Point(410, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(72, 20);
-            this.comboBox1.TabIndex = 4;
+            this.cboxSchoolType.Location = new System.Drawing.Point(410, 7);
+            this.cboxSchoolType.Name = "cboxSchoolType";
+            this.cboxSchoolType.Size = new System.Drawing.Size(72, 20);
+            this.cboxSchoolType.TabIndex = 4;
             // 
-            // comboBox2
+            // cboxGraduType
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cboxGraduType.FormattingEnabled = true;
+            this.cboxGraduType.Items.AddRange(new object[] {
             "졸업",
             "재학",
             "자퇴",
             "퇴학"});
-            this.comboBox2.Location = new System.Drawing.Point(681, 7);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(72, 20);
-            this.comboBox2.TabIndex = 5;
+            this.cboxGraduType.Location = new System.Drawing.Point(681, 7);
+            this.cboxGraduType.Name = "cboxGraduType";
+            this.cboxGraduType.Size = new System.Drawing.Size(72, 20);
+            this.cboxGraduType.TabIndex = 5;
             // 
-            // textBox2
+            // tboxDepart
             // 
-            this.textBox2.Location = new System.Drawing.Point(503, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 21);
-            this.textBox2.TabIndex = 6;
+            this.tboxDepart.Location = new System.Drawing.Point(503, 7);
+            this.tboxDepart.Name = "tboxDepart";
+            this.tboxDepart.Size = new System.Drawing.Size(170, 21);
+            this.tboxDepart.TabIndex = 6;
             // 
             // iTalk_Separator1
             // 
@@ -117,13 +117,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.iTalk_Separator1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tboxDepart);
+            this.Controls.Add(this.cboxGraduType);
+            this.Controls.Add(this.cboxSchoolType);
+            this.Controls.Add(this.tboxSchoolName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mTboxGraduPeriod);
+            this.Controls.Add(this.mTboxEnterPeriod);
             this.Name = "CtlEdu";
             this.Size = new System.Drawing.Size(753, 36);
             this.ResumeLayout(false);
@@ -132,14 +132,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
         private iTalk.iTalk_Separator iTalk_Separator1;
+        internal System.Windows.Forms.MaskedTextBox mTboxEnterPeriod;
+        internal System.Windows.Forms.MaskedTextBox mTboxGraduPeriod;
+        internal System.Windows.Forms.TextBox tboxSchoolName;
+        internal System.Windows.Forms.ComboBox cboxSchoolType;
+        internal System.Windows.Forms.ComboBox cboxGraduType;
+        internal System.Windows.Forms.TextBox tboxDepart;
     }
 }

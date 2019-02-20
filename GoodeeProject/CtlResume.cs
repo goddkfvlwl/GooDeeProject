@@ -12,6 +12,8 @@ namespace GoodeeProject
 {
     public partial class CtlResume : UserControl
     {
+        GoodeeDAO.GoodeeDAO gd;
+
         iTalk.iTalk_Button_1 btnEdu;
         iTalk.iTalk_Button_1 btnDelEdu;
         iTalk.iTalk_Button_1 btnLicense;
@@ -20,17 +22,20 @@ namespace GoodeeProject
         iTalk.iTalk_Button_1 btnDelEduHistory;
 
         CtlEduHistory ch;
+        CtlEdu ce;
+        CtlLicense cl;
 
         public CtlResume()
         {
             InitializeComponent();
+            gd = GoodeeDAO.GoodeeDAO.GetInstance();
             this.Size = new Size(818, 454);
         }
 
         private void CtlResume_Load(object sender, EventArgs e)
         {
             //학력 패널
-            CtlEdu ce = new CtlEdu();
+            ce = new CtlEdu();
             flowpanelEdu.Controls.Add(ce);
 
             btnEdu = new iTalk.iTalk_Button_1();
@@ -44,7 +49,7 @@ namespace GoodeeProject
             btnDelEdu.Text = "학력  제거";
 
             //자격증 패널
-            CtlLicense cl = new CtlLicense();
+            cl = new CtlLicense();
             flowpanelLicense.Controls.Add(cl);
             btnLicense = new iTalk.iTalk_Button_1();
             flowpanelLicense.Controls.Add(btnLicense);
@@ -153,7 +158,7 @@ namespace GoodeeProject
 
         private void BtnEduHistory_Click(object sender, EventArgs e)
         {
-            CtlEduHistory ch = new CtlEduHistory();
+            ch = new CtlEduHistory();
             flowPanelEduHistory.Controls.Add(ch);
             flowPanelEduHistory.Controls.SetChildIndex(btnEduHistory, flowPanelEduHistory.Controls.Count - 1);
             flowPanelEduHistory.Controls.SetChildIndex(btnDelEduHistory, flowPanelEduHistory.Controls.Count);
@@ -162,7 +167,7 @@ namespace GoodeeProject
 
         private void BtnLicense_Click(object sender, EventArgs e)
         {
-            CtlLicense cl = new CtlLicense();
+            cl = new CtlLicense();
             flowpanelLicense.Controls.Add(cl);
             flowpanelLicense.Controls.SetChildIndex(btnLicense, flowpanelLicense.Controls.Count - 1);
             flowpanelLicense.Controls.SetChildIndex(btnDelLicense, flowpanelLicense.Controls.Count);
@@ -171,7 +176,7 @@ namespace GoodeeProject
 
         private void Btn_Click(object sender, EventArgs e)
         {
-            CtlEdu ce = new CtlEdu();
+            ce = new CtlEdu();
             flowpanelEdu.Controls.Add(ce);
             flowpanelEdu.Controls.SetChildIndex(btnEdu, flowpanelEdu.Controls.Count - 1);
             flowpanelEdu.Controls.SetChildIndex(btnDelEdu, flowpanelEdu.Controls.Count);
@@ -179,6 +184,30 @@ namespace GoodeeProject
         }
 
         private void btnSave_Click(object sender, EventArgs e)
+        {
+            // 자격증 추가
+            for (int i = 0; i < flowpanelLicense.Controls.Count - 2; i++)
+            {
+                CtlLicense ad = (CtlLicense)flowpanelLicense.Controls[i];
+                gd.InsertLicense(FrmMain.Mi.Id, ad.tboxLiName.Text, DateTime.Parse(ad.mTboxDate.Text), ad.tboxAgency.Text);
+            }
+            // 학력  추가
+            for (int i = 0; i < flowpanelEdu.Controls.Count - 2; i++)
+            {
+                CtlEdu ce = (CtlEdu)flowpanelEdu.Controls[i];
+                gd.InsertEducation(FrmMain.Mi.Id, DateTime.Parse(ce.mTboxEnterPeriod.Text), DateTime.Parse(ce.mTboxGraduPeriod.Text), ce.tboxSchoolName.Text, ce.cboxSchoolType.Text, ce.tboxDepart.Text, ce.cboxGraduType.Text);
+            }
+            // 교육 이력 추가
+            for (int i = 0; i < flowPanelEduHistory.Controls.Count; i++)
+            {
+                CtlEduHistory eh = (CtlEduHistory)flowPanelEduHistory.Controls[i];
+                gd.InsertEdu_History(FrmMain.Mi.Id, DateTime.Parse(eh.mtboxStartPeriod.Text), DateTime.Parse(eh.mtboxEndPeriod.Text), eh.tboxEduAgency.Text, eh.tboxEduName.Text, eh.tboxSkill.Text, eh.tboxDetail.Text);
+            }
+
+        }
+
+        //로드 시 저장되어있는 데이터 불러올 메서드
+        private void ReloadResume()
         {
 
         }

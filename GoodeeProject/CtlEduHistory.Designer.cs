@@ -195,19 +195,18 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private iTalk.iTalk_Label iTalk_Label1;
-        private System.Windows.Forms.TextBox textBox1;
         private iTalk.iTalk_Label iTalk_Label2;
         private iTalk.iTalk_Label iTalk_Label3;
         private iTalk.iTalk_Label iTalk_Label4;
-        private System.Windows.Forms.TextBox textBox2;
         private iTalk.iTalk_Label iTalk_Label5;
-        private System.Windows.Forms.TextBox textBox3;
         private iTalk.iTalk_Label iTalk_Label6;
-        private System.Windows.Forms.TextBox textBox4;
         private iTalk.iTalk_Separator iTalk_Separator1;
+        internal System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        internal System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        internal System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.TextBox textBox2;
+        internal System.Windows.Forms.TextBox textBox3;
+        internal System.Windows.Forms.TextBox textBox4;
     }
 }
