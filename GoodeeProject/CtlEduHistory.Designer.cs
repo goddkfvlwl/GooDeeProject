@@ -28,67 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.mtboxStartPeriod = new System.Windows.Forms.MaskedTextBox();
+            this.mtboxEndPeriod = new System.Windows.Forms.MaskedTextBox();
+            this.tboxEduAgency = new System.Windows.Forms.TextBox();
+            this.tboxEduName = new System.Windows.Forms.TextBox();
+            this.tboxSkill = new System.Windows.Forms.TextBox();
+            this.tboxDetail = new System.Windows.Forms.TextBox();
+            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.iTalk_Label5 = new iTalk.iTalk_Label();
             this.iTalk_Label6 = new iTalk.iTalk_Label();
             this.iTalk_Label4 = new iTalk.iTalk_Label();
             this.iTalk_Label3 = new iTalk.iTalk_Label();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.SuspendLayout();
             // 
-            // maskedTextBox1
+            // mtboxStartPeriod
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(119, 17);
-            this.maskedTextBox1.Mask = "0000-00-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox1.TabIndex = 0;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.mtboxStartPeriod.Location = new System.Drawing.Point(119, 17);
+            this.mtboxStartPeriod.Mask = "0000-00-00";
+            this.mtboxStartPeriod.Name = "mtboxStartPeriod";
+            this.mtboxStartPeriod.Size = new System.Drawing.Size(100, 21);
+            this.mtboxStartPeriod.TabIndex = 0;
+            this.mtboxStartPeriod.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox2
+            // mtboxEndPeriod
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(252, 17);
-            this.maskedTextBox2.Mask = "0000-00-00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 21);
-            this.maskedTextBox2.TabIndex = 1;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.mtboxEndPeriod.Location = new System.Drawing.Point(252, 17);
+            this.mtboxEndPeriod.Mask = "0000-00-00";
+            this.mtboxEndPeriod.Name = "mtboxEndPeriod";
+            this.mtboxEndPeriod.Size = new System.Drawing.Size(100, 21);
+            this.mtboxEndPeriod.TabIndex = 1;
+            this.mtboxEndPeriod.ValidatingType = typeof(System.DateTime);
             // 
-            // textBox1
+            // tboxEduAgency
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 55);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 21);
-            this.textBox1.TabIndex = 3;
+            this.tboxEduAgency.Location = new System.Drawing.Point(119, 55);
+            this.tboxEduAgency.Name = "tboxEduAgency";
+            this.tboxEduAgency.Size = new System.Drawing.Size(233, 21);
+            this.tboxEduAgency.TabIndex = 3;
             // 
-            // textBox2
+            // tboxEduName
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 21);
-            this.textBox2.TabIndex = 7;
+            this.tboxEduName.Location = new System.Drawing.Point(119, 93);
+            this.tboxEduName.Name = "tboxEduName";
+            this.tboxEduName.Size = new System.Drawing.Size(233, 21);
+            this.tboxEduName.TabIndex = 7;
             // 
-            // textBox3
+            // tboxSkill
             // 
-            this.textBox3.Location = new System.Drawing.Point(119, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(518, 21);
-            this.textBox3.TabIndex = 19;
+            this.tboxSkill.Location = new System.Drawing.Point(119, 140);
+            this.tboxSkill.Name = "tboxSkill";
+            this.tboxSkill.Size = new System.Drawing.Size(518, 21);
+            this.tboxSkill.TabIndex = 19;
             // 
-            // textBox4
+            // tboxDetail
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 168);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(518, 141);
-            this.textBox4.TabIndex = 16;
+            this.tboxDetail.Location = new System.Drawing.Point(119, 168);
+            this.tboxDetail.Multiline = true;
+            this.tboxDetail.Name = "tboxDetail";
+            this.tboxDetail.Size = new System.Drawing.Size(518, 141);
+            this.tboxDetail.TabIndex = 16;
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(3, 315);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(748, 10);
+            this.iTalk_Separator1.TabIndex = 20;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
             // iTalk_Label5
             // 
@@ -162,31 +170,23 @@
             this.iTalk_Label1.TabIndex = 2;
             this.iTalk_Label1.Text = "~";
             // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(3, 315);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(748, 10);
-            this.iTalk_Separator1.TabIndex = 20;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
             // CtlEduHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.iTalk_Label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.tboxSkill);
             this.Controls.Add(this.iTalk_Label6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tboxDetail);
+            this.Controls.Add(this.tboxEduName);
             this.Controls.Add(this.iTalk_Label4);
             this.Controls.Add(this.iTalk_Label3);
             this.Controls.Add(this.iTalk_Label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tboxEduAgency);
             this.Controls.Add(this.iTalk_Label1);
-            this.Controls.Add(this.maskedTextBox2);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.mtboxEndPeriod);
+            this.Controls.Add(this.mtboxStartPeriod);
             this.Name = "CtlEduHistory";
             this.Size = new System.Drawing.Size(753, 324);
             this.ResumeLayout(false);
@@ -202,11 +202,11 @@
         private iTalk.iTalk_Label iTalk_Label5;
         private iTalk.iTalk_Label iTalk_Label6;
         private iTalk.iTalk_Separator iTalk_Separator1;
-        internal System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        internal System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        internal System.Windows.Forms.TextBox textBox1;
-        internal System.Windows.Forms.TextBox textBox2;
-        internal System.Windows.Forms.TextBox textBox3;
-        internal System.Windows.Forms.TextBox textBox4;
+        internal System.Windows.Forms.MaskedTextBox mtboxStartPeriod;
+        internal System.Windows.Forms.MaskedTextBox mtboxEndPeriod;
+        internal System.Windows.Forms.TextBox tboxEduAgency;
+        internal System.Windows.Forms.TextBox tboxEduName;
+        internal System.Windows.Forms.TextBox tboxSkill;
+        internal System.Windows.Forms.TextBox tboxDetail;
     }
 }

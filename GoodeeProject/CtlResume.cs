@@ -185,6 +185,7 @@ namespace GoodeeProject
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            //빈값일때 예외처리 필요
             // 자격증 추가
             for (int i = 0; i < flowpanelLicense.Controls.Count - 2; i++)
             {
