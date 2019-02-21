@@ -230,5 +230,45 @@ namespace GoodeeProject.GoodeeDAO
             }
             return result;
         }
+
+        public DataTable SelectLicense(string id)
+        {
+            string proc = "SelectLicense";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectEdu(string id)
+        {
+            string proc = "SelectEdu";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectEdu_History(string id)
+        {
+            string proc = "SelectEdu_History";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public bool DeleteLiEduHis(string id)
+        {
+            string proc = "DeleteLiEduHis";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.ExecuteDelete(proc, pms);
+        }
     }
 }
