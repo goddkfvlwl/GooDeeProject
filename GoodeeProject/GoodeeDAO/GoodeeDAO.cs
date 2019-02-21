@@ -43,11 +43,20 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
+        internal DataTable SelectMemberInfo(string id)
+        {
+            string proc = "SelectMemberInfo";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@ID", id);
+            return con.SelectWithParams(proc, parameters);
+        }
+
         internal void InsertMember(string[] str)
         {
             string proc = "InsertMember";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[9];
+            SqlParameter[] parameters = new SqlParameter[10];
             parameters[0] = new SqlParameter("id", str[0]);
             parameters[1] = new SqlParameter("name", str[1]);
             parameters[2] = new SqlParameter("gender", str[2]);
@@ -57,6 +66,7 @@ namespace GoodeeProject.GoodeeDAO
             parameters[6] = new SqlParameter("ClassName", str[6]);
             parameters[7] = new SqlParameter("Curriculum", str[7]);
             parameters[8] = new SqlParameter("Turn", str[8]);
+            parameters[9] = new SqlParameter("Regist", str[9]);
             if (con.ExecuteInsert(proc, parameters))
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
@@ -71,7 +81,7 @@ namespace GoodeeProject.GoodeeDAO
             DataTable dt = con.ExecuteSelect(proc);
             foreach (DataRow item in dt.Rows)
             {
-                list.Add(new MemberInfo(item["ID"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString(), int.Parse(item["ClassNum"].ToString())));
+                list.Add(new MemberInfo(item["ID"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString(), int.Parse(item["ClassNum"].ToString()), item["Register"].ToString()));
             }
             return list;
         }

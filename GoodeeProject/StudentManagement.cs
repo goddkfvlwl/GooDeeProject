@@ -31,8 +31,11 @@ namespace GoodeeProject
             this.gViewStudentInfo.Columns.Add("BirthDay", "생년월일");
             this.gViewStudentInfo.Columns.Add("Gender", "성별");
             this.gViewStudentInfo.Columns.Add("Mobile", "휴대폰");
+            this.gViewStudentInfo.Columns.Add("Email", "이메일");
             this.gViewStudentInfo.Columns.Add("Address", "주소");
+            this.gViewStudentInfo.Columns.Add("Regist", "학적");
             this.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            gViewStudentInfo.Rows.Clear();
             foreach (var item in list)
             {
                 var c = goodeeDAO.SelectClass(item.ClassNum);
@@ -47,7 +50,7 @@ namespace GoodeeProject
                 {
                     gender = "여자";
                 }
-                gViewStudentInfo.Rows.Add(new string[] { className, curriculum, turn, item.Name, item.BirthDate.ToShortDateString(), gender, item.Mobile, item.Address});
+                gViewStudentInfo.Rows.Add(new string[] { className, curriculum, turn, item.Name, item.BirthDate.ToShortDateString(), gender, item.Mobile, item.Id, item.Address, item.Regist});
             }
             
         }
@@ -148,12 +151,21 @@ namespace GoodeeProject
 
         private void gViewStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            string id = gViewStudentInfo.Rows[e.RowIndex].Cells[7].Value.ToString();
+            StudentIndivisualRegist regist = new StudentIndivisualRegist(id);
+            this.Parent.Controls.Add(regist);
+            regist.Location = new System.Drawing.Point(200, 50);
+            regist.BringToFront();
+            StudentManagement_Load(null, null);
         }
 
         private void mnubtnIndividualRegist_Click(object sender, EventArgs e)
         {
-
+            StudentIndivisualRegist regist = new StudentIndivisualRegist();
+            this.Parent.Controls.Add(regist);
+            regist.Location = new System.Drawing.Point(200, 50);
+            regist.BringToFront();
+            StudentManagement_Load(null, null);
         }
     }
 }

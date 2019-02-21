@@ -31,9 +31,9 @@
             this.gViewStudentInfo = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mnubtnStudentRegist = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnubtnStudentPrint = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnExcelRegist = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnIndividualRegist = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnubtnStudentPrint = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +51,7 @@
             this.gViewStudentInfo.ReadOnly = true;
             this.gViewStudentInfo.RowHeadersVisible = false;
             this.gViewStudentInfo.RowTemplate.Height = 23;
+            this.gViewStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gViewStudentInfo.Size = new System.Drawing.Size(815, 426);
             this.gViewStudentInfo.TabIndex = 1;
             this.gViewStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewStudentInfo_CellClick);
@@ -75,26 +76,26 @@
             this.mnubtnStudentRegist.Size = new System.Drawing.Size(83, 20);
             this.mnubtnStudentRegist.Text = "수강생 등록";
             // 
-            // mnubtnStudentPrint
-            // 
-            this.mnubtnStudentPrint.Name = "mnubtnStudentPrint";
-            this.mnubtnStudentPrint.Size = new System.Drawing.Size(83, 20);
-            this.mnubtnStudentPrint.Text = "수강생 출력";
-            this.mnubtnStudentPrint.Click += new System.EventHandler(this.btnWriteExl_Click);
-            // 
             // mnubtnExcelRegist
             // 
             this.mnubtnExcelRegist.Name = "mnubtnExcelRegist";
-            this.mnubtnExcelRegist.Size = new System.Drawing.Size(180, 22);
+            this.mnubtnExcelRegist.Size = new System.Drawing.Size(170, 22);
             this.mnubtnExcelRegist.Text = "수강생 Excel 등록";
             this.mnubtnExcelRegist.Click += new System.EventHandler(this.btnReadExl_Click);
             // 
             // mnubtnIndividualRegist
             // 
             this.mnubtnIndividualRegist.Name = "mnubtnIndividualRegist";
-            this.mnubtnIndividualRegist.Size = new System.Drawing.Size(180, 22);
+            this.mnubtnIndividualRegist.Size = new System.Drawing.Size(170, 22);
             this.mnubtnIndividualRegist.Text = "수강생 개별  등록";
             this.mnubtnIndividualRegist.Click += new System.EventHandler(this.mnubtnIndividualRegist_Click);
+            // 
+            // mnubtnStudentPrint
+            // 
+            this.mnubtnStudentPrint.Name = "mnubtnStudentPrint";
+            this.mnubtnStudentPrint.Size = new System.Drawing.Size(83, 20);
+            this.mnubtnStudentPrint.Text = "수강생 출력";
+            this.mnubtnStudentPrint.Click += new System.EventHandler(this.btnWriteExl_Click);
             // 
             // StudentManagement
             // 

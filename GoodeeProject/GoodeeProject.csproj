@@ -161,11 +161,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentInfo.cs">
+    <Compile Include="StudentIndivisualRegist.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="StudentInfo.Designer.cs">
-      <DependentUpon>StudentInfo.cs</DependentUpon>
+    <Compile Include="StudentIndivisualRegist.Designer.cs">
+      <DependentUpon>StudentIndivisualRegist.cs</DependentUpon>
     </Compile>
     <Compile Include="StudentManagement.cs">
       <SubType>UserControl</SubType>
@@ -257,8 +257,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StudentInfo.resx">
-      <DependentUpon>StudentInfo.cs</DependentUpon>
+    <EmbeddedResource Include="StudentIndivisualRegist.resx">
+      <DependentUpon>StudentIndivisualRegist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentManagement.resx">
       <DependentUpon>StudentManagement.cs</DependentUpon>
