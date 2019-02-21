@@ -34,12 +34,13 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
-            
+            ctlProfile1.btnClassModify.Click += BtnClassModify_Click;
             if (Authority == 'S')
             {
                 //사용자가 수강생일때
                 ctlProfile1.btnLog.Visible = false;
                 ctlProfile1.btnStudent.Visible = false;
+                ctlProfile1.btnClassModify.Visible = false;
                 ctlProfile1.Size = new Size(224, 111);
                 ctlProfile1.Location = new Point(767, 29);
             }
@@ -49,6 +50,14 @@ namespace GoodeeProject
                 ctlProfile1.btnCreateID.Visible = false;
             }
             ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
+        }
+
+        private void BtnClassModify_Click(object sender, EventArgs e)
+        {
+            ClassList list = new ClassList();
+            panel2.Controls.Add(list);
+            list.Location = new Point(185, 0);
+            list.BringToFront();
         }
 
         private void BtnStudent_Click(object sender, EventArgs e)

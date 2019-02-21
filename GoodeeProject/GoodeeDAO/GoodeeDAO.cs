@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GoodeeProject.GoodeeDAO
 {
@@ -43,6 +44,45 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
+        internal void InsertClass(string Class, string curriculm, TextBox turn, DateTime startDate, DateTime endDate, bool isActive)
+        {
+            string proc = "InsertClass";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[6];
+            parameters[0] = new SqlParameter("ClassName", Class);
+            parameters[1] = new SqlParameter("curriculm", curriculm);
+            parameters[2] = new SqlParameter("turn", turn);
+            parameters[3] = new SqlParameter("startDate", startDate);
+            parameters[4] = new SqlParameter("endDate", endDate);
+            parameters[5] = new SqlParameter("isActive", isActive);
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
+            }
+        }
+
+        internal DataTable selectClassList()
+        {
+            string proc = "SelectClassList";
+            con = new DBConnection();
+            return con.ExecuteSelect(proc);
+        }
+
+        internal void UpdateClass(int ID, string Class, string Curriculm, string Turn, DateTime StartDate, DateTime EndDate, bool isActive)
+        {
+            string proc = "UpdateClass";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[7];
+            parameters[0] = new SqlParameter("ClassNum", ID);
+            parameters[1] = new SqlParameter("Class_Name", Class);
+            parameters[2] = new SqlParameter("Curriculm", Curriculm);
+            parameters[3] = new SqlParameter("Turn", Turn);
+            parameters[4] = new SqlParameter("StartDate", StartDate);
+            parameters[5] = new SqlParameter("EndDate", EndDate);
+            parameters[6] = new SqlParameter("isActive", isActive);
+            con.ExecuteInsert(proc, parameters);
+        }
+
         internal DataTable SelectMemberInfo(string id)
         {
             string proc = "SelectMemberInfo";
@@ -73,17 +113,13 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
-        public List<MemberInfo> SelectMemberList()
+        public DataTable SelectMemberList()
         {
             string proc = "SelectMemberList";
             con = new DBConnection();
             List<MemberInfo> list = new List<MemberInfo>();
-            DataTable dt = con.ExecuteSelect(proc);
-            foreach (DataRow item in dt.Rows)
-            {
-                list.Add(new MemberInfo(item["ID"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()), char.Parse(item["Gender"].ToString()), item["Mobile"].ToString(), item["Address"].ToString(), int.Parse(item["ClassNum"].ToString()), item["Register"].ToString()));
-            }
-            return list;
+            return con.ExecuteSelect(proc);
+            
         }
         public MemberInfo SelectMember(string id)
         {

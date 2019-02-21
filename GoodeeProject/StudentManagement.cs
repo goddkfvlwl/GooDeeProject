@@ -15,6 +15,7 @@ namespace GoodeeProject
 {
     public partial class StudentManagement : UserControl
     {
+        System.Data.DataTable table;
         public StudentManagement()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace GoodeeProject
         private void StudentManagement_Load(object sender, EventArgs e)
         {
             GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
-            var list = goodeeDAO.SelectMemberList();
+            table = goodeeDAO.SelectMemberList();
             this.gViewStudentInfo.Columns.Add("Class", "분류");
             this.gViewStudentInfo.Columns.Add("Curriculum", "과정명");
             this.gViewStudentInfo.Columns.Add("Turn", "회차");
@@ -36,21 +37,18 @@ namespace GoodeeProject
             this.gViewStudentInfo.Columns.Add("Regist", "학적");
             this.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             gViewStudentInfo.Rows.Clear();
-            foreach (var item in list)
+            
+            foreach (DataRow item in table.Rows)
             {
-                var c = goodeeDAO.SelectClass(item.ClassNum);
-                string className = c.Class_Name;
-                string curriculum = c.Curriculum;
-                string turn = c.Turn;
                 string gender = "";
-                if (item.Gender.ToString() == "m" || item.Gender.ToString() == "M")
+                if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
                 {
                     gender = "남자";
                 }else
                 {
                     gender = "여자";
                 }
-                gViewStudentInfo.Rows.Add(new string[] { className, curriculum, turn, item.Name, item.BirthDate.ToShortDateString(), gender, item.Mobile, item.Id, item.Address, item.Regist});
+                gViewStudentInfo.Rows.Add(new string[] {item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString()});
             }
             
         }
@@ -123,19 +121,17 @@ namespace GoodeeProject
                 worksheet.Cells[10][2] = "학력";
                 worksheet.Cells[11][2] = "최종학교";
                 worksheet.Cells[12][2] = "전공";
-
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < table.Rows.Count; i++)
                 {
-                    var c = goodeeDAO.SelectClass(list[i].ClassNum);
-                    worksheet.Cells[1][i + 3] = c.Class_Name;
-                    worksheet.Cells[2][i + 3] = c.Curriculum;
-                    worksheet.Cells[3][i + 3] = c.Turn;
-                    worksheet.Cells[4][i + 3] = list[i].Name;
-                    worksheet.Cells[5][i + 3] = list[i].BirthDate;
-                    worksheet.Cells[6][i + 3] = list[i].Gender == 'm' ? "남자" : "여자";
-                    worksheet.Cells[7][i + 3] = list[i].Mobile;
-                    worksheet.Cells[8][i + 3] = list[i].Id;
-                    worksheet.Cells[9][i + 3] = list[i].Address;
+                    worksheet.Cells[1][i + 3] = table.Rows[i]["class_Name"].ToString();
+                    worksheet.Cells[2][i + 3] = table.Rows[i]["curriculum"].ToString();
+                    worksheet.Cells[3][i + 3] = table.Rows[i]["turn"].ToString();
+                    worksheet.Cells[4][i + 3] = table.Rows[i]["Name"].ToString();
+                    worksheet.Cells[5][i + 3] = DateTime.Parse(table.Rows[i]["BirthDate"].ToString()).ToShortDateString();
+                    worksheet.Cells[6][i + 3] = table.Rows[i]["Gender"].ToString() == "m" ? "남자" : "여자";
+                    worksheet.Cells[7][i + 3] = table.Rows[i]["Mobile"].ToString();
+                    worksheet.Cells[8][i + 3] = table.Rows[i]["Id"].ToString();
+                    worksheet.Cells[9][i + 3] = table.Rows[i]["Address"].ToString();
                     worksheet.Cells[10][i + 3] = "학력";
                     worksheet.Cells[11][i + 3] = "최종학교";
                     worksheet.Cells[12][i + 3] = "전공";
@@ -152,20 +148,80 @@ namespace GoodeeProject
         private void gViewStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string id = gViewStudentInfo.Rows[e.RowIndex].Cells[7].Value.ToString();
-            StudentIndivisualRegist regist = new StudentIndivisualRegist(id);
-            this.Parent.Controls.Add(regist);
-            regist.Location = new System.Drawing.Point(200, 50);
-            regist.BringToFront();
+            FrmStudentRegist regist = new FrmStudentRegist(id);
+            regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
 
         private void mnubtnIndividualRegist_Click(object sender, EventArgs e)
         {
-            StudentIndivisualRegist regist = new StudentIndivisualRegist();
-            this.Parent.Controls.Add(regist);
-            regist.Location = new System.Drawing.Point(200, 50);
-            regist.BringToFront();
+            FrmStudentRegist regist = new FrmStudentRegist();
+            regist.ShowDialog();
             StudentManagement_Load(null, null);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            gViewStudentInfo.Rows.Clear();
+            switch (comboBox1.SelectedItem)
+            {
+                case "이름":
+                    foreach (DataRow item in table.Rows)
+                    {
+                        if (item["Name"].ToString().Contains(textBox1.Text))
+                        {
+                            string gender = "";
+                            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
+                            {
+                                gender = "남자";
+                            }
+                            else
+                            {
+                                gender = "여자";
+                            }
+                            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() }); 
+                        }
+                    }
+                    break;
+                case "분류":
+                    foreach (DataRow item in table.Rows)
+                    {
+                        if (item["class_Name"].ToString().Contains(textBox1.Text))
+                        {
+                            string gender = "";
+                            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
+                            {
+                                gender = "남자";
+                            }
+                            else
+                            {
+                                gender = "여자";
+                            }
+                            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() });
+                        }
+                    }
+                    break;
+                case "과정명":
+                    foreach (DataRow item in table.Rows)
+                    {
+                        if (item["curriculum"].ToString().Contains(textBox1.Text))
+                        {
+                            string gender = "";
+                            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
+                            {
+                                gender = "남자";
+                            }
+                            else
+                            {
+                                gender = "여자";
+                            }
+                            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() });
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

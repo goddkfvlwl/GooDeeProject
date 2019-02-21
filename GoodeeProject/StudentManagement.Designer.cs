@@ -34,6 +34,9 @@
             this.mnubtnExcelRegist = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnIndividualRegist = new System.Windows.Forms.ToolStripMenuItem();
             this.mnubtnStudentPrint = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -46,13 +49,13 @@
             this.gViewStudentInfo.AllowUserToResizeRows = false;
             this.gViewStudentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewStudentInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gViewStudentInfo.Location = new System.Drawing.Point(0, 28);
+            this.gViewStudentInfo.Location = new System.Drawing.Point(0, 72);
             this.gViewStudentInfo.Name = "gViewStudentInfo";
             this.gViewStudentInfo.ReadOnly = true;
             this.gViewStudentInfo.RowHeadersVisible = false;
             this.gViewStudentInfo.RowTemplate.Height = 23;
             this.gViewStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gViewStudentInfo.Size = new System.Drawing.Size(815, 426);
+            this.gViewStudentInfo.Size = new System.Drawing.Size(815, 382);
             this.gViewStudentInfo.TabIndex = 1;
             this.gViewStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewStudentInfo_CellClick);
             // 
@@ -97,10 +100,43 @@
             this.mnubtnStudentPrint.Text = "수강생 출력";
             this.mnubtnStudentPrint.Click += new System.EventHandler(this.btnWriteExl_Click);
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(335, 42);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(109, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 21);
+            this.textBox1.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "이름",
+            "과정명",
+            "분류"});
+            this.comboBox1.Location = new System.Drawing.Point(3, 45);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 20);
+            this.comboBox1.TabIndex = 5;
+            // 
             // StudentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gViewStudentInfo);
             this.Controls.Add(this.menuStrip1);
             this.Name = "StudentManagement";
@@ -121,5 +157,8 @@
         private System.Windows.Forms.ToolStripMenuItem mnubtnExcelRegist;
         private System.Windows.Forms.ToolStripMenuItem mnubtnIndividualRegist;
         private System.Windows.Forms.ToolStripMenuItem mnubtnStudentPrint;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
