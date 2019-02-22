@@ -38,3 +38,17 @@ C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\Go
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlEdu.resources
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlLicense.resources
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlEduHistory.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\Resume.xlsx
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\구디로고.gif
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\user-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\board-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\info-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\survey-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\write-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\chat-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\profile2.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\326572-48.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\reload24.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\reload.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\ModifyMember1.png
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\ModifyPW1.png

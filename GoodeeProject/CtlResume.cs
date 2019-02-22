@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
+using System.Resources;
+using GoodeeProject.Properties;
+using System.IO;
 
 namespace GoodeeProject
 {
@@ -43,7 +46,7 @@ namespace GoodeeProject
 
             //학력 패널
             ce = new CtlEdu();
-            flowpanelEdu.Controls.Add(ce);
+            //flowpanelEdu.Controls.Add(ce);
 
             btnEdu = new iTalk.iTalk_Button_1();
             flowpanelEdu.Controls.Add(btnEdu);
@@ -57,7 +60,7 @@ namespace GoodeeProject
 
             //자격증 패널
             cl = new CtlLicense();
-            flowpanelLicense.Controls.Add(cl);
+            //flowpanelLicense.Controls.Add(cl);
             btnLicense = new iTalk.iTalk_Button_1();
             flowpanelLicense.Controls.Add(btnLicense);
             btnLicense.Size = new Size(755, 20);
@@ -70,7 +73,7 @@ namespace GoodeeProject
 
             //교육 이력 패널
             ch = new CtlEduHistory();
-            flowPanelEduHistory.Controls.Add(ch);
+            //flowPanelEduHistory.Controls.Add(ch);
             btnEduHistory = new iTalk.iTalk_Button_1();
             flowPanelEduHistory.Controls.Add(btnEduHistory);
             btnEduHistory.Size = new Size(755, 20);
@@ -215,12 +218,21 @@ namespace GoodeeProject
             // 교육 이력 추가
             if (flowPanelEduHistory.Controls.Count >= 3)
             {
+                CtlEduHistory eh;
                 for (int i = 0; i < flowPanelEduHistory.Controls.Count; i++)
                 {
-                    CtlEduHistory eh = (CtlEduHistory)flowPanelEduHistory.Controls[i];
+                    try
+                    {
+                       eh = (CtlEduHistory)flowPanelEduHistory.Controls[i];
+                    }
+                    catch (InvalidCastException)
+                    {
+                        continue;
+                    }
                     gd.InsertEdu_History(FrmMain.Mi.Id, DateTime.Parse(eh.mtboxStartPeriod.Text), DateTime.Parse(eh.mtboxEndPeriod.Text), eh.tboxEduAgency.Text, eh.tboxEduName.Text, eh.tboxSkill.Text, eh.tboxDetail.Text);
                 } 
             }
+            MessageBox.Show("저장 완료");
         }
 
         //로드 시 저장되어있는 데이터 불러올 메서드
@@ -284,132 +296,151 @@ namespace GoodeeProject
         private void btnFileSave_Click(object sender, EventArgs e)
         {
             object missingValue = System.Reflection.Missing.Value;
+            Excel.Workbook workBook;
 
-            Excel.Application excelApp = new Excel.Application();
-            if (excelApp == null)
-            {
-                MessageBox.Show("Excel이 설치되지 않았습니다.");
-                return;
-            }
-
-            Excel.Workbook workBook = excelApp.Workbooks.Open(Filename: @"C:\Users\GDC1\Desktop\Resume.xlsx");
-            Excel.Worksheet workSheet = workBook.Worksheets.Item[1];
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.Title = "이력서 저장";
+            sf.Filter = "PDF 문서(*.pdf)|*.pdf";
+            sf.DefaultExt = "pdf";
             
-            workSheet.Cells[11, 1] = tboxName.Text;
-            Excel.Range picRange = workSheet.Cells[1, 3];
+            DialogResult result = sf.ShowDialog();
 
-            Bitmap img = new Bitmap(FrmMain.Mi.Picture, new Size(125, 22*8));
-
-            Clipboard.SetDataObject(img, true);
-            workSheet.Paste(picRange, img);
-
-            //기본정보
-            workSheet.Cells[17, 2] = "생년월일 : " + tboxBirthDate.Text;
-            workSheet.Cells[18, 2] = "주소 : " + tboxAddr.Text;
-            workSheet.Cells[19, 2] = "이메일 : " + FrmMain.Mi.Id;
-            workSheet.Cells[20, 2] = "연락처 : " + tboxMobile.Text;
-            
-            int i = 0;
-            int lastEdu = 0;
-            //학력
-            if (flowpanelEdu.Controls.Count >= 3)
+            if (result == DialogResult.OK)
             {
-                for (i = 0; i < flowpanelEdu.Controls.Count - 2; i++)
+                Excel.Application excelApp = new Excel.Application();
+                if (excelApp == null)
                 {
-                    CtlEdu ce = (CtlEdu)flowpanelEdu.Controls[i];
-                    workSheet.Cells[24 + (4 * i), 2] = "기간 : " + ce.mTboxEnterPeriod.Text + " ~ " + ce.mTboxGraduPeriod.Text;
-                    workSheet.Cells[25 + (4 * i), 2] = "학교명 : " + ce.tboxSchoolName.Text + ce.cboxSchoolType.Text + " " + ce.cboxGraduType.Text;
-                    workSheet.Cells[26 + (4 * i), 2] = ce.tboxDepart.Text;
-                    lastEdu = 26 + (4 * i) + 3;
+                    MessageBox.Show("Excel이 설치되지 않았습니다.");
+                    return;
                 }
-                workSheet.get_Range("A24", "A" + (lastEdu - 3)).Merge(false);
+                workBook = excelApp.Workbooks.Open(Filename: Application.StartupPath + "/Resources/Resume.xlsx");
+                Excel.Worksheet workSheet = workBook.Worksheets.Item[1];
 
-                workSheet.Range["A" + (lastEdu - 1) + ":C" + (lastEdu - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
-                workSheet.Range["A" + (lastEdu - 1) + ":C" + (lastEdu - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
-            }
+                workSheet.Cells[11, 1] = tboxName.Text;
+                Excel.Range picRange = workSheet.Cells[1, 3];
 
-            //교육이력
-            workSheet.get_Range("A" + lastEdu , "A" + (lastEdu + 3)).Merge(false);
-            workSheet.Cells[lastEdu, 1] = "교육이력";
-            workSheet.Cells[lastEdu, 1].Font.Bold = true;
-            workSheet.Cells[lastEdu, 1].Font.Size = 10;
+                Bitmap img = new Bitmap(FrmMain.Mi.Picture, new Size(125, 22 * 8));
 
-            int lastEduHis = 0;
-            if (flowPanelEduHistory.Controls.Count >= 3)
-            {
-                for (i = 0; i < flowPanelEduHistory.Controls.Count - 2; i++)
+                Clipboard.SetDataObject(img, true);
+                workSheet.Paste(picRange, img);
+
+                //기본정보
+                workSheet.Cells[17, 2] = "생년월일 : " + tboxBirthDate.Text;
+                workSheet.Cells[18, 2] = "주소 : " + tboxAddr.Text;
+                workSheet.Cells[19, 2] = "이메일 : " + FrmMain.Mi.Id;
+                workSheet.Cells[20, 2] = "연락처 : " + tboxMobile.Text;
+
+                int i = 0;
+                int lastEdu = 0;
+                //학력
+                if (flowpanelEdu.Controls.Count >= 3)
                 {
-                    CtlEduHistory eh = (CtlEduHistory)flowPanelEduHistory.Controls[i];
-                    workSheet.Cells[lastEdu + (6 * i), 2] = "기간 : " + eh.mtboxStartPeriod.Text + " ~ " + eh.mtboxEndPeriod.Text;
-                    workSheet.Cells[lastEdu + 1 + (6 * i), 2] = "기관명 : " + eh.tboxEduAgency.Text;
-                    workSheet.Cells[lastEdu + 2 + (6 * i), 2] = "과정명 : " + eh.tboxEduName.Text;
-                    workSheet.Cells[lastEdu + 3 + (6 * i), 2] = "보유능력 : " + eh.tboxSkill.Text;
-                    workSheet.Cells[lastEdu + 4 + (6 * i), 2] = "상세내용 : " + eh.tboxDetail.Text;
-                    lastEduHis = lastEdu + 4 + (6 * i) + 3;
+                    for (i = 0; i < flowpanelEdu.Controls.Count - 2; i++)
+                    {
+                        CtlEdu ce = (CtlEdu)flowpanelEdu.Controls[i];
+                        workSheet.Cells[24 + (4 * i), 2] = "기간 : " + ce.mTboxEnterPeriod.Text + " ~ " + ce.mTboxGraduPeriod.Text;
+                        workSheet.Cells[25 + (4 * i), 2] = "학교명 : " + ce.tboxSchoolName.Text + ce.cboxSchoolType.Text + " " + ce.cboxGraduType.Text;
+                        workSheet.Cells[26 + (4 * i), 2] = ce.tboxDepart.Text;
+                        lastEdu = 26 + (4 * i) + 3;
+                    }
+                    workSheet.get_Range("A24", "A" + (lastEdu - 3)).Merge(false);
+
+                    workSheet.Range["A" + (lastEdu - 1) + ":C" + (lastEdu - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
+                    workSheet.Range["A" + (lastEdu - 1) + ":C" + (lastEdu - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
                 }
-                workSheet.get_Range("A" + lastEdu, "A" + (lastEduHis - 3)).Merge(false);
-                workSheet.Range["A" + (lastEduHis - 1) + ":C" + (lastEduHis - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
-                workSheet.Range["A" + (lastEduHis - 1) + ":C" + (lastEduHis - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
-            }
 
-            // 자격증
-            workSheet.get_Range("A" + lastEduHis, "A" + (lastEduHis + 2)).Merge(false);
-            workSheet.Cells[lastEduHis, 1] = "자격증";
-            workSheet.Cells[lastEduHis, 1].Font.Bold = true;
-            workSheet.Cells[lastEduHis, 1].Font.Size = 10;
+                //교육이력
+                workSheet.get_Range("A" + lastEdu, "A" + (lastEdu + 3)).Merge(false);
+                workSheet.Cells[lastEdu, 1] = "교육이력";
+                workSheet.Cells[lastEdu, 1].Font.Bold = true;
+                workSheet.Cells[lastEdu, 1].Font.Size = 10;
 
-            int lastLicense = 0;
-            if (flowpanelLicense.Controls.Count >= 3)
-            {
-                for (i = 0; i < flowpanelLicense.Controls.Count - 2; i++)
+                int lastEduHis = 0;
+                if (flowPanelEduHistory.Controls.Count >= 3)
                 {
-                    CtlLicense cl = (CtlLicense)flowpanelLicense.Controls[i];
-                    workSheet.Cells[lastEduHis + (4 * i), 2] = "이름 : " + cl.tboxLiName.Text;
-                    workSheet.Cells[lastEduHis + 1 + (4 * i), 2] = "취득날짜 : " + cl.mTboxDate.Text;
-                    workSheet.Cells[lastEduHis + 2 + (4 * i), 2] = "발급기관 : " + cl.tboxAgency.Text;
-                    lastLicense = lastEduHis + 2 + (4 * i) + 3;
+                    for (i = 0; i < flowPanelEduHistory.Controls.Count - 2; i++)
+                    {
+                        CtlEduHistory eh = (CtlEduHistory)flowPanelEduHistory.Controls[i];
+                        workSheet.Cells[lastEdu + (6 * i), 2] = "기간 : " + eh.mtboxStartPeriod.Text + " ~ " + eh.mtboxEndPeriod.Text;
+                        workSheet.Cells[lastEdu + 1 + (6 * i), 2] = "기관명 : " + eh.tboxEduAgency.Text;
+                        workSheet.Cells[lastEdu + 2 + (6 * i), 2] = "과정명 : " + eh.tboxEduName.Text;
+                        workSheet.Cells[lastEdu + 3 + (6 * i), 2] = "보유능력 : " + eh.tboxSkill.Text;
+                        workSheet.Cells[lastEdu + 4 + (6 * i), 2] = "상세내용 : " + eh.tboxDetail.Text;
+                        lastEduHis = lastEdu + 4 + (6 * i) + 3;
+                    }
+                    workSheet.get_Range("A" + lastEdu, "A" + (lastEduHis - 3)).Merge(false);
+                    workSheet.Range["A" + (lastEduHis - 1) + ":C" + (lastEduHis - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
+                    workSheet.Range["A" + (lastEduHis - 1) + ":C" + (lastEduHis - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
                 }
-                workSheet.get_Range("A" + lastEduHis, "A" + (lastLicense - 3)).Merge(false);
-                workSheet.Range["A" + (lastLicense - 1) + ":C" + (lastLicense - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
-                workSheet.Range["A" + (lastLicense - 1) + ":C" + (lastLicense - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
+
+                // 자격증
+                workSheet.get_Range("A" + lastEduHis, "A" + (lastEduHis + 2)).Merge(false);
+                workSheet.Cells[lastEduHis, 1] = "자격증";
+                workSheet.Cells[lastEduHis, 1].Font.Bold = true;
+                workSheet.Cells[lastEduHis, 1].Font.Size = 10;
+
+                int lastLicense = 0;
+                if (flowpanelLicense.Controls.Count >= 3)
+                {
+                    for (i = 0; i < flowpanelLicense.Controls.Count - 2; i++)
+                    {
+                        CtlLicense cl = (CtlLicense)flowpanelLicense.Controls[i];
+                        workSheet.Cells[lastEduHis + (4 * i), 2] = "이름 : " + cl.tboxLiName.Text;
+                        workSheet.Cells[lastEduHis + 1 + (4 * i), 2] = "취득날짜 : " + cl.mTboxDate.Text;
+                        workSheet.Cells[lastEduHis + 2 + (4 * i), 2] = "발급기관 : " + cl.tboxAgency.Text;
+                        lastLicense = lastEduHis + 2 + (4 * i) + 3;
+                    }
+                    workSheet.get_Range("A" + lastEduHis, "A" + (lastLicense - 3)).Merge(false);
+                    workSheet.Range["A" + (lastLicense - 1) + ":C" + (lastLicense - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
+                    workSheet.Range["A" + (lastLicense - 1) + ":C" + (lastLicense - 1)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
+                }
+
+                //기타 사항
+                workSheet.get_Range("A" + lastLicense, "A" + (lastLicense + 1)).Merge(false);
+                workSheet.Cells[lastLicense, 1] = "기타사항";
+                workSheet.Cells[lastLicense, 1].Font.Bold = true;
+                workSheet.Cells[lastLicense, 1].Font.Size = 10;
+
+                if (this.radioArmyY.Checked)
+                {
+                    workSheet.Cells[lastLicense, 2] = "병역여부 : 군필";
+                }
+                else
+                {
+                    workSheet.Cells[lastLicense, 2] = "병역여부 : 미필";
+                }
+                workSheet.Cells[lastLicense + 1, 2] = "고용촉진지원금 대상자 (청년취업프로그램 이수)";
+
+                workSheet.Range["A" + (lastLicense + 3) + ":C" + (lastLicense + 3)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
+                workSheet.Range["A" + (lastLicense + 3) + ":C" + (lastLicense + 3)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
+
+
+                //저장
+                try
+                {
+                    workBook.SaveAs(Application.StartupPath + "/Resources/userResume.xls", Excel.XlFileFormat.xlWorkbookNormal, null, null, null, null, Excel.XlSaveAsAccessMode.xlExclusive, Excel.XlSaveConflictResolution.xlLocalSessionChanges, missingValue, missingValue, missingValue, missingValue);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+
+                try
+                {
+                    workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName, Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false, Type.Missing);
+                    File.Delete(Application.StartupPath + "/Resources/userResume.xls");
+                    MessageBox.Show("저장 완료");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("저장 실패");
+                }
+
+                excelApp.Quit();
+                Marshal.ReleaseComObject(workSheet);
+                Marshal.ReleaseComObject(workBook);
+                Marshal.ReleaseComObject(excelApp);
             }
-
-            //기타 사항
-            workSheet.get_Range("A" + lastLicense, "A" + (lastLicense + 1)).Merge(false);
-            workSheet.Cells[lastLicense, 1] = "기타사항";
-            workSheet.Cells[lastLicense, 1].Font.Bold = true;
-            workSheet.Cells[lastLicense, 1].Font.Size = 10;
-
-            if (this.radioArmyY.Checked)
-            {
-                workSheet.Cells[lastLicense, 2] = "병역여부 : 군필";
-            }
-            else
-            {
-                workSheet.Cells[lastLicense, 2] = "병역여부 : 미필";
-            }
-            workSheet.Cells[lastLicense + 1, 2] = "고용촉진지원금 대상자 (청년취업프로그램 이수)";
-
-            workSheet.Range["A" + (lastLicense + 3) + ":C" + (lastLicense + 3)].Borders[Excel.XlBordersIndex.xlEdgeTop].LineStyle = 1;
-            workSheet.Range["A" + (lastLicense + 3) + ":C" + (lastLicense + 3)].Borders[Excel.XlBordersIndex.xlEdgeTop].Weight = Excel.XlBorderWeight.xlThick;
-
-
-            //저장
-            try
-            {
-                workBook.SaveAs(@"C:\Users\GDC1\Desktop\test0123.xls", Excel.XlFileFormat.xlWorkbookNormal, null, null, null, null, Excel.XlSaveAsAccessMode.xlExclusive, Excel.XlSaveConflictResolution.xlLocalSessionChanges, missingValue, missingValue, missingValue, missingValue);
-            }
-            catch (Exception)
-            {
-                return;
-            }
-
-            excelApp.Quit();
-
-            Marshal.ReleaseComObject(workSheet);
-            Marshal.ReleaseComObject(workBook);
-            Marshal.ReleaseComObject(excelApp);
-            MessageBox.Show("엑셀 파일 저장 성공");
         }
     }
 }

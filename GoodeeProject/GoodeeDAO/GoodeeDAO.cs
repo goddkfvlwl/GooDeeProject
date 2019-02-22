@@ -217,12 +217,12 @@ namespace GoodeeProject.GoodeeDAO
             con = new DBConnection();
             SqlParameter[] pms = new SqlParameter[7];
             pms[0] = new SqlParameter("id", id);
-            pms[1] = new SqlParameter("Name", enter);
-            pms[2] = new SqlParameter("Date", gradu);
-            pms[3] = new SqlParameter("Agency", school);
-            pms[4] = new SqlParameter("Agency", schoolType);
-            pms[5] = new SqlParameter("Agency", depart);
-            pms[6] = new SqlParameter("Agency", eduType);
+            pms[1] = new SqlParameter("EnterPeriod", enter);
+            pms[2] = new SqlParameter("GraduPeriod", gradu);
+            pms[3] = new SqlParameter("School", school);
+            pms[4] = new SqlParameter("SchoolType", schoolType);
+            pms[5] = new SqlParameter("Department", depart);
+            pms[6] = new SqlParameter("EduType", eduType);
 
             if (con.ExecuteUpdate(proc, pms))
             {
