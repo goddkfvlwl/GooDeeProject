@@ -69,10 +69,8 @@ namespace GoodeeProject
             return ds.Tables[0];
         }
 
-        internal bool ExecuteScalar(string proc, SqlParameter[] parameters)
+        internal object ExecuteScalar(string proc, SqlParameter[] parameters)
         {
-            bool result = false;
-         
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = OpenConnection();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -83,11 +81,7 @@ namespace GoodeeProject
                 cmd.Parameters.AddRange(parameters);
             }
 
-            int id = (int)cmd.ExecuteScalar();
-            if (id == 0)
-            {
-                result = true;
-            }
+            object result = cmd.ExecuteScalar();
 
             con.Close();
             return result;
@@ -121,7 +115,7 @@ namespace GoodeeProject
             return result;
         }
 
-        internal bool ExecuteDelete(string proc, SqlParameter pm)
+        internal bool ExecuteDelete(string proc, SqlParameter[] pm)
         {
             bool result = false;
 
@@ -134,12 +128,12 @@ namespace GoodeeProject
 
             if (pm != null)
             {
-                cmd.Parameters.Add(pm);
+                cmd.Parameters.AddRange(pm);
             }
 
             int r = cmd.ExecuteNonQuery();
 
-            if (r == 1)
+            if (r >= 1)
             {
                 result = true;
             }

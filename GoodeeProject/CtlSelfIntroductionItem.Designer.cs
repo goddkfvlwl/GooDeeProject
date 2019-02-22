@@ -31,6 +31,7 @@
             this.lbl_Title = new iTalk.iTalk_Label();
             this.lbl_Body = new iTalk.iTalk_Label();
             this.lbl_Date = new iTalk.iTalk_Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lbl_Title
@@ -39,7 +40,7 @@
             this.lbl_Title.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Title.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.lbl_Title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lbl_Title.Location = new System.Drawing.Point(17, 10);
+            this.lbl_Title.Location = new System.Drawing.Point(32, 10);
             this.lbl_Title.Name = "lbl_Title";
             this.lbl_Title.Size = new System.Drawing.Size(150, 25);
             this.lbl_Title.TabIndex = 18;
@@ -51,7 +52,7 @@
             this.lbl_Body.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Body.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lbl_Body.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lbl_Body.Location = new System.Drawing.Point(18, 43);
+            this.lbl_Body.Location = new System.Drawing.Point(33, 43);
             this.lbl_Body.Name = "lbl_Body";
             this.lbl_Body.Size = new System.Drawing.Size(111, 19);
             this.lbl_Body.TabIndex = 19;
@@ -63,24 +64,34 @@
             this.lbl_Date.BackColor = System.Drawing.Color.Transparent;
             this.lbl_Date.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lbl_Date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lbl_Date.Location = new System.Drawing.Point(453, 43);
+            this.lbl_Date.Location = new System.Drawing.Point(583, 43);
             this.lbl_Date.Name = "lbl_Date";
             this.lbl_Date.Size = new System.Drawing.Size(111, 19);
             this.lbl_Date.TabIndex = 20;
             this.lbl_Date.Text = "자기소개서 날짜";
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(290, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(78, 72);
+            this.panel1.TabIndex = 21;
             // 
             // CtlSelfIntroductionItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.lbl_Date);
             this.Controls.Add(this.lbl_Body);
             this.Controls.Add(this.lbl_Title);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "CtlSelfIntroductionItem";
-            this.Size = new System.Drawing.Size(622, 72);
+            this.Size = new System.Drawing.Size(768, 72);
             this.Click += new System.EventHandler(this.CtlSelfIntroductionItem_Click);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.CtlSelfIntroductionItem_Paint);
+            this.DoubleClick += new System.EventHandler(this.CtlSelfIntroductionItem_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,5 +102,6 @@
         internal iTalk.iTalk_Label lbl_Title;
         internal iTalk.iTalk_Label lbl_Body;
         internal iTalk.iTalk_Label lbl_Date;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -24,16 +24,12 @@ namespace GoodeeProject
         public FrmModifyPW()
         {
             InitializeComponent();
-<<<<<<< HEAD
             ctlModifyPW1.Parent = this;
         }
         public FrmModifyPW(string email, bool checkForm) : this()
         {
             this.email = email;
             this.checkForm = checkForm;
-=======
-            
->>>>>>> 87ce42d64a49ec553bb1362e3ed1ff46afc7d920
         }
         public void BtnExit_Click(object sender, EventArgs e)
         {

@@ -47,15 +47,20 @@ namespace GoodeeProject.GoodeeDAO
 
         internal bool CheckID(string email)
         {
+            bool result = false;
             string proc = "CheckID";
             con = new DBConnection();
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("ID", email);
-
-            return con.ExecuteScalar(proc, parameters);
+            int count = (int)con.ExecuteScalar(proc, parameters);
+            if (count == 0)
+            {
+                result = true;
+            }
+            return result;
         }
 
-        internal bool InsertAdmin(MemberInfo info, string password)
+        internal bool InsertAdmin(MemberInfo info, string password, char authority)
         {
             string proc = "InsertAdmin";
             con = new DBConnection();
@@ -63,11 +68,25 @@ namespace GoodeeProject.GoodeeDAO
             parameters[0] = new SqlParameter("ID", info.Id);
             parameters[1] = new SqlParameter("PW", password);
             parameters[2] = new SqlParameter("Name", info.Name);
-            parameters[3] = new SqlParameter("BirthDate", info.BirthDate);
+            if (info.BirthDate < DateTime.Parse("0002.01.01"))
+            {
+                parameters[3] = new SqlParameter("BirthDate", DBNull.Value);
+            }
+            else
+            {
+                parameters[3] = new SqlParameter("BirthDate", info.BirthDate);
+            }
             parameters[4] = new SqlParameter("Gender", info.Gender);
             parameters[5] = new SqlParameter("Mobile", info.Mobile);
             parameters[6] = new SqlParameter("Address", info.Address);
-            parameters[7] = new SqlParameter("Army", info.Army);
+            if (info.Army == 'Y' || info.Army == 'N')
+            {
+                parameters[7] = new SqlParameter("Army", info.Army);
+            }
+            else
+            {
+                parameters[7] = new SqlParameter("Army", DBNull.Value);
+            }
 
             SqlParameter imageParameter = new SqlParameter("picture", SqlDbType.Image);
             imageParameter.Value = DBNull.Value;
@@ -80,6 +99,7 @@ namespace GoodeeProject.GoodeeDAO
             {
                 parameters[8] = new SqlParameter("picture", ImageToByteArray(info.Picture));
             }
+            parameters[9] = new SqlParameter("Authority", authority);
 
             if (con.ExecuteInsert(proc, parameters))
             {
@@ -89,6 +109,70 @@ namespace GoodeeProject.GoodeeDAO
             {
 
                 return false;
+            }
+        }
+
+        internal bool DeleteSelfIntroduction(string id, int num)
+        {
+            bool result = false;
+            string proc = "DeleteSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("ID", id);
+            parameters[1] = new SqlParameter("Num", num);
+
+            if (con.ExecuteDelete(proc, parameters))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        internal int GetMax(string id)
+        {
+            string proc = "MaxNumSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ID", id);
+
+
+            object temp = con.ExecuteScalar(proc, parameters);
+            int result = temp == DBNull.Value? 0 : (int)temp;
+
+            return result;
+        }
+
+        internal void UpdateSelfIntroduction(string id, string text1, string text2, string v, int num)
+        {
+            string proc = "UpdateSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = new SqlParameter("ID", id);
+            parameters[1] = new SqlParameter("Title", text1);
+            parameters[2] = new SqlParameter("Body", text2);
+            parameters[3] = new SqlParameter("Date", v);
+            parameters[4] = new SqlParameter("Num", num);
+
+            if (con.ExecuteUpdate(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
+            }
+        }
+
+        internal void InsertSelfIntroduction(string id, string text1, string text2, string v, int num)
+        {
+            string proc = "InsertSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = new SqlParameter("ID", id);
+            parameters[1] = new SqlParameter("Title", text1);
+            parameters[2] = new SqlParameter("Body", text2);
+            parameters[3] = new SqlParameter("Date", v);
+            parameters[4] = new SqlParameter("Num", num);
+
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
             }
         }
 
@@ -122,6 +206,7 @@ namespace GoodeeProject.GoodeeDAO
             }
             return list;
         }
+
         public MemberInfo SelectMember(string id)
         {
             string proc = "SelectMember";
@@ -135,19 +220,6 @@ namespace GoodeeProject.GoodeeDAO
             DataTable dt = con.SelectWithParams(proc, pms);
             if (dt.Rows.Count == 1)
             {
-                //mi = new MemberInfo
-                //{
-                //    Id = dt.Rows[0][0].ToString(),
-                //    ClassNum = dt.Rows[0][1].ToString() == null? 0 : Int32.Parse(dt.Rows[0][1].ToString()),
-                //    Name = dt.Rows[0][2].ToString() == null? " " : dt.Rows[0][2].ToString(),
-                //    BirthDate = DateTime.Parse(dt.Rows[0][3].ToString()),
-                //    Gender = char.Parse(dt.Rows[0][4].ToString()),
-                //    Mobile = dt.Rows[0][5].ToString(),
-                //    Address = dt.Rows[0][6].ToString(),
-                //    HopePay = dt.Rows[0][7].ToString() == null? "0" : dt.Rows[0][7].ToString(),
-                //    Army = dt.Rows[0][8].ToString() == null ? ' ' : char.Parse(dt.Rows[0][8].ToString()),
-                //    Score = dt.Rows[0][9].ToString() == null ? 0 : float.Parse(dt.Rows[0][9].ToString())
-                //};
                 mi = new MemberInfo();
 
                 mi.Id = dt.Rows[0][0].ToString();
@@ -160,21 +232,18 @@ namespace GoodeeProject.GoodeeDAO
                 mi.Army = dt.Rows[0][7].ToString().Contains(Convert.DBNull.ToString()) ? 'N' : char.Parse(dt.Rows[0][7].ToString());
                 //mi.Army = dt.Rows[0][7].ToString();
                 mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
-                mi.Curriculum = dt.Rows[0][9].ToString();
-                mi.ClassName = dt.Rows[0][10].ToString();
-
-                if (String.IsNullOrEmpty(dt.Rows[0][11].ToString()))
+                if (String.IsNullOrEmpty(dt.Rows[0][9].ToString()))
                 {
                     mi.Picture = Properties.Resources.profile2;
 
                 }
                 else
                 {
-                    var imgArr = (byte[])dt.Rows[0][11];
+                    var imgArr = (byte[])dt.Rows[0][9];
                     MemoryStream ms = new MemoryStream(imgArr, 0, imgArr.Length);
                     mi.Picture = Image.FromStream(ms);
                 }
-
+                mi.ClassNum = dt.Rows[0][10].ToString() == Convert.DBNull.ToString() ? 0 : Int32.Parse(dt.Rows[0][10].ToString());
             }
 
             return mi;

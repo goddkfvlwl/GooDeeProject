@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class FrmMain : Form
+    public partial class FrmMain : Form, IFormControl
     {
         private int movePointX;
         private int movePointY;
@@ -90,11 +90,6 @@ namespace GoodeeProject
             studentManagement1.gViewStudentInfo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btnSpec_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -112,7 +107,20 @@ namespace GoodeeProject
         private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-            panel2.Controls.Add(new CtlSelfIntroductionList());
+
+            if (ai.Authority == 'S')
+            {
+                CtlSelfIntroductionList introductionList = new CtlSelfIntroductionList();
+                introductionList.Location = new Point(186, 0);
+                panel2.Controls.Add(introductionList);
+            }
+            else
+            {
+                CtlIntroductionListM introductionList = new CtlIntroductionListM();
+                introductionList.Location = new Point(186, 0);
+                panel2.Controls.Add(introductionList);
+            }
+ 
         }
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
@@ -184,25 +192,6 @@ namespace GoodeeProject
             sidePanel.Location = new Point(btnChat.Size.Width - 10, btnChat.Location.Y);
         }
 
-        private void btnMinimum_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            movePointX = e.X;
-            movePointY = e.Y;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
-            }
-        }
-
         private void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
@@ -223,6 +212,36 @@ namespace GoodeeProject
         {
             VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
         }
-        
+
+        public void Frm_MouseDown(object sender, MouseEventArgs e)
+        {
+            movePointX = e.X;
+            movePointY = e.Y;
+        }
+
+        public void Frm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
+            }
+        }
+
+        public void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void BtnMinimum_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
     }
 }

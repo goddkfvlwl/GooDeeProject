@@ -31,11 +31,11 @@ namespace GoodeeProject
 
         private void btnSearhAddr_Click(object sender, EventArgs e)
         {
-            FrmSearchAddr sa = new FrmSearchAddr();
-            sa.Owner = (FrmModify)this.Parent.Parent;
+            FrmModify frm = (FrmModify)this.Parent.Parent;
+            FrmSearchAddr sa = new FrmSearchAddr(frm.GetType());
+            sa.Owner = frm;
             sa.FormClosed += Sa_FormClosed;
             sa.Show();
-
 
         }
 

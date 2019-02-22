@@ -133,7 +133,7 @@ namespace GoodeeProject
             if (remainTime == 0)
             {
                 timer1.Enabled = false;
-                MessageBox.Show("인증시간이 만료되었습니다. 재발송을 해주세요.");
+                MessageBox.Show("인증시간이 만료되었습니다. 재발송을 해주세요.", "인증 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -141,7 +141,7 @@ namespace GoodeeProject
         {
             if (tempPassword == tb_Check.Text)
             {
-                MessageBox.Show("인증 성공하였습니다.", "인증 성공");
+                MessageBox.Show("인증 성공하였습니다.", "인증 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = Properties.Resources._326572_48;
                 timer1.Enabled = false;

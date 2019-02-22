@@ -66,6 +66,30 @@
     <Compile Include="CtlAddr.Designer.cs">
       <DependentUpon>CtlAddr.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlClass.Designer.cs">
+      <DependentUpon>CtlClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlCreateCom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlCreateCom.Designer.cs">
+      <DependentUpon>CtlCreateCom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlCreateManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlCreateManager.Designer.cs">
+      <DependentUpon>CtlCreateManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlIntroductionListM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlIntroductionListM.Designer.cs">
+      <DependentUpon>CtlIntroductionListM.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -216,6 +240,18 @@
     </Compile>
     <EmbeddedResource Include="CtlAddr.resx">
       <DependentUpon>CtlAddr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlClass.resx">
+      <DependentUpon>CtlClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlCreateCom.resx">
+      <DependentUpon>CtlCreateCom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlCreateManager.resx">
+      <DependentUpon>CtlCreateManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlIntroductionListM.resx">
+      <DependentUpon>CtlIntroductionListM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyMemberInfo.resx">
       <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
