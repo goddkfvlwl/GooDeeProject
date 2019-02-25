@@ -58,7 +58,7 @@ namespace GoodeeProject
 
         private void FrmMBTIQuestion_Load(object sender, EventArgs e)
         {
-            CtlMBTIDivde md = new CtlMBTIDivde();
+            CtlMBTIDivide md = new CtlMBTIDivide();
             flowpanelQuestion.Controls.Add(md);
             md.lblDivide.Text = "제 1부 : 자신에게 자연스럽고, 습관처럼 편안하게 느껴지고, 자주 행동하는 경향과 \n 가깝다고 생각되는 것을 선택하여 답안지에 표시하십시오.";
             flowpanelQuestion.AutoScroll = true;
@@ -98,28 +98,26 @@ namespace GoodeeProject
                 mq.lblNum.Text = question.DataSet.Tables[0].Rows[i]["QuestionNum"].ToString() + ". ";
                 mq.lblQuestion.Text = question.DataSet.Tables[0].Rows[i]["Question"].ToString();
 
-                if (mq.rdoB.Location.X + mq.rdoB.Size.Width > mq.flowpanelChoice.Width)
+                if (mq.rdoA.Width + mq.rdoB.Width > mq.flowpanelChoice.Width)
                 {
-                    mq.flowpanelChoice.Size = new Size(750, 40);
+                    mq.flowpanelChoice.Size = new Size(750, 80);
 
-                    mq.Size = new Size(771, 82);
-                    mq.flowpanelChoice.Refresh();
+                    mq.Size = new Size(771, 108);
                 }
 
                 foreach (var item in cList)
                 {
                     if (mq.lblNum.Text == item.QuestionNum.ToString() + ". ")
                     {
-                        mq.flowpanelChoice.Size = new Size(750, 60);
+                        mq.flowpanelChoice.Size = new Size(750, 80);
                         
-                        mq.Size = new Size(771, 102);
+                        mq.Size = new Size(771, 108);
                         RadioButton rdoC = new RadioButton();
                         rdoC.AutoSize = true;
-                        rdoC.Dock = DockStyle.Left;
                         rdoC.Text = "(" + item.Item + ") " + item.ItemDetail.ToString();
                         mq.flowpanelChoice.Controls.Add(rdoC);
-                        mq.flowpanelChoice.Controls.SetChildIndex(rdoC, mq.flowpanelChoice.Controls.Count);
-                        mq.flowpanelChoice.Refresh();
+                        mq.flowpanelChoice.Controls.SetChildIndex(rdoC, 2);
+                        //mq.flowpanelChoice.Refresh();
                     }
                 }
                 
@@ -145,7 +143,7 @@ namespace GoodeeProject
                 
                 if (i == 29)
                 {
-                    CtlMBTIDivde md = new CtlMBTIDivde();
+                    CtlMBTIDivide md = new CtlMBTIDivide();
                     flowpanelQuestion.Controls.Add(md);
                     md.lblDivide.Text = "    제 2부 : 두 개의 낱말이 있는 문항에서는 자신에게 더 가깝다고 생각되는 말을 \n 선택하여 답안지에 표시하십시오.";
                 }

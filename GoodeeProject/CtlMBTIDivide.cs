@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class CtlMBTIDivde : UserControl
+    public partial class CtlMBTIDivide : UserControl
     {
-        public CtlMBTIDivde()
+        public CtlMBTIDivide()
         {
             InitializeComponent();
         }
