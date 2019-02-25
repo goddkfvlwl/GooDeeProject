@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +22,7 @@ namespace GoodeeProject
 
         //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
-
+        static string curriculum;
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
@@ -28,7 +30,13 @@ namespace GoodeeProject
         public static string Id { get => id; set => id = value; }
         public static char Authority { get => authority; set => authority = value; }
         internal static MemberInfo Mi { get => mi; set => mi = value; }
+        public static string Curriculum { get => curriculum; set => curriculum = value; }
 
+        TcpClient client;
+        NetworkStream ns = default(NetworkStream);
+        bool isConnected = false;
+        Thread loginThread;
+        public static string chatContent;
         public FrmMain()
         {
             InitializeComponent();
@@ -212,9 +220,18 @@ namespace GoodeeProject
         private void btnChat_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnChat.Size.Width - 10, btnChat.Location.Y);
+            if (isConnected)
+            {
+                Chat chat = new Chat(client, isConnected);
+                panel2.Controls.Add(chat);
+                chat.Location = new Point(185, 0);
+                chat.BringToFront();
+            }else
+            {
+                MessageBox.Show("채팅서버에 접속할수 없습니다. 잠시후 다시 시도해주세요.");
+            }
         }
 
         private void btnMinimum_Click(object sender, EventArgs e)
@@ -246,6 +263,56 @@ namespace GoodeeProject
             surveyAdmin = null;
             panel2.Controls.Remove(mbti);
             surveyAdmin = null;
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            loginThread = new Thread(ChatLogin);
+            loginThread.Start();
+        }
+        /// <summary>
+        /// 채팅서버에 접속
+        /// </summary>
+        private void ChatLogin()
+        {
+            if (Authority != 'C')
+            {
+                while (true)
+                {
+                    if (client == null && !isConnected)
+                    {
+                        client = new TcpClient();
+                        byte[] nickName = Encoding.UTF8.GetBytes(mi.Id + "$||$" + mi.Name + "$||$" + curriculum + "$||$");
+
+                        try
+                        {
+                            client.Connect("192.168.0.235", 3333);
+                            isConnected = true;
+                            ns = client.GetStream();
+                            ns.Write(nickName, 0, nickName.Length);
+                            ns.Flush();
+                            return;
+                        }
+                        catch (Exception)
+                        {
+                            MessageBox.Show("채팅 서버에 접속할 수 없습니다." + Environment.NewLine + "10초후 자동으로 재시도합니다.");
+                            client = null;
+                            Thread.Sleep(1000);
+                        }
+                    }
+                } 
+            }
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (client != null && client.Connected)
+            {
+                byte[] nickName = Encoding.UTF8.GetBytes( mi.Name + "$DisConnect$");
+                ns.Write(nickName, 0, nickName.Length);
+                ns.Flush();
+                isConnected = false;
+            }
         }
     }
 }

@@ -61,6 +61,16 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
+        internal string GetCurriculum(int classNum)
+        {
+            string proc = "GetCurriculum";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ClassNum", classNum);
+            var curriculm = con.SelectWithParams(proc, parameters);
+            return curriculm.Rows[0][0].ToString();
+        }
+
         internal DataTable selectClassList()
         {
             string proc = "SelectClassList";
@@ -144,7 +154,7 @@ namespace GoodeeProject.GoodeeDAO
                 mi.HopePay = dt.Rows[0][6].ToString() == null ? "0" : dt.Rows[0][6].ToString();
                 mi.Army = dt.Rows[0][7].ToString().Contains(Convert.DBNull.ToString()) ? 'N' : char.Parse(dt.Rows[0][7].ToString());
                 mi.Score = dt.Rows[0][8].ToString() == Convert.DBNull.ToString() ? 0 : float.Parse(dt.Rows[0][8].ToString());
-                //mi.ClassNum = int.Parse(dt.Rows[0][9].ToString());
+                mi.ClassNum = int.Parse(dt.Rows[0][10].ToString());
             }
             return mi;
         }

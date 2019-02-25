@@ -92,3 +92,7 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioListMenu.reso
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.ClassList.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmStudentRegist.resources
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmClassInfo.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmChat.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.OnlineInfo.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.Chat.resources
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.ChatList.resources

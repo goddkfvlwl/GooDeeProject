@@ -49,13 +49,13 @@
             this.gViewStudentInfo.AllowUserToResizeRows = false;
             this.gViewStudentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewStudentInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gViewStudentInfo.Location = new System.Drawing.Point(0, 72);
+            this.gViewStudentInfo.Location = new System.Drawing.Point(0, 62);
             this.gViewStudentInfo.Name = "gViewStudentInfo";
             this.gViewStudentInfo.ReadOnly = true;
             this.gViewStudentInfo.RowHeadersVisible = false;
             this.gViewStudentInfo.RowTemplate.Height = 23;
             this.gViewStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gViewStudentInfo.Size = new System.Drawing.Size(815, 382);
+            this.gViewStudentInfo.Size = new System.Drawing.Size(815, 392);
             this.gViewStudentInfo.TabIndex = 1;
             this.gViewStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewStudentInfo_CellClick);
             // 
@@ -102,7 +102,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(335, 42);
+            this.btnSearch.Location = new System.Drawing.Point(335, 33);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 3;
@@ -112,7 +112,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 44);
+            this.textBox1.Location = new System.Drawing.Point(109, 35);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(220, 21);
             this.textBox1.TabIndex = 4;
@@ -125,7 +125,7 @@
             "이름",
             "과정명",
             "분류"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 45);
+            this.comboBox1.Location = new System.Drawing.Point(3, 36);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 20);
             this.comboBox1.TabIndex = 5;

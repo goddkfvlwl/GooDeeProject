@@ -51,6 +51,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
+    <Compile Include="Chat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Chat.Designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChatList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChatList.Designer.cs">
+      <DependentUpon>ChatList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Class.cs" />
     <Compile Include="ClassList.cs">
       <SubType>UserControl</SubType>
@@ -119,6 +131,12 @@
     <Compile Include="DetailMenu\CtlSurveyUserDetail.Designer.cs">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChat.Designer.cs">
+      <DependentUpon>FrmChat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClassInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +164,12 @@
     <Compile Include="GoodeeDAO\GoodeeDAO.cs" />
     <Compile Include="IGoodee.cs" />
     <Compile Include="italk_theme_-_c#.cs" />
+    <Compile Include="OnlineInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="OnlineInfo.Designer.cs">
+      <DependentUpon>OnlineInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portfolio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +229,12 @@
       <DependentUpon>SurveyList.cs</DependentUpon>
     </Compile>
     <Compile Include="Survey_Items.cs" />
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChatList.resx">
+      <DependentUpon>ChatList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClassList.resx">
       <DependentUpon>ClassList.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +268,9 @@
     <EmbeddedResource Include="DetailMenu\CtlSurveyUserDetail.resx">
       <DependentUpon>CtlSurveyUserDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmChat.resx">
+      <DependentUpon>FrmChat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClassInfo.resx">
       <DependentUpon>FrmClassInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStudentRegist.resx">
       <DependentUpon>FrmStudentRegist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnlineInfo.resx">
+      <DependentUpon>OnlineInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>

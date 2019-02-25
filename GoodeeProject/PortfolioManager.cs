@@ -21,7 +21,7 @@ namespace GoodeeProject
 
         private void PortfolioManager_Load(object sender, EventArgs e)
         {
-            GoodeeDAO.GoodeeDAO dao = new GoodeeDAO.GoodeeDAO();
+            GoodeeDAO.GoodeeDAO dao = GoodeeDAO.GoodeeDAO.getInstance();
             dataGridView1.DataSource = dao.SelectMemberList();
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns[0].HeaderText = "분류";

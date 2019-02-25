@@ -20,7 +20,7 @@ namespace GoodeeProject
 
         private void SurveyList_Load(object sender, EventArgs e)
         {
-            GoodeeDAO.GoodeeDAO DAO = new GoodeeDAO.GoodeeDAO();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
             if ((this.Controls["panel1"].Controls["rdoInclude"] as RadioButton).Checked)
             {
                 list = DAO.SelectSurvey(false);

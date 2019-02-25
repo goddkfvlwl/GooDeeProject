@@ -68,6 +68,7 @@ namespace GoodeeProject
                     else
                     {
                         FrmMain.Mi = gd.SelectMember(ai.Id);
+                        FrmMain.Curriculum = gd.GetCurriculum(FrmMain.Mi.ClassNum);
                         FrmMain fr = new FrmMain();
                         fr.Show();
                         this.Visible = false;

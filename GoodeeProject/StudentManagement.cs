@@ -23,7 +23,8 @@ namespace GoodeeProject
 
         private void StudentManagement_Load(object sender, EventArgs e)
         {
-            GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
+            comboBox1.SelectedIndex = 0;
+            GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.getInstance();
             table = goodeeDAO.SelectMemberList();
             this.gViewStudentInfo.Columns.Add("Class", "분류");
             this.gViewStudentInfo.Columns.Add("Curriculum", "과정명");
@@ -40,15 +41,7 @@ namespace GoodeeProject
             
             foreach (DataRow item in table.Rows)
             {
-                string gender = "";
-                if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
-                {
-                    gender = "남자";
-                }else
-                {
-                    gender = "여자";
-                }
-                gViewStudentInfo.Rows.Add(new string[] {item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString()});
+                ViewRowInsert(item);
             }
             
         }
@@ -67,7 +60,7 @@ namespace GoodeeProject
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand("SELECT * FROM [sheet1$]", con);
                 var xls = cmd.ExecuteReader();
-                GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
+                GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.getInstance();
 
                 while (xls.Read())
                 {
@@ -102,7 +95,7 @@ namespace GoodeeProject
             if (saveFile.ShowDialog() != DialogResult.Cancel)
             {
 
-                GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
+                GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.getInstance();
 
                 var list = goodeeDAO.SelectMemberList();
                 var missingValue = System.Reflection.Missing.Value;
@@ -170,16 +163,7 @@ namespace GoodeeProject
                     {
                         if (item["Name"].ToString().Contains(textBox1.Text))
                         {
-                            string gender = "";
-                            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
-                            {
-                                gender = "남자";
-                            }
-                            else
-                            {
-                                gender = "여자";
-                            }
-                            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() }); 
+                            ViewRowInsert(item);
                         }
                     }
                     break;
@@ -188,16 +172,7 @@ namespace GoodeeProject
                     {
                         if (item["class_Name"].ToString().Contains(textBox1.Text))
                         {
-                            string gender = "";
-                            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
-                            {
-                                gender = "남자";
-                            }
-                            else
-                            {
-                                gender = "여자";
-                            }
-                            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() });
+                            ViewRowInsert(item);
                         }
                     }
                     break;
@@ -206,22 +181,30 @@ namespace GoodeeProject
                     {
                         if (item["curriculum"].ToString().Contains(textBox1.Text))
                         {
-                            string gender = "";
-                            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
-                            {
-                                gender = "남자";
-                            }
-                            else
-                            {
-                                gender = "여자";
-                            }
-                            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() });
+                            ViewRowInsert(item);
                         }
                     }
                     break;
                 default:
                     break;
             }
+        }
+        /// <summary>
+        /// 그리드뷰에 StudentInfo정보를 체우는 메서드입니다.
+        /// </summary>
+        /// <param name="item">StudentInfo DataTable</param>
+        private void ViewRowInsert(DataRow item)
+        {
+            string gender = "";
+            if (item["Gender"].ToString() == "m" || item["Gender"].ToString() == "M")
+            {
+                gender = "남자";
+            }
+            else
+            {
+                gender = "여자";
+            }
+            gViewStudentInfo.Rows.Add(new string[] { item["class_Name"].ToString(), item["curriculum"].ToString(), item["turn"].ToString(), item["Name"].ToString(), DateTime.Parse(item["BirthDate"].ToString()).ToShortDateString(), gender, item["Mobile"].ToString(), item["Id"].ToString(), item["Address"].ToString(), item["Register"].ToString() });
         }
     }
 }

@@ -22,7 +22,11 @@ namespace GoodeeProject
             txtProjectPart.MinimumSize = txtProjectPart.Size;
             size = txtUseTools.Height;
         }
-
+        /// <summary>
+        /// 스크롤바의 자동이동을 막는 메서드입니다.
+        /// </summary>
+        /// <param name="activeControl">스크롤바의 이동을 호출한 컨트롤입니다.</param>
+        /// <returns></returns>
         protected override Point ScrollToControl(Control activeControl)
         {
             return this.AutoScrollPosition;

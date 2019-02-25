@@ -170,7 +170,7 @@ namespace GoodeeProject
             }
             File.Delete(Application.StartupPath + "/" + "xml.xml");
 
-            GoodeeDAO.GoodeeDAO DAO = new GoodeeDAO.GoodeeDAO();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
             var check = DAO.InsertPortfolio(FrmMain.Id, projectInfo.Controls["txtProjectTitle"].Text, beforeName);
             if (check)
             {
@@ -180,7 +180,11 @@ namespace GoodeeProject
                 MessageBox.Show("저장실패");
             }
         }
-
+        /// <summary>
+        /// ftp서버에서 포트폴리오를 불러옵니다.
+        /// </summary>
+        /// <param name="id">포트폴리오 작성자</param>
+        /// <param name="portfolioName">포트폴리오 제목</param>
         private void LoadPortfolio(string id, string portfolioName)
         {
             Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
