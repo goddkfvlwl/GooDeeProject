@@ -21,7 +21,8 @@ namespace GoodeeProject
         DataTable SelectEdu(string id);
         DataTable SelectEdu_History(string id);
         bool DeleteLiEduHis(string id);
-
+        DataTable SelectMBTI_Question();
+        DataTable SelectMBTI_Choice();
 
     }
 }

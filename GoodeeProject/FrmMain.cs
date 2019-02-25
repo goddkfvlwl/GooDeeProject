@@ -38,6 +38,7 @@ namespace GoodeeProject
         {
             //InitializeComponent();
             LoadFrm();
+            
         }
 
         public void LoadFrm()
@@ -158,7 +159,16 @@ namespace GoodeeProject
 
             mbti = new CtlMBTIDetail();
             panel2.Controls.Add(mbti);
+            mbti.BringToFront();
             mbti.Location = new Point(192, 141);
+            mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
+        }
+
+        private void MBTIWrite_Click(object sender, EventArgs e)
+        {
+            mbti.SendToBack();
+            FrmMBTIQuestion mq = new FrmMBTIQuestion();
+            mq.Show();
         }
 
         private void btnChat_Click(object sender, EventArgs e)

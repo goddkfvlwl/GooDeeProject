@@ -270,5 +270,21 @@ namespace GoodeeProject.GoodeeDAO
 
             return con.ExecuteDelete(proc, pms);
         }
+
+        public DataTable SelectMBTI_Question()
+        {
+            string proc = "SelectMBTIQuestion";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
+
+        public DataTable SelectMBTI_Choice()
+        {
+            string proc = "SelectMBTIChoice";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
     }
 }
