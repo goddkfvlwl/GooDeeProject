@@ -34,8 +34,9 @@
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
-            this.btnNext = new iTalk.iTalk_Button_1();
-            this.btnPrev = new iTalk.iTalk_Button_1();
+            this.btnSend = new iTalk.iTalk_Button_1();
+            this.iTalk_Separator3 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator4 = new iTalk.iTalk_Separator();
             this.SuspendLayout();
             // 
             // flowpanelQuestion
@@ -102,40 +103,44 @@
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // btnNext
+            // btnSend
             // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnNext.Image = null;
-            this.btnNext.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNext.Location = new System.Drawing.Point(467, 851);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(81, 25);
-            this.btnNext.TabIndex = 26;
-            this.btnNext.Text = ">";
-            this.btnNext.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSend.BackColor = System.Drawing.Color.Transparent;
+            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnSend.Image = null;
+            this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSend.Location = new System.Drawing.Point(330, 869);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(166, 40);
+            this.btnSend.TabIndex = 26;
+            this.btnSend.Text = "제출";
+            this.btnSend.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // btnPrev
+            // iTalk_Separator3
             // 
-            this.btnPrev.BackColor = System.Drawing.Color.Transparent;
-            this.btnPrev.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnPrev.Image = null;
-            this.btnPrev.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrev.Location = new System.Drawing.Point(331, 851);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(81, 25);
-            this.btnPrev.TabIndex = 27;
-            this.btnPrev.Text = "<";
-            this.btnPrev.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Separator3.Location = new System.Drawing.Point(6, 853);
+            this.iTalk_Separator3.Name = "iTalk_Separator3";
+            this.iTalk_Separator3.Size = new System.Drawing.Size(815, 10);
+            this.iTalk_Separator3.TabIndex = 28;
+            this.iTalk_Separator3.Text = "iTalk_Separator3";
+            // 
+            // iTalk_Separator4
+            // 
+            this.iTalk_Separator4.Location = new System.Drawing.Point(6, 847);
+            this.iTalk_Separator4.Name = "iTalk_Separator4";
+            this.iTalk_Separator4.Size = new System.Drawing.Size(815, 10);
+            this.iTalk_Separator4.TabIndex = 27;
+            this.iTalk_Separator4.Text = "iTalk_Separator4";
             // 
             // FrmMBTIQuestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ClientSize = new System.Drawing.Size(827, 883);
-            this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.btnNext);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(827, 921);
+            this.Controls.Add(this.iTalk_Separator3);
+            this.Controls.Add(this.iTalk_Separator4);
+            this.Controls.Add(this.btnSend);
             this.Controls.Add(this.btnMinimum);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.flowpanelQuestion);
@@ -163,7 +168,8 @@
         private System.Windows.Forms.FlowLayoutPanel flowpanelQuestion;
         private iTalk.iTalk_Button_1 btnMinimum;
         private iTalk.iTalk_Button_1 btnExit;
-        private iTalk.iTalk_Button_1 btnNext;
-        private iTalk.iTalk_Button_1 btnPrev;
+        private iTalk.iTalk_Button_1 btnSend;
+        private iTalk.iTalk_Separator iTalk_Separator3;
+        private iTalk.iTalk_Separator iTalk_Separator4;
     }
 }

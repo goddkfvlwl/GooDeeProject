@@ -58,38 +58,98 @@ namespace GoodeeProject
 
         private void FrmMBTIQuestion_Load(object sender, EventArgs e)
         {
+            CtlMBTIDivde md = new CtlMBTIDivde();
+            flowpanelQuestion.Controls.Add(md);
+            md.lblDivide.Text = "제 1부 : 자신에게 자연스럽고, 습관처럼 편안하게 느껴지고, 자주 행동하는 경향과 \n 가깝다고 생각되는 것을 선택하여 답안지에 표시하십시오.";
             flowpanelQuestion.AutoScroll = true;
-            
+            question = gd.SelectMBTI_Question();
+            choice = gd.SelectMBTI_Choice();
             GetMBTI();
         }
 
         private void GetMBTI()
         {
-            question = gd.SelectMBTI_Question();
-            choice = gd.SelectMBTI_Choice();
-            List<MBTIChoice> mcList = new List<MBTIChoice>();
+            List<MBTIChoice> aList = new List<MBTIChoice>();
+            List<MBTIChoice> bList = new List<MBTIChoice>();
+            List<MBTIChoice> cList = new List<MBTIChoice>();
+            
             foreach (DataRow item in choice.Rows)
             {
-                mcList.Add(new MBTIChoice(Int32.Parse(item[0].ToString()), char.Parse(item[1].ToString()), item[2].ToString(), Int32.Parse(item[3].ToString()), Int32.Parse(item[4].ToString()), char.Parse(item[5].ToString())));
+                if (item["item"].ToString().Trim() == "A")
+                {
+                    aList.Add(new MBTIChoice(Int32.Parse(item["QuestionNum"].ToString()), char.Parse(item["Item"].ToString().Trim()), item["ItemDetail"].ToString(), Int32.Parse(item["FeMale_Score"].ToString()), Int32.Parse(item["Male_Score"].ToString()), char.Parse(item["Detail_Tendency"].ToString().Trim())));
+                }
+                if (item["item"].ToString().Trim() == "B")
+                {
+                    bList.Add(new MBTIChoice(Int32.Parse(item["QuestionNum"].ToString()), char.Parse(item["Item"].ToString().Trim()), item["ItemDetail"].ToString(), Int32.Parse(item["FeMale_Score"].ToString()), Int32.Parse(item["Male_Score"].ToString()), char.Parse(item["Detail_Tendency"].ToString().Trim())));
+                }
+                if (item["item"].ToString().Trim() == "C")
+                {
+                    cList.Add(new MBTIChoice(Int32.Parse(item["QuestionNum"].ToString()), char.Parse(item["Item"].ToString().Trim()), item["ItemDetail"].ToString(), Int32.Parse(item["FeMale_Score"].ToString()), Int32.Parse(item["Male_Score"].ToString()), char.Parse(item["Detail_Tendency"].ToString().Trim())));
+                }
             }
-            var resultA = mcList.Where(c => c.Item == 'A')
-                .Select(c => mcList);
 
-
-
-            CtlMBTIQuestion[] mq = new CtlMBTIQuestion[10];
-
-            for (int i = 0; i < mq.Length; i++)
+            for (int i = 0; i < aList.Count; i++)
             {
-                mq[i] = new CtlMBTIQuestion();
-                flowpanelQuestion.Controls.Add(mq[i]);
-                mq[i].lblNum.Text = question.DataSet.Tables[0].Rows[i]["QuestionNum"].ToString() + ". ";
-                mq[i].lblQuestion.Text = question.DataSet.Tables[0].Rows[i]["Question"].ToString();
+                CtlMBTIQuestion mq = new CtlMBTIQuestion();
+                mq.flowpanelChoice.FlowDirection = FlowDirection.TopDown;
+                mq.flowpanelChoice.Controls.SetChildIndex(mq.rdoA, 0);
+                mq.flowpanelChoice.Controls.SetChildIndex(mq.rdoB, 1);
+                mq.lblNum.Text = question.DataSet.Tables[0].Rows[i]["QuestionNum"].ToString() + ". ";
+                mq.lblQuestion.Text = question.DataSet.Tables[0].Rows[i]["Question"].ToString();
 
-                //mq[i].rdoA.Text = "(" + choice.DataSet.Tables[0].Rows[i]["Item"].ToString() + ") " + choice.DataSet.Tables[0].Rows[i]["ItemDetail"].ToString();
+                if (mq.rdoB.Location.X + mq.rdoB.Size.Width > mq.flowpanelChoice.Width)
+                {
+                    mq.flowpanelChoice.Size = new Size(750, 40);
+
+                    mq.Size = new Size(771, 82);
+                    mq.flowpanelChoice.Refresh();
+                }
+
+                foreach (var item in cList)
+                {
+                    if (mq.lblNum.Text == item.QuestionNum.ToString() + ". ")
+                    {
+                        mq.flowpanelChoice.Size = new Size(750, 60);
+                        
+                        mq.Size = new Size(771, 102);
+                        RadioButton rdoC = new RadioButton();
+                        rdoC.AutoSize = true;
+                        rdoC.Dock = DockStyle.Left;
+                        rdoC.Text = "(" + item.Item + ") " + item.ItemDetail.ToString();
+                        mq.flowpanelChoice.Controls.Add(rdoC);
+                        mq.flowpanelChoice.Controls.SetChildIndex(rdoC, mq.flowpanelChoice.Controls.Count);
+                        mq.flowpanelChoice.Refresh();
+                    }
+                }
+                
+
+                mq.rdoA.Text = "(" + aList[i].Item + ") " + aList[i].ItemDetail.ToString();
+                mq.rdoB.Text = "(" + bList[i].Item + ") " + bList[i].ItemDetail.ToString();
+                flowpanelQuestion.Controls.Add(mq);
+                //if (i == 23)
+                //{
+                //    CheckBox cbA = new CheckBox();
+                //    CheckBox cbB = new CheckBox();
+                //    CheckBox cbC = new CheckBox();
+
+                //    mq.flowpanelChoice.Controls.Add(cbA);
+                //    mq.flowpanelChoice.Controls.Add(cbB);
+                //    mq.flowpanelChoice.Controls.Add(cbC);
+                //    cbA.Text = mq.rdoA.Text;
+                //    cbB.Text = mq.rdoB.Text;
+                //    cbC.Text = "";
+                //    mq.flowpanelChoice.Controls.RemoveByKey("rdoA");
+                //    mq.flowpanelChoice.Controls.RemoveByKey("rdoB");
+                //}
+                
+                if (i == 29)
+                {
+                    CtlMBTIDivde md = new CtlMBTIDivde();
+                    flowpanelQuestion.Controls.Add(md);
+                    md.lblDivide.Text = "    제 2부 : 두 개의 낱말이 있는 문항에서는 자신에게 더 가깝다고 생각되는 말을 \n 선택하여 답안지에 표시하십시오.";
+                }
             }
-            
-
 
         }
     }

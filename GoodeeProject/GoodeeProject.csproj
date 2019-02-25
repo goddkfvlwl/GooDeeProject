@@ -76,6 +76,12 @@
     <Compile Include="CtlLicense.Designer.cs">
       <DependentUpon>CtlLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlMBTIDivde.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIDivde.Designer.cs">
+      <DependentUpon>CtlMBTIDivde.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlMBTIQuestion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -236,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtlLicense.resx">
       <DependentUpon>CtlLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIDivde.resx">
+      <DependentUpon>CtlMBTIDivde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlMBTIQuestion.resx">
       <DependentUpon>CtlMBTIQuestion.cs</DependentUpon>

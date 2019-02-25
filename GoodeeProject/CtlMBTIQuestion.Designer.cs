@@ -31,10 +31,10 @@
             this.lblQuestion = new iTalk.iTalk_Label();
             this.lblNum = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowpanelChoice = new System.Windows.Forms.FlowLayoutPanel();
             this.rdoA = new System.Windows.Forms.RadioButton();
             this.rdoB = new System.Windows.Forms.RadioButton();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flowpanelChoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblQuestion
@@ -43,7 +43,7 @@
             this.lblQuestion.BackColor = System.Drawing.Color.White;
             this.lblQuestion.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuestion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblQuestion.Location = new System.Drawing.Point(37, 9);
+            this.lblQuestion.Location = new System.Drawing.Point(37, 15);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(78, 21);
             this.lblQuestion.TabIndex = 1;
@@ -55,7 +55,7 @@
             this.lblNum.BackColor = System.Drawing.Color.White;
             this.lblNum.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblNum.Location = new System.Drawing.Point(12, 9);
+            this.lblNum.Location = new System.Drawing.Point(12, 15);
             this.lblNum.Name = "lblNum";
             this.lblNum.Size = new System.Drawing.Size(23, 21);
             this.lblNum.TabIndex = 0;
@@ -69,17 +69,18 @@
             this.iTalk_Separator1.TabIndex = 5;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
-            // flowLayoutPanel1
+            // flowpanelChoice
             // 
-            this.flowLayoutPanel1.Controls.Add(this.rdoA);
-            this.flowLayoutPanel1.Controls.Add(this.rdoB);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(16, 33);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(750, 26);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.flowpanelChoice.Controls.Add(this.rdoA);
+            this.flowpanelChoice.Controls.Add(this.rdoB);
+            this.flowpanelChoice.Location = new System.Drawing.Point(16, 42);
+            this.flowpanelChoice.Name = "flowpanelChoice";
+            this.flowpanelChoice.Size = new System.Drawing.Size(750, 20);
+            this.flowpanelChoice.TabIndex = 6;
             // 
             // rdoA
             // 
+            this.rdoA.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdoA.AutoSize = true;
             this.rdoA.Location = new System.Drawing.Point(3, 3);
             this.rdoA.Name = "rdoA";
@@ -92,6 +93,7 @@
             // rdoB
             // 
             this.rdoB.AutoSize = true;
+            this.rdoB.Dock = System.Windows.Forms.DockStyle.Left;
             this.rdoB.Location = new System.Drawing.Point(40, 3);
             this.rdoB.Name = "rdoB";
             this.rdoB.Size = new System.Drawing.Size(31, 16);
@@ -105,14 +107,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowpanelChoice);
             this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.lblNum);
             this.Name = "CtlMBTIQuestion";
-            this.Size = new System.Drawing.Size(771, 69);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            this.Size = new System.Drawing.Size(771, 62);
+            this.flowpanelChoice.ResumeLayout(false);
+            this.flowpanelChoice.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,10 +122,10 @@
 
         #endregion
         private iTalk.iTalk_Separator iTalk_Separator1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal iTalk.iTalk_Label lblNum;
         internal iTalk.iTalk_Label lblQuestion;
         internal System.Windows.Forms.RadioButton rdoA;
         internal System.Windows.Forms.RadioButton rdoB;
+        internal System.Windows.Forms.FlowLayoutPanel flowpanelChoice;
     }
 }
