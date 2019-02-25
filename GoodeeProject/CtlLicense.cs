@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class CtlAddr : UserControl
+    public partial class CtlLicense : UserControl
     {
-        public CtlAddr()
+        public CtlLicense()
         {
             InitializeComponent();
-            
         }
     }
 }

@@ -15,6 +15,7 @@ namespace GoodeeProject
 {
     public partial class FrmMain : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         private int movePointX;
         private int movePointY;
         
@@ -37,6 +38,7 @@ namespace GoodeeProject
         {
             //InitializeComponent();
             LoadFrm();
+            
         }
 
         public void LoadFrm()
@@ -71,36 +73,22 @@ namespace GoodeeProject
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
             }
-            ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
 
-        private void BtnStudent_Click(object sender, EventArgs e)
-        {
-            studentManagement1.Visible = true;
-            GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
-            studentManagement1.gViewStudentInfo.DataSource = goodeeDAO.SelectMemberList();
-            studentManagement1.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            studentManagement1.gViewStudentInfo.Columns[0].HeaderText = "과정명";
-            studentManagement1.gViewStudentInfo.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            studentManagement1.gViewStudentInfo.Columns[1].HeaderText = "이름";
-            studentManagement1.gViewStudentInfo.Columns[2].HeaderText = "생년월일";
-            studentManagement1.gViewStudentInfo.Columns[3].HeaderText = "성별";
-            studentManagement1.gViewStudentInfo.Columns[4].HeaderText = "휴대폰";
-            studentManagement1.gViewStudentInfo.Columns[5].HeaderText = "주소";
-            studentManagement1.gViewStudentInfo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-        }
+        
 
         private void btnSpec_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-
+            
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
 
             spec = new CtlSpecDetail();
             panel2.Controls.Add(spec);
+            spec.BringToFront();
             spec.Location = new Point(192, 1);
-            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+            //spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
             spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
         }
 
@@ -121,13 +109,19 @@ namespace GoodeeProject
                 panel2.Controls.Add(introductionList);
             }
  
+            spec.Controls["lblResume"].Click += BtnResume_Click;
         }
 
-        private void BtnPortfolio_Click(object sender, EventArgs e)
+        private void BtnResume_Click(object sender, EventArgs e)
         {
-            portfolio1.Visible = true;
-            portfolio1.BringToFront();
+            s.AddList("이력서 클릭");
+            CtlResume rs = new CtlResume();
+            panel2.Controls.Add(rs);
+            rs.Location = new Point(185, 0);
+            spec.SendToBack();
         }
+
+        
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
@@ -181,7 +175,16 @@ namespace GoodeeProject
 
             mbti = new CtlMBTIDetail();
             panel2.Controls.Add(mbti);
+            mbti.BringToFront();
             mbti.Location = new Point(192, 141);
+            mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
+        }
+
+        private void MBTIWrite_Click(object sender, EventArgs e)
+        {
+            mbti.SendToBack();
+            FrmMBTIQuestion mq = new FrmMBTIQuestion();
+            mq.Show();
         }
 
         private void btnChat_Click(object sender, EventArgs e)
@@ -231,6 +234,7 @@ namespace GoodeeProject
         {
             Application.Exit();
         }
+
 
         public void BtnMinimum_Click(object sender, EventArgs e)
         {

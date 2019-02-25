@@ -80,6 +80,22 @@
             this.iTalk_Separator1.TabIndex = 7;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
+            // ctlProfile1
+            // 
+            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
+            this.ctlProfile1.Name = "ctlProfile1";
+            this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
+            this.ctlProfile1.TabIndex = 0;
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
+            this.iTalk_Separator1.TabIndex = 7;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
