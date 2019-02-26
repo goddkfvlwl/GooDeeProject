@@ -286,5 +286,26 @@ namespace GoodeeProject.GoodeeDAO
 
             return con.ExecuteSelect(proc);
         }
+
+        public bool InsertMBTI_Stats(string id, int ei, int sn, int tf, int jp, string result, DateTime mbtiDate)
+        {
+            string proc = "InsertMBTI_Stats";
+            bool rs = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[7];
+            pms[0] = new SqlParameter("ID", id);
+            pms[1] = new SqlParameter("ei", ei);
+            pms[2] = new SqlParameter("sn", sn);
+            pms[3] = new SqlParameter("tf", tf);
+            pms[4] = new SqlParameter("jp", jp);
+            pms[5] = new SqlParameter("result", result);
+            pms[6] = new SqlParameter("mbtidate", mbtiDate);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                rs = true;
+            }
+            return rs;
+        }
     }
 }

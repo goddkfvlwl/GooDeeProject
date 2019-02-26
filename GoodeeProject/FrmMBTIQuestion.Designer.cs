@@ -115,6 +115,7 @@
             this.btnSend.TabIndex = 26;
             this.btnSend.Text = "제출";
             this.btnSend.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // iTalk_Separator3
             // 
