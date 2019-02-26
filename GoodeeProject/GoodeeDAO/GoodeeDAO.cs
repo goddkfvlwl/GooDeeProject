@@ -44,6 +44,15 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
+        internal DataTable SelectChat(string id)
+        {
+            string proc = "SelectChat";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ID", id);
+            return con.SelectWithParams(proc, parameters);
+        }
+
         internal void InsertClass(string Class, string curriculm, TextBox turn, DateTime startDate, DateTime endDate, bool isActive)
         {
             string proc = "InsertClass";
@@ -59,6 +68,29 @@ namespace GoodeeProject.GoodeeDAO
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
             }
+        }
+
+        internal DataTable SelectChatContent(string Title)
+        {
+            string proc = "SelectChatContent";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("Title", Title);
+            return con.SelectWithParams(proc, parameters);
+
+        }
+
+        internal void InsertChat(string Title, string managerEmail, string studentEmail, string manager, string student)
+        {
+            string proc = "InsertChat";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = new SqlParameter("Title", Title);
+            parameters[1] = new SqlParameter("managerID", managerEmail);
+            parameters[2] = new SqlParameter("studentID", studentEmail);
+            parameters[3] = new SqlParameter("managerName", manager);
+            parameters[4] = new SqlParameter("studentName", student); 
+            con.ExecuteInsert(proc, parameters);
         }
 
         internal string GetCurriculum(int classNum)
@@ -90,6 +122,17 @@ namespace GoodeeProject.GoodeeDAO
             parameters[4] = new SqlParameter("StartDate", StartDate);
             parameters[5] = new SqlParameter("EndDate", EndDate);
             parameters[6] = new SqlParameter("isActive", isActive);
+            con.ExecuteInsert(proc, parameters);
+        }
+
+        internal void InsertChatContent(string title, string content)
+        {
+            string proc = "InsertChatContent";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("Title", title);
+            parameters[1] = new SqlParameter("Content", content);
+
             con.ExecuteInsert(proc, parameters);
         }
 

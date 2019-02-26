@@ -12,10 +12,19 @@ namespace GoodeeProject
 {
     public partial class ChatList : UserControl
     {
+        string manager;
+        string student;
+        string managetEmail;
+        string studentEmail;
         public ChatList()
         {
             InitializeComponent();
         }
+
+        public string Manager { get => manager; set => manager = value; }
+        public string Student { get => student; set => student = value; }
+        public string ManagetEmail { get => managetEmail; set => managetEmail = value; }
+        public string StudentEmail { get => studentEmail; set => studentEmail = value; }
 
         private void ChatList_Click(object sender, EventArgs e)
         {
@@ -24,12 +33,6 @@ namespace GoodeeProject
                 item.BackColor = Control.DefaultBackColor;
             }
             this.BackColor = Color.LightGray;
-        }
-
-        private void ChatList_DoubleClick(object sender, EventArgs e)
-        {
-            //FrmChat chat = new FrmChat(this.chatTitle.Text);
-            //chat.Show();
         }
     }
 }

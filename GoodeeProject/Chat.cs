@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Sockets;
 using System.Threading;
+using Tulpep.NotificationWindow;
 
 namespace GoodeeProject
 {
@@ -19,6 +20,8 @@ namespace GoodeeProject
         bool isConnected = false;
         Thread thread;
         NetworkStream ns;
+        private delegate void GetmemberInvoke(OnlineInfo info);
+
         public Chat()
         {
             InitializeComponent();
@@ -34,81 +37,62 @@ namespace GoodeeProject
 
         internal void Chat_Load(object sender, EventArgs e)
         {
-            ns = client.GetStream();
-            byte[] getmember = Encoding.UTF8.GetBytes("$GetMember$");
-            ns.Write(getmember, 0, getmember.Length);
-            ns.Flush();
-            thread = new Thread(GetMassage);
-            thread.Start();
+           GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+           DataTable chat = DAO.SelectChat(FrmMain.Id);
+           GetChatList(chat);
         }
 
-        private void GetMassage()
+        private void GetChatList(DataTable chat)
         {
-            // 서버가 보내준 메시지를 받음
-            while (isConnected)
+            foreach (DataRow item in chat.Rows)
             {
-                NetworkStream ns = client.GetStream();
-                byte[] receiveMsg = new byte[client.ReceiveBufferSize];
-                ns.Read(receiveMsg, 0, receiveMsg.Length);
-                ns.Flush();
-                readData = Encoding.UTF8.GetString(receiveMsg);
-                if (readData.Contains("$member$"))
-                {
-                    GetMembers();
-                    break;
-                }
+                ChatList list = new ChatList();
+                list.Controls["lblChatTitle"].Text = item[0].ToString();
+                list.ManagetEmail = item[1].ToString();
+                list.StudentEmail = item[2].ToString();
+                list.Manager = item[3].ToString();
+                list.Student = item[4].ToString();
+                list.Controls["lblLastChatContent"].Text = item[5].ToString();
+                list.DoubleClick += List_DoubleClick;
+                ChatPanel.Controls.Add(list);
             }
         }
 
-        private void GetMembers()
+        private void List_DoubleClick(object sender, EventArgs e)
+        {
+            ChatList info = sender as ChatList;
+            string manager = "";
+            string student = "";
+            string managetEmail = "";
+            string studentEmail = "";
+            if (FrmMain.Authority != 'S')
+            {
+                manager = FrmMain.Mi.Name;
+                managetEmail = FrmMain.Id;
+                student = info.Student;
+                studentEmail = info.StudentEmail;
+                FrmChat chat = new FrmChat(manager, managetEmail, student, studentEmail, manager + ", " + student + "의 대화방", client);
+                chat.Show();
+            }
+            else
+            {
+                manager = info.Manager;
+                student = FrmMain.Mi.Name;
+                managetEmail = info.ManagetEmail;
+                studentEmail = FrmMain.Id;
+                FrmChat chat = new FrmChat(manager, managetEmail, student, studentEmail, manager + ", " + student + "의 대화방", client);
+                chat.Show();
+            }
+        }
+
+        internal void GetMember(OnlineInfo info)
         {
             if (this.InvokeRequired)
             {
-                this.Invoke(new MethodInvoker(GetMembers));
-            }
-            else
+                this.Invoke(new GetmemberInvoke(GetMember), info);
+            }else
             {
-                if (readData.Contains("$member$"))
-                {
-                    LoginPanel.Controls.Clear();
-                    string[] members = readData.Replace("\0", "").Split(new string[] { "$member$" }, StringSplitOptions.None);
-                    GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-                    foreach (string item in members)
-                    {
-                        if (item != "!")
-                        {
-                            OnlineInfo info = new OnlineInfo();
-                            info.DoubleClick += Info_DoubleClick;
-                            var member = DAO.SelectMemberInfo(item);
-                            info.Controls["lblName"].Text = member.Rows[0]["Name"].ToString();
-                            info.Controls["lblCurriculum"].Text = member.Rows[0]["Curriculum"].ToString();
-                            info.Controls["lblEmail"].Text = member.Rows[0]["ID"].ToString();
-                            LoginPanel.Controls.Add(info); 
-                        }
-                    }
-                    isConnected = false;
-                }
-            }
-        }
-
-        private void Info_DoubleClick(object sender, EventArgs e)
-        {
-            string user = "";
-            string target = "";
-            OnlineInfo info = sender as OnlineInfo;
-            if (FrmMain.Authority != 'S')
-            {
-                user = FrmMain.Mi.Name;
-                target = info.Controls["lblEmail"].Text;
-                FrmChat chat = new FrmChat(user, target, info.Controls["lblName"].Text, user + ", " + info.Controls["lblName"].Text + "의 대화방", client);
-                chat.Show();
-            }
-            else
-            {
-                user = FrmMain.Mi.Name;
-                target = info.Controls["lblEmail"].Text;
-                FrmChat chat = new FrmChat(user, target, info.Controls["lblName"].Text, info.Controls["lblName"].Text + ", " + user + "의 대화방", client);
-                chat.Show();
+                LoginPanel.Controls.Add(info);
             }
         }
     }

@@ -36,24 +36,25 @@
             // 
             // LoginPanel
             // 
+            this.LoginPanel.AutoScroll = true;
             this.LoginPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.LoginPanel.Location = new System.Drawing.Point(493, 35);
+            this.LoginPanel.Location = new System.Drawing.Point(493, 26);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(320, 415);
+            this.LoginPanel.Size = new System.Drawing.Size(320, 424);
             this.LoginPanel.TabIndex = 0;
             // 
             // ChatPanel
             // 
             this.ChatPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ChatPanel.Location = new System.Drawing.Point(9, 35);
+            this.ChatPanel.Location = new System.Drawing.Point(9, 26);
             this.ChatPanel.Name = "ChatPanel";
-            this.ChatPanel.Size = new System.Drawing.Size(475, 415);
+            this.ChatPanel.Size = new System.Drawing.Size(475, 424);
             this.ChatPanel.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
+            this.label1.Location = new System.Drawing.Point(7, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
@@ -62,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(493, 17);
+            this.label2.Location = new System.Drawing.Point(493, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;

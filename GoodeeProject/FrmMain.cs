@@ -16,7 +16,6 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
-
         private static string id;
         private static char authority;
 
@@ -27,14 +26,18 @@ namespace GoodeeProject
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
         CtlMBTIDetail mbti;
+        Chat chat;
+        ChatClient chatClinet;
         public static string Id { get => id; set => id = value; }
         public static char Authority { get => authority; set => authority = value; }
         internal static MemberInfo Mi { get => mi; set => mi = value; }
         public static string Curriculum { get => curriculum; set => curriculum = value; }
+        internal ChatClient ChatClinet { get => chatClinet; set => chatClinet = value; }
+        public static bool IsConnected { get => isConnected; set => isConnected = value; }
 
         TcpClient client;
         NetworkStream ns = default(NetworkStream);
-        bool isConnected = false;
+        static bool isConnected = false;
         Thread loginThread;
         public static string chatContent;
         public FrmMain()
@@ -85,7 +88,9 @@ namespace GoodeeProject
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+
             Application.Exit();
+            Environment.Exit(0);
         }
 
         private void btnSpec_Click(object sender, EventArgs e)
@@ -220,17 +225,25 @@ namespace GoodeeProject
         private void btnChat_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnChat.Size.Width - 10, btnChat.Location.Y);
-            if (isConnected)
+            try
             {
-                Chat chat = new Chat(client, isConnected);
-                panel2.Controls.Add(chat);
-                chat.Location = new Point(185, 0);
-                chat.BringToFront();
-            }else
+                if (isConnected)
+                {
+                    chat = new Chat(client, isConnected);
+                    panel2.Controls.Add(chat);
+                    chat.Location = new Point(185, 0);
+                    chat.BringToFront();
+                    chatClinet.RequestMemberList();
+                }
+                else
+                {
+                    isConnected = false;
+                    MessageBox.Show("채팅서버에 접속할수 없습니다. 잠시후 다시 시도해주세요.");
+                }
+            }
+            catch (Exception a)
             {
-                MessageBox.Show("채팅서버에 접속할수 없습니다. 잠시후 다시 시도해주세요.");
+                MessageBox.Show(a.Message);
             }
         }
 
@@ -262,57 +275,21 @@ namespace GoodeeProject
             panel2.Controls.Remove(surveyAdmin);
             surveyAdmin = null;
             panel2.Controls.Remove(mbti);
-            surveyAdmin = null;
+            mbti = null;
+            panel2.Controls.Remove(chat);
+            chat = null;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            loginThread = new Thread(ChatLogin);
+            ChatClinet = new ChatClient(this);
+            loginThread = new Thread(ChatClinet.ChatLogin);
             loginThread.Start();
-        }
-        /// <summary>
-        /// 채팅서버에 접속
-        /// </summary>
-        private void ChatLogin()
-        {
-            if (Authority != 'C')
-            {
-                while (true)
-                {
-                    if (client == null && !isConnected)
-                    {
-                        client = new TcpClient();
-                        byte[] nickName = Encoding.UTF8.GetBytes(mi.Id + "$||$" + mi.Name + "$||$" + curriculum + "$||$");
-
-                        try
-                        {
-                            client.Connect("192.168.0.235", 3333);
-                            isConnected = true;
-                            ns = client.GetStream();
-                            ns.Write(nickName, 0, nickName.Length);
-                            ns.Flush();
-                            return;
-                        }
-                        catch (Exception)
-                        {
-                            MessageBox.Show("채팅 서버에 접속할 수 없습니다." + Environment.NewLine + "10초후 자동으로 재시도합니다.");
-                            client = null;
-                            Thread.Sleep(1000);
-                        }
-                    }
-                } 
-            }
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (client != null && client.Connected)
-            {
-                byte[] nickName = Encoding.UTF8.GetBytes( mi.Name + "$DisConnect$");
-                ns.Write(nickName, 0, nickName.Length);
-                ns.Flush();
-                isConnected = false;
-            }
+            ChatClinet.DisConnect();
         }
     }
 }

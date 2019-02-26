@@ -28,29 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.chatTitle = new System.Windows.Forms.Label();
+            this.lblChatTitle = new System.Windows.Forms.Label();
+            this.lblLastChatContent = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // chatTitle
+            // lblChatTitle
             // 
-            this.chatTitle.AutoSize = true;
-            this.chatTitle.Location = new System.Drawing.Point(4, 19);
-            this.chatTitle.Name = "chatTitle";
-            this.chatTitle.Size = new System.Drawing.Size(53, 12);
-            this.chatTitle.TabIndex = 0;
-            this.chatTitle.Text = "채팅제목";
-            this.chatTitle.Click += new System.EventHandler(this.ChatList_Click);
-            this.chatTitle.DoubleClick += new System.EventHandler(this.ChatList_DoubleClick);
+            this.lblChatTitle.AutoSize = true;
+            this.lblChatTitle.Location = new System.Drawing.Point(3, 9);
+            this.lblChatTitle.Name = "lblChatTitle";
+            this.lblChatTitle.Size = new System.Drawing.Size(53, 12);
+            this.lblChatTitle.TabIndex = 0;
+            this.lblChatTitle.Text = "채팅제목";
+            this.lblChatTitle.Click += new System.EventHandler(this.ChatList_Click);
+            // 
+            // lblLastChatContent
+            // 
+            this.lblLastChatContent.AutoSize = true;
+            this.lblLastChatContent.Location = new System.Drawing.Point(3, 24);
+            this.lblLastChatContent.Name = "lblLastChatContent";
+            this.lblLastChatContent.Size = new System.Drawing.Size(97, 12);
+            this.lblLastChatContent.TabIndex = 1;
+            this.lblLastChatContent.Text = "마지막 채팅 기록";
             // 
             // ChatList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.chatTitle);
+            this.Controls.Add(this.lblLastChatContent);
+            this.Controls.Add(this.lblChatTitle);
             this.Name = "ChatList";
-            this.Size = new System.Drawing.Size(465, 52);
+            this.Size = new System.Drawing.Size(465, 45);
             this.Click += new System.EventHandler(this.ChatList_Click);
-            this.DoubleClick += new System.EventHandler(this.ChatList_DoubleClick);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,6 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label chatTitle;
+        private System.Windows.Forms.Label lblChatTitle;
+        private System.Windows.Forms.Label lblLastChatContent;
     }
 }
