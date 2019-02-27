@@ -34,9 +34,6 @@ namespace GoodeeProject
         public static string Curriculum { get => curriculum; set => curriculum = value; }
         internal ChatClient ChatClinet { get => chatClinet; set => chatClinet = value; }
         public static bool IsConnected { get => isConnected; set => isConnected = value; }
-
-        TcpClient client;
-        NetworkStream ns = default(NetworkStream);
         static bool isConnected = false;
         Thread loginThread;
         public static string chatContent;
@@ -229,7 +226,7 @@ namespace GoodeeProject
             {
                 if (isConnected)
                 {
-                    chat = new Chat(client, isConnected);
+                    chat = new Chat(ChatClinet.Client, isConnected);
                     panel2.Controls.Add(chat);
                     chat.Location = new Point(185, 0);
                     chat.BringToFront();

@@ -70,6 +70,7 @@
             this.Controls.Add(this.txtSendMsg);
             this.Controls.Add(this.txtChatContent);
             this.Controls.Add(this.btnSendMsg);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmChat";
             this.Text = "FrmChat";
             this.Load += new System.EventHandler(this.FrmChat_Load);

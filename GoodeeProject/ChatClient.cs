@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace GoodeeProject
 {
@@ -16,8 +17,9 @@ namespace GoodeeProject
         NetworkStream ns = default(NetworkStream);
         Thread getMassageThread;
         string readData;
-        public static string chatContent;
         public static List<FrmChat> ChatList { get => chatList; set => chatList = value; }
+        public TcpClient Client { get => client; set => client = value; }
+
         FrmMain main;
         public ChatClient(FrmMain main)
         {
@@ -51,14 +53,15 @@ namespace GoodeeProject
                         }
                         catch (Exception a)
                         {
-                            MessageBox.Show(/*"채팅 서버에 접속할 수 없습니다." + Environment.NewLine + "10초후 자동으로 재시도합니다." +*/ a.Message);
+                            MessageBox.Show("채팅 서버에 접속할 수 없습니다." + Environment.NewLine + "10초후 자동으로 재시도합니다.");
                             client = null;
-                            Thread.Sleep(1000);
+                            Thread.Sleep(10000);
                         }
                     }
                 }
             }
         }
+
         internal void RequestMemberList()
         {
             ns = client.GetStream();
@@ -66,6 +69,7 @@ namespace GoodeeProject
             ns.Write(msg, 0, msg.Length);
             ns.Flush();
         }
+
         private void GetMassage()
         {
             while (FrmMain.IsConnected)
@@ -82,7 +86,8 @@ namespace GoodeeProject
                 else if (readData.Contains("$Msg$"))
                 {
                     Msg();
-                }else if(readData.Contains("$중복로그인$"))
+                }
+                else if (readData.Contains("$Overlap$"))
                 {
                     MessageBox.Show("동일한 계정이 이미 접속중입니다.");
                     Environment.Exit(0);
@@ -112,9 +117,9 @@ namespace GoodeeProject
                 {
                     if (item != "!" && item != FrmMain.Mi.Id && !string.IsNullOrEmpty(item))
                     {
+                        var member = DAO.SelectMemberInfo(item);
                         OnlineInfo info = new OnlineInfo();
                         info.DoubleClick += Info_DoubleClick;
-                        var member = DAO.SelectMemberInfo(item);
                         info.Controls["lblName"].Text = member.Rows[0]["Name"].ToString();
                         info.Controls["lblCurriculum"].Text = member.Rows[0]["Curriculum"].ToString();
                         info.Controls["lblEmail"].Text = member.Rows[0]["ID"].ToString();
@@ -130,13 +135,32 @@ namespace GoodeeProject
             string target = str[1].Substring(0, str[1].IndexOf("$Name$"));
             string content = str[0].Substring(0, str[0].IndexOf("$From$"));
             string user = str[0].Replace(content + "$From$", "");
+            bool isRead = false;
             foreach (FrmChat item in chatList)
             {
                 if (item.ManagerEmail == target.Replace(user, "") || item.StudentEmail == target.Replace(user, ""))
                 {
                     item.GetMsg(user + " : " + content);
                     item.GetMsg(Environment.NewLine);
+                    isRead = true;
                 }
+            }
+
+            if (!isRead)
+            {
+            }
+        }
+
+        private void Popup()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(Popup));
+            }else
+            {
+                PopupNotifier pop = new PopupNotifier();
+                pop.ContentText = "asdfasd";
+                pop.Popup();
             }
         }
 

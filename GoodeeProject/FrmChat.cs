@@ -23,8 +23,6 @@ namespace GoodeeProject
         string target;
         string targetName;
         TcpClient client;
-        Thread msg;
-        string readData;
 
         public string ChatTitle { get => chatTitle; set => chatTitle = value; }
         public string Manager { get => manager; set => manager = value; }
@@ -35,10 +33,12 @@ namespace GoodeeProject
         public string Target { get => target; set => target = value; }
         public string TargetName { get => targetName; set => targetName = value; }
         private delegate void GetMsgInvoke(string msg);
+
         public FrmChat()
         {
             InitializeComponent();
         }
+
         public FrmChat(string manager, string managerEmail, string student, string studentEmail, string title,  System.Net.Sockets.TcpClient client) : this()
         {
             chatTitle = title;
@@ -47,7 +47,7 @@ namespace GoodeeProject
             this.student = student;
             this.studentEmail = studentEmail;
             this.managerEmail = managerEmail;
-            if (FrmMain.Authority == 'S')
+            if (FrmMain.Mi.Name == student)
             {
                 user = student;
                 target = managerEmail;
@@ -71,8 +71,8 @@ namespace GoodeeProject
         private void InsertChatList()
         {
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-            DAO.InsertChat(managerEmail + studentEmail, managerEmail, studentEmail, manager, student);
-            DataTable content = DAO.SelectChatContent(managerEmail + studentEmail);
+            DAO.InsertChat(manager + ", " + student + "의 대화방", managerEmail, studentEmail, manager, student);
+            DataTable content = DAO.SelectChatContent(managerEmail,  studentEmail);
             if (content.Rows.Count > 0)
             {
                 foreach (DataRow item in content.Rows)
@@ -80,8 +80,6 @@ namespace GoodeeProject
                     txtChatContent.Text += item["Content"].ToString();
                 }
             }
-            txtChatContent.Select(0, txtChatContent.TextLength);
-            txtChatContent.ScrollToCaret();
         }
 
         private void btnSendMsg_Click(object sender, EventArgs e)
@@ -89,7 +87,7 @@ namespace GoodeeProject
             NetworkStream ns = client.GetStream();
             txtChatContent.Text += user + " : " + txtSendMsg.Text + Environment.NewLine;
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-            DAO.InsertChatContent(managerEmail + studentEmail, user + " : " + txtSendMsg.Text + Environment.NewLine);
+            DAO.InsertChatContent(user + " : " + txtSendMsg.Text + Environment.NewLine, managerEmail, studentEmail);
             byte[] msg = Encoding.UTF8.GetBytes(txtSendMsg.Text + "$From$" + user + "$To$" + target + "$Name$" + targetName + "$Target$" + "$Msg$");
             ns.Write(msg, 0, msg.Length);
             ns.Flush();
@@ -113,7 +111,6 @@ namespace GoodeeProject
         {
             txtChatContent.Select(0, txtChatContent.TextLength);
             txtChatContent.ScrollToCaret();
-
         }
 
         private void txtSendMsg_KeyDown(object sender, KeyEventArgs e)

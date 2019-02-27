@@ -23,10 +23,10 @@ namespace GoodeeProject
         {
             GoodeeDAO.GoodeeDAO dao = GoodeeDAO.GoodeeDAO.getInstance();
             dataGridView1.DataSource = dao.SelectMemberList();
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dataGridView1.Columns[0].HeaderText = "분류";
             dataGridView1.Columns[1].HeaderText = "과정명";
-            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridView1.Columns[2].HeaderText = "이름";
             dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[4].Visible = false;

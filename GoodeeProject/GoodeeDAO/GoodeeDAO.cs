@@ -70,26 +70,27 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
-        internal DataTable SelectChatContent(string Title)
+        internal DataTable SelectChatContent(string Chat1, string Chat2)
         {
             string proc = "SelectChatContent";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = new SqlParameter("Title", Title);
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("Chat1", Chat1);
+            parameters[1] = new SqlParameter("Chat2", Chat2);
             return con.SelectWithParams(proc, parameters);
 
         }
 
-        internal void InsertChat(string Title, string managerEmail, string studentEmail, string manager, string student)
+        internal void InsertChat(string Title, string Chat1, string Chat2, string Chat1Name, string Chat2Name)
         {
             string proc = "InsertChat";
             con = new DBConnection();
             SqlParameter[] parameters = new SqlParameter[5];
             parameters[0] = new SqlParameter("Title", Title);
-            parameters[1] = new SqlParameter("managerID", managerEmail);
-            parameters[2] = new SqlParameter("studentID", studentEmail);
-            parameters[3] = new SqlParameter("managerName", manager);
-            parameters[4] = new SqlParameter("studentName", student); 
+            parameters[1] = new SqlParameter("Chat1", Chat1);
+            parameters[2] = new SqlParameter("Chat2", Chat2);
+            parameters[3] = new SqlParameter("Chat1Name", Chat1Name);
+            parameters[4] = new SqlParameter("Chat2Name", Chat2Name); 
             con.ExecuteInsert(proc, parameters);
         }
 
@@ -125,13 +126,14 @@ namespace GoodeeProject.GoodeeDAO
             con.ExecuteInsert(proc, parameters);
         }
 
-        internal void InsertChatContent(string title, string content)
+        internal void InsertChatContent(string Content, string Chat1, string Chat2)
         {
             string proc = "InsertChatContent";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[2];
-            parameters[0] = new SqlParameter("Title", title);
-            parameters[1] = new SqlParameter("Content", content);
+            SqlParameter[] parameters = new SqlParameter[3];
+            parameters[0] = new SqlParameter("Content", Content);
+            parameters[1] = new SqlParameter("Chat1", Chat1);
+            parameters[2] = new SqlParameter("Chat2", Chat2);
 
             con.ExecuteInsert(proc, parameters);
         }

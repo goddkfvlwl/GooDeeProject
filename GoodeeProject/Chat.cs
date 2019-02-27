@@ -67,20 +67,22 @@ namespace GoodeeProject
             string studentEmail = "";
             if (FrmMain.Authority != 'S')
             {
-                manager = FrmMain.Mi.Name;
-                managetEmail = FrmMain.Id;
+                manager = info.Manager;
+                managetEmail = info.ManagetEmail;
                 student = info.Student;
                 studentEmail = info.StudentEmail;
                 FrmChat chat = new FrmChat(manager, managetEmail, student, studentEmail, manager + ", " + student + "의 대화방", client);
+                ChatClient.ChatList.Add(chat);
                 chat.Show();
             }
             else
             {
                 manager = info.Manager;
-                student = FrmMain.Mi.Name;
                 managetEmail = info.ManagetEmail;
-                studentEmail = FrmMain.Id;
+                student = info.Student;
+                studentEmail = info.StudentEmail;
                 FrmChat chat = new FrmChat(manager, managetEmail, student, studentEmail, manager + ", " + student + "의 대화방", client);
+                ChatClient.ChatList.Add(chat);
                 chat.Show();
             }
         }
