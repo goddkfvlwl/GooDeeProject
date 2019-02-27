@@ -28,149 +28,109 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.iTalk_Label5 = new iTalk.iTalk_Label();
-            this.iTalk_Label2 = new iTalk.iTalk_Label();
-            this.iTalk_Separator2 = new iTalk.iTalk_Separator();
-            this.tb_Email = new System.Windows.Forms.TextBox();
+            this.btnMinimum = new iTalk.iTalk_Button_1();
+            this.btnExit = new iTalk.iTalk_Button_1();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.iTalk_Separator3 = new iTalk.iTalk_Separator();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.iTalk_Label3 = new iTalk.iTalk_Label();
+            this.btn_CreateCom = new System.Windows.Forms.Button();
+            this.btn_CreateManager = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // iTalk_Label1
+            // btnMinimum
             // 
-            this.iTalk_Label1.AutoSize = true;
-            this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label1.Font = new System.Drawing.Font("맑은 고딕", 14F);
-            this.iTalk_Label1.ForeColor = System.Drawing.Color.Green;
-            this.iTalk_Label1.Location = new System.Drawing.Point(32, 35);
-            this.iTalk_Label1.Name = "iTalk_Label1";
-            this.iTalk_Label1.Size = new System.Drawing.Size(178, 25);
-            this.iTalk_Label1.TabIndex = 33;
-            this.iTalk_Label1.Text = "관리자 아이디 생성";
+            this.btnMinimum.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimum.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnMinimum.Image = null;
+            this.btnMinimum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMinimum.Location = new System.Drawing.Point(422, 4);
+            this.btnMinimum.Name = "btnMinimum";
+            this.btnMinimum.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimum.TabIndex = 89;
+            this.btnMinimum.Text = "_";
+            this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
             // 
-            // iTalk_Label5
+            // btnExit
             // 
-            this.iTalk_Label5.AutoSize = true;
-            this.iTalk_Label5.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Label5.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label5.Location = new System.Drawing.Point(33, 136);
-            this.iTalk_Label5.Name = "iTalk_Label5";
-            this.iTalk_Label5.Size = new System.Drawing.Size(74, 21);
-            this.iTalk_Label5.TabIndex = 40;
-            this.iTalk_Label5.Text = "비밀번호";
-            // 
-            // iTalk_Label2
-            // 
-            this.iTalk_Label2.AutoSize = true;
-            this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.iTalk_Label2.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label2.Location = new System.Drawing.Point(33, 94);
-            this.iTalk_Label2.Name = "iTalk_Label2";
-            this.iTalk_Label2.Size = new System.Drawing.Size(116, 21);
-            this.iTalk_Label2.TabIndex = 39;
-            this.iTalk_Label2.Text = "아이디(이메일)";
-            // 
-            // iTalk_Separator2
-            // 
-            this.iTalk_Separator2.Location = new System.Drawing.Point(152, 106);
-            this.iTalk_Separator2.Name = "iTalk_Separator2";
-            this.iTalk_Separator2.Size = new System.Drawing.Size(282, 10);
-            this.iTalk_Separator2.TabIndex = 52;
-            this.iTalk_Separator2.Text = "iTalk_Separator2";
-            // 
-            // tb_Email
-            // 
-            this.tb_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Email.Location = new System.Drawing.Point(155, 94);
-            this.tb_Email.Name = "tb_Email";
-            this.tb_Email.Size = new System.Drawing.Size(279, 14);
-            this.tb_Email.TabIndex = 51;
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnExit.Image = null;
+            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExit.Location = new System.Drawing.Point(448, 4);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.TabIndex = 88;
+            this.btnExit.Text = "X";
+            this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // iTalk_Separator1
             // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(149, 148);
+            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 94);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(282, 10);
-            this.iTalk_Separator1.TabIndex = 54;
+            this.iTalk_Separator1.Size = new System.Drawing.Size(472, 10);
+            this.iTalk_Separator1.TabIndex = 91;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
-            // textBox1
+            // btn_CreateCom
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(152, 136);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(279, 14);
-            this.textBox1.TabIndex = 53;
+            this.btn_CreateCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CreateCom.ForeColor = System.Drawing.Color.Gray;
+            this.btn_CreateCom.Location = new System.Drawing.Point(236, 40);
+            this.btn_CreateCom.Name = "btn_CreateCom";
+            this.btn_CreateCom.Size = new System.Drawing.Size(236, 50);
+            this.btn_CreateCom.TabIndex = 93;
+            this.btn_CreateCom.Text = "협약업체 계정 생성";
+            this.btn_CreateCom.UseVisualStyleBackColor = true;
+            this.btn_CreateCom.Click += new System.EventHandler(this.btn_CreateCom_Click);
             // 
-            // iTalk_Separator3
+            // btn_CreateManager
             // 
-            this.iTalk_Separator3.Location = new System.Drawing.Point(149, 186);
-            this.iTalk_Separator3.Name = "iTalk_Separator3";
-            this.iTalk_Separator3.Size = new System.Drawing.Size(282, 10);
-            this.iTalk_Separator3.TabIndex = 57;
-            this.iTalk_Separator3.Text = "iTalk_Separator3";
+            this.btn_CreateManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_CreateManager.ForeColor = System.Drawing.Color.Gray;
+            this.btn_CreateManager.Location = new System.Drawing.Point(0, 40);
+            this.btn_CreateManager.Name = "btn_CreateManager";
+            this.btn_CreateManager.Size = new System.Drawing.Size(236, 50);
+            this.btn_CreateManager.TabIndex = 92;
+            this.btn_CreateManager.Text = "관리자 계정 생성";
+            this.btn_CreateManager.UseVisualStyleBackColor = true;
+            this.btn_CreateManager.Click += new System.EventHandler(this.btn_CreateManager_Click);
             // 
-            // textBox2
+            // panel1
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Location = new System.Drawing.Point(152, 174);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 14);
-            this.textBox2.TabIndex = 56;
-            // 
-            // iTalk_Label3
-            // 
-            this.iTalk_Label3.AutoSize = true;
-            this.iTalk_Label3.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Label3.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label3.Location = new System.Drawing.Point(33, 174);
-            this.iTalk_Label3.Name = "iTalk_Label3";
-            this.iTalk_Label3.Size = new System.Drawing.Size(74, 21);
-            this.iTalk_Label3.TabIndex = 55;
-            this.iTalk_Label3.Text = "비밀번호";
+            this.panel1.Location = new System.Drawing.Point(0, 110);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(472, 490);
+            this.panel1.TabIndex = 94;
             // 
             // FrmCreateID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(561, 484);
-            this.Controls.Add(this.iTalk_Separator3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.iTalk_Label3);
+            this.ClientSize = new System.Drawing.Size(472, 600);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_CreateCom);
+            this.Controls.Add(this.btn_CreateManager);
             this.Controls.Add(this.iTalk_Separator1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.iTalk_Separator2);
-            this.Controls.Add(this.tb_Email);
-            this.Controls.Add(this.iTalk_Label5);
-            this.Controls.Add(this.iTalk_Label2);
-            this.Controls.Add(this.iTalk_Label1);
+            this.Controls.Add(this.btnMinimum);
+            this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCreateID";
             this.Text = "FrmCreateID";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private iTalk.iTalk_Label iTalk_Label1;
-        private iTalk.iTalk_Label iTalk_Label5;
-        private iTalk.iTalk_Label iTalk_Label2;
-        private iTalk.iTalk_Separator iTalk_Separator2;
-        private System.Windows.Forms.TextBox tb_Email;
+        private iTalk.iTalk_Button_1 btnMinimum;
+        private iTalk.iTalk_Button_1 btnExit;
         private iTalk.iTalk_Separator iTalk_Separator1;
-        private System.Windows.Forms.TextBox textBox1;
-        private iTalk.iTalk_Separator iTalk_Separator3;
-        private System.Windows.Forms.TextBox textBox2;
-        private iTalk.iTalk_Label iTalk_Label3;
+        private System.Windows.Forms.Button btn_CreateCom;
+        private System.Windows.Forms.Button btn_CreateManager;
+        private System.Windows.Forms.Panel panel1;
     }
 }

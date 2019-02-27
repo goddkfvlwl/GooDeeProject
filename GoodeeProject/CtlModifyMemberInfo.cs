@@ -14,6 +14,8 @@ namespace GoodeeProject
 {
     public partial class CtlModifyMemberInfo : UserControl
     {
+        SaveLog s = new SaveLog();
+
         Image profileImg;
         GoodeeDAO.GoodeeDAO gd;
 
@@ -29,11 +31,11 @@ namespace GoodeeProject
 
         private void btnSearhAddr_Click(object sender, EventArgs e)
         {
-            FrmSearchAddr sa = new FrmSearchAddr();
-            sa.Owner = (FrmModify)this.Parent.Parent;
+            FrmModify frm = (FrmModify)this.Parent.Parent;
+            FrmSearchAddr sa = new FrmSearchAddr(frm.GetType());
+            sa.Owner = frm;
             sa.FormClosed += Sa_FormClosed;
             sa.Show();
-
 
         }
 
@@ -71,6 +73,7 @@ namespace GoodeeProject
                     gd.UpdateMemberInfo(FrmMain.Mi.Id, tboxMobile.Text, tboxAddr.Text + tboxDetailAddr.Text, tboxHopePay.Text, profileImg);
                     MessageBox.Show("수정 성공");
                     this.ParentForm.Close();
+                    s.AddList("정보수정 버튼 클릭");
                     Invalidate();
                 }
                 else

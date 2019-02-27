@@ -125,6 +125,7 @@
             this.btnStudent.TabIndex = 7;
             this.btnStudent.Text = "수강생관리";
             this.btnStudent.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
             // btnLog
             // 
@@ -132,12 +133,14 @@
             this.btnLog.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnLog.Image = null;
             this.btnLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLog.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLog.Location = new System.Drawing.Point(71, 3);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(62, 31);
             this.btnLog.TabIndex = 6;
             this.btnLog.Text = "로그관리";
             this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // btnCreateID
             // 
@@ -178,11 +181,11 @@
         internal System.Windows.Forms.PictureBox pboxProFile;
         internal iTalk.iTalk_Label lblName;
         internal iTalk.iTalk_Label lblEmailID;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        internal iTalk.iTalk_Button_1 btnCreateID;
         internal iTalk.iTalk_Button_1 btnLogOut;
         internal iTalk.iTalk_Button_1 btnModify;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal iTalk.iTalk_Button_1 btnStudent;
         internal iTalk.iTalk_Button_1 btnLog;
-        internal iTalk.iTalk_Button_1 btnCreateID;
     }
 }

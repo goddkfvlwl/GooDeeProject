@@ -53,4 +53,7 @@ namespace GoodeeProject
         public Image Picture { get => picture; set => picture = value; }
     }
 
+
 }
+
+

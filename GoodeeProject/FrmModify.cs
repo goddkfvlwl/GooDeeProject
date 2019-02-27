@@ -29,7 +29,7 @@ namespace GoodeeProject
             gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
-        private void btnSurvey_Click(object sender, EventArgs e)
+        private void btnModifyPW_Click(object sender, EventArgs e)
         {
             panel1.Controls.Remove(cm);
             bottomPanel.Visible = true;

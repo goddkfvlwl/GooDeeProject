@@ -16,11 +16,12 @@ namespace GoodeeProject
 {
     public partial class FrmSearchAddr : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         Rectangle borderRectangle;
         iTalk.iTalk_Button_1 btnPrev;
         iTalk.iTalk_Button_1 btnNext;
         FlowLayoutPanel lp = new FlowLayoutPanel();
-
+        Type type;
         int currentPage = 1;
         int resultCount;
         int totalPageNum;
@@ -31,6 +32,11 @@ namespace GoodeeProject
         public FrmSearchAddr()
         {
             InitializeComponent();
+        }
+
+        public FrmSearchAddr(Type type) : this()
+        {
+            this.type = type;
         }
 
         public void BtnExit_Click(object sender, EventArgs e)
@@ -65,6 +71,7 @@ namespace GoodeeProject
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            s.AddList("주소검색");
             lp.Controls.Clear();
             currentPage = 1;
 
@@ -159,9 +166,20 @@ namespace GoodeeProject
             iTalk.iTalk_Button_1 btn = (iTalk.iTalk_Button_1)sender;
             string roadAddr = btn.Parent.Controls["lblRoadAddr"].Text;
 
-            FrmModify FrmModify = (FrmModify)Owner;
-            FrmModify.Addr = roadAddr;
-            this.Close();
+            if (type == typeof(FrmModify))
+            {
+                var FrmModify = (FrmModify)Owner;
+                FrmModify.Addr = roadAddr;
+                this.Close();
+            }
+
+            if (type == typeof(FrmCreateID))
+            {
+                var FrmCreateID = (FrmCreateID)Owner;
+                FrmCreateID.Addr = roadAddr;
+                this.Close();
+            }
+
         }
 
         private void BtnNext_Click(object sender, EventArgs e)

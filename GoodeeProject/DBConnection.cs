@@ -71,6 +71,7 @@ namespace GoodeeProject
             return ds.Tables[0];
         }
 
+
         internal SqlDataReader Select(string proc)
         {
             SqlConnection sqlCon = OpenConnection();
@@ -111,17 +112,35 @@ namespace GoodeeProject
                 throw;
             }
         }
+        internal object ExecuteScalar(string proc, SqlParameter[] parameters)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = OpenConnection();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
+
+            object result = cmd.ExecuteScalar();
+
+            con.Close();
+            return result;
+
+        }
 
         internal bool ExecuteInsert(string proc, SqlParameter[] pm)
         {
             bool result = false;
-
+            OpenConnection();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = proc;
 
-            OpenConnection();
+      
 
             if (pm != null)
             {
@@ -131,7 +150,7 @@ namespace GoodeeProject
             int r = cmd.ExecuteNonQuery();
 
 
-            if (r == 1)
+            if (r >= 1)
             {
                 result = true;
             }
@@ -189,6 +208,32 @@ namespace GoodeeProject
                 result = true;
             }
 
+            con.Close();
+            return result;
+        }
+
+        internal bool ExecuteDelete(string proc, SqlParameter[] parameters)
+        {
+            bool result = false;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+
+            OpenConnection();
+
+            if (parameters != null)
+            {
+                cmd.Parameters.AddRange(parameters);
+            }
+
+            int r = cmd.ExecuteNonQuery();
+
+            if (r == 1)
+            {
+                result = true;
+            }
             con.Close();
             return result;
         }

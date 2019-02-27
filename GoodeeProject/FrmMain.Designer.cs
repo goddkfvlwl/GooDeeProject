@@ -61,8 +61,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1000, 146);
             this.panel1.TabIndex = 26;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             // 
             // ctlProfile1
             // 
@@ -102,7 +103,7 @@
             this.btnMinimum.TabIndex = 25;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnMinimum.Click += new System.EventHandler(this.btnMinimum_Click);
+            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
             // 
             // btnExit
             // 
@@ -116,7 +117,7 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // panel2
             // 
@@ -285,6 +286,7 @@
         private System.Windows.Forms.Button btnSpec;
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Separator iTalk_Separator1;
+
         private StudentManagement studentManagement1;
         internal CtlProfile ctlProfile1;
     }

@@ -124,7 +124,7 @@
             this.btnModifyPW.Text = "비밀번호 수정";
             this.btnModifyPW.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModifyPW.UseVisualStyleBackColor = false;
-            this.btnModifyPW.Click += new System.EventHandler(this.btnSurvey_Click);
+            this.btnModifyPW.Click += new System.EventHandler(this.btnModifyPW_Click);
             // 
             // FrmModify
             // 

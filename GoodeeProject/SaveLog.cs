@@ -13,14 +13,14 @@ namespace GoodeeProject
     {
         private string time;
         private string active;
-
+        private string filePath;
+        private static string fileList;
+        
         static List<SaveLog> logList = new List<SaveLog>();
-
-        string filePath;
-
         public static List<SaveLog> LogList { get => logList; set => logList = value; }
         public string Time { get => time; set => time = value; }
         public string Active { get => active; set => active = value; }
+        public static string FileList { get => fileList; set => fileList = value; }
 
         public void AddList(string active)
         {
@@ -28,7 +28,7 @@ namespace GoodeeProject
 
             logList.Add(new SaveLog
             {
-                Time = String.Format("{0:yyyy/MM/dd HH:mm:ss}", now),
+                Time = now.ToString(),
                 Active = active
             });
         }
@@ -50,7 +50,8 @@ namespace GoodeeProject
                     sw.WriteLine("[{0}] {1}", item.time, item.active);
                 }
                 //sw.WriteLine("[{0}] {1}", DateTime.Now, active);
-                sw.Flush();
+                //sw.Flush();
+                sw.Dispose();
                 sw.Close();
             }
             else
@@ -60,9 +61,12 @@ namespace GoodeeProject
                 {
                     sw.WriteLine("[{0}] {1}", item.time, item.active);
                 }
-                sw.Flush();
+                //sw.Flush();
+                sw.Dispose();
                 sw.Close();
+                
             }
+            
         }
 
 
@@ -70,9 +74,6 @@ namespace GoodeeProject
         {
             StreamReader sr;
             FtpWebResponse resp;
-            
-            
-            string fileList = "";
 
             string ftpUrl = "ftp://52.165.176.111:3333/Log/" + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + id + ".log";
 
@@ -99,7 +100,7 @@ namespace GoodeeProject
             }
 
             FtpWebRequest req2 = WebRequest.Create(ftpUrl) as FtpWebRequest;
-            if (!fileList.Contains(id))
+            if (!fileList.Contains(DateTime.Now.ToShortDateString() + "_" + FrmMain.Ai.Id))
             {
                 //Console.WriteLine(WebRequestMethods.Ftp.ListDirectoryDetails);
                 req2.Method = WebRequestMethods.Ftp.UploadFile;

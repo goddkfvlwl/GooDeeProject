@@ -76,7 +76,7 @@ namespace GoodeeProject
         {
             if (client == null)
             {
-                byte[] nickName = Encoding.UTF8.GetBytes(mi.Name + "@");
+                byte[] nickName = Encoding.UTF8.GetBytes(mi.Name + "@^^&&");
                 client = new TcpClient();
                 try
                 {
@@ -140,7 +140,9 @@ namespace GoodeeProject
             }
             else if (readDate.Contains("허용"))
             {
-
+                this.Close();
+                CompanyForm companyForm = new CompanyForm();
+                companyForm.ShowDialog();
             }
         }
     }
