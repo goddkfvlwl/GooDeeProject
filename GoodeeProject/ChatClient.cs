@@ -138,7 +138,7 @@ namespace GoodeeProject
             bool isRead = false;
             foreach (FrmChat item in chatList)
             {
-                if (item.ManagerEmail == target.Replace(user, "") || item.StudentEmail == target.Replace(user, ""))
+                if (item.Chat1Email == target.Replace(user, "") || item.Chat2Email == target.Replace(user, ""))
                 {
                     item.GetMsg(user + " : " + content);
                     item.GetMsg(Environment.NewLine);
@@ -167,27 +167,27 @@ namespace GoodeeProject
         private void Info_DoubleClick(object sender, EventArgs e)
         {
             OnlineInfo info = sender as OnlineInfo;
-            string manager = "";
-            string student = "";
+            string chat1 = "";
+            string chat2 = "";
             string managetEmail = "";
-            string studentEmail = "";
+            string chat2Email = "";
             if (FrmMain.Authority != 'S')
             {
-                manager = FrmMain.Mi.Name;
+                chat1 = FrmMain.Mi.Name;
                 managetEmail = FrmMain.Id;
-                student = info.Controls["lblName"].Text;
-                studentEmail = info.Controls["lblEmail"].Text;
-                FrmChat chat = new FrmChat(manager, managetEmail, student, studentEmail, manager + ", " + student + "의 대화방", client);
+                chat2 = info.Controls["lblName"].Text;
+                chat2Email = info.Controls["lblEmail"].Text;
+                FrmChat chat = new FrmChat(chat1, managetEmail, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
                 chatList.Add(chat);
                 chat.Show();
             }
             else
             {
-                manager = info.Controls["lblName"].Text;
-                student = FrmMain.Mi.Name;
+                chat1 = info.Controls["lblName"].Text;
+                chat2 = FrmMain.Mi.Name;
                 managetEmail = info.Controls["lblEmail"].Text;
-                studentEmail = FrmMain.Id;
-                FrmChat chat = new FrmChat(manager, managetEmail, student, studentEmail, manager + ", " + student + "의 대화방", client);
+                chat2Email = FrmMain.Id;
+                FrmChat chat = new FrmChat(chat1, managetEmail, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
                 chatList.Add(chat);
                 chat.Show();
             }

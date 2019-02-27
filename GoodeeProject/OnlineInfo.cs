@@ -29,10 +29,6 @@ namespace GoodeeProject
             this.BackColor = Color.LightGray;
         }
 
-        private void OnlineInfo_DoubleClick(object sender, EventArgs e)
-        {
-        }
-
         private void OnlineInfo_ControlRemoved(object sender, ControlEventArgs e)
         {
             Environment.Exit(0);

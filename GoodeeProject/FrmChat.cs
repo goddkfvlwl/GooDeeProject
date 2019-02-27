@@ -15,20 +15,20 @@ namespace GoodeeProject
     public partial class FrmChat : Form
     {
         string chatTitle;
-        string manager;
-        string student;
-        string studentEmail;
-        string managerEmail;
+        string chat1;
+        string chat2;
+        string chat2Email;
+        string chatEmail;
         string user;
         string target;
         string targetName;
         TcpClient client;
 
         public string ChatTitle { get => chatTitle; set => chatTitle = value; }
-        public string Manager { get => manager; set => manager = value; }
-        public string Student { get => student; set => student = value; }
-        public string StudentEmail { get => studentEmail; set => studentEmail = value; }
-        public string ManagerEmail { get => managerEmail; set => managerEmail = value; }
+        public string Chat1 { get => chat1; set => chat1 = value; }
+        public string Chat2 { get => chat2; set => chat2 = value; }
+        public string Chat2Email { get => chat2Email; set => chat2Email = value; }
+        public string Chat1Email { get => chatEmail; set => chatEmail = value; }
         public string User { get => user; set => user = value; }
         public string Target { get => target; set => target = value; }
         public string TargetName { get => targetName; set => targetName = value; }
@@ -39,24 +39,24 @@ namespace GoodeeProject
             InitializeComponent();
         }
 
-        public FrmChat(string manager, string managerEmail, string student, string studentEmail, string title,  System.Net.Sockets.TcpClient client) : this()
+        public FrmChat(string chat, string chatEmail, string chat2, string chat2Email, string title,  System.Net.Sockets.TcpClient client) : this()
         {
             chatTitle = title;
             this.client = client;
-            this.manager = manager;
-            this.student = student;
-            this.studentEmail = studentEmail;
-            this.managerEmail = managerEmail;
-            if (FrmMain.Mi.Name == student)
+            this.chat1 = chat;
+            this.chat2 = chat2;
+            this.chat2Email = chat2Email;
+            this.chatEmail = chatEmail;
+            if (FrmMain.Mi.Name == chat2)
             {
-                user = student;
-                target = managerEmail;
-                targetName = manager;
+                user = chat2;
+                target = chatEmail;
+                targetName = chat;
             }else
             {
-                user = manager;
-                target = studentEmail;
-                targetName = student;
+                user = chat;
+                target = chat2Email;
+                targetName = chat2;
             }
         }
 
@@ -71,8 +71,8 @@ namespace GoodeeProject
         private void InsertChatList()
         {
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-            DAO.InsertChat(manager + ", " + student + "의 대화방", managerEmail, studentEmail, manager, student);
-            DataTable content = DAO.SelectChatContent(managerEmail,  studentEmail);
+            DAO.InsertChat(chat1 + ", " + chat2 + "의 대화방", chatEmail, chat2Email, chat1, chat2);
+            DataTable content = DAO.SelectChatContent(chatEmail,  chat2Email);
             if (content.Rows.Count > 0)
             {
                 foreach (DataRow item in content.Rows)
@@ -87,7 +87,7 @@ namespace GoodeeProject
             NetworkStream ns = client.GetStream();
             txtChatContent.Text += user + " : " + txtSendMsg.Text + Environment.NewLine;
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-            DAO.InsertChatContent(user + " : " + txtSendMsg.Text + Environment.NewLine, managerEmail, studentEmail);
+            DAO.InsertChatContent(user + " : " + txtSendMsg.Text + Environment.NewLine, chatEmail, chat2Email);
             byte[] msg = Encoding.UTF8.GetBytes(txtSendMsg.Text + "$From$" + user + "$To$" + target + "$Name$" + targetName + "$Target$" + "$Msg$");
             ns.Write(msg, 0, msg.Length);
             ns.Flush();

@@ -12,19 +12,19 @@ namespace GoodeeProject
 {
     public partial class ChatList : UserControl
     {
-        string manager;
-        string student;
-        string managetEmail;
-        string studentEmail;
+        string chat1;
+        string chat2;
+        string chat1Email;
+        string chat2Email;
         public ChatList()
         {
             InitializeComponent();
         }
 
-        public string Manager { get => manager; set => manager = value; }
-        public string Student { get => student; set => student = value; }
-        public string ManagetEmail { get => managetEmail; set => managetEmail = value; }
-        public string StudentEmail { get => studentEmail; set => studentEmail = value; }
+        public string Chat1 { get => chat1; set => chat1 = value; }
+        public string Chat2 { get => chat2; set => chat2 = value; }
+        public string Chat1Email { get => chat1Email; set => chat1Email = value; }
+        public string Chat2Email { get => chat2Email; set => chat2Email = value; }
 
         private void ChatList_Click(object sender, EventArgs e)
         {
