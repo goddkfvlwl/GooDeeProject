@@ -24,5 +24,9 @@ namespace GoodeeProject
         DataTable SelectMBTI_Question();
         DataTable SelectMBTI_Choice();
         bool InsertMBTI_Stats(string id, int ei, int sn, int tf, int jp, string result, DateTime mbtiDate);
+        DataTable SelectMBTI_Stats_Stu(string id);
+        DataTable SelectMBTI_Stats();
+        DataTable SelectMBTI_StatsByName(string name);
+        DataTable SelectMBTI_Detail(string result);
     }
 }

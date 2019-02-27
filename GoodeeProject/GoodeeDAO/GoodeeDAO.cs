@@ -307,5 +307,43 @@ namespace GoodeeProject.GoodeeDAO
             }
             return rs;
         }
+
+        public DataTable SelectMBTI_Stats_Stu(string id)
+        {
+            string proc = "SelectMbtiStats_Stu";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectMBTI_Stats()
+        {
+            string proc = "SelectMbtiStats";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
+
+        public DataTable SelectMBTI_StatsByName(string name)
+        {
+            string proc = "SelectMBTIStatsByName";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("name", name);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectMBTI_Detail(string result)
+        {
+            string proc = "SelectMBTIDetail";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("result", result);
+
+            return con.SelectWithParams(proc, pms);
+        }
     }
 }

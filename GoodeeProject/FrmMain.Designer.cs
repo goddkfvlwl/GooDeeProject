@@ -265,7 +265,6 @@
         private iTalk.iTalk_Button_1 btnMinimum;
         private iTalk.iTalk_Button_1 btnExit;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Button btnChat;
         private System.Windows.Forms.Button btnMBTI;
@@ -276,5 +275,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Separator iTalk_Separator1;
         internal CtlProfile ctlProfile1;
+        internal System.Windows.Forms.Panel panel2;
     }
 }

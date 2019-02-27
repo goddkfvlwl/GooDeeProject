@@ -88,6 +88,12 @@
     <Compile Include="CtlMBTIQuestion.Designer.cs">
       <DependentUpon>CtlMBTIQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlMBTIResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIResult.Designer.cs">
+      <DependentUpon>CtlMBTIResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     </Compile>
     <Compile Include="FrmMBTIQuestion.Designer.cs">
       <DependentUpon>FrmMBTIQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMBTIResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMBTIResult.Designer.cs">
+      <DependentUpon>FrmMBTIResult.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmModifyPW.cs">
       <SubType>Form</SubType>
@@ -249,6 +261,9 @@
     <EmbeddedResource Include="CtlMBTIQuestion.resx">
       <DependentUpon>CtlMBTIQuestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIResult.resx">
+      <DependentUpon>CtlMBTIResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyMemberInfo.resx">
       <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMBTIQuestion.resx">
       <DependentUpon>FrmMBTIQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMBTIResult.resx">
+      <DependentUpon>FrmMBTIResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>

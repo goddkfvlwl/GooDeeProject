@@ -162,6 +162,15 @@ namespace GoodeeProject
             mbti.BringToFront();
             mbti.Location = new Point(192, 141);
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
+            mbti.Controls["lblResult"].Click += MBTIResult_Click;
+        }
+
+        private void MBTIResult_Click(object sender, EventArgs e)
+        {
+            CtlMBTIResult mr = new CtlMBTIResult();
+            panel2.Controls.Add(mr);
+            mr.Location = new Point(185, 0);
+            mbti.SendToBack();
         }
 
         private void MBTIWrite_Click(object sender, EventArgs e)

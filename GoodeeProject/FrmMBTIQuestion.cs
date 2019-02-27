@@ -234,12 +234,10 @@ namespace GoodeeProject
                     }
                 }
             }
-
-            //foreach (var item in mbtiDic)
-            //{
-            //    MessageBox.Show(item.Key + " : " + item.Value);
-            //}
+            
             MBTI_Calculator();
+
+            
         }
 
         public void MBTI_Calculator()
@@ -274,19 +272,25 @@ namespace GoodeeProject
                     }
                 }
             }
-
-            //string result = "";
-            //foreach (var item in tendency)
-            //{
-            //    result += item.Key + " : " + item.Value + "\t";
-            //}
-            //MessageBox.Show(result);
+            
             int ei = ChangeScore(tendency['E'], tendency['I']);
             int ns = ChangeScore(tendency['N'], tendency['S']);
             int ft = ChangeScore(tendency['F'], tendency['T']);
             int pj = ChangeScore(tendency['P'], tendency['J']);
 
-            gd.InsertMBTI_Stats(FrmMain.Mi.Id, ei, ns, ft, pj, GetResult(), DateTime.Today);
+            if (gd.InsertMBTI_Stats(FrmMain.Mi.Id, ei, ns, ft, pj, GetResult(), DateTime.Today))
+            {
+                FrmMain fm = new FrmMain();
+                CtlMBTIResult mr = new CtlMBTIResult();
+                fm.panel2.Controls.Add(mr);
+                mr.Location = new Point(185, 0);
+                MessageBox.Show("제출 완료");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("제출을 실패했습니다.\n잠시후 다시 시도해주세요.");
+            }
         }
 
         private int ChangeScore(int a, int b)
