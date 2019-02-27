@@ -38,8 +38,8 @@
             this.btnLogOut = new iTalk.iTalk_Button_1();
             this.lblEmailID = new iTalk.iTalk_Label();
             this.lblName = new iTalk.iTalk_Label();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -55,7 +55,6 @@
             // 
             // pboxProFile
             // 
-            this.pboxProFile.Image = global::GoodeeProject.Properties.Resources.profile2;
             this.pboxProFile.Location = new System.Drawing.Point(15, 28);
             this.pboxProFile.Name = "pboxProFile";
             this.pboxProFile.Size = new System.Drawing.Size(60, 60);
@@ -75,45 +74,31 @@
             this.btnClassModify.TabIndex = 8;
             this.btnClassModify.Text = "과정 수정";
             this.btnClassModify.TextAlignment = System.Drawing.StringAlignment.Center;
+            // lblEmailID
             // 
-            // btnCreateID
+            this.lblEmailID.AutoSize = true;
+            this.lblEmailID.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmailID.Font = new System.Drawing.Font("맑은 고딕", 9F);
+            this.lblEmailID.ForeColor = System.Drawing.Color.Gray;
+            this.lblEmailID.Location = new System.Drawing.Point(96, 44);
+            this.lblEmailID.Name = "lblEmailID";
+            this.lblEmailID.Size = new System.Drawing.Size(79, 15);
+            this.lblEmailID.TabIndex = 2;
+            this.lblEmailID.Text = "이메일아이디";
             // 
-            this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8F);
-            this.btnCreateID.Image = null;
-            this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCreateID.Location = new System.Drawing.Point(287, 3);
-            this.btnCreateID.Name = "btnCreateID";
-            this.btnCreateID.Size = new System.Drawing.Size(70, 31);
-            this.btnCreateID.TabIndex = 7;
-            this.btnCreateID.Text = "관리자생성";
-            this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
+            // btnLogOut
             // 
-            // btnStudent
-            // 
-            this.btnStudent.BackColor = System.Drawing.Color.Transparent;
-            this.btnStudent.Font = new System.Drawing.Font("맑은 고딕", 8F);
-            this.btnStudent.Image = null;
-            this.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudent.Location = new System.Drawing.Point(3, 3);
-            this.btnStudent.Name = "btnStudent";
-            this.btnStudent.Size = new System.Drawing.Size(62, 31);
-            this.btnStudent.TabIndex = 7;
-            this.btnStudent.Text = "수강생관리";
-            this.btnStudent.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // btnLog
-            // 
-            this.btnLog.BackColor = System.Drawing.Color.Transparent;
-            this.btnLog.Font = new System.Drawing.Font("맑은 고딕", 8F);
-            this.btnLog.Image = null;
-            this.btnLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLog.Location = new System.Drawing.Point(71, 3);
-            this.btnLog.Name = "btnLog";
-            this.btnLog.Size = new System.Drawing.Size(62, 31);
-            this.btnLog.TabIndex = 6;
-            this.btnLog.Text = "로그관리";
-            this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnLogOut.Image = null;
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(207, 3);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(62, 31);
+            this.btnLogOut.TabIndex = 3;
+            this.btnLogOut.Text = "로그아웃";
+            this.btnLogOut.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnModify
             // 
@@ -129,42 +114,58 @@
             this.btnModify.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
-            // btnLogOut
+            // flowLayoutPanel1
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogOut.Font = new System.Drawing.Font("맑은 고딕", 8F);
-            this.btnLogOut.Image = null;
-            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(207, 3);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(62, 31);
-            this.btnLogOut.TabIndex = 3;
-            this.btnLogOut.Text = "로그아웃";
-            this.btnLogOut.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.flowLayoutPanel1.Controls.Add(this.btnStudent);
+            this.flowLayoutPanel1.Controls.Add(this.btnLog);
+            this.flowLayoutPanel1.Controls.Add(this.btnModify);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogOut);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(88, 74);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 34);
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
-            // lblEmailID
+            // btnStudent
             // 
-            this.lblEmailID.AutoSize = true;
-            this.lblEmailID.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmailID.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.lblEmailID.ForeColor = System.Drawing.Color.Gray;
-            this.lblEmailID.Location = new System.Drawing.Point(96, 44);
-            this.lblEmailID.Name = "lblEmailID";
-            this.lblEmailID.Size = new System.Drawing.Size(79, 15);
-            this.lblEmailID.TabIndex = 2;
-            this.lblEmailID.Text = "이메일아이디";
+            this.btnStudent.BackColor = System.Drawing.Color.Transparent;
+            this.btnStudent.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnStudent.Image = null;
+            this.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudent.Location = new System.Drawing.Point(3, 3);
+            this.btnStudent.Name = "btnStudent";
+            this.btnStudent.Size = new System.Drawing.Size(62, 31);
+            this.btnStudent.TabIndex = 7;
+            this.btnStudent.Text = "수강생관리";
+            this.btnStudent.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnStudent.Click += new System.EventHandler(this.btnStudent_Click);
             // 
-            // lblName
+            // btnLog
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.lblName.ForeColor = System.Drawing.Color.Gray;
-            this.lblName.Location = new System.Drawing.Point(96, 15);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(31, 15);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "이름";
+            this.btnLog.BackColor = System.Drawing.Color.Transparent;
+            this.btnLog.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnLog.Image = null;
+            this.btnLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLog.Location = new System.Drawing.Point(71, 3);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(62, 31);
+            this.btnLog.TabIndex = 6;
+            this.btnLog.Text = "로그관리";
+            this.btnLog.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
+            // 
+            // btnCreateID
+            // 
+            this.btnCreateID.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateID.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnCreateID.Image = null;
+            this.btnCreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCreateID.Location = new System.Drawing.Point(287, 3);
+            this.btnCreateID.Name = "btnCreateID";
+            this.btnCreateID.Size = new System.Drawing.Size(70, 31);
+            this.btnCreateID.TabIndex = 7;
+            this.btnCreateID.Text = "관리자생성";
+            this.btnCreateID.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnCreateID.Click += new System.EventHandler(this.btnCreateID_Click);
             // 
             // CtlProfile
             // 
@@ -180,8 +181,8 @@
             this.Name = "CtlProfile";
             this.Size = new System.Drawing.Size(360, 111);
             this.Load += new System.EventHandler(this.CtlProfile_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

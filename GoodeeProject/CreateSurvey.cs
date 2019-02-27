@@ -180,7 +180,7 @@ namespace GoodeeProject
             File.Delete(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml");
 
             
-            DAO.InsertSurvey(FrmMain.Id, this.txtSurveyTitle.Text, start, end);
+            DAO.InsertSurvey(FrmMain.Mi.Id, this.txtSurveyTitle.Text, start, end);
 
             this.Dispose();
             return;

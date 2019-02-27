@@ -18,7 +18,7 @@ namespace GoodeeProject
         public PortfolioList()
         {
             InitializeComponent();
-            this.id = FrmMain.Id;
+            this.id = FrmMain.Mi.Id;
         }
         public PortfolioList(string id) : this()
         {
@@ -33,7 +33,7 @@ namespace GoodeeProject
         private void PortfolioList_Load(object sender, EventArgs e)
         {
             this.ListMenuLayout.Controls.Clear();
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             var list = DAO.SelectPortfolioList(id);
             foreach (DataRow item in list.Rows)
             {
@@ -43,7 +43,7 @@ namespace GoodeeProject
                 menu.DoubleClick += Menu_DoubleClick;
                 this.ListMenuLayout.Controls.Add(menu);
             }
-            if (FrmMain.Authority != 'S')
+            if (FrmMain.Ai.Authority != 'S')
             {
                 this.btnDelete.Visible = false;
                 this.btnAddPortfolio.Visible = false;
@@ -109,7 +109,7 @@ namespace GoodeeProject
             request.Method = WebRequestMethods.Ftp.RemoveDirectory;
             response = (FtpWebResponse)request.GetResponse();
 
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             if (DAO.DeletePortfolio(id, portfolioName))
             {
                 MessageBox.Show("포트폴리오가 삭제되었습니다.");

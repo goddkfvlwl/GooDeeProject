@@ -50,6 +50,7 @@
             this.btnMinimum.TabIndex = 25;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
             // 
             // btnExit
             // 
@@ -63,7 +64,7 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // panel1
             // 
@@ -75,7 +76,7 @@
             // 
             // ctlModifyPW1
             // 
-            this.ctlModifyPW1.BackColor = System.Drawing.Color.White;
+            this.ctlModifyPW1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.ctlModifyPW1.Location = new System.Drawing.Point(0, 0);
             this.ctlModifyPW1.Name = "ctlModifyPW1";
             this.ctlModifyPW1.Size = new System.Drawing.Size(399, 571);
@@ -123,7 +124,7 @@
             this.btnModifyPW.Text = "비밀번호 수정";
             this.btnModifyPW.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModifyPW.UseVisualStyleBackColor = false;
-            this.btnModifyPW.Click += new System.EventHandler(this.btnSurvey_Click);
+            this.btnModifyPW.Click += new System.EventHandler(this.btnModifyPW_Click);
             // 
             // FrmModify
             // 
@@ -141,8 +142,10 @@
             this.Name = "FrmModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmModify";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmModify_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmModify_MouseMove);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmModify_FormClosed);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

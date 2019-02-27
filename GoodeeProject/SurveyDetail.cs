@@ -25,15 +25,15 @@ namespace GoodeeProject
 
         private void SurveyDetail_Load(object sender, EventArgs e)
         {
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-            bool check = DAO.CheckSurvey(FrmMain.Id, survey.SurveyNum);
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
+            bool check = DAO.CheckSurvey(FrmMain.Mi.Id, survey.SurveyNum);
             if (!check)
             {
                 MessageBox.Show("이미 참여한 설문입니다.");
                 this.Dispose();
                 return;
             }
-            else if (FrmMain.Authority == 'S' && survey.EndDate < DateTime.Now)
+            else if (FrmMain.Ai.Authority == 'S' && survey.EndDate < DateTime.Now)
             {
                 MessageBox.Show("작성가능일이 지났습니다.");
                 this.Dispose();
@@ -42,7 +42,7 @@ namespace GoodeeProject
             this.panel1.Controls["lblNum"].Text = survey.SurveyNum.ToString();
             this.panel1.Controls["txtTitle"].Text = survey.SurveyName;
             this.panel1.Controls["lblWriter"].Text = survey.Writer;
-            if (FrmMain.Authority == 'S')
+            if (FrmMain.Ai.Authority == 'S')
             {
                 this.btnModify.Visible = false;
                 this.btnResult.Visible = false;
@@ -87,7 +87,7 @@ namespace GoodeeProject
             {
                 Control c = item.Controls["flowLayoutPanel1"].Controls["QuestionPanel"];
                 int surveyNum = survey.SurveyNum;
-                string id = FrmMain.Id;
+                string id = FrmMain.Mi.Id;
                 int questionNum = int.Parse(item.Controls["flowLayoutPanel1"].Controls["panel1"].Controls["lblQuestionNum"].Text);
                 string question = item.Controls["flowLayoutPanel1"].Controls["panel1"].Controls["txtQuestion"].Text;
                 string answer = "";
@@ -109,7 +109,7 @@ namespace GoodeeProject
                     }
                 }
                 Survey_Items items = new Survey_Items(surveyNum, id, questionNum, question, answer, division, survey_date);
-                GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+                GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
                 DAO.InsertSurveyItem(items);
             }
             MessageBox.Show("설문이 완료되었습니다.");
@@ -119,7 +119,7 @@ namespace GoodeeProject
 
         private void btnResult_Click(object sender, EventArgs e)
         {
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             var multi = DAO.SelectSurveyMulti(survey.SurveyNum);
             var essay = DAO.selectSurveyEssay(survey.SurveyNum);
             foreach (Control item in this.SurveyDetailPanel.Controls)

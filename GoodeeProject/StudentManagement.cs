@@ -24,7 +24,7 @@ namespace GoodeeProject
         private void StudentManagement_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
-            GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.GetInstance();
             table = goodeeDAO.SelectMemberList();
             this.gViewStudentInfo.Columns.Add("Class", "분류");
             this.gViewStudentInfo.Columns.Add("Curriculum", "과정명");
@@ -60,7 +60,7 @@ namespace GoodeeProject
                 con.Open();
                 OleDbCommand cmd = new OleDbCommand("SELECT * FROM [sheet1$]", con);
                 var xls = cmd.ExecuteReader();
-                GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.getInstance();
+                GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.GetInstance();
 
                 while (xls.Read())
                 {
@@ -95,7 +95,7 @@ namespace GoodeeProject
             if (saveFile.ShowDialog() != DialogResult.Cancel)
             {
 
-                GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.getInstance();
+                GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.GetInstance();
 
                 var list = goodeeDAO.SelectMemberList();
                 var missingValue = System.Reflection.Missing.Value;

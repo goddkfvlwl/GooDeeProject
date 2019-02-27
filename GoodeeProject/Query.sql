@@ -16,3 +16,11 @@ AS
 RETURN 0
 
 Go
+
+--비밀번호 수정 update  프로시저
+CREATE PROCEDURE [dbo].UpdatePassWord
+	@id NVARCHAR(320),
+	@pw VARBINARY(500)
+AS
+	update AccountInfo set Password = hashbytes('md5', @pw) where ID = @id;
+RETURN 0

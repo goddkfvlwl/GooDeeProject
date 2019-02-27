@@ -28,9 +28,9 @@ namespace GoodeeProject
 
         internal void ChatLogin()
         {
-            if (FrmMain.Authority != 'C')
+            if (FrmMain.Ai.Authority != 'C')
             {
-                GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+                GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
 
                 string curriculum = DAO.GetCurriculum(FrmMain.Mi.ClassNum);
                 while (true)
@@ -38,7 +38,7 @@ namespace GoodeeProject
                     if (client == null && !FrmMain.IsConnected)
                     {
                         client = new TcpClient();
-                        byte[] nickName = Encoding.UTF8.GetBytes(FrmMain.Id + "$||$" + FrmMain.Mi.Name + "$||$" + curriculum + "$||$");
+                        byte[] nickName = Encoding.UTF8.GetBytes(FrmMain.Mi.Id + "$||$" + FrmMain.Mi.Name + "$||$" + curriculum + "$||$");
 
                         try
                         {
@@ -51,7 +51,7 @@ namespace GoodeeProject
                             getMassageThread.Start();
                             return;
                         }
-                        catch (Exception a)
+                        catch (Exception)
                         {
                             MessageBox.Show("채팅 서버에 접속할 수 없습니다." + Environment.NewLine + "10초후 자동으로 재시도합니다.");
                             client = null;
@@ -111,7 +111,7 @@ namespace GoodeeProject
                     members = readData.Replace("\0", "").Split(new string[] { "$member$" }, StringSplitOptions.None);
                 }
 
-                GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+                GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
 
                 foreach (string item in members)
                 {
@@ -171,10 +171,10 @@ namespace GoodeeProject
             string chat2 = "";
             string managetEmail = "";
             string chat2Email = "";
-            if (FrmMain.Authority != 'S')
+            if (FrmMain.Ai.Authority != 'S')
             {
                 chat1 = FrmMain.Mi.Name;
-                managetEmail = FrmMain.Id;
+                managetEmail = FrmMain.Mi.Id;
                 chat2 = info.Controls["lblName"].Text;
                 chat2Email = info.Controls["lblEmail"].Text;
                 FrmChat chat = new FrmChat(chat1, managetEmail, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
@@ -186,7 +186,7 @@ namespace GoodeeProject
                 chat1 = info.Controls["lblName"].Text;
                 chat2 = FrmMain.Mi.Name;
                 managetEmail = info.Controls["lblEmail"].Text;
-                chat2Email = FrmMain.Id;
+                chat2Email = FrmMain.Mi.Id;
                 FrmChat chat = new FrmChat(chat1, managetEmail, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
                 chatList.Add(chat);
                 chat.Show();

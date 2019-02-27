@@ -31,14 +31,14 @@
             this.tboxPW = new System.Windows.Forms.TextBox();
             this.tboxID = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.iTalk_Separator2 = new iTalk.iTalk_Separator();
+            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.iTalk_Label1 = new iTalk.iTalk_Label();
             this.btnFindPW = new iTalk.iTalk_Button_1();
             this.btnLogin = new iTalk.iTalk_Button_1();
-            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.iTalk_Separator2 = new iTalk.iTalk_Separator();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +69,22 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
+            // iTalk_Separator2
+            // 
+            this.iTalk_Separator2.Location = new System.Drawing.Point(137, 338);
+            this.iTalk_Separator2.Name = "iTalk_Separator2";
+            this.iTalk_Separator2.Size = new System.Drawing.Size(175, 10);
+            this.iTalk_Separator2.TabIndex = 26;
+            this.iTalk_Separator2.Text = "iTalk_Separator2";
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(137, 294);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(175, 10);
+            this.iTalk_Separator1.TabIndex = 25;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
+            // 
             // btnMinimum
             // 
             this.btnMinimum.BackColor = System.Drawing.Color.Transparent;
@@ -81,7 +97,7 @@
             this.btnMinimum.TabIndex = 23;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnMinimum.Click += new System.EventHandler(this.btnMinimum_Click);
+            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
             // 
             // btnExit
             // 
@@ -95,7 +111,7 @@
             this.btnExit.TabIndex = 22;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // iTalk_Label2
             // 
@@ -133,6 +149,7 @@
             this.btnFindPW.TabIndex = 15;
             this.btnFindPW.Text = "비밀번호 찾기";
             this.btnFindPW.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnFindPW.Click += new System.EventHandler(this.btnFindPW_Click);
             // 
             // btnLogin
             // 
@@ -147,22 +164,6 @@
             this.btnLogin.Text = "로그인";
             this.btnLogin.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(137, 294);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(175, 10);
-            this.iTalk_Separator1.TabIndex = 25;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
-            // iTalk_Separator2
-            // 
-            this.iTalk_Separator2.Location = new System.Drawing.Point(137, 338);
-            this.iTalk_Separator2.Name = "iTalk_Separator2";
-            this.iTalk_Separator2.Size = new System.Drawing.Size(175, 10);
-            this.iTalk_Separator2.TabIndex = 26;
-            this.iTalk_Separator2.Text = "iTalk_Separator2";
             // 
             // FrmLogin
             // 
@@ -185,8 +186,10 @@
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmLogin_MouseMove);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

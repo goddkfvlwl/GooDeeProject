@@ -4,50 +4,28 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class FrmLogin : Form
+    public partial class FrmLogin : Form, IFormControl
     {
-        AccountInfo ai;
-
-        private string tempPW;
-
+        FrmModify modify = new FrmModify();
+        SaveLog s = new SaveLog();
+        static bool logoutCheck = false;
         private int movePointX;
         private int movePointY;
         GoodeeDAO.GoodeeDAO gd;
 
+        public static bool LogoutCheck { get => logoutCheck; set => logoutCheck = value; }
+
         public FrmLogin()
         {
             InitializeComponent();
-            gd = GoodeeDAO.GoodeeDAO.getInstance();
-        }
-
-        private void FrmLogin_MouseDown(object sender, MouseEventArgs e)
-        {
-            movePointX = e.X;
-            movePointY = e.Y;
-        }
-
-        private void FrmLogin_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
-            }
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMinimum_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
+            gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -55,22 +33,22 @@ namespace GoodeeProject
             
             if (!(String.IsNullOrEmpty(tboxID.Text) && String.IsNullOrEmpty(tboxPW.Text)))
             {
-                ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
-                if (ai.Id != null)
+                FrmMain.Ai = gd.AccountLogin(tboxID.Text, tboxPW.Text);
+                if (FrmMain.Ai.Id != null)
                 {
-                    FrmMain.Id = ai.Id;
-                    
-                    FrmMain.Authority = ai.Authority;
-                    if (ai.Authority == 'C')
+                    if (FrmMain.Ai.Authority == 'C')
                     {
                         //기업로그인일 때
                     }
                     else
                     {
-                        FrmMain.Mi = gd.SelectMember(ai.Id);
+                        FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain.Curriculum = gd.GetCurriculum(FrmMain.Mi.ClassNum);
+                        FrmMain.Ai.Pw = tboxPW.Text;
+                        FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain fr = new FrmMain();
                         fr.Show();
+                        s.AddList("로그인");
                         this.Visible = false;
                     }
                 }
@@ -83,7 +61,57 @@ namespace GoodeeProject
             {
                 MessageBox.Show("ID 혹은 비밀번호를 입력해주세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
+        private void btnFindPW_Click(object sender, EventArgs e)
+        {
+            FrmSendEmail fs = new FrmSendEmail();
+            fs.Show();
+        }
+
+
+        public void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public void BtnMinimum_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        public void Frm_MouseDown(object sender, MouseEventArgs e)
+        {
+            movePointX = e.X;
+            movePointY = e.Y;
+        }
+
+        public void Frm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
+            }
+        }
+
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+        }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            if (FrmMain.Ai.Id != null && LogoutCheck == false)
+            {
+                s.AddList("프로그램 종료");
+                s.WriteLog();
+                s.SendLog(FrmMain.Ai.Id);
+                s.DeleteLog();
+            }
+        }
+
+        
     }
 }

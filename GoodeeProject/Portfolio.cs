@@ -36,7 +36,7 @@ namespace GoodeeProject
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
             bool isDirectoryExist = false;
-            string id = FrmMain.Id;
+            string id = FrmMain.Mi.Id;
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio");
             request.Method = WebRequestMethods.Ftp.ListDirectory;
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
@@ -170,8 +170,8 @@ namespace GoodeeProject
             }
             File.Delete(Application.StartupPath + "/" + "xml.xml");
 
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-            var check = DAO.InsertPortfolio(FrmMain.Id, projectInfo.Controls["txtProjectTitle"].Text, beforeName);
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
+            var check = DAO.InsertPortfolio(FrmMain.Mi.Id, projectInfo.Controls["txtProjectTitle"].Text, beforeName);
             if (check)
             {
                 MessageBox.Show("저장성공");
@@ -213,7 +213,7 @@ namespace GoodeeProject
                 
                 useTechnologyInfo.Controls["panel6"].Controls["txtUseTechnique"].Text = doc.SelectSingleNode("//UseTechnique").InnerText;
 
-                if (FrmMain.Authority != 'S')
+                if (FrmMain.Ai.Authority != 'S')
                 {
                     projectInfo.Controls["dpProjectStartDate"].Enabled = false;
                     projectInfo.Controls["dpProjectEndDate"].Enabled = false;
@@ -233,7 +233,7 @@ namespace GoodeeProject
                     if (item.Name.Contains("Title"))
                     {
                         introductionInfo.Controls["textBoxTitle"].Text = item.Attributes["value"].Value.ToString();
-                        if (FrmMain.Authority != 'S')
+                        if (FrmMain.Ai.Authority != 'S')
                         {
                             (introductionInfo.Controls["textBoxTitle"] as TextBox).ReadOnly = true; 
                         }
@@ -242,7 +242,7 @@ namespace GoodeeProject
                     {
                         portfolioDetail1.btnAddTextBox_Click(null, null);
                         introductionInfo.Controls["textbox" + i].Text = item.Attributes["value"].Value.ToString();
-                        if (FrmMain.Authority != 'S')
+                        if (FrmMain.Ai.Authority != 'S')
                         {
                             (introductionInfo.Controls["textbox" + i] as TextBox).ReadOnly = true;
                         }
@@ -255,7 +255,7 @@ namespace GoodeeProject
                         p.MinimumSize = new Size(200, 200);
                         p.MaximumSize = new Size(580, 580);
                         p.SizeMode = PictureBoxSizeMode.StretchImage;
-                        if (FrmMain.Authority == 'S')
+                        if (FrmMain.Ai.Authority == 'S')
                         {
                             p.MouseClick += this.portfolioDetail1.Picture_MouseClick;
                             p.MouseDown += this.portfolioDetail1.Picture_MouseDown;

@@ -12,7 +12,7 @@ namespace GoodeeProject
 {
     public partial class CtlProfile : UserControl
     {
-        CtlProfile proFile;
+        SaveLog s = new SaveLog();
 
         public CtlProfile()
         {
@@ -26,8 +26,45 @@ namespace GoodeeProject
 
         private void btnModify_Click(object sender, EventArgs e)
         {
+            s.AddList("정보수정 클릭");
             FrmModify fm = new FrmModify();
+            fm.Owner = (FrmMain)this.Parent.Parent;
             fm.ShowDialog();
+        }
+
+        private void btnCreateID_Click(object sender, EventArgs e)
+        {
+            s.AddList("관리자생성 클릭");
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            FrmLogin fr = new FrmLogin();
+            if (FrmMain.Ai.Id != null)
+            {
+                s.AddList("로그아웃");
+                //SaveLog.LogList.Add()
+                s.WriteLog();
+                s.SendLog(FrmMain.Ai.Id);
+                s.DeleteLog();
+                FrmLogin.LogoutCheck = true;
+            }
+
+            this.ParentForm.Close();
+            fr.Visible = true;
+
+        }
+
+        private void btnStudent_Click(object sender, EventArgs e)
+        {
+            s.AddList("수강생관리 클릭");
+        }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+            s.AddList("로그관리 클릭");
+            FrmLog fl = new FrmLog();
+            fl.Show();
         }
     }
 }

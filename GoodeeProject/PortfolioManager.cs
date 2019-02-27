@@ -21,18 +21,20 @@ namespace GoodeeProject
 
         private void PortfolioManager_Load(object sender, EventArgs e)
         {
-            GoodeeDAO.GoodeeDAO dao = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO dao = GoodeeDAO.GoodeeDAO.GetInstance();
             dataGridView1.DataSource = dao.SelectMemberList();
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridView1.Columns[0].HeaderText = "분류";
-            dataGridView1.Columns[1].HeaderText = "과정명";
-            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridView1.Columns[2].HeaderText = "이름";
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[4].Visible = false;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].HeaderText = "분류";
+            dataGridView1.Columns[2].HeaderText = "과정명";
+            dataGridView1.Columns[3].HeaderText = "회차";
+            dataGridView1.Columns[4].HeaderText = "이름";
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
+            dataGridView1.Columns[8].HeaderText = "주소";
+            dataGridView1.Columns[9].HeaderText = "이메일";
+            dataGridView1.Columns[10].HeaderText = "수강여부";
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)

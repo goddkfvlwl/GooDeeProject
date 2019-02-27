@@ -16,10 +16,7 @@ namespace GoodeeProject
     public partial class Chat : UserControl
     {
         private TcpClient client;
-        string readData = null;
         bool isConnected = false;
-        Thread thread;
-        NetworkStream ns;
         private delegate void GetmemberInvoke(OnlineInfo info);
 
         public Chat()
@@ -37,8 +34,8 @@ namespace GoodeeProject
 
         internal void Chat_Load(object sender, EventArgs e)
         {
-           GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
-           DataTable chat = DAO.SelectChat(FrmMain.Id);
+           GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
+           DataTable chat = DAO.SelectChat(FrmMain.Mi.Id);
            GetChatList(chat);
         }
 
@@ -65,7 +62,7 @@ namespace GoodeeProject
             string chat2 = "";
             string chat1Email = "";
             string chat2Email = "";
-            if (FrmMain.Authority != 'S')
+            if (FrmMain.Ai.Authority != 'S')
             {
                 chat1 = info.Chat1;
                 chat1Email = info.Chat1Email;

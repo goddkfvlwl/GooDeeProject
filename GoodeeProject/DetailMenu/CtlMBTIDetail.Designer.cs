@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.iTalk_Label1 = new iTalk.iTalk_Label();
+            this.lblResult = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
-            this.lblMenu1 = new iTalk.iTalk_Label();
+            this.lblWrite = new iTalk.iTalk_Label();
             this.iTalk_ChatBubble_L1 = new iTalk.iTalk_ChatBubble_L();
             this.SuspendLayout();
             // 
-            // iTalk_Label1
+            // lblResult
             // 
-            this.iTalk_Label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(14, 42);
-            this.iTalk_Label1.Name = "iTalk_Label1";
-            this.iTalk_Label1.Size = new System.Drawing.Size(137, 20);
-            this.iTalk_Label1.TabIndex = 19;
-            this.iTalk_Label1.Text = "MBTI 결과";
-            this.iTalk_Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblResult.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.lblResult.Location = new System.Drawing.Point(14, 42);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(137, 20);
+            this.lblResult.TabIndex = 19;
+            this.lblResult.Text = "MBTI 결과";
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // iTalk_Separator1
             // 
@@ -55,17 +55,17 @@
             this.iTalk_Separator1.TabIndex = 17;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
-            // lblMenu1
+            // lblWrite
             // 
-            this.lblMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.lblMenu1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblMenu1.Location = new System.Drawing.Point(12, 11);
-            this.lblMenu1.Name = "lblMenu1";
-            this.lblMenu1.Size = new System.Drawing.Size(140, 20);
-            this.lblMenu1.TabIndex = 16;
-            this.lblMenu1.Text = "MBTI 작성";
-            this.lblMenu1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWrite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblWrite.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblWrite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.lblWrite.Location = new System.Drawing.Point(12, 11);
+            this.lblWrite.Name = "lblWrite";
+            this.lblWrite.Size = new System.Drawing.Size(140, 20);
+            this.lblWrite.TabIndex = 16;
+            this.lblWrite.Text = "MBTI 작성";
+            this.lblWrite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // iTalk_ChatBubble_L1
             // 
@@ -82,9 +82,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.iTalk_Label1);
+            this.Controls.Add(this.lblResult);
             this.Controls.Add(this.iTalk_Separator1);
-            this.Controls.Add(this.lblMenu1);
+            this.Controls.Add(this.lblWrite);
             this.Controls.Add(this.iTalk_ChatBubble_L1);
             this.Name = "CtlMBTIDetail";
             this.Size = new System.Drawing.Size(163, 80);
@@ -94,9 +94,9 @@
 
         #endregion
 
-        internal iTalk.iTalk_Label iTalk_Label1;
+        internal iTalk.iTalk_Label lblResult;
         internal iTalk.iTalk_Separator iTalk_Separator1;
-        internal iTalk.iTalk_Label lblMenu1;
+        internal iTalk.iTalk_Label lblWrite;
         internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;
     }
 }

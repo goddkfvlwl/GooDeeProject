@@ -70,7 +70,7 @@ namespace GoodeeProject
         /// </summary>
         private void InsertChatList()
         {
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             DAO.InsertChat(chat1 + ", " + chat2 + "의 대화방", chatEmail, chat2Email, chat1, chat2);
             DataTable content = DAO.SelectChatContent(chatEmail,  chat2Email);
             if (content.Rows.Count > 0)
@@ -86,7 +86,7 @@ namespace GoodeeProject
         {
             NetworkStream ns = client.GetStream();
             txtChatContent.Text += user + " : " + txtSendMsg.Text + Environment.NewLine;
-            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.getInstance();
+            GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             DAO.InsertChatContent(user + " : " + txtSendMsg.Text + Environment.NewLine, chatEmail, chat2Email);
             byte[] msg = Encoding.UTF8.GetBytes(txtSendMsg.Text + "$From$" + user + "$To$" + target + "$Name$" + targetName + "$Target$" + "$Msg$");
             ns.Write(msg, 0, msg.Length);

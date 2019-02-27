@@ -63,6 +63,16 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap _326572_48 {
+            get {
+                object obj = ResourceManager.GetObject("_326572_48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap board_48 {
             get {
                 object obj = ResourceManager.GetObject("board-48", resourceCulture);
@@ -93,6 +103,16 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap MBTI {
+            get {
+                object obj = ResourceManager.GetObject("MBTI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap ModifyMember {
             get {
                 object obj = ResourceManager.GetObject("ModifyMember", resourceCulture);
@@ -116,6 +136,26 @@ namespace GoodeeProject.Properties {
         internal static System.Drawing.Bitmap profile2 {
             get {
                 object obj = ResourceManager.GetObject("profile2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap reload {
+            get {
+                object obj = ResourceManager.GetObject("reload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap reload24 {
+            get {
+                object obj = ResourceManager.GetObject("reload24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
