@@ -17,8 +17,11 @@ namespace GoodeeProject
     public partial class JobInformation : UserControl
     {
         List<XmlSaramin> slist = new List<XmlSaramin>();
+
         JobAreaChoice choice;
         JobChoice achoice;
+        oneJobMatResult oneJobMat;
+        FlowLayoutPanel panel;
         string search = "";
         public JobInformation()
         {
@@ -34,45 +37,6 @@ namespace GoodeeProject
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            //Panel panel = (Panel)Parent;
-            //panel.Controls.Remove(this);
-            //FrmMain frm = (FrmMain)panel.Parent;
-            //jobMatResult jobMat = new jobMatResult();
-            //jobMat.Location = new Point(190, 3);
-            //panel.Controls.Add(jobMat);
-
-
-            #region XML읽기
-            //string loc_cd = "";
-            //foreach (FirstSubArea item in JobAreaChoice.Lst)
-            //{
-            //    //MessageBox.Show(item.SubAreaCode);
-            //    loc_cd += "loc_cd=" + item.SubAreaCode;
-            //}
-
-            //// 강동구
-            //// http://api.saramin.co.kr/job-search?loc_cd=101020
-
-            //string strXml = "http://api.saramin.co.kr/job-search?" + loc_cd;
-            //Uri url = new Uri(strXml);
-            //HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            //HttpWebResponse ress = request.GetResponse() as HttpWebResponse;
-            //Stream stream = ress.GetResponseStream();
-
-            //XmlDocument xml = new XmlDocument(); // XmlDocument 생성
-            //xml.Load(stream);
-
-            //XmlNodeList list = xml.DocumentElement.SelectNodes("//company");
-            //foreach (XmlNode item in list)
-            //{
-            //    MessageBox.Show(item.SelectSingleNode("name").InnerText);
-            //} 
-            #endregion
-
-        }
 
         private void iTalk_Button_13_Click(object sender, EventArgs e)
         {
@@ -87,24 +51,52 @@ namespace GoodeeProject
         {
             this.Controls.Remove(choice);
             this.Controls.Remove(achoice);
+            this.Controls.Remove(panel);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text != "검색어 입력")
+            if (!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text != "기업을 입력하세요")
             {
                 search.JobKeyword(jobSearch.Text);
             }
+            else if ((!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text == "기업을 입력하세요") || JobAreaChoice.CheckResultlist.Count == 0 || JobChoice.Jlistcheck.Count == 0)
+            {
+                MessageBox.Show("검색어가 없습니다.");
+            }
 
             RemoveControl();
-            FlowLayoutPanel panel = new FlowLayoutPanel();
-            oneJobMatResult oneJobMat = new oneJobMatResult();
-            panel.Parent = this;
-            panel.Size = new Size(730, 342);
-            panel.Location = new Point(43, 91);
-            panel.Controls.Add(oneJobMat);
-            panel.VerticalScroll.Visible = true;    // 패널에 스크롤 생성
 
+            //foreach (var item in JobAreaChoice.CheckResultlist)
+            //{
+            //    MessageBox.Show("2차 지역 코드 : "+item.SubAreaCode);
+            //}
+            //foreach (var item in JobChoice.Jlistcheck)
+            //{
+            //    MessageBox.Show("3차지역코드 :"+item.Detailjob_Code);
+            //}
+
+            //string url = "http://api.saramin.co.kr/job-search?keywords="+ExtensionXML.Key+ "&job_category=" + JobChoice.Jlistcheck+"&";
+            //XElement xml = url.XmlParsing(url);
+
+            panel = new FlowLayoutPanel();
+            oneJobMat = new oneJobMatResult();
+            panel.Parent = this;
+            panel.Size = new Size(845, 401);
+            panel.Location = new Point(39, 141);
+            panel.Controls.Add(oneJobMat);
+            panel.VerticalScroll.Visible = true;    // 패널에 스크롤 생성 
+            //foreach (var item in collection)
+            //{
+            //    FlowLayoutPanel panel = new FlowLayoutPanel();
+            //    oneJobMatResult oneJobMat = new oneJobMatResult();
+            //    panel.Parent = this;
+            //    panel.Size = new Size(845, 401);
+            //    panel.Location = new Point(39, 141);
+            //    panel.Controls.Add(oneJobMat);
+            //    panel.VerticalScroll.Visible = true;    // 패널에 스크롤 생성 
+
+            //}
         }
 
         private void jobSearch_Click(object sender, EventArgs e)

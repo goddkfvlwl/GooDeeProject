@@ -5,11 +5,15 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace GoodeeProject
 {
@@ -24,19 +28,23 @@ namespace GoodeeProject
         //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
-        
 
+        
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
         CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
         Agreement_enterprise_list agreement;
-
+        
 
         internal static MemberInfo Mi { get => mi; set => mi = value; }
         internal static AccountInfo Ai { get => ai; set => ai = value; }
 
+        static string serverDate = "";
+       
+        public static string ServerDate { get => serverDate; set => serverDate = value; }
+       
         public FrmMain()
         {
             //InitializeComponent();
@@ -74,10 +82,113 @@ namespace GoodeeProject
             {
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
+                
             }
+            MessageBox.Show(ai.Authority.ToString());
+            Network();
+
             ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
+
         }
 
+        TcpClient client;
+        NetworkStream ns = null;
+        string readDate = null;
+        Thread thread;
+        bool isConnected = false;
+
+        public void Network()
+        {
+            if (ai.Authority=='M')
+            {
+                if (client == null)
+                {
+                    byte[] nickName = Encoding.UTF8.GetBytes(mi.Name+"!#");
+                    client = new TcpClient();
+                    try
+                    {
+                        client.Connect("192.168.0.233", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
+                        isConnected = true;
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("서버 또는 포트번호를 확인해주세요." + a.Message);
+                        return;
+                    }
+
+                    // TcpClient 객체의 GetStream() 메서드는 TCP 네트워크 스트림을 리턴한다. 이 네트워크 스트림을 이용해서 네트워크으로 데이타 송수신하게 된다
+                    ns = client.GetStream();
+                    ns.Write(nickName, 0, nickName.Length);
+                    ns.Flush();
+
+                    thread = new Thread(GetMessage);
+                    thread.Start();
+                }
+            }
+        }
+
+        private void GetMessage()
+        {
+            // 서버가 보내준 메서드를 받음
+            while (isConnected)
+            {
+                NetworkStream ns = client.GetStream();
+                byte[] receiveMsg = new byte[client.ReceiveBufferSize];
+                ns.Read(receiveMsg, 0, receiveMsg.Length);
+                ns.Flush();
+                readDate = Encoding.UTF8.GetString(receiveMsg);
+                //if (readDate.Contains("!"))
+                //{
+
+                //}
+                Msg();
+            }
+        }
+
+        private void Msg()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(Msg));
+            }
+            else
+            {
+                //MessageBox.Show(readDate);
+                if (MessageBox.Show(readDate, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    MessageBox.Show("승인버튼");
+                    SendMessage();
+                }
+                else if (MessageBox.Show(readDate, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    MessageBox.Show("거절버튼");
+                    NoSendMessage();
+                }
+
+            }
+            if (!isConnected)
+            {
+                client.Close();
+                client = null;
+            }
+        }
+
+        private void NoSendMessage()
+        {
+            string text = "요청거부&&&&";
+            byte[] message = Encoding.UTF8.GetBytes(text);
+            ns.Write(message, 0, message.Length);
+            ns.Flush();
+        }
+
+        private void SendMessage()
+        {
+            string text = "요청허용$$$$";
+            byte[] message = Encoding.UTF8.GetBytes(text);
+            ns.Write(message, 0, message.Length);
+            ns.Flush();
+        }
+        
         private void BtnStudent_Click(object sender, EventArgs e)
         {
             studentManagement1.Visible = true;
@@ -96,7 +207,8 @@ namespace GoodeeProject
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(0);
+            
         }
 
         private void btnSpec_Click(object sender, EventArgs e)
@@ -114,8 +226,7 @@ namespace GoodeeProject
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
-            portfolio1.Visible = true;
-            portfolio1.BringToFront();
+            
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
@@ -221,14 +332,12 @@ namespace GoodeeProject
 
         private void portfolio1_Load(object sender, EventArgs e)
         {
-            portfolio1.Controls["portfolioDetail1"].AutoSize = true;
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-            portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
+           
         }
 
         private void PortfolioDetail1_Resize(object sender, EventArgs e)
         {
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+            
         }
         
     }

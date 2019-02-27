@@ -20,7 +20,7 @@ namespace GoodeeProject
         }
 
         Panel panel;
-        KREDIT_JOBResult kREDIT_;
+        KREDIT_JOBlist kREDIT_;
         private void JobSearch_Click(object sender, EventArgs e)
         {
             JobSearch.Text = "";
@@ -31,7 +31,12 @@ namespace GoodeeProject
             if (e.KeyCode == Keys.Enter)
             {
                 keyword.JobKeyword(JobSearch.Text);
-                
+                kREDIT_ = new KREDIT_JOBlist();
+                kREDIT_.Location = new Point(190, 3);
+                panel = (Panel)Parent;
+                panel.Controls.Remove(this);
+                FrmMain frm = (FrmMain)panel.Parent;
+                panel.Controls.Add(kREDIT_);
             }
         }
 

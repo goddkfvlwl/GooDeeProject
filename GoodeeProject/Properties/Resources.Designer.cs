@@ -213,6 +213,16 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap warning {
+            get {
+                object obj = ResourceManager.GetObject("warning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap write_48 {
             get {
                 object obj = ResourceManager.GetObject("write-48", resourceCulture);
@@ -226,6 +236,26 @@ namespace GoodeeProject.Properties {
         internal static System.Drawing.Bitmap 구디로고 {
             get {
                 object obj = ResourceManager.GetObject("구디로고", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 그림1 {
+            get {
+                object obj = ResourceManager.GetObject("그림1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap 학생정보열람요청 {
+            get {
+                object obj = ResourceManager.GetObject("학생정보열람요청", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

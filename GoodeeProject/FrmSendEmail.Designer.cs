@@ -52,7 +52,7 @@
             // tb_Check
             // 
             this.tb_Check.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Check.Location = new System.Drawing.Point(126, 217);
+            this.tb_Check.Location = new System.Drawing.Point(126, 214);
             this.tb_Check.Name = "tb_Check";
             this.tb_Check.Size = new System.Drawing.Size(175, 14);
             this.tb_Check.TabIndex = 37;
@@ -107,7 +107,7 @@
             // 
             // iTalk_Separator3
             // 
-            this.iTalk_Separator3.Location = new System.Drawing.Point(126, 229);
+            this.iTalk_Separator3.Location = new System.Drawing.Point(126, 226);
             this.iTalk_Separator3.Name = "iTalk_Separator3";
             this.iTalk_Separator3.Size = new System.Drawing.Size(172, 10);
             this.iTalk_Separator3.TabIndex = 51;
@@ -188,7 +188,7 @@
             this.iTalk_Label5.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label5.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label5.Location = new System.Drawing.Point(41, 210);
+            this.iTalk_Label5.Location = new System.Drawing.Point(41, 207);
             this.iTalk_Label5.Name = "iTalk_Label5";
             this.iTalk_Label5.Size = new System.Drawing.Size(74, 21);
             this.iTalk_Label5.TabIndex = 38;

@@ -87,7 +87,7 @@
             this.jobSearch.ReadOnly = false;
             this.jobSearch.Size = new System.Drawing.Size(199, 42);
             this.jobSearch.TabIndex = 0;
-            this.jobSearch.Text = "검색어 입력";
+            this.jobSearch.Text = "기업을 입력하세요";
             this.jobSearch.WordWrap = true;
             this.jobSearch.Click += new System.EventHandler(this.jobSearch_Click);
             // 

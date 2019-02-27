@@ -38,7 +38,7 @@ namespace GoodeeProject
             #region XML파싱
             string strXml = "http://api.saramin.co.kr/job-search?" + job_category;
 
-            XElement xml = strXml.SaraminXml(strXml);   // 루트노드의 자식이 출력될텐데 현재 사람인의 자식은 jobs
+            XElement xml = strXml.XmlParsing(strXml);   // 루트노드의 자식이 출력될텐데 현재 사람인의 자식은 jobs
 
             // jobs
             IEnumerable<XElement> jobs = xml.Elements();

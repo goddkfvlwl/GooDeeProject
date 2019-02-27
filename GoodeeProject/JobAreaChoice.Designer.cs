@@ -28,72 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.foreginAreaName = new System.Windows.Forms.FlowLayoutPanel();
             this.koreaAreaPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.iTalk_RichTextBox1 = new iTalk.iTalk_RichTextBox();
-            this.iTalk_Label1 = new iTalk.iTalk_Label();
+            this.areaNameSearch = new iTalk.iTalk_RichTextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // foreginAreaName
-            // 
-            this.foreginAreaName.Location = new System.Drawing.Point(21, 195);
-            this.foreginAreaName.Name = "foreginAreaName";
-            this.foreginAreaName.Size = new System.Drawing.Size(237, 113);
-            this.foreginAreaName.TabIndex = 6;
             // 
             // koreaAreaPanel
             // 
-            this.koreaAreaPanel.Location = new System.Drawing.Point(10, 68);
+            this.koreaAreaPanel.Location = new System.Drawing.Point(10, 62);
             this.koreaAreaPanel.Name = "koreaAreaPanel";
-            this.koreaAreaPanel.Size = new System.Drawing.Size(258, 102);
+            this.koreaAreaPanel.Size = new System.Drawing.Size(258, 256);
             this.koreaAreaPanel.TabIndex = 7;
             // 
-            // iTalk_RichTextBox1
+            // areaNameSearch
             // 
-            this.iTalk_RichTextBox1.AutoWordSelection = false;
-            this.iTalk_RichTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_RichTextBox1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.iTalk_RichTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.iTalk_RichTextBox1.Location = new System.Drawing.Point(10, 14);
-            this.iTalk_RichTextBox1.Name = "iTalk_RichTextBox1";
-            this.iTalk_RichTextBox1.ReadOnly = false;
-            this.iTalk_RichTextBox1.Size = new System.Drawing.Size(707, 35);
-            this.iTalk_RichTextBox1.TabIndex = 4;
-            this.iTalk_RichTextBox1.Text = "지역명 입력";
-            this.iTalk_RichTextBox1.WordWrap = true;
+            this.areaNameSearch.AutoWordSelection = false;
+            this.areaNameSearch.BackColor = System.Drawing.Color.Transparent;
+            this.areaNameSearch.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.areaNameSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.areaNameSearch.Location = new System.Drawing.Point(10, 29);
+            this.areaNameSearch.Name = "areaNameSearch";
+            this.areaNameSearch.ReadOnly = false;
+            this.areaNameSearch.Size = new System.Drawing.Size(707, 27);
+            this.areaNameSearch.TabIndex = 4;
+            this.areaNameSearch.Text = "지역명 입력";
+            this.areaNameSearch.WordWrap = true;
+            this.areaNameSearch.Click += new System.EventHandler(this.iTalk_RichTextBox1_Click);
             // 
-            // iTalk_Label1
+            // toolStrip1
             // 
-            this.iTalk_Label1.AutoSize = true;
-            this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(11, 174);
-            this.iTalk_Label1.Name = "iTalk_Label1";
-            this.iTalk_Label1.Size = new System.Drawing.Size(255, 26);
-            this.iTalk_Label1.TabIndex = 3;
-            this.iTalk_Label1.Text = "--------------------------------------------------------------\r\n\r\n";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(725, 25);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(121, 25);
+            this.toolStripComboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripComboBox1_KeyDown);
             // 
             // JobAreaChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.koreaAreaPanel);
-            this.Controls.Add(this.foreginAreaName);
-            this.Controls.Add(this.iTalk_RichTextBox1);
-            this.Controls.Add(this.iTalk_Label1);
+            this.Controls.Add(this.areaNameSearch);
             this.Name = "JobAreaChoice";
             this.Size = new System.Drawing.Size(725, 327);
             this.Load += new System.EventHandler(this.JobAreaChoice_Load);
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private iTalk.iTalk_Label iTalk_Label1;
-        private iTalk.iTalk_RichTextBox iTalk_RichTextBox1;
-        private System.Windows.Forms.FlowLayoutPanel foreginAreaName;
+        private iTalk.iTalk_RichTextBox areaNameSearch;
         private System.Windows.Forms.FlowLayoutPanel koreaAreaPanel;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
     }
 }
