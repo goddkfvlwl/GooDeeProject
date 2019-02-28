@@ -73,6 +73,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -158,6 +159,42 @@
     <Compile Include="CtlIntroductionListM.Designer.cs">
       <DependentUpon>CtlIntroductionListM.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlEdu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlEdu.Designer.cs">
+      <DependentUpon>CtlEdu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlEduHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlEduHistory.Designer.cs">
+      <DependentUpon>CtlEduHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlLicense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlLicense.Designer.cs">
+      <DependentUpon>CtlLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlMBTIDivide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIDivide.Designer.cs">
+      <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlMBTIQuestion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIQuestion.Designer.cs">
+      <DependentUpon>CtlMBTIQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlMBTIResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIResult.Designer.cs">
+      <DependentUpon>CtlMBTIResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlModifyMemberInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -193,6 +230,12 @@
     </Compile>
     <Compile Include="CtlSelfIntroductionList.Designer.cs">
       <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlResume.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlResume.Designer.cs">
+      <DependentUpon>CtlResume.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="DetailMenu\CtlCompanyInfoDetail.cs">
@@ -250,6 +293,18 @@
     </Compile>
     <Compile Include="FrmLogDetail.Designer.cs">
       <DependentUpon>FrmLogDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMBTIQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMBTIQuestion.Designer.cs">
+      <DependentUpon>FrmMBTIQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMBTIResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMBTIResult.Designer.cs">
+      <DependentUpon>FrmMBTIResult.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmModifyPW.cs">
       <SubType>Form</SubType>
@@ -339,6 +394,7 @@
     <Compile Include="MedioButton.Designer.cs">
       <DependentUpon>MedioButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="MBTIChoice.cs" />
     <Compile Include="MemberDefault.cs" />
     <Compile Include="oneJobMatResult.cs">
       <SubType>UserControl</SubType>
@@ -367,7 +423,14 @@
     <Compile Include="Area.Designer.cs">
       <DependentUpon>Area.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateAgreement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateAgreement.Designer.cs">
+      <DependentUpon>UpdateAgreement.cs</DependentUpon>
+    </Compile>
     <Compile Include="XmlSaramin.cs" />
+    <Compile Include="XmlSaraminNodeJobs.cs" />
     <EmbeddedResource Include="Agreement_enterprise.resx">
       <DependentUpon>Agreement_enterprise.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +471,24 @@
     <EmbeddedResource Include="CtlIntroductionListM.resx">
       <DependentUpon>CtlIntroductionListM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtlEdu.resx">
+      <DependentUpon>CtlEdu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlEduHistory.resx">
+      <DependentUpon>CtlEduHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlLicense.resx">
+      <DependentUpon>CtlLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIDivide.resx">
+      <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIQuestion.resx">
+      <DependentUpon>CtlMBTIQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIResult.resx">
+      <DependentUpon>CtlMBTIResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlModifyMemberInfo.resx">
       <DependentUpon>CtlModifyMemberInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -425,6 +506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtlSelfIntroductionList.resx">
       <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlResume.resx">
+      <DependentUpon>CtlResume.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetailMenu\CtlCompanyInfoDetail.resx">
       <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
@@ -483,6 +567,12 @@
     <EmbeddedResource Include="MedioButton.resx">
       <DependentUpon>MedioButton.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMBTIQuestion.resx">
+      <DependentUpon>FrmMBTIQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMBTIResult.resx">
+      <DependentUpon>FrmMBTIResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmModify.resx">
       <DependentUpon>FrmModify.cs</DependentUpon>
     </EmbeddedResource>
@@ -520,6 +610,9 @@
     <EmbeddedResource Include="StudentManagement.resx">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateAgreement.resx">
+      <DependentUpon>UpdateAgreement.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -532,34 +625,54 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\KakaoTalk_20190225_085247325.png" />
+    <Content Include="Resources\Resume.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="test.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\구디로고.gif" />
+    <Content Include="Resources\구디로고.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user-48.png" />
+    <Content Include="Resources\user-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\board-48.png" />
+    <Content Include="Resources\board-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\info-48.png" />
+    <Content Include="Resources\info-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\survey-48.png" />
+    <Content Include="Resources\survey-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\write-48.png" />
+    <Content Include="Resources\write-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\chat-48.png" />
+    <Content Include="Resources\chat-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\profile2.png" />
+    <Content Include="Resources\profile2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.png" />
@@ -577,9 +690,16 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Resources\326572-48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Query.sql" />
-    <None Include="Resources\reload24.png" />
-    <None Include="Resources\reload.png" />
+    <Content Include="Resources\reload24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\reload.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxWMPLib">
@@ -646,6 +766,21 @@
     </COMReference>
     <None Include="Resources\ModifyMember1.png" />
     <None Include="Resources\ModifyPW1.png" />
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <Content Include="Resources\ModifyMember1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ModifyPW1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

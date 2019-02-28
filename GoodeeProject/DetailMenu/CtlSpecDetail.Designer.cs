@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.iTalk_ChatBubble_L1 = new iTalk.iTalk_ChatBubble_L();
-            this.lblMenu1 = new iTalk.iTalk_Label();
+            this.lblResume = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.separator2 = new iTalk.iTalk_Separator();
             this.lbl_SelfIntroduction = new iTalk.iTalk_Label();
@@ -47,17 +47,17 @@
             this.iTalk_ChatBubble_L1.Size = new System.Drawing.Size(152, 90);
             this.iTalk_ChatBubble_L1.TabIndex = 8;
             // 
-            // lblMenu1
+            // lblResume
             // 
-            this.lblMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.lblMenu1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblMenu1.Location = new System.Drawing.Point(12, 7);
-            this.lblMenu1.Name = "lblMenu1";
-            this.lblMenu1.Size = new System.Drawing.Size(140, 20);
-            this.lblMenu1.TabIndex = 9;
-            this.lblMenu1.Text = "이력서";
-            this.lblMenu1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblResume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblResume.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.lblResume.Location = new System.Drawing.Point(12, 7);
+            this.lblResume.Name = "lblResume";
+            this.lblResume.Size = new System.Drawing.Size(140, 20);
+            this.lblResume.TabIndex = 9;
+            this.lblResume.Text = "이력서";
+            this.lblResume.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // iTalk_Separator1
             // 
@@ -109,7 +109,7 @@
             this.Controls.Add(this.lbl_SelfIntroduction);
             this.Controls.Add(this.separator2);
             this.Controls.Add(this.iTalk_Separator1);
-            this.Controls.Add(this.lblMenu1);
+            this.Controls.Add(this.lblResume);
             this.Controls.Add(this.iTalk_ChatBubble_L1);
             this.Name = "CtlSpecDetail";
             this.Size = new System.Drawing.Size(162, 96);
@@ -118,7 +118,7 @@
         }
 
         #endregion
-        internal iTalk.iTalk_Label lblMenu1;
+        internal iTalk.iTalk_Label lblResume;
         internal iTalk.iTalk_Separator iTalk_Separator1;
         internal iTalk.iTalk_Separator separator2;
         internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;

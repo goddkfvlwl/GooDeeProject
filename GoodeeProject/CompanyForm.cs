@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,15 +15,30 @@ namespace GoodeeProject
     {
         private int movePointX;
         private int movePointY;
+        private TcpClient client;
+        private NetworkStream ns;
+
         public CompanyForm()
         {
             InitializeComponent();
         }
 
+        public CompanyForm(TcpClient client, NetworkStream ns) : this()
+        {
+            this.client = client;
+            this.ns = ns;
+        }
+
+
+
         #region 인터페이스
         public void BtnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            string logout = "$DisConnect$";
+            byte[] a = Encoding.UTF8.GetBytes(logout);
+            ns.Write(a, 0, a.Length);
+            ns.Flush();
+            Environment.Exit(0);
         }
 
         public void BtnMinimum_Click(object sender, EventArgs e)
@@ -74,7 +90,10 @@ namespace GoodeeProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            CtlResume rs = new CtlResume();
+            panel2.Controls.Add(rs);
+            rs.Location = new Point(20, 3);
+            //spec.SendToBack();
         }
     }
 }

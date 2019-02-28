@@ -19,6 +19,7 @@ namespace GoodeeProject
 {
     public partial class FrmMain : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         private int movePointX;
         private int movePointY;
 
@@ -50,6 +51,7 @@ namespace GoodeeProject
         {
             //InitializeComponent();
             LoadFrm();
+            
         }
 
         public void LoadFrm()
@@ -85,6 +87,7 @@ namespace GoodeeProject
                 ctlProfile1.btnCreateID.Visible = false;
                 
             }
+
             MessageBox.Show(ai.Authority.ToString());
             Network();
 
@@ -100,15 +103,15 @@ namespace GoodeeProject
 
         public void Network()
         {
-            if (ai.Authority=='M')
+            if (ai.Authority == 'M')
             {
                 if (client == null)
                 {
-                    byte[] nickName = Encoding.UTF8.GetBytes(mi.Name+"!###%%)))");
+                    byte[] nickName = Encoding.UTF8.GetBytes(mi.Id + "$||$" + ai.Authority + "%*%*");
                     client = new TcpClient();
                     try
                     {
-                        client.Connect("192.168.0.233", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
+                        client.Connect("192.168.0.248", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
                         isConnected = true;
                     }
                     catch (Exception a)
@@ -138,10 +141,7 @@ namespace GoodeeProject
                 ns.Read(receiveMsg, 0, receiveMsg.Length);
                 ns.Flush();
                 readDate = Encoding.UTF8.GetString(receiveMsg);
-                //if (readDate.Contains("!"))
-                //{
 
-                //}
                 Msg();
             }
         }
@@ -154,16 +154,19 @@ namespace GoodeeProject
             }
             else
             {
-                //MessageBox.Show(readDate);
-                if (MessageBox.Show(readDate, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (readDate.Contains("$열람요청$"))
                 {
-                    MessageBox.Show("승인버튼");
-                    SendMessage();
-                }
-                else if (MessageBox.Show(readDate, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                {
-                    MessageBox.Show("거절버튼");
-                    NoSendMessage();
+                    DialogResult result = MessageBox.Show(readDate, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        MessageBox.Show("승인버튼");
+                        SendMessage();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        MessageBox.Show("거절버튼");
+                        NoSendMessage();
+                    }
                 }
 
             }
@@ -189,7 +192,7 @@ namespace GoodeeProject
             ns.Write(message, 0, message.Length);
             ns.Flush();
         }
-        
+
         private void BtnStudent_Click(object sender, EventArgs e)
         {
             studentManagement1.Visible = true;
@@ -206,6 +209,9 @@ namespace GoodeeProject
             studentManagement1.gViewStudentInfo.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        
+
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -217,14 +223,16 @@ namespace GoodeeProject
         private void btnSpec_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-
+            
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
 
             spec = new CtlSpecDetail();
             panel2.Controls.Add(spec);
+            spec.BringToFront();
             spec.Location = new Point(192, 1);
-            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+
+            //spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
             spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
         }
 
@@ -245,12 +253,22 @@ namespace GoodeeProject
                 panel2.Controls.Add(introductionList);
             }
  
+
+            spec.Controls["lblResume"].Click += BtnResume_Click;
+
         }
 
-        private void BtnPortfolio_Click(object sender, EventArgs e)
+        private void BtnResume_Click(object sender, EventArgs e)
         {
-            
+            s.AddList("이력서 클릭");
+            CtlResume rs = new CtlResume();
+            panel2.Controls.Add(rs);
+            rs.Location = new Point(185, 0);
+            spec.SendToBack();
+
         }
+
+        
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
@@ -278,9 +296,6 @@ namespace GoodeeProject
             
         }
 
-        
-
-       
         private void btnSurvey_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -313,7 +328,25 @@ namespace GoodeeProject
 
             mbti = new CtlMBTIDetail();
             panel2.Controls.Add(mbti);
+            mbti.BringToFront();
             mbti.Location = new Point(192, 141);
+            mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
+            mbti.Controls["lblResult"].Click += MBTIResult_Click;
+        }
+
+        private void MBTIResult_Click(object sender, EventArgs e)
+        {
+            CtlMBTIResult mr = new CtlMBTIResult();
+            panel2.Controls.Add(mr);
+            mr.Location = new Point(185, 0);
+            mbti.SendToBack();
+        }
+
+        private void MBTIWrite_Click(object sender, EventArgs e)
+        {
+            mbti.SendToBack();
+            FrmMBTIQuestion mq = new FrmMBTIQuestion();
+            mq.Show();
         }
 
         private void btnChat_Click(object sender, EventArgs e)
@@ -364,7 +397,6 @@ namespace GoodeeProject
         public void BtnExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
-
         }
 
         public void BtnMinimum_Click(object sender, EventArgs e)
@@ -383,5 +415,6 @@ namespace GoodeeProject
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
 
         }
+
     }
 }

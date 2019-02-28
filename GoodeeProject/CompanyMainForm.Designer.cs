@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RequestButton = new iTalk.iTalk_Button_1();
             this.iTalk_Label3 = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
+            this.lbl_Time = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +75,6 @@
             this.iTalk_Label3.Size = new System.Drawing.Size(262, 17);
             this.iTalk_Label3.TabIndex = 53;
             this.iTalk_Label3.Text = "학생정보 열람을 원할시 버튼을 눌러주세요";
-           
             // 
             // iTalk_Separator1
             // 
@@ -110,12 +112,26 @@
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // lbl_Time
+            // 
+            this.lbl_Time.AutoSize = true;
+            this.lbl_Time.Location = new System.Drawing.Point(282, 183);
+            this.lbl_Time.Name = "lbl_Time";
+            this.lbl_Time.Size = new System.Drawing.Size(53, 12);
+            this.lbl_Time.TabIndex = 56;
+            this.lbl_Time.Text = "lbl_Time";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // CompanyMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(358, 291);
+            this.Controls.Add(this.lbl_Time);
             this.Controls.Add(this.RequestButton);
             this.Controls.Add(this.iTalk_Label3);
             this.Controls.Add(this.pictureBox1);
@@ -141,5 +157,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Label iTalk_Label3;
         private iTalk.iTalk_Button_1 RequestButton;
+        private System.Windows.Forms.Label lbl_Time;
+        private System.Windows.Forms.Timer timer1;
     }
 }

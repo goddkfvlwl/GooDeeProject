@@ -81,6 +81,22 @@
             this.iTalk_Separator1.TabIndex = 7;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
+            // ctlProfile1
+            // 
+            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
+            this.ctlProfile1.Name = "ctlProfile1";
+            this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
+            this.ctlProfile1.TabIndex = 0;
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
+            this.iTalk_Separator1.Name = "iTalk_Separator1";
+            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
+            this.iTalk_Separator1.TabIndex = 7;
+            this.iTalk_Separator1.Text = "iTalk_Separator1";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
@@ -103,7 +119,10 @@
             this.btnMinimum.TabIndex = 25;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
+
             this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
+            
+
             // 
             // btnExit
             // 
@@ -122,7 +141,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+
             this.panel2.Controls.Add(this.studentManagement1);
+
             this.panel2.Controls.Add(this.sidePanel);
             this.panel2.Controls.Add(this.btnChat);
             this.panel2.Controls.Add(this.btnMBTI);
@@ -276,7 +297,6 @@
         private iTalk.iTalk_Button_1 btnMinimum;
         private iTalk.iTalk_Button_1 btnExit;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel sidePanel;
         private System.Windows.Forms.Button btnChat;
         private System.Windows.Forms.Button btnMBTI;
@@ -287,7 +307,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Separator iTalk_Separator1;
 
+
         private StudentManagement studentManagement1;
+
         internal CtlProfile ctlProfile1;
+        internal System.Windows.Forms.Panel panel2;
     }
 }

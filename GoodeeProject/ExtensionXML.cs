@@ -28,6 +28,20 @@ namespace GoodeeProject
             return xElem;
 
         }
+
+        public static int XmlTotal(this XElement xElem, XElement element)
+        {
+            var result = from xe in element.Elements("jobs")
+                         select xe;
+            int total = 0;
+            foreach (var item in result)
+            {
+                total = Int32.Parse(item.Attribute("total").Value.ToString());
+
+            }
+            return total;
+
+        }
         public static XmlReader ReaderCreate(this String str, string strUrl)
         {
             Uri url = new Uri(strUrl);

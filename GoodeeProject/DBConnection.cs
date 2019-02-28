@@ -159,7 +159,7 @@ namespace GoodeeProject
             return result;
         }
 
-        internal bool ExecuteDelete(string proc, SqlParameter pm)
+        internal bool ExecuteDelete(string proc, SqlParameter[] pm)
         {
             bool result = false;
 
@@ -172,7 +172,7 @@ namespace GoodeeProject
 
             if (pm != null)
             {
-                cmd.Parameters.Add(pm);
+                cmd.Parameters.AddRange(pm);
             }
 
             int r = cmd.ExecuteNonQuery();
@@ -212,7 +212,7 @@ namespace GoodeeProject
             return result;
         }
 
-        internal bool ExecuteDelete(string proc, SqlParameter[] parameters)
+        internal bool ExecuteDelete(string proc, SqlParameter parameters)
         {
             bool result = false;
 
@@ -225,7 +225,7 @@ namespace GoodeeProject
 
             if (parameters != null)
             {
-                cmd.Parameters.AddRange(parameters);
+                cmd.Parameters.Add(parameters);
             }
 
             int r = cmd.ExecuteNonQuery();

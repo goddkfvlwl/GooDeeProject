@@ -28,72 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.companyName = new iTalk.iTalk_Label();
-            this.companyTiltle = new iTalk.iTalk_Label();
-            this.companyIntroduce = new iTalk.iTalk_Label();
-            this.keword = new iTalk.iTalk_Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oneJobMatResult));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.keyword = new System.Windows.Forms.Label();
+            this.companyName1 = new System.Windows.Forms.Label();
+            this.companyIntroduce = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
+            this.companyName = new System.Windows.Forms.LinkLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // companyName
+            // pictureBox1
             // 
-            this.companyName.AutoSize = true;
-            this.companyName.BackColor = System.Drawing.Color.Transparent;
-            this.companyName.Font = new System.Drawing.Font("함초롬돋움", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.companyName.Location = new System.Drawing.Point(4, 7);
-            this.companyName.Name = "companyName";
-            this.companyName.Size = new System.Drawing.Size(54, 15);
-            this.companyName.TabIndex = 0;
-            this.companyName.Text = "회사 이름";
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(13, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
-            // companyTiltle
+            // keyword
             // 
-            this.companyTiltle.AutoSize = true;
-            this.companyTiltle.BackColor = System.Drawing.Color.Transparent;
-            this.companyTiltle.Font = new System.Drawing.Font("함초롬돋움", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyTiltle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.companyTiltle.Location = new System.Drawing.Point(4, 31);
-            this.companyTiltle.Name = "companyTiltle";
-            this.companyTiltle.Size = new System.Drawing.Size(86, 17);
-            this.companyTiltle.TabIndex = 1;
-            this.companyTiltle.Text = "회사채용내용";
+            this.keyword.AutoSize = true;
+            this.keyword.Location = new System.Drawing.Point(11, 108);
+            this.keyword.Name = "keyword";
+            this.keyword.Size = new System.Drawing.Size(38, 12);
+            this.keyword.TabIndex = 14;
+            this.keyword.Text = "label3";
+            // 
+            // companyName1
+            // 
+            this.companyName1.AutoSize = true;
+            this.companyName1.Location = new System.Drawing.Point(56, 20);
+            this.companyName1.Name = "companyName1";
+            this.companyName1.Size = new System.Drawing.Size(38, 12);
+            this.companyName1.TabIndex = 13;
+            this.companyName1.Text = "label1";
             // 
             // companyIntroduce
             // 
             this.companyIntroduce.AutoSize = true;
-            this.companyIntroduce.BackColor = System.Drawing.Color.Transparent;
-            this.companyIntroduce.Font = new System.Drawing.Font("함초롬돋움", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.companyIntroduce.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.companyIntroduce.Location = new System.Drawing.Point(4, 57);
+            this.companyIntroduce.Location = new System.Drawing.Point(11, 83);
             this.companyIntroduce.Name = "companyIntroduce";
-            this.companyIntroduce.Size = new System.Drawing.Size(150, 15);
-            this.companyIntroduce.TabIndex = 2;
-            this.companyIntroduce.Text = "경력 / 학력 /  근무형태 / 지역";
+            this.companyIntroduce.Size = new System.Drawing.Size(38, 12);
+            this.companyIntroduce.TabIndex = 12;
+            this.companyIntroduce.Text = "label3";
             // 
-            // keword
+            // title
             // 
-            this.keword.AutoSize = true;
-            this.keword.BackColor = System.Drawing.Color.Transparent;
-            this.keword.Font = new System.Drawing.Font("함초롬돋움", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.keword.Location = new System.Drawing.Point(4, 81);
-            this.keword.Name = "keword";
-            this.keword.Size = new System.Drawing.Size(40, 15);
-            this.keword.TabIndex = 3;
-            this.keword.Text = "키워드";
+            this.title.AutoSize = true;
+            this.title.Location = new System.Drawing.Point(11, 57);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(53, 12);
+            this.title.TabIndex = 11;
+            this.title.Text = "채용공고";
+            // 
+            // companyName
+            // 
+            this.companyName.AutoSize = true;
+            this.companyName.Location = new System.Drawing.Point(761, 20);
+            this.companyName.Name = "companyName";
+            this.companyName.Size = new System.Drawing.Size(0, 12);
+            this.companyName.TabIndex = 16;
             // 
             // oneJobMatResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.keword);
-            this.Controls.Add(this.companyIntroduce);
-            this.Controls.Add(this.companyTiltle);
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.companyName);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.keyword);
+            this.Controls.Add(this.companyName1);
+            this.Controls.Add(this.companyIntroduce);
+            this.Controls.Add(this.title);
             this.Name = "oneJobMatResult";
-            this.Size = new System.Drawing.Size(395, 108);
-            this.Load += new System.EventHandler(this.oneJobMatResult_Load);
-            this.DoubleClick += new System.EventHandler(this.oneJobMatResult_DoubleClick);
+            this.Size = new System.Drawing.Size(781, 128);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,9 +114,11 @@
 
         #endregion
 
-        private iTalk.iTalk_Label companyName;
-        private iTalk.iTalk_Label companyTiltle;
-        private iTalk.iTalk_Label companyIntroduce;
-        private iTalk.iTalk_Label keword;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label keyword;
+        public System.Windows.Forms.Label companyName1;
+        public System.Windows.Forms.Label companyIntroduce;
+        public System.Windows.Forms.Label title;
+        public System.Windows.Forms.LinkLabel companyName;
     }
 }

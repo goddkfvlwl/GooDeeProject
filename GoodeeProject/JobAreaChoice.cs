@@ -35,7 +35,7 @@ namespace GoodeeProject
         {
             #region 한국대표지역추가
             lst = new GoodeeDAO.GoodeeDAO().AllFirstAreaName();
-            
+
             foreach (FirstSubArea item in lst)
             {
                 iTalk.iTalk_Button_1 koreaArea = new iTalk.iTalk_Button_1();
@@ -45,7 +45,7 @@ namespace GoodeeProject
                 koreaArea.Text = item.FirstAreaName1;
                 koreaArea.Click += KoreaArea_Click;
                 koreaAreaPanel.Controls.Add(koreaArea);
-                
+
             }
             #endregion
 
@@ -146,30 +146,7 @@ namespace GoodeeProject
         {
             this.Controls.Remove(area);
         }
-
-        private void iTalk_RichTextBox1_Click(object sender, EventArgs e)
-        {
-            areaNameSearch.Text = " ";
-        }
-
         
-        private void toolStripComboBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                this.toolStripComboBox1.Items.Clear();
-                list.Clear();
-                foreach (var item in areas)
-                {
-                    if (item.FirstAreaName1.Contains(this.toolStripComboBox1.Text) || item.SubAreaName.Contains(this.toolStripComboBox1.Text))
-                    {
-                        list.Add(item.FirstAreaName1 + " > " + item.SubAreaName);
-                    }
-                }
-                this.toolStripComboBox1.Items.AddRange(list.ToArray());
-                this.toolStripComboBox1.SelectionStart = this.toolStripComboBox1.Text.Length;
-                this.toolStripComboBox1.DroppedDown = true;
-            }
-        }
+
     }
 }

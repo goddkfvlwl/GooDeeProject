@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.IO;
+using System.Diagnostics;
 
 namespace GoodeeProject
 {
@@ -18,23 +19,23 @@ namespace GoodeeProject
         private int postNum;
         private AgreementBoard ab = null;
         List<AgreementBoard> lst;
-        
+
         public DetailView()
         {
             InitializeComponent();
             lst = new List<AgreementBoard>();
-            
+
         }
 
         public DetailView(int postNum) : this()
         {
             gd = GoodeeDAO.GoodeeDAO.GetInstance();
             this.postNum = postNum;
-            
-            ab = gd.ReadCountUP(postNum);
-            
-        }
 
+            ab = gd.ReadCountUP(postNum);
+
+        }
+        string data = "";
         private void DetailView_Load(object sender, EventArgs e)
         {
 
@@ -49,7 +50,7 @@ namespace GoodeeProject
                 Stream stream = resp.GetResponseStream();
 
                 // 결과를 문자열로 읽기 (바이너리로 읽을 수도 있다)
-                string data;
+
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     data = reader.ReadToEnd();
@@ -67,7 +68,7 @@ namespace GoodeeProject
             {
                 gd.DeleteBoard(ab.BoardNum);
                 MessageBox.Show("정말삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
+
             }
         }
 
@@ -95,5 +96,28 @@ namespace GoodeeProject
 
             }
         }
+
+        private void boardBoby_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            Process.Start("chrome.exe", e.LinkText);
+
+        }
+
+        private void butUpdate_Click(object sender, EventArgs e)
+        {
+            Panel panel = (Panel)Parent;
+            FrmMain main = (FrmMain)panel.Parent;
+            main.RemoveUserControl();
+            panel.Controls.Remove(this);
+
+            UpdateAgreement detail = new UpdateAgreement(ab.Title, ab.Body, postNum);
+            detail.Location = new Point(190, 3);
+            detail.BringToFront();
+            panel.Controls.Add(detail);
+
+
+        }
+
+
     }
 }

@@ -531,6 +531,7 @@ namespace GoodeeProject.GoodeeDAO
             return ms.ToArray();
         }
 
+
         public bool DeleteBoard(int num)
         {
             string proc = "DeleteBoard";
@@ -815,6 +816,198 @@ namespace GoodeeProject.GoodeeDAO
         }
 
         
+
+        public bool InsertLicense(string id, string name, DateTime date, string agency)
+        {
+            string proc = "InsertLicense";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[4];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("Name", name);
+            pms[2] = new SqlParameter("Date", date);
+            pms[3] = new SqlParameter("Agency", agency);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public bool InsertEdu_History(string id, DateTime start, DateTime end, string eduAgency, string eduName, string skilName, string detail)
+        {
+            string proc = "InsertEdu_History";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[7];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("StartPeriod", start);
+            pms[2] = new SqlParameter("EndPeriod", end);
+            pms[3] = new SqlParameter("EduAgency", eduAgency);
+            pms[4] = new SqlParameter("EduName", eduName);
+            pms[5] = new SqlParameter("SkillName", skilName);
+            pms[6] = new SqlParameter("Detail", detail);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public bool InsertEducation(string id, DateTime enter, DateTime gradu, string school, string schoolType, string depart, string eduType)
+        {
+            string proc = "InsertEducation";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[7];
+            pms[0] = new SqlParameter("id", id);
+            pms[1] = new SqlParameter("EnterPeriod", enter);
+            pms[2] = new SqlParameter("GraduPeriod", gradu);
+            pms[3] = new SqlParameter("School", school);
+            pms[4] = new SqlParameter("SchoolType", schoolType);
+            pms[5] = new SqlParameter("Department", depart);
+            pms[6] = new SqlParameter("EduType", eduType);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        public DataTable SelectLicense(string id)
+        {
+            string proc = "SelectLicense";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectEdu(string id)
+        {
+            string proc = "SelectEdu";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectEdu_History(string id)
+        {
+            string proc = "SelectEdu_History";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public bool DeleteLiEduHis(string id)
+        {
+            string proc = "DeleteLiEduHis";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.ExecuteDelete(proc, pms);
+        }
+
+        public DataTable SelectMBTI_Question()
+        {
+            string proc = "SelectMBTIQuestion";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
+
+        public DataTable SelectMBTI_Choice()
+        {
+            string proc = "SelectMBTIChoice";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
+
+        public bool InsertMBTI_Stats(string id, int ei, int sn, int tf, int jp, string result, DateTime mbtiDate)
+        {
+            string proc = "InsertMBTI_Stats";
+            bool rs = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[7];
+            pms[0] = new SqlParameter("ID", id);
+            pms[1] = new SqlParameter("ei", ei);
+            pms[2] = new SqlParameter("sn", sn);
+            pms[3] = new SqlParameter("tf", tf);
+            pms[4] = new SqlParameter("jp", jp);
+            pms[5] = new SqlParameter("result", result);
+            pms[6] = new SqlParameter("mbtidate", mbtiDate);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                rs = true;
+            }
+            return rs;
+        }
+
+        public DataTable SelectMBTI_Stats_Stu(string id)
+        {
+            string proc = "SelectMbtiStats_Stu";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectMBTI_Stats()
+        {
+            string proc = "SelectMbtiStats";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
+
+        public DataTable SelectMBTI_StatsByName(string name)
+        {
+            string proc = "SelectMBTIStatsByName";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("name", name);
+
+            return con.SelectWithParams(proc, pms);
+        }
+
+        public DataTable SelectMBTI_Detail(string result)
+        {
+            string proc = "SelectMBTIDetail";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("result", result);
+
+            return con.SelectWithParams(proc, pms);
+        }
+        internal bool UpdateBoard(int boardNum, AgreementBoard board)
+        {
+            string proc = "UpdateBoard";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[3];
+            pms[0] = new SqlParameter("@boardNum", board.BoardNum);
+            pms[1] = new SqlParameter("@body", board.Body);
+            pms[2] = new SqlParameter("@date", board.WriteDate);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
     }
 }
 

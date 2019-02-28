@@ -70,22 +70,25 @@ namespace GoodeeProject
         Thread thread;
         bool isConnected = false;
 
-        
+
+        int remainTime; // timer 시간
+        bool Read;
+
 
         private void RequestButton_Click(object sender, EventArgs e)
         {
             if (client == null)
             {
-                byte[] nickName = Encoding.UTF8.GetBytes(mi.Name + "@^^&&");
+                byte[] nickName = Encoding.UTF8.GetBytes(mi.Id + "$||$" + mi.Name + "$||$" + ai.Authority);
                 client = new TcpClient();
                 try
                 {
-                    client.Connect("192.168.0.233", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
+                    client.Connect("192.168.0.248", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
                     isConnected = true;
                 }
                 catch (Exception a)
                 {
-                    MessageBox.Show("서버 또는 포트번호를 확인해주세요."+a.Message);
+                    MessageBox.Show("서버 또는 포트번호를 확인해주세요." + a.Message);
                     return;
                 }
 
@@ -93,6 +96,9 @@ namespace GoodeeProject
                 ns = client.GetStream();
                 ns.Write(nickName, 0, nickName.Length);
                 ns.Flush();
+
+                remainTime = 300;
+                timer1.Enabled = true;
 
                 thread = new Thread(GetMessage);
                 thread.Start();
@@ -108,27 +114,10 @@ namespace GoodeeProject
                 byte[] receiveMsg = new byte[client.ReceiveBufferSize];
                 ns.Read(receiveMsg, 0, receiveMsg.Length);
                 ns.Flush();
-                readDate = Encoding.UTF8.GetString(receiveMsg);
-                Msg();
-                
-            }
-        }
 
-        private void Msg()
-        {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new MethodInvoker(Msg));
-            }
-            else
-            {
-                MessageBox.Show(readDate);
+                readDate = Encoding.UTF8.GetString(receiveMsg);
                 Open(readDate);
-            }
-            if (!isConnected)
-            {
-                client.Close();
-                client = null;
+
             }
         }
 
@@ -136,13 +125,33 @@ namespace GoodeeProject
         {
             if (readDate.Contains("거부"))
             {
+                timer1.Enabled = false;
+                string logout = "$DisConnect$";
+                byte[] a = Encoding.UTF8.GetBytes(logout);
+                ns.Write(a, 0, a.Length);
+                ns.Flush();
                 Environment.Exit(0);
             }
             else if (readDate.Contains("허용"))
             {
-                this.Close();
-                CompanyForm companyForm = new CompanyForm();
+                this.Visible = false;
+                //timer1.Enabled = false;
+
+                CompanyForm companyForm = new CompanyForm(client, ns);
                 companyForm.ShowDialog();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            remainTime -= 1;
+            lbl_Time.Text = (remainTime / 60) + " : " + (remainTime % 60);
+            if (remainTime == 0)
+            {
+                timer1.Enabled = false;
+                Read = false;
+                MessageBox.Show("요청받을 수 없습니다. 잠시후 다시 실행해 주세요.");
+                Environment.Exit(0);
             }
         }
     }
