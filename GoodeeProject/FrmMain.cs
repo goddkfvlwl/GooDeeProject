@@ -55,7 +55,6 @@ namespace GoodeeProject
         {
             //InitializeComponent();
             LoadFrm();
-            
         }
 
         public void LoadFrm()

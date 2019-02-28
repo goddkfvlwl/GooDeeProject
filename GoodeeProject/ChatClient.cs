@@ -135,32 +135,13 @@ namespace GoodeeProject
             string target = str[1].Substring(0, str[1].IndexOf("$Name$"));
             string content = str[0].Substring(0, str[0].IndexOf("$From$"));
             string user = str[0].Replace(content + "$From$", "");
-            bool isRead = false;
             foreach (FrmChat item in chatList)
             {
                 if (item.Chat1Email == target.Replace(user, "") || item.Chat2Email == target.Replace(user, ""))
                 {
                     item.GetMsg(user + " : " + content);
                     item.GetMsg(Environment.NewLine);
-                    isRead = true;
                 }
-            }
-
-            if (!isRead)
-            {
-            }
-        }
-
-        private void Popup()
-        {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new MethodInvoker(Popup));
-            }else
-            {
-                PopupNotifier pop = new PopupNotifier();
-                pop.ContentText = "asdfasd";
-                pop.Popup();
             }
         }
 
