@@ -72,3 +72,4 @@ C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInpu
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache

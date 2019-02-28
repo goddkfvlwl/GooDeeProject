@@ -62,26 +62,33 @@ namespace GoodeeProject
             string chat2 = "";
             string chat1Email = "";
             string chat2Email = "";
-            if (FrmMain.Ai.Authority != 'S')
-            {
-                chat1 = info.Chat1;
-                chat1Email = info.Chat1Email;
-                chat2 = info.Chat2;
-                chat2Email = info.Chat2Email;
-                FrmChat chat = new FrmChat(chat1, chat1Email, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
-                ChatClient.ChatList.Add(chat);
-                chat.Show();
-            }
-            else
-            {
-                chat1 = info.Chat1;
-                chat1Email = info.Chat1Email;
-                chat2 = info.Chat2;
-                chat2Email = info.Chat2Email;
-                FrmChat chat = new FrmChat(chat1, chat1Email, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
-                ChatClient.ChatList.Add(chat);
-                chat.Show();
-            }
+            //if (FrmMain.Ai.Authority != 'S')
+            //{
+            //    chat1 = info.Chat1;
+            //    chat1Email = info.Chat1Email;
+            //    chat2 = info.Chat2;
+            //    chat2Email = info.Chat2Email;
+            //    FrmChat chat = new FrmChat(chat1, chat1Email, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
+            //    ChatClient.ChatList.Add(chat);
+            //    chat.Show();
+            //}
+            //else
+            //{
+            //    chat1 = info.Chat1;
+            //    chat1Email = info.Chat1Email;
+            //    chat2 = info.Chat2;
+            //    chat2Email = info.Chat2Email;
+            //    FrmChat chat = new FrmChat(chat1, chat1Email, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
+            //    ChatClient.ChatList.Add(chat);
+            //    chat.Show();
+            //}
+            chat1 = info.Chat1;
+            chat1Email = info.Chat1Email;
+            chat2 = info.Chat2;
+            chat2Email = info.Chat2Email;
+            FrmChat chat = new FrmChat(chat1, chat1Email, chat2, chat2Email, chat1 + ", " + chat2 + "의 대화방", client);
+            ChatClient.ChatList.Add(chat);
+            chat.Show();
         }
 
         internal void GetMember(OnlineInfo info)
