@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Sockets;
 using System.Resources;
 using System.Security.Cryptography;
@@ -12,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace GoodeeProject
 {
@@ -25,13 +27,13 @@ namespace GoodeeProject
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
         #region Controls
+        public Panel Panel2 { get { return panel2; } set { panel2 = value; } }
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
         CtlMBTIDetail mbti;
         Chat chat;
         ChatClient chatClinet;
-
         ClassList classlist;
         StudentManagement studentManagement;
         PortfolioList portfolioList;
@@ -51,6 +53,7 @@ namespace GoodeeProject
         public static string chatContent;
         internal static MemberInfo Mi { get => mi; set => mi = value; }
         internal static AccountInfo Ai { get => ai; set => ai = value; }
+        Agreement_enterprise_list agreement;
         public FrmMain()
         {
             //InitializeComponent();
@@ -94,6 +97,7 @@ namespace GoodeeProject
             {
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
+                
             }
             ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
@@ -105,7 +109,6 @@ namespace GoodeeProject
             classlist.Location = new Point(185, 0);
             classlist.BringToFront();
         }
-
         private void BtnStudent_Click(object sender, EventArgs e)
         {
             studentManagement = new StudentManagement();
@@ -180,6 +183,7 @@ namespace GoodeeProject
             panel2.Controls.Add(rs);
             rs.Location = new Point(185, 0);
             spec.SendToBack();
+
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
@@ -188,6 +192,9 @@ namespace GoodeeProject
 
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
+            agreement = new Agreement_enterprise_list();
+            panel2.Controls.Add(agreement);
+            agreement.Location = new Point(192, 3);
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
@@ -200,7 +207,9 @@ namespace GoodeeProject
                 sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
                 companyInfo = new CtlCompanyInfoDetail();
+                companyInfo.Parent = this;
                 panel2.Controls.Add(companyInfo);
+
                 companyInfo.Location = new Point(192, 211);
             }
             else
@@ -305,7 +314,7 @@ namespace GoodeeProject
                 }
         }
 
-        private void RemoveUserControl()
+        internal void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
             spec = null;
@@ -339,14 +348,14 @@ namespace GoodeeProject
 
         private void portfolio1_Load(object sender, EventArgs e)
         {
-            portfolio1.Controls["portfolioDetail1"].AutoSize = true;
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-            portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
+            //portfolio1.Controls["portfolioDetail1"].AutoSize = true;
+            //VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+            //portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
         }
 
         private void PortfolioDetail1_Resize(object sender, EventArgs e)
         {
-            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+            //VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)
@@ -373,20 +382,23 @@ namespace GoodeeProject
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             ChatClinet.DisConnect();
-            Application.Exit();
         }
-
 
         public void BtnMinimum_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+
+           WindowState = FormWindowState.Minimized;
+
         }
 
         public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {
+
+
             Rectangle borderRectangle = this.ClientRectangle;
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+
         }
 
         public void BtnExit_Click(object sender, EventArgs e)

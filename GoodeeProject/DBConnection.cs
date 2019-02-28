@@ -28,6 +28,8 @@ namespace GoodeeProject
             return con;
         }
 
+        
+
         internal DataTable SelectWithParams(string proc, SqlParameter[] pm)
         {
             SqlDataAdapter da = new SqlDataAdapter();
@@ -69,6 +71,47 @@ namespace GoodeeProject
             return ds.Tables[0];
         }
 
+
+        internal SqlDataReader Select(string proc)
+        {
+            SqlConnection sqlCon = OpenConnection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+            
+            try
+            {
+                return cmd.ExecuteReader();
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+        }
+
+        internal SqlDataReader GetPost(string proc, SqlParameter sqlparameters)
+        {
+            SqlConnection sqlCon = OpenConnection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+            cmd.Parameters.Add(sqlparameters);
+
+            try
+            {
+                return cmd.ExecuteReader();
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+        }
         internal object ExecuteScalar(string proc, SqlParameter[] parameters)
         {
             SqlCommand cmd = new SqlCommand();
@@ -85,6 +128,7 @@ namespace GoodeeProject
 
             con.Close();
             return result;
+
         }
 
         internal bool ExecuteInsert(string proc, SqlParameter[] pm)
@@ -133,7 +177,7 @@ namespace GoodeeProject
 
             int r = cmd.ExecuteNonQuery();
 
-            if (r >= 1)
+            if (r == 1)
             {
                 result = true;
             }
@@ -164,6 +208,51 @@ namespace GoodeeProject
 
             con.Close();
             return result;
+        }
+
+        internal bool ExecuteDelete(string proc, SqlParameter parameters)
+        {
+            bool result = false;
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = proc;
+
+            OpenConnection();
+
+            if (parameters != null)
+            {
+                cmd.Parameters.Add(parameters);
+            }
+
+            int r = cmd.ExecuteNonQuery();
+
+            if (r == 1)
+            {
+                result = true;
+            }
+            con.Close();
+            return result;
+        }
+
+        internal SqlDataReader GetEntryBoard(string sp)
+        {
+            SqlConnection sqlCon = OpenConnection();
+
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = sqlCon;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = sp;
+            try
+            {
+                return cmd.ExecuteReader();
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
         }
     }
 }

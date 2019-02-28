@@ -45,6 +45,7 @@
             this.iTalk_Label1.TabIndex = 34;
             this.iTalk_Label1.Text = "기업정보";
             this.iTalk_Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.iTalk_Label1.Click += new System.EventHandler(this.iTalk_Label1_Click);
             // 
             // iTalk_Separator1
             // 
@@ -66,6 +67,7 @@
             this.lblMenu1.TabIndex = 32;
             this.lblMenu1.Text = "구인정보";
             this.lblMenu1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMenu1.Click += new System.EventHandler(this.lblMenu1_Click_1);
             // 
             // iTalk_ChatBubble_L1
             // 

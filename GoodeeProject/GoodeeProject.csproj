@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,12 +63,22 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="NetSpell.SpellChecker, Version=2.1.7.41329, Culture=neutral, PublicKeyToken=318b389f0db66e46">
+      <HintPath>..\packages\NetSpell.2.1.7\lib\NetSpell.SpellChecker.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PrintRichTextBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RichTextBoxEx.1.0.0\lib\PrintRichTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="RichTextBoxEx, Version=1.0.6541.36291, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RichTextBoxEx.1.0.0\lib\RichTextBoxEx.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -76,9 +101,7 @@
     <Compile Include="Chat.Designer.cs">
       <DependentUpon>Chat.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChatClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="ChatClient.cs" />
     <Compile Include="ChatList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +120,46 @@
     </Compile>
     <Compile Include="CreateSurvey.Designer.cs">
       <DependentUpon>CreateSurvey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgreementBoard.cs" />
+    <Compile Include="Agreement_enterprise.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agreement_enterprise.Designer.cs">
+      <DependentUpon>Agreement_enterprise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agreement_enterprise_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agreement_enterprise_list.Designer.cs">
+      <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyForm.Designer.cs">
+      <DependentUpon>CompanyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompanyMainForm.Designer.cs">
+      <DependentUpon>CompanyMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CompanyRandomPassword.cs" />
+    <Compile Include="ExtensionKREDIT.cs" />
+    <Compile Include="ExtensionXML.cs" />
+    <Compile Include="JobChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobChoice.Designer.cs">
+      <DependentUpon>JobChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodeDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeDB.Designer.cs">
+      <DependentUpon>CodeDB.cs</DependentUpon>
     </Compile>
     <Compile Include="CtlAddr.cs">
       <SubType>UserControl</SubType>
@@ -267,6 +330,14 @@
     <Compile Include="FrmClassInfo.Designer.cs">
       <DependentUpon>FrmClassInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="DetailView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DetailView.Designer.cs">
+      <DependentUpon>DetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FirstSubArea.cs" />
+    <Compile Include="FirstSubJob.cs" />
     <Compile Include="FrmCreateID.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +418,12 @@
       <DependentUpon>FrmModify.cs</DependentUpon>
     </Compile>
     <Compile Include="GoodeeDAO\GoodeeDAO.cs" />
+    <Compile Include="GyeonggiArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GyeonggiArea.Designer.cs">
+      <DependentUpon>GyeonggiArea.cs</DependentUpon>
+    </Compile>
     <Compile Include="IGoodee.cs" />
     <Compile Include="italk_theme_-_c#.cs" />
     <Compile Include="OnlineInfo.cs">
@@ -356,6 +433,54 @@
       <DependentUpon>OnlineInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="MBTIChoice.cs" />
+    <Compile Include="JobAreaChoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobAreaChoice.Designer.cs">
+      <DependentUpon>JobAreaChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobInformation.Designer.cs">
+      <DependentUpon>JobInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KREDITPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KREDITPanel.Designer.cs">
+      <DependentUpon>KREDITPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KREDIT_JOBlist.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KREDIT_JOBlist.Designer.cs">
+      <DependentUpon>KREDIT_JOBlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KREDIT_JOBResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KREDIT_JOBResult.Designer.cs">
+      <DependentUpon>KREDIT_JOBResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KREDIT_JOB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="KREDIT_JOB.Designer.cs">
+      <DependentUpon>KREDIT_JOB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MedioButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MedioButton.Designer.cs">
+      <DependentUpon>MedioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="oneJobMatResult.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="oneJobMatResult.Designer.cs">
+      <DependentUpon>oneJobMatResult.cs</DependentUpon>
+    </Compile>
     <Compile Include="Portfolio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -389,6 +514,43 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Area.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Area.Designer.cs">
+      <DependentUpon>Area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateAgreement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UpdateAgreement.Designer.cs">
+      <DependentUpon>UpdateAgreement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlSaramin.cs" />
+    <Compile Include="XmlSaraminNodeJobs.cs" />
+    <EmbeddedResource Include="Agreement_enterprise.resx">
+      <DependentUpon>Agreement_enterprise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Agreement_enterprise_list.resx">
+      <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyForm.resx">
+      <DependentUpon>CompanyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompanyMainForm.resx">
+      <DependentUpon>CompanyMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobChoice.resx">
+      <DependentUpon>JobChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeDB.resx">
+      <DependentUpon>CodeDB.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="SaveLog.cs" />
     <Compile Include="StudentManagement.cs">
       <SubType>UserControl</SubType>
@@ -506,6 +668,9 @@
     <EmbeddedResource Include="FrmClassInfo.resx">
       <DependentUpon>FrmClassInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DetailView.resx">
+      <DependentUpon>DetailView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCreateID.resx">
       <DependentUpon>FrmCreateID.cs</DependentUpon>
     </EmbeddedResource>
@@ -527,6 +692,30 @@
     <EmbeddedResource Include="OnlineInfo.resx">
       <DependentUpon>OnlineInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GyeonggiArea.resx">
+      <DependentUpon>GyeonggiArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobAreaChoice.resx">
+      <DependentUpon>JobAreaChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobInformation.resx">
+      <DependentUpon>JobInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KREDITPanel.resx">
+      <DependentUpon>KREDITPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KREDIT_JOB.resx">
+      <DependentUpon>KREDIT_JOB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KREDIT_JOBlist.resx">
+      <DependentUpon>KREDIT_JOBlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KREDIT_JOBResult.resx">
+      <DependentUpon>KREDIT_JOBResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MedioButton.resx">
+      <DependentUpon>MedioButton.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMBTIQuestion.resx">
       <DependentUpon>FrmMBTIQuestion.cs</DependentUpon>
     </EmbeddedResource>
@@ -541,6 +730,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSelfIntroduce.resx">
       <DependentUpon>FrmSelfIntroduce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oneJobMatResult.resx">
+      <DependentUpon>oneJobMatResult.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
@@ -565,14 +757,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Area.resx">
+      <DependentUpon>Area.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentManagement.resx">
       <DependentUpon>StudentManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -582,7 +772,12 @@
     <EmbeddedResource Include="SurveyList.resx">
       <DependentUpon>SurveyList.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <EmbeddedResource Include="UpdateAgreement.resx">
+      <DependentUpon>UpdateAgreement.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -597,6 +792,7 @@
     <Content Include="Resources\MBTI.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\KakaoTalk_20190225_085247325.png" />
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -649,6 +845,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\warning.png" />
+    <None Include="Resources\학생정보열람요청.png" />
+    <None Include="Resources\그림1.png" />
+    <None Include="Resources\company1.png" />
+    <None Include="Resources\company.png" />
+    <None Include="Resources\loupe %281%29.png" />
+    <None Include="Resources\loupe.png" />
+    <None Include="Resources\326572-48.png" />
+    <Content Include="Database1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
     <Content Include="Resources\326572-48.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -661,6 +872,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -679,6 +898,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="MSDAOSP">
       <Guid>{E0E270C2-C0BE-11D0-8FE4-00A0C90A6341}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -688,6 +916,26 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPNSSCI">
+      <Guid>{453E9E02-8BA4-474C-BFA0-37727E44F6AE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <None Include="Resources\ModifyMember1.png" />
+    <None Include="Resources\ModifyPW1.png" />
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
@@ -703,6 +951,18 @@
     <Content Include="Resources\ModifyPW1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1%28x86 및 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

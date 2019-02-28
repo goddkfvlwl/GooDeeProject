@@ -145,6 +145,7 @@
             this.btnLog.Font = new System.Drawing.Font("맑은 고딕", 8F);
             this.btnLog.Image = null;
             this.btnLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLog.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnLog.Location = new System.Drawing.Point(71, 3);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(62, 31);
@@ -193,12 +194,12 @@
         internal System.Windows.Forms.PictureBox pboxProFile;
         internal iTalk.iTalk_Label lblName;
         internal iTalk.iTalk_Label lblEmailID;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        internal iTalk.iTalk_Button_1 btnCreateID;
         internal iTalk.iTalk_Button_1 btnLogOut;
         internal iTalk.iTalk_Button_1 btnModify;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal iTalk.iTalk_Button_1 btnStudent;
         internal iTalk.iTalk_Button_1 btnLog;
-        internal iTalk.iTalk_Button_1 btnCreateID;
         internal iTalk.iTalk_Button_1 btnClassModify;
     }
 }

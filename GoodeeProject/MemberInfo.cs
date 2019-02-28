@@ -63,4 +63,8 @@ namespace GoodeeProject
         public string Regist { get => regist; set => regist = value; }
         public Image Picture { get => picture; set => picture = value; }
     }
+
+
 }
+
+

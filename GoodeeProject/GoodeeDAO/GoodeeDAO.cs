@@ -17,6 +17,10 @@ namespace GoodeeProject.GoodeeDAO
 
         private static GoodeeDAO gd;
 
+        public GoodeeDAO()
+        {
+        }
+
         public static GoodeeDAO GetInstance()
         {
             if (gd == null)
@@ -45,7 +49,6 @@ namespace GoodeeProject.GoodeeDAO
 
             return ai;
         }
-
         internal DataTable SelectChat(string id)
         {
             string proc = "SelectChat";
@@ -53,6 +56,43 @@ namespace GoodeeProject.GoodeeDAO
             SqlParameter[] parameters = new SqlParameter[1];
             parameters[0] = new SqlParameter("ID", id);
             return con.SelectWithParams(proc, parameters);
+        }
+
+        public AgreementBoard ReadCountUP(int postNum)
+        {
+            string proc = "ReadBoard";
+
+            SqlParameter sqlparameters = new SqlParameter();
+            sqlparameters = new SqlParameter("BoardNum", postNum);
+            AgreementBoard ab = new AgreementBoard();
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlparameters);
+                while (reader.Read())
+                {
+                    if (!string.IsNullOrEmpty(reader["Body"].ToString()))
+                    {
+                        ab = new AgreementBoard()
+                        {
+                            BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
+                            Title = reader["Title"].ToString(),
+                            Body = reader["Body"].ToString(),
+                            WriteDate = DateTime.Parse(reader["WriteDate"].ToString()),
+                            Hits = Int32.Parse(reader["hits"].ToString()),
+                            Id = reader["ID"].ToString()
+
+                        };
+
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return ab;
         }
 
         internal bool CheckID(string email)
@@ -184,6 +224,7 @@ namespace GoodeeProject.GoodeeDAO
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
             }
+
         }
 
         internal void InsertClass(string Class, string curriculm, TextBox turn, DateTime startDate, DateTime endDate, bool isActive)
@@ -347,6 +388,98 @@ namespace GoodeeProject.GoodeeDAO
                 mi.ClassNum = dt.Rows[0][10].ToString() == Convert.DBNull.ToString() ? 0 : Int32.Parse(dt.Rows[0][10].ToString());
             }
             return mi;
+
+        }
+
+
+        public bool InsetFirstAreaCode(string fa, string fn)
+        {
+            string proc = "InsertFistArea_Code";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@areaCode", fa);
+            sqlParameters[1] = new SqlParameter("@firstAreaName", fn);
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
+        internal bool InsetFirstAreaCode(string code, string name, string firstcode)
+        {
+            string proc = "AreaInsert";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@secondAreaCode", code);
+            sqlParameters[1] = new SqlParameter("@secondAreaName", name);
+            sqlParameters[2] = new SqlParameter("@firstAreaCode", firstcode);
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool InsertJob(string jc, string jn)
+        {
+            string proc = "InsertFirstJob";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@jobCode", jc);
+            sqlParameters[1] = new SqlParameter("@jobName", jn);
+
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        internal bool InsertJob(string jobCode, string jobName, string firstJobCode)
+        {
+            string proc = "InsertSecondJob";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@secondeJobCode", jobCode);
+            sqlParameters[1] = new SqlParameter("@job_Name", jobName);
+            sqlParameters[2] = new SqlParameter("@firstJobCode", firstJobCode);
+
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Class SelectClass(int classNum)
@@ -511,6 +644,29 @@ namespace GoodeeProject.GoodeeDAO
             return con.ExecuteDelete(proc, parameters);
         }
 
+        internal bool InsertDetailJob(string jobCode, string jobName, string secondJobCode)
+        {
+            string proc = "InsertDetailJob";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@detailJobCode", jobCode);
+            sqlParameters[1] = new SqlParameter("@jobName", jobName);
+            sqlParameters[2] = new SqlParameter("@secondJobCode", secondJobCode);
+
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public bool UpdatePassWord(string id, string pw)
         {
             string proc = "UpdatePassWord";
@@ -527,7 +683,56 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+        public bool InsertBoard(AgreementBoard b)
+        {
+            string proc = "BoardInsert";
 
+            con = new DBConnection();
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+            sqlParameters[0] = new SqlParameter("@title", b.Title);
+            sqlParameters[1] = new SqlParameter("@body", b.Body);
+            sqlParameters[2] = new SqlParameter("@writeDate", b.WriteDate);
+            sqlParameters[3] = new SqlParameter("@id", b.Id);
+
+            try
+            {
+                return con.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<AgreementBoard> OutBoard()
+        {
+            List<AgreementBoard> lst = new List<AgreementBoard>();
+            string sp = "SelectListBoard";
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetEntryBoard(sp);
+                while (reader.Read())
+                {
+                    lst.Add(new AgreementBoard()
+                    {
+                        BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
+                        Title = reader["Title"].ToString(),
+                        WriteDate = DateTime.Parse(reader["WriteDate"].ToString()),
+                        Id = reader["ID"].ToString(),
+                        Hits = Int32.Parse(reader["hits"].ToString())
+
+                    });
+                }
+            }
+            catch (SqlException)
+            {
+
+                throw;
+            }
+            return lst;
+        }
 
         public bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture)
         {
@@ -581,6 +786,292 @@ namespace GoodeeProject.GoodeeDAO
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
             return ms.ToArray();
         }
+
+
+        public bool DeleteBoard(int num)
+        {
+            string proc = "DeleteBoard";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter sqlparameters = new SqlParameter();
+            sqlparameters = new SqlParameter("@BoardNum", num);
+
+            try
+            {
+                return dbCon.ExecuteDelete(proc, sqlparameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public string SubAreaCount(string firstAreaName)
+        {
+            string sp = "FirstAreaCode";
+
+            string firstCode = "";
+            SqlParameter sqlparameters = new SqlParameter();
+            sqlparameters = new SqlParameter("firstAreaName", firstAreaName);
+            
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(sp, sqlparameters);
+                //System.Windows.Forms.MessageBox.Show(firstCode = reader["FirstArea_Code"].ToString());
+                while (reader.Read())
+                {
+                    firstCode = reader["FirstArea_Code"].ToString();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return firstCode;
+            
+        }
+
+        public List<FirstSubArea> SubAreaName(string fristCode)
+        {
+            string sp = "subAreaCodeName";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@firstAreaCode", fristCode);
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(sp, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        SubAreaName = reader["secondArea_Name"].ToString(),
+                        SubAreaCode = reader["secondArea_Code"].ToString()
+                    });
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return list;
+        }
+
+        public List<FirstSubArea> AllFirstAreaName()
+        {
+            string proc = "KoreaFirstAreaName";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().Select(proc);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        FirstAreaName1 = reader["FirstArea_Name"].ToString()
+                    });
+                        
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubArea> ForeginAllFirstAreaName()
+        {
+            string proc = "ForeignAreaName";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().Select(proc);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        FirstAreaName1 = reader["FirstArea_Name"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubJob> AllFirstJobName()
+        {
+            string proc = "AllFirstJob";
+            List<FirstSubJob> list = new List<FirstSubJob>();
+            try
+            {
+                SqlDataReader reader = new DBConnection().Select(proc);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubJob()
+                    {
+                        FirstJob_Code = reader["Job_Code"].ToString(),
+                        FirstJob_Name = reader["Job_Name"].ToString()
+                    });
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return list;
+        }
+
+        public List<FirstSubArea> AllDetailArea(string area)
+        {
+            string proc = "AllDetailArea";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("secondAreaName", area);
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubArea()
+                    {
+                        FirstAreaCode = reader["FirstArea_Code"].ToString(),
+                        SubAreaName = reader["secondArea_Name"].ToString(),
+                        SubAreaCode = reader["secondArea_Code"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public string AllFirstAreaName(string firstJobName)
+        {
+            string proc = "selectJobCode";
+            string code = "";
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@jobName", firstJobName);
+
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    code = reader["Job_Code"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return code;
+        }
+
+        public List<FirstSubJob> selectSecondJob(string firstJobCode)
+        {
+            string proc = "selectSecondJob";
+            List<FirstSubJob> list = new List<FirstSubJob>();
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@firstJobCode", firstJobCode);
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubJob()
+                    {
+                        SecondJob_Code = reader["SecondJob_Code"].ToString(),
+                        SecondJob_Name = reader["job_Name"].ToString(),
+                        FirstJob_Code = reader["FirstJob_Code"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubJob> selectDetailJob(string secondJocCode)
+        {
+            string proc = "DetailJob";
+            List<FirstSubJob> list = new List<FirstSubJob>();
+            SqlParameter sqlParameter = new SqlParameter();
+            sqlParameter = new SqlParameter("@secondJobCode", secondJocCode);
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(proc, sqlParameter);
+                while (reader.Read())
+                {
+                    list.Add(new FirstSubJob()
+                    {
+                        Detailjob_Code = reader["DetailJob_Code"].ToString(),
+                        Detailjob_Name = reader["Job_Name"].ToString(),
+                        SecondJob_Code = reader["SecondJob_Code"].ToString()
+                    });
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
+
+        public List<FirstSubArea> AreaAutomaticSearch()
+        {
+            string proc = "AreaAutomaticSearch";
+            List<FirstSubArea> list = new List<FirstSubArea>();
+
+            con = new DBConnection();
+
+            DataTable dt = con.ExecuteSelect(proc);
+            foreach (DataRow item in dt.Rows)
+            {
+                list.Add(new FirstSubArea()
+                {
+                    FirstAreaCode = item["FirstArea_Code"].ToString(),
+                    FirstAreaName1 = item["FirstArea_Name"].ToString(),
+                    SubAreaCode = item["secondArea_Code"].ToString(),
+                    SubAreaName = item["secondArea_Name"].ToString()
+                });
+            }
+            return list;
+
+        }
+
+        
 
         public bool InsertLicense(string id, string name, DateTime date, string agency)
         {
@@ -772,5 +1263,23 @@ namespace GoodeeProject.GoodeeDAO
             pms[0] = new SqlParameter("ClassNum", tag);
             return con.SelectWithParams(proc, pms);
         }
+        internal bool UpdateBoard(int boardNum, AgreementBoard board)
+        {
+            string proc = "UpdateBoard";
+            bool result = false;
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[3];
+            pms[0] = new SqlParameter("@boardNum", board.BoardNum);
+            pms[1] = new SqlParameter("@body", board.Body);
+            pms[2] = new SqlParameter("@date", board.WriteDate);
+
+            if (con.ExecuteUpdate(proc, pms))
+            {
+                result = true;
+            }
+            return result;
+        }
+
     }
 }
+

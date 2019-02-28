@@ -10,7 +10,7 @@ using Tulpep.NotificationWindow;
 
 namespace GoodeeProject
 {
-    class ChatClient : Form
+    class ChatClient
     {
         private static List<FrmChat> chatList = new List<FrmChat>();
         TcpClient client;
@@ -59,6 +59,31 @@ namespace GoodeeProject
                         }
                     }
                 }
+            }else
+            {
+                if (client == null && !FrmMain.IsConnected)
+                {
+                    byte[] nickName = Encoding.UTF8.GetBytes(FrmMain.Mi.Id + "$||$" + FrmMain.Ai.Authority + "%*%*");
+                    client = new TcpClient();
+                    try
+                    {
+                        client.Connect("192.168.0.248", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
+                        FrmMain.IsConnected = true;
+                    }
+                    catch (Exception a)
+                    {
+                        MessageBox.Show("서버 또는 포트번호를 확인해주세요." + a.Message);
+                        return;
+                    }
+
+                    // TcpClient 객체의 GetStream() 메서드는 TCP 네트워크 스트림을 리턴한다. 이 네트워크 스트림을 이용해서 네트워크으로 데이타 송수신하게 된다
+                    ns = client.GetStream();
+                    ns.Write(nickName, 0, nickName.Length);
+                    ns.Flush();
+
+                    getMassageThread = new Thread(GetMassage);
+                    getMassageThread.Start();
+                }
             }
         }
 
@@ -92,7 +117,35 @@ namespace GoodeeProject
                     MessageBox.Show("동일한 계정이 이미 접속중입니다.");
                     Environment.Exit(0);
                 }
+                else if (readData.Contains("$열람요청$"))
+                {
+                    DialogResult result = MessageBox.Show(readData, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        SendMessage();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        NoSendMessage();
+                    }
+                }
             }
+        }
+
+        private void NoSendMessage()
+        {
+            string text = "요청거부&&&&%%%%%_____";
+            byte[] message = Encoding.UTF8.GetBytes(text);
+            ns.Write(message, 0, message.Length);
+            ns.Flush();
+        }
+
+        private void SendMessage()
+        {
+            string text = "요청허용$$$$!!@@@__+++";
+            byte[] message = Encoding.UTF8.GetBytes(text);
+            ns.Write(message, 0, message.Length);
+            ns.Flush();
         }
 
         private void GetMembers()
