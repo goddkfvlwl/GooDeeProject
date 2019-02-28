@@ -118,13 +118,14 @@ namespace GoodeeProject
                 
                 foreach (var item in cList)
                 {
-                    RadioButton rdoC = new RadioButton();
+                    
                     if (mq.lblNum.Text == item.QuestionNum.ToString() + ". ")
                     {
                         if (item.QuestionNum != 24)
                         {
                             mq.flowpanelChoice.Size = new Size(750, 80);
                             mq.Size = new Size(771, 108);
+                            RadioButton rdoC = new RadioButton();
                             rdoC.Name = "rdoC";
                             rdoC.AutoSize = true;
                             rdoC.Text = "(" + item.Item + ") " + item.ItemDetail;
@@ -161,8 +162,8 @@ namespace GoodeeProject
 
                             mq.flowpanelChoice.Controls.RemoveByKey("rdoA");
                             mq.flowpanelChoice.Controls.RemoveByKey("rdoB");
-                            //mq.flowpanelChoice.Controls.RemoveByKey("rdoC");
-                            rdoC.Visible = false;
+                            mq.flowpanelChoice.Controls.RemoveByKey("rdoC");
+                            //rdoC.Visible = false;
                         }
                     }
                     

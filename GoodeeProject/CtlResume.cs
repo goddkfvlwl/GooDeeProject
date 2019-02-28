@@ -425,16 +425,16 @@ namespace GoodeeProject
                     return;
                 }
 
-                try
-                {
+                //try
+                //{
                     workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName, Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false, Type.Missing);
                     File.Delete(Application.StartupPath + "/Resources/userResume.xls");
                     MessageBox.Show("저장 완료");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("저장 실패");
-                }
+                //}
+                //catch (Exception)
+                //{
+                //    MessageBox.Show("저장 실패");
+                //}
 
                 excelApp.Quit();
                 Marshal.ReleaseComObject(workSheet);
