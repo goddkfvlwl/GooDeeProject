@@ -28,18 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pboxProFile = new System.Windows.Forms.PictureBox();
-            this.lblName = new iTalk.iTalk_Label();
-            this.lblEmailID = new iTalk.iTalk_Label();
-            this.btnLogOut = new iTalk.iTalk_Button_1();
-            this.btnModify = new iTalk.iTalk_Button_1();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pboxProFile = new System.Windows.Forms.PictureBox();
+            this.btnClassModify = new iTalk.iTalk_Button_1();
+            this.btnCreateID = new iTalk.iTalk_Button_1();
             this.btnStudent = new iTalk.iTalk_Button_1();
             this.btnLog = new iTalk.iTalk_Button_1();
-            this.btnCreateID = new iTalk.iTalk_Button_1();
+            this.btnModify = new iTalk.iTalk_Button_1();
+            this.btnLogOut = new iTalk.iTalk_Button_1();
+            this.lblEmailID = new iTalk.iTalk_Label();
+            this.lblName = new iTalk.iTalk_Label();
             ((System.ComponentModel.ISupportInitialize)(this.pboxProFile)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnStudent);
+            this.flowLayoutPanel1.Controls.Add(this.btnLog);
+            this.flowLayoutPanel1.Controls.Add(this.btnModify);
+            this.flowLayoutPanel1.Controls.Add(this.btnLogOut);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(88, 74);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(280, 34);
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
             // pboxProFile
             // 
@@ -50,18 +62,18 @@
             this.pboxProFile.TabIndex = 0;
             this.pboxProFile.TabStop = false;
             // 
-            // lblName
+            // btnClassModify
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.BackColor = System.Drawing.Color.Transparent;
-            this.lblName.Font = new System.Drawing.Font("맑은 고딕", 9F);
-            this.lblName.ForeColor = System.Drawing.Color.Gray;
-            this.lblName.Location = new System.Drawing.Point(96, 15);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(31, 15);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "이름";
-            // 
+            this.btnClassModify.BackColor = System.Drawing.Color.Transparent;
+            this.btnClassModify.Font = new System.Drawing.Font("맑은 고딕", 8F);
+            this.btnClassModify.Image = null;
+            this.btnClassModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClassModify.Location = new System.Drawing.Point(287, 37);
+            this.btnClassModify.Name = "btnClassModify";
+            this.btnClassModify.Size = new System.Drawing.Size(70, 31);
+            this.btnClassModify.TabIndex = 8;
+            this.btnClassModify.Text = "과정 수정";
+            this.btnClassModify.TextAlignment = System.Drawing.StringAlignment.Center;
             // lblEmailID
             // 
             this.lblEmailID.AutoSize = true;
@@ -160,6 +172,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.Controls.Add(this.btnClassModify);
             this.Controls.Add(this.btnCreateID);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblEmailID);
@@ -186,5 +199,6 @@
         internal iTalk.iTalk_Button_1 btnStudent;
         internal iTalk.iTalk_Button_1 btnLog;
         internal iTalk.iTalk_Button_1 btnCreateID;
+        internal iTalk.iTalk_Button_1 btnClassModify;
     }
 }

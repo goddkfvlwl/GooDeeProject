@@ -28,10 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnBack = new iTalk.iTalk_Button_1();
             this.btnSaveToPDF = new iTalk.iTalk_Button_1();
             this.btnSave = new iTalk.iTalk_Button_1();
             this.portfolioDetail1 = new GoodeeProject.PortfolioDetail();
             this.SuspendLayout();
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnBack.Image = null;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Location = new System.Drawing.Point(344, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(166, 30);
+            this.btnBack.TabIndex = 3;
+            this.btnBack.Text = "뒤로가기";
+            this.btnBack.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSaveToPDF
             // 
@@ -41,10 +56,11 @@
             this.btnSaveToPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSaveToPDF.Location = new System.Drawing.Point(172, 0);
             this.btnSaveToPDF.Name = "btnSaveToPDF";
-            this.btnSaveToPDF.Size = new System.Drawing.Size(166, 40);
+            this.btnSaveToPDF.Size = new System.Drawing.Size(166, 30);
             this.btnSaveToPDF.TabIndex = 2;
             this.btnSaveToPDF.Text = "PDF저장";
             this.btnSaveToPDF.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnSaveToPDF.Click += new System.EventHandler(this.btnSaveToPDF_Click);
             // 
             // btnSave
             // 
@@ -54,7 +70,7 @@
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(0, 0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(166, 40);
+            this.btnSave.Size = new System.Drawing.Size(166, 30);
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "저장";
             this.btnSave.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -63,9 +79,9 @@
             // portfolioDetail1
             // 
             this.portfolioDetail1.AutoScroll = true;
-            this.portfolioDetail1.Location = new System.Drawing.Point(0, 46);
+            this.portfolioDetail1.Location = new System.Drawing.Point(0, 36);
             this.portfolioDetail1.Name = "portfolioDetail1";
-            this.portfolioDetail1.Size = new System.Drawing.Size(815, 400);
+            this.portfolioDetail1.Size = new System.Drawing.Size(815, 410);
             this.portfolioDetail1.TabIndex = 0;
             // 
             // Portfolio
@@ -73,12 +89,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSaveToPDF);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.portfolioDetail1);
             this.Name = "Portfolio";
-            this.Size = new System.Drawing.Size(815, 454);
-            this.Load += new System.EventHandler(this.Portfolio_Load);
+            this.Size = new System.Drawing.Size(818, 454);
             this.ResumeLayout(false);
 
         }
@@ -88,5 +104,6 @@
         private PortfolioDetail portfolioDetail1;
         private iTalk.iTalk_Button_1 btnSave;
         private iTalk.iTalk_Button_1 btnSaveToPDF;
+        private iTalk.iTalk_Button_1 btnBack;
     }
 }

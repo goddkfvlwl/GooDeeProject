@@ -13,10 +13,14 @@ namespace GoodeeProject
     public partial class FrmMBTIQuestion : Form, IFormControl
     {
         Dictionary<int, string> mbtiDic;
+
+        Dictionary<char, int> tendency;
+
         List<CtlMBTIQuestion> mqList = new List<CtlMBTIQuestion>();
         GoodeeDAO.GoodeeDAO gd;
         DataTable question;
         DataTable choice;
+        string mbtiResult;
 
         private int movePointX;
         private int movePointY;
@@ -91,6 +95,7 @@ namespace GoodeeProject
                 }
             }
 
+            
             for (int i = 0; i < aList.Count; i++)
             {
                 CtlMBTIQuestion mq = new CtlMBTIQuestion();
@@ -100,9 +105,17 @@ namespace GoodeeProject
 
                 mq.rdoA.Text = "(" + aList[i].Item + ") " + aList[i].ItemDetail.ToString();
                 mq.rdoB.Text = "(" + bList[i].Item + ") " + bList[i].ItemDetail.ToString();
+
                 mq.rdoA.Tag = new KeyValuePair<int, string>(aList[i].QuestionNum, "A");
                 mq.rdoB.Tag = new KeyValuePair<int, string>(bList[i].QuestionNum, "B");
                 if (mq.rdoB.Location.X + mq.rdoB.Size.Width > mq.flowpanelChoice.Width) // 플로우 레이아웃 밖으로 라디오버튼이 침범할 때
+
+
+                mq.rdoA.Tag = new KeyValuePair<int, string>(aList[i].QuestionNum, "A");
+                mq.rdoB.Tag = new KeyValuePair<int, string>(bList[i].QuestionNum, "B");
+
+                if (mq.rdoA.Width + mq.rdoB.Width > mq.flowpanelChoice.Width)
+
                 {
                     mq.flowpanelChoice.Size = new Size(750, 50);
 
@@ -111,6 +124,7 @@ namespace GoodeeProject
                 
                 foreach (var item in cList)
                 {
+                 
                     if (mq.lblNum.Text == item.QuestionNum.ToString() + ". ")
                     {
                         if (item.QuestionNum != 24)
@@ -118,13 +132,13 @@ namespace GoodeeProject
                             mq.flowpanelChoice.Size = new Size(750, 80);
                             mq.Size = new Size(771, 108);
 
-                            RadioButton rdoC = new RadioButton();
-                            rdoC.Name = "rdoC";
-                            
+                            RadioButton rdoC = new RadioButton(); rdoC.Name = "rdoC";
+
                             rdoC.AutoSize = true;
-                            rdoC.Tag = new KeyValuePair<int, string>(item.QuestionNum, "C");
                             rdoC.Text = "(" + item.Item + ") " + item.ItemDetail;
-                            mq.flowpanelChoice.Controls.Add(rdoC);
+                            rdoC.Tag = new KeyValuePair<int, string>(item.QuestionNum, "C");
+                            mq.flowpanelChoice.Controls.Add(rdoC); 
+
                         }
                         else
                         {
@@ -156,6 +170,14 @@ namespace GoodeeProject
                             cbA.Text = mq.rdoA.Text;
                             cbB.Text = mq.rdoB.Text;
                             cbC.Text = "(" + item.Item + ") " + item.ItemDetail;
+                            
+                            cbA.Text = mq.rdoA.Text;
+                            cbB.Text = mq.rdoB.Text;
+                            cbC.Text = "(" + item.Item + ") " + item.ItemDetail;
+
+                            mq.flowpanelChoice.Controls.RemoveByKey("rdoA");
+                            mq.flowpanelChoice.Controls.RemoveByKey("rdoB");
+                            mq.flowpanelChoice.Controls.RemoveByKey("rdoC");
                         }
                     }
                 }
@@ -176,6 +198,7 @@ namespace GoodeeProject
         private void btnSend_Click(object sender, EventArgs e)
         {
             mbtiDic = new Dictionary<int, string>();
+
             foreach (var item in mqList)
             {
                 if (item.flowpanelChoice.Controls.ContainsKey("cbA"))
@@ -199,7 +222,7 @@ namespace GoodeeProject
                     {
                         value += tempC.Value.ToString() + ",";
                     }
-                    if (value.Length!=0)
+                    if (value.Length != 0)
                     {
                         value = value.Remove(value.Length - 1, 1); 
                     }
@@ -233,15 +256,15 @@ namespace GoodeeProject
             MBTI_Calculator();
         }
         
+
         public void MBTI_Calculator()
         {
-            Dictionary<char, int> tendency = new Dictionary<char, int>();
+            tendency = new Dictionary<char, int>();
             char[] temp = { 'E', 'I', 'S', 'N', 'T', 'F', 'J', 'P' };
             foreach (var item in temp)
             {
                 tendency.Add(item, 0);
             }
-        
             foreach (DataRow item in choice.Rows)
             {
                 if (FrmMain.Mi.Gender == 'F' || FrmMain.Mi.Gender == 'f')
@@ -265,13 +288,88 @@ namespace GoodeeProject
                     }
                 }
             }
+            
+            int ei = ChangeScore(tendency['E'], tendency['I']);
+            int ns = ChangeScore(tendency['N'], tendency['S']);
+            int ft = ChangeScore(tendency['F'], tendency['T']);
+            int pj = ChangeScore(tendency['P'], tendency['J']);
 
-            string result = "";
-            foreach (var item in tendency)
+            if (gd.InsertMBTI_Stats(FrmMain.Mi.Id, ei, ns, ft, pj, GetResult(), DateTime.Today))
             {
-                result += item.Key + " : " + item.Value + "\t";
+                FrmMain fm = new FrmMain();
+                CtlMBTIResult mr = new CtlMBTIResult();
+                fm.panel2.Controls.Add(mr);
+                mr.Location = new Point(185, 0);
+                MessageBox.Show("제출 완료");
+                this.Close();
             }
-            MessageBox.Show(result);
+            else
+            {
+                MessageBox.Show("제출을 실패했습니다.\n잠시후 다시 시도해주세요.");
+            }
+        }
+
+        private int ChangeScore(int a, int b)
+        {
+            int result = 0;
+
+            if (a == b)
+            {
+                result = 1;
+            }
+            else if (a > b)
+            {
+                result = (a - b) * 2 + 1;
+            }
+            else
+            {
+                result = (b - a) * 2 - 1;
+            }
+
+            return result;
+        }
+
+        private string GetResult()
+        {
+            string temp = "";
+
+            if (tendency['E'] < tendency['I'])
+            {
+                temp = "I";
+            }
+            else
+            {
+                temp = "E";
+            }
+
+            if (tendency['S'] > tendency['N'])
+            {
+                temp += "S";
+            }
+            else
+            {
+                temp += "N";
+            }
+
+            if (tendency['T'] > tendency['F'])
+            {
+                temp += "T";
+            }
+            else
+            {
+                temp += "F";
+            }
+
+            if (tendency['J'] > tendency['P'])
+            {
+                temp += "J";
+            }
+            else
+            {
+                temp += "P";
+            }
+
+            return temp;
         }
     }
 }

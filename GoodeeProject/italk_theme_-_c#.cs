@@ -2512,6 +2512,8 @@ namespace iTalk
             int lineCount = temp.GetLineFromCharIndex(temp.Text.Length);
             return lineCount;
         }
+
+
     }
 
     #endregion
