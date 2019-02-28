@@ -46,9 +46,15 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
-<<<<<<< HEAD
         internal DataTable SelectChat(string id)
-=======
+        {
+            string proc = "SelectChat";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ID", id);
+            return con.SelectWithParams(proc, parameters);
+        }
+
         internal bool CheckID(string email)
         {
             bool result = false;
@@ -63,8 +69,6 @@ namespace GoodeeProject.GoodeeDAO
             }
             return result;
         }
-
-
 
         internal bool InsertAdmin(MemberInfo info, string password, char authority)
         {
@@ -180,16 +184,6 @@ namespace GoodeeProject.GoodeeDAO
             {
                 System.Windows.Forms.MessageBox.Show("저장성공");
             }
-        }
-
-        internal void InsertMember(MemberInfo member)
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
-        {
-            string proc = "SelectChat";
-            con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[1];
-            parameters[0] = new SqlParameter("ID", id);
-            return con.SelectWithParams(proc, parameters);
         }
 
         internal void InsertClass(string Class, string curriculm, TextBox turn, DateTime startDate, DateTime endDate, bool isActive)
@@ -703,7 +697,6 @@ namespace GoodeeProject.GoodeeDAO
             return con.ExecuteSelect(proc);
         }
 
-<<<<<<< HEAD
         public bool InsertMBTI_Stats(string id, int ei, int sn, int tf, int jp, string result, DateTime mbtiDate)
         {
             string proc = "InsertMBTI_Stats";
@@ -738,17 +731,11 @@ namespace GoodeeProject.GoodeeDAO
         public DataTable SelectMBTI_Stats()
         {
             string proc = "SelectMbtiStats";
-=======
-        public DataTable SelectAllClass()
-        {
-            string proc = "SelectAllClass";
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
             con = new DBConnection();
 
             return con.ExecuteSelect(proc);
         }
 
-<<<<<<< HEAD
         public DataTable SelectMBTI_StatsByName(string name)
         {
             string proc = "SelectMBTIStatsByName";
@@ -765,15 +752,6 @@ namespace GoodeeProject.GoodeeDAO
             con = new DBConnection();
             SqlParameter[] pms = new SqlParameter[1];
             pms[0] = new SqlParameter("result", result);
-=======
-        internal DataTable SelectMemberInfoINClassNum(int tag)
-        {
-            string proc = "SelectMemberInfoINClassNum";
-            con = new DBConnection();
-            SqlParameter[] pms = new SqlParameter[1];
-            pms[0] = new SqlParameter("ClassNum", tag);
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
-
             return con.SelectWithParams(proc, pms);
         }
     }

@@ -103,15 +103,9 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-<<<<<<< HEAD
         internal static System.Drawing.Bitmap MBTI {
             get {
                 object obj = ResourceManager.GetObject("MBTI", resourceCulture);
-=======
-        internal static System.Drawing.Bitmap minus {
-            get {
-                object obj = ResourceManager.GetObject("minus", resourceCulture);
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -13,10 +13,7 @@ namespace GoodeeProject
     public partial class FrmMBTIQuestion : Form, IFormControl
     {
         Dictionary<int, string> mbtiDic;
-<<<<<<< HEAD
         Dictionary<char, int> tendency;
-=======
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
         List<CtlMBTIQuestion> mqList = new List<CtlMBTIQuestion>();
         GoodeeDAO.GoodeeDAO gd;
         DataTable question;
@@ -106,17 +103,10 @@ namespace GoodeeProject
 
                 mq.rdoA.Text = "(" + aList[i].Item + ") " + aList[i].ItemDetail.ToString();
                 mq.rdoB.Text = "(" + bList[i].Item + ") " + bList[i].ItemDetail.ToString();
-<<<<<<< HEAD
-
                 mq.rdoA.Tag = new KeyValuePair<int, string>(aList[i].QuestionNum, "A");
                 mq.rdoB.Tag = new KeyValuePair<int, string>(bList[i].QuestionNum, "B");
 
                 if (mq.rdoA.Width + mq.rdoB.Width > mq.flowpanelChoice.Width)
-=======
-                mq.rdoA.Tag = new KeyValuePair<int, string>(aList[i].QuestionNum, "A");
-                mq.rdoB.Tag = new KeyValuePair<int, string>(bList[i].QuestionNum, "B");
-                if (mq.rdoB.Location.X + mq.rdoB.Size.Width > mq.flowpanelChoice.Width) // 플로우 레이아웃 밖으로 라디오버튼이 침범할 때
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                 {
                     mq.flowpanelChoice.Size = new Size(750, 50);
 
@@ -130,24 +120,14 @@ namespace GoodeeProject
                     {
                         if (item.QuestionNum != 24)
                         {
+
                             mq.flowpanelChoice.Size = new Size(750, 80);
                             mq.Size = new Size(771, 108);
-<<<<<<< HEAD
                             rdoC.Name = "rdoC";
                             rdoC.AutoSize = true;
                             rdoC.Text = "(" + item.Item + ") " + item.ItemDetail;
                             rdoC.Tag = new KeyValuePair<int, string>(item.QuestionNum, "C");
                             mq.flowpanelChoice.Controls.Add(rdoC); 
-=======
-
-                            RadioButton rdoC = new RadioButton();
-                            rdoC.Name = "rdoC";
-                            
-                            rdoC.AutoSize = true;
-                            rdoC.Tag = new KeyValuePair<int, string>(item.QuestionNum, "C");
-                            rdoC.Text = "(" + item.Item + ") " + item.ItemDetail;
-                            mq.flowpanelChoice.Controls.Add(rdoC);
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                         }
                         else
                         {
@@ -165,21 +145,12 @@ namespace GoodeeProject
 
                             mq.flowpanelChoice.Size = new Size(750, 80);
                             mq.Size = new Size(771, 108);
-
-<<<<<<< HEAD
-=======
-                            mq.flowpanelChoice.Controls.RemoveByKey("rdoA");
-                            mq.flowpanelChoice.Controls.RemoveByKey("rdoB");
-
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                             mq.flowpanelChoice.Controls.Add(cbA);
                             mq.flowpanelChoice.Controls.Add(cbB);
                             mq.flowpanelChoice.Controls.Add(cbC);
                             cbA.AutoSize = true;
                             cbB.AutoSize = true;
-                            cbC.AutoSize = true;
-<<<<<<< HEAD
-                            
+                            cbC.AutoSize = true;     
                             cbA.Text = mq.rdoA.Text;
                             cbB.Text = mq.rdoB.Text;
                             cbC.Text = "(" + item.Item + ") " + item.ItemDetail;
@@ -188,12 +159,6 @@ namespace GoodeeProject
                             mq.flowpanelChoice.Controls.RemoveByKey("rdoB");
                             //mq.flowpanelChoice.Controls.RemoveByKey("rdoC");
                             rdoC.Visible = false;
-=======
-
-                            cbA.Text = mq.rdoA.Text;
-                            cbB.Text = mq.rdoB.Text;
-                            cbC.Text = "(" + item.Item + ") " + item.ItemDetail;
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                         }
                     }
                     
@@ -215,10 +180,7 @@ namespace GoodeeProject
         private void btnSend_Click(object sender, EventArgs e)
         {
             mbtiDic = new Dictionary<int, string>();
-<<<<<<< HEAD
-            
-=======
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
+
             foreach (var item in mqList)
             {
                 if (item.flowpanelChoice.Controls.ContainsKey("cbA"))
@@ -242,20 +204,13 @@ namespace GoodeeProject
                     {
                         value += tempC.Value.ToString() + ",";
                     }
-<<<<<<< HEAD
                     if (value.Length != 0)
-=======
-                    if (value.Length!=0)
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                     {
                         value = value.Remove(value.Length - 1, 1); 
                     }
                     mbtiDic.Add(tempA.Key, value);
                 }
-<<<<<<< HEAD
-=======
 
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
                 if (item.rdoA.Checked)
                 {
                     KeyValuePair<int, string> temp = (KeyValuePair<int, string>)item.rdoA.Tag;
@@ -276,38 +231,19 @@ namespace GoodeeProject
                     }
                 }
             }
-<<<<<<< HEAD
-            
             MBTI_Calculator();
 
-            
         }
 
         public void MBTI_Calculator()
         {
             tendency = new Dictionary<char, int>();
-=======
-            //foreach (var item in mbtiDic)
-            //{
-            //    MessageBox.Show(item.Key + " :  " + item.Value);
-            //}
-            MBTI_Calculator();
-        }
-        
-        public void MBTI_Calculator()
-        {
-            Dictionary<char, int> tendency = new Dictionary<char, int>();
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
             char[] temp = { 'E', 'I', 'S', 'N', 'T', 'F', 'J', 'P' };
             foreach (var item in temp)
             {
                 tendency.Add(item, 0);
             }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
             foreach (DataRow item in choice.Rows)
             {
                 if (FrmMain.Mi.Gender == 'F' || FrmMain.Mi.Gender == 'f')
@@ -331,8 +267,7 @@ namespace GoodeeProject
                     }
                 }
             }
-<<<<<<< HEAD
-            
+
             int ei = ChangeScore(tendency['E'], tendency['I']);
             int ns = ChangeScore(tendency['N'], tendency['S']);
             int ft = ChangeScore(tendency['F'], tendency['T']);
@@ -414,15 +349,6 @@ namespace GoodeeProject
             }
 
             return temp;
-=======
-
-            string result = "";
-            foreach (var item in tendency)
-            {
-                result += item.Key + " : " + item.Value + "\t";
-            }
-            MessageBox.Show(result);
->>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
         }
     }
 }
