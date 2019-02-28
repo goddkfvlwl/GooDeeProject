@@ -1,6 +1,6 @@
 ﻿namespace GoodeeProject
 {
-    partial class FrmCreateID
+    partial class FrmSelfIntroduce
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tb_Title = new System.Windows.Forms.RichTextBox();
+            this.tb_Body = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
-            this.btn_CreateCom = new System.Windows.Forms.Button();
-            this.btn_CreateManager = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // tb_Title
+            // 
+            this.tb_Title.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Title.Location = new System.Drawing.Point(17, 45);
+            this.tb_Title.Multiline = false;
+            this.tb_Title.Name = "tb_Title";
+            this.tb_Title.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.tb_Title.Size = new System.Drawing.Size(783, 26);
+            this.tb_Title.TabIndex = 2;
+            this.tb_Title.Text = "";
+            // 
+            // tb_Body
+            // 
+            this.tb_Body.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_Body.Location = new System.Drawing.Point(17, 86);
+            this.tb_Body.Name = "tb_Body";
+            this.tb_Body.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.tb_Body.Size = new System.Drawing.Size(783, 372);
+            this.tb_Body.TabIndex = 3;
+            this.tb_Body.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label1.Location = new System.Drawing.Point(13, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label2.Location = new System.Drawing.Point(581, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 19);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "label2";
             // 
             // btnMinimum
             // 
@@ -41,10 +83,10 @@
             this.btnMinimum.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnMinimum.Image = null;
             this.btnMinimum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMinimum.Location = new System.Drawing.Point(422, 4);
+            this.btnMinimum.Location = new System.Drawing.Point(763, 5);
             this.btnMinimum.Name = "btnMinimum";
             this.btnMinimum.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimum.TabIndex = 89;
+            this.btnMinimum.TabIndex = 29;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
@@ -55,71 +97,44 @@
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnExit.Image = null;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(448, 4);
+            this.btnExit.Location = new System.Drawing.Point(789, 5);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(20, 20);
-            this.btnExit.TabIndex = 88;
+            this.btnExit.TabIndex = 28;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // btn_CreateCom
-            // 
-            this.btn_CreateCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CreateCom.ForeColor = System.Drawing.Color.Gray;
-            this.btn_CreateCom.Location = new System.Drawing.Point(236, 40);
-            this.btn_CreateCom.Name = "btn_CreateCom";
-            this.btn_CreateCom.Size = new System.Drawing.Size(236, 50);
-            this.btn_CreateCom.TabIndex = 93;
-            this.btn_CreateCom.Text = "협약업체 계정 생성";
-            this.btn_CreateCom.UseVisualStyleBackColor = true;
-            this.btn_CreateCom.Click += new System.EventHandler(this.btn_CreateCom_Click);
-            // 
-            // btn_CreateManager
-            // 
-            this.btn_CreateManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_CreateManager.ForeColor = System.Drawing.Color.Gray;
-            this.btn_CreateManager.Location = new System.Drawing.Point(0, 40);
-            this.btn_CreateManager.Name = "btn_CreateManager";
-            this.btn_CreateManager.Size = new System.Drawing.Size(236, 50);
-            this.btn_CreateManager.TabIndex = 92;
-            this.btn_CreateManager.Text = "관리자 계정 생성";
-            this.btn_CreateManager.UseVisualStyleBackColor = true;
-            this.btn_CreateManager.Click += new System.EventHandler(this.btn_CreateManager_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(1, 96);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(470, 488);
-            this.panel1.TabIndex = 94;
-            // 
-            // FrmCreateID
+            // FrmSelfIntroduce
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(472, 585);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btn_CreateCom);
-            this.Controls.Add(this.btn_CreateManager);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.ClientSize = new System.Drawing.Size(815, 474);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMinimum);
             this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.tb_Title);
+            this.Controls.Add(this.tb_Body);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmCreateID";
-            this.Text = "FrmCreateID";
+            this.Name = "FrmSelfIntroduce";
+            this.Text = "FrmSelfIntroduce";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseMove);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        internal System.Windows.Forms.RichTextBox tb_Title;
+        internal System.Windows.Forms.RichTextBox tb_Body;
         private iTalk.iTalk_Button_1 btnMinimum;
         private iTalk.iTalk_Button_1 btnExit;
-        private System.Windows.Forms.Button btn_CreateCom;
-        private System.Windows.Forms.Button btn_CreateManager;
-        private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Label label2;
     }
 }

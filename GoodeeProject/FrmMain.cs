@@ -90,6 +90,7 @@ namespace GoodeeProject
             spec.Location = new Point(192, 1);
             //spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
             spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
+
         }
 
         private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
@@ -178,6 +179,12 @@ namespace GoodeeProject
             mbti.BringToFront();
             mbti.Location = new Point(192, 141);
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
+            mbti.Controls["lblResult"].Click += MBTIResult_Click;
+        }
+
+        private void MBTIResult_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void MBTIWrite_Click(object sender, EventArgs e)

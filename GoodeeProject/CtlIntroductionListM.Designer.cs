@@ -28,41 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpIntroductionList = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpSList = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // flpIntroductionList
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(285, 79);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(510, 360);
-            this.flowLayoutPanel1.TabIndex = 19;
+            this.flpIntroductionList.BackColor = System.Drawing.Color.White;
+            this.flpIntroductionList.Location = new System.Drawing.Point(285, 79);
+            this.flpIntroductionList.Name = "flpIntroductionList";
+            this.flpIntroductionList.Size = new System.Drawing.Size(510, 360);
+            this.flpIntroductionList.TabIndex = 19;
             // 
-            // flowLayoutPanel2
+            // flpSList
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(20, 80);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(240, 360);
-            this.flowLayoutPanel2.TabIndex = 20;
+            this.flpSList.AutoScroll = true;
+            this.flpSList.BackColor = System.Drawing.Color.White;
+            this.flpSList.Location = new System.Drawing.Point(20, 80);
+            this.flpSList.Margin = new System.Windows.Forms.Padding(1);
+            this.flpSList.Name = "flpSList";
+            this.flpSList.Size = new System.Drawing.Size(240, 360);
+            this.flpSList.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(214, 32);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "자기소개서 리스트";
             // 
             // CtlIntroductionListM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.flpSList);
+            this.Controls.Add(this.flpIntroductionList);
             this.Name = "CtlIntroductionListM";
             this.Size = new System.Drawing.Size(815, 454);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flpIntroductionList;
+        private System.Windows.Forms.FlowLayoutPanel flpSList;
+        private System.Windows.Forms.Label label1;
     }
 }

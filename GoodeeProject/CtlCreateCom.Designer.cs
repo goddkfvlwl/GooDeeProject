@@ -52,7 +52,7 @@
             // 
             // iTalk_Separator1
             // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(130, 119);
+            this.iTalk_Separator1.Location = new System.Drawing.Point(129, 118);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
             this.iTalk_Separator1.Size = new System.Drawing.Size(303, 10);
             this.iTalk_Separator1.TabIndex = 153;
@@ -61,7 +61,7 @@
             // tb_Password
             // 
             this.tb_Password.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Password.Location = new System.Drawing.Point(127, 107);
+            this.tb_Password.Location = new System.Drawing.Point(126, 106);
             this.tb_Password.Name = "tb_Password";
             this.tb_Password.PasswordChar = '*';
             this.tb_Password.Size = new System.Drawing.Size(306, 14);
@@ -69,7 +69,7 @@
             // 
             // iTalk_Separator2
             // 
-            this.iTalk_Separator2.Location = new System.Drawing.Point(130, 65);
+            this.iTalk_Separator2.Location = new System.Drawing.Point(129, 64);
             this.iTalk_Separator2.Name = "iTalk_Separator2";
             this.iTalk_Separator2.Size = new System.Drawing.Size(303, 10);
             this.iTalk_Separator2.TabIndex = 152;
@@ -78,7 +78,7 @@
             // tb_Email
             // 
             this.tb_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Email.Location = new System.Drawing.Point(127, 53);
+            this.tb_Email.Location = new System.Drawing.Point(126, 52);
             this.tb_Email.Name = "tb_Email";
             this.tb_Email.Size = new System.Drawing.Size(306, 14);
             this.tb_Email.TabIndex = 0;
@@ -89,7 +89,7 @@
             this.iTalk_Label5.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label5.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label5.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label5.Location = new System.Drawing.Point(35, 105);
+            this.iTalk_Label5.Location = new System.Drawing.Point(34, 104);
             this.iTalk_Label5.Name = "iTalk_Label5";
             this.iTalk_Label5.Size = new System.Drawing.Size(74, 21);
             this.iTalk_Label5.TabIndex = 151;
@@ -101,7 +101,7 @@
             this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.iTalk_Label2.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label2.Location = new System.Drawing.Point(35, 51);
+            this.iTalk_Label2.Location = new System.Drawing.Point(34, 50);
             this.iTalk_Label2.Name = "iTalk_Label2";
             this.iTalk_Label2.Size = new System.Drawing.Size(58, 21);
             this.iTalk_Label2.TabIndex = 150;
@@ -109,7 +109,7 @@
             // 
             // iTalk_Separator3
             // 
-            this.iTalk_Separator3.Location = new System.Drawing.Point(130, 176);
+            this.iTalk_Separator3.Location = new System.Drawing.Point(129, 175);
             this.iTalk_Separator3.Name = "iTalk_Separator3";
             this.iTalk_Separator3.Size = new System.Drawing.Size(303, 10);
             this.iTalk_Separator3.TabIndex = 156;
@@ -118,7 +118,7 @@
             // tb_Name
             // 
             this.tb_Name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Name.Location = new System.Drawing.Point(130, 164);
+            this.tb_Name.Location = new System.Drawing.Point(129, 163);
             this.tb_Name.Name = "tb_Name";
             this.tb_Name.Size = new System.Drawing.Size(303, 14);
             this.tb_Name.TabIndex = 2;
@@ -129,7 +129,7 @@
             this.iTalk_Label3.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label3.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label3.Location = new System.Drawing.Point(35, 164);
+            this.iTalk_Label3.Location = new System.Drawing.Point(34, 163);
             this.iTalk_Label3.Name = "iTalk_Label3";
             this.iTalk_Label3.Size = new System.Drawing.Size(58, 21);
             this.iTalk_Label3.TabIndex = 155;
@@ -141,7 +141,7 @@
             this.btn_Search.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_Search.Image = null;
             this.btn_Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Search.Location = new System.Drawing.Point(379, 306);
+            this.btn_Search.Location = new System.Drawing.Point(378, 305);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(57, 22);
             this.btn_Search.TabIndex = 163;
@@ -155,7 +155,7 @@
             this.iTalk_Label9.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label9.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label9.Location = new System.Drawing.Point(35, 340);
+            this.iTalk_Label9.Location = new System.Drawing.Point(34, 339);
             this.iTalk_Label9.Name = "iTalk_Label9";
             this.iTalk_Label9.Size = new System.Drawing.Size(74, 21);
             this.iTalk_Label9.TabIndex = 162;
@@ -163,7 +163,7 @@
             // 
             // iTalk_Separator6
             // 
-            this.iTalk_Separator6.Location = new System.Drawing.Point(127, 352);
+            this.iTalk_Separator6.Location = new System.Drawing.Point(126, 351);
             this.iTalk_Separator6.Name = "iTalk_Separator6";
             this.iTalk_Separator6.Size = new System.Drawing.Size(306, 10);
             this.iTalk_Separator6.TabIndex = 161;
@@ -172,14 +172,14 @@
             // tb_AddressDetail
             // 
             this.tb_AddressDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_AddressDetail.Location = new System.Drawing.Point(127, 340);
+            this.tb_AddressDetail.Location = new System.Drawing.Point(126, 339);
             this.tb_AddressDetail.Name = "tb_AddressDetail";
             this.tb_AddressDetail.Size = new System.Drawing.Size(306, 14);
             this.tb_AddressDetail.TabIndex = 5;
             // 
             // iTalk_Separator5
             // 
-            this.iTalk_Separator5.Location = new System.Drawing.Point(127, 318);
+            this.iTalk_Separator5.Location = new System.Drawing.Point(126, 317);
             this.iTalk_Separator5.Name = "iTalk_Separator5";
             this.iTalk_Separator5.Size = new System.Drawing.Size(246, 10);
             this.iTalk_Separator5.TabIndex = 160;
@@ -189,7 +189,7 @@
             // 
             this.tb_Address.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb_Address.Enabled = false;
-            this.tb_Address.Location = new System.Drawing.Point(127, 306);
+            this.tb_Address.Location = new System.Drawing.Point(126, 305);
             this.tb_Address.Name = "tb_Address";
             this.tb_Address.Size = new System.Drawing.Size(246, 14);
             this.tb_Address.TabIndex = 4;
@@ -200,7 +200,7 @@
             this.iTalk_Label8.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label8.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label8.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label8.Location = new System.Drawing.Point(35, 299);
+            this.iTalk_Label8.Location = new System.Drawing.Point(34, 298);
             this.iTalk_Label8.Name = "iTalk_Label8";
             this.iTalk_Label8.Size = new System.Drawing.Size(42, 21);
             this.iTalk_Label8.TabIndex = 159;
@@ -208,7 +208,7 @@
             // 
             // iTalk_Separator8
             // 
-            this.iTalk_Separator8.Location = new System.Drawing.Point(130, 226);
+            this.iTalk_Separator8.Location = new System.Drawing.Point(129, 225);
             this.iTalk_Separator8.Name = "iTalk_Separator8";
             this.iTalk_Separator8.Size = new System.Drawing.Size(303, 10);
             this.iTalk_Separator8.TabIndex = 166;
@@ -217,7 +217,7 @@
             // tb_Phone
             // 
             this.tb_Phone.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tb_Phone.Location = new System.Drawing.Point(130, 214);
+            this.tb_Phone.Location = new System.Drawing.Point(129, 213);
             this.tb_Phone.Name = "tb_Phone";
             this.tb_Phone.Size = new System.Drawing.Size(303, 14);
             this.tb_Phone.TabIndex = 3;
@@ -228,7 +228,7 @@
             this.iTalk_Label7.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label7.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.iTalk_Label7.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label7.Location = new System.Drawing.Point(35, 214);
+            this.iTalk_Label7.Location = new System.Drawing.Point(34, 213);
             this.iTalk_Label7.Name = "iTalk_Label7";
             this.iTalk_Label7.Size = new System.Drawing.Size(58, 21);
             this.iTalk_Label7.TabIndex = 165;
@@ -240,7 +240,7 @@
             this.btn_CreateID.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.btn_CreateID.Image = null;
             this.btn_CreateID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_CreateID.Location = new System.Drawing.Point(192, 418);
+            this.btn_CreateID.Location = new System.Drawing.Point(191, 417);
             this.btn_CreateID.Name = "btn_CreateID";
             this.btn_CreateID.Size = new System.Drawing.Size(84, 31);
             this.btn_CreateID.TabIndex = 167;
@@ -274,7 +274,7 @@
             this.Controls.Add(this.iTalk_Label5);
             this.Controls.Add(this.iTalk_Label2);
             this.Name = "CtlCreateCom";
-            this.Size = new System.Drawing.Size(472, 490);
+            this.Size = new System.Drawing.Size(470, 488);
             this.ResumeLayout(false);
             this.PerformLayout();
 

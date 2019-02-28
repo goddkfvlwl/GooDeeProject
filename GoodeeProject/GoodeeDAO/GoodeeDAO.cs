@@ -60,11 +60,13 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+
+
         internal bool InsertAdmin(MemberInfo info, string password, char authority)
         {
             string proc = "InsertAdmin";
             con = new DBConnection();
-            SqlParameter[] parameters = new SqlParameter[9];
+            SqlParameter[] parameters = new SqlParameter[10];
             parameters[0] = new SqlParameter("ID", info.Id);
             parameters[1] = new SqlParameter("PW", password);
             parameters[2] = new SqlParameter("Name", info.Name);
@@ -434,6 +436,24 @@ namespace GoodeeProject.GoodeeDAO
             con = new DBConnection();
 
             return con.ExecuteSelect(proc);
+        }
+
+        public DataTable SelectAllClass()
+        {
+            string proc = "SelectAllClass";
+            con = new DBConnection();
+
+            return con.ExecuteSelect(proc);
+        }
+
+        internal DataTable SelectMemberInfoINClassNum(int tag)
+        {
+            string proc = "SelectMemberInfoINClassNum";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("ClassNum", tag);
+
+            return con.SelectWithParams(proc, pms);
         }
     }
 }

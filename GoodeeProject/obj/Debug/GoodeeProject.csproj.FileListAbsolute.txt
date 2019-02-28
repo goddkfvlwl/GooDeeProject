@@ -32,6 +32,7 @@ C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroduc
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlEdu.resources
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlEduHistory.resources
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlLicense.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDivide.resources
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIQuestion.resources
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyPW.resources
@@ -64,3 +65,6 @@ C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.Core
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionMItem.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlNameListItem.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSelfIntroduce.resources

@@ -32,8 +32,8 @@
             this.lblNum = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.flowpanelChoice = new System.Windows.Forms.FlowLayoutPanel();
-            this.rdoA = new System.Windows.Forms.RadioButton();
             this.rdoB = new System.Windows.Forms.RadioButton();
+            this.rdoA = new System.Windows.Forms.RadioButton();
             this.flowpanelChoice.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,8 +78,21 @@
             this.flowpanelChoice.Size = new System.Drawing.Size(750, 20);
             this.flowpanelChoice.TabIndex = 6;
             // 
+            // rdoB
+            // 
+            this.rdoB.AutoSize = true;
+            this.rdoB.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rdoB.Location = new System.Drawing.Point(40, 3);
+            this.rdoB.Name = "rdoB";
+            this.rdoB.Size = new System.Drawing.Size(31, 16);
+            this.rdoB.TabIndex = 1;
+            this.rdoB.TabStop = true;
+            this.rdoB.Text = "B";
+            this.rdoB.UseVisualStyleBackColor = true;
+            // 
             // rdoA
             // 
+            this.rdoA.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdoA.AutoSize = true;
             this.rdoA.Location = new System.Drawing.Point(3, 3);
             this.rdoA.Name = "rdoA";
@@ -88,17 +101,6 @@
             this.rdoA.TabStop = true;
             this.rdoA.Text = "A";
             this.rdoA.UseVisualStyleBackColor = true;
-            // 
-            // rdoB
-            // 
-            this.rdoB.AutoSize = true;
-            this.rdoB.Location = new System.Drawing.Point(40, 3);
-            this.rdoB.Name = "rdoB";
-            this.rdoB.Size = new System.Drawing.Size(31, 16);
-            this.rdoB.TabIndex = 1;
-            this.rdoB.TabStop = true;
-            this.rdoB.Text = "B";
-            this.rdoB.UseVisualStyleBackColor = true;
             // 
             // CtlMBTIQuestion
             // 
@@ -122,8 +124,8 @@
         private iTalk.iTalk_Separator iTalk_Separator1;
         internal iTalk.iTalk_Label lblNum;
         internal iTalk.iTalk_Label lblQuestion;
+        internal System.Windows.Forms.FlowLayoutPanel flowpanelChoice;
         internal System.Windows.Forms.RadioButton rdoA;
         internal System.Windows.Forms.RadioButton rdoB;
-        internal System.Windows.Forms.FlowLayoutPanel flowpanelChoice;
     }
 }

@@ -103,11 +103,29 @@
     <Compile Include="CtlEduHistory.Designer.cs">
       <DependentUpon>CtlEduHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlIntroductionMItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlIntroductionMItem.Designer.cs">
+      <DependentUpon>CtlIntroductionMItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlNameListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlNameListItem.Designer.cs">
+      <DependentUpon>CtlNameListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CtlLicense.Designer.cs">
       <DependentUpon>CtlLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlMBTIDivide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIDivide.Designer.cs">
+      <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
     </Compile>
     <Compile Include="CtlMBTIQuestion.cs">
       <SubType>UserControl</SubType>
@@ -150,7 +168,7 @@
     </Compile>
     <Compile Include="CtlSelfIntroductionList.Designer.cs">
       <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
-    </Compile>    
+    </Compile>
     <Compile Include="CtlResume.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -223,6 +241,12 @@
     </Compile>
     <Compile Include="FrmSearchAddr.Designer.cs">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelfIntroduce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelfIntroduce.Designer.cs">
+      <DependentUpon>FrmSelfIntroduce.cs</DependentUpon>
     </Compile>
     <Compile Include="IFormControl.cs" />
     <Compile Include="FrmLogin.cs">
@@ -297,8 +321,17 @@
     <EmbeddedResource Include="CtlEduHistory.resx">
       <DependentUpon>CtlEduHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtlIntroductionMItem.resx">
+      <DependentUpon>CtlIntroductionMItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlNameListItem.resx">
+      <DependentUpon>CtlNameListItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlLicense.resx">
       <DependentUpon>CtlLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIDivide.resx">
+      <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlMBTIQuestion.resx">
       <DependentUpon>CtlMBTIQuestion.cs</DependentUpon>
@@ -363,6 +396,9 @@
     <EmbeddedResource Include="FrmSearchAddr.resx">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelfIntroduce.resx">
+      <DependentUpon>FrmSelfIntroduce.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
     </EmbeddedResource>
@@ -398,6 +434,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\iconfinder_minus-circle_2561243.png" />
+    <None Include="Resources\iconfinder_plus-circle_2561291.png" />
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
