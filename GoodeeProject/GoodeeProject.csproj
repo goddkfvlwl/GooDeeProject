@@ -585,6 +585,9 @@
     </Compile>
     <None Include="Resources\iconfinder_minus-circle_2561243.png" />
     <None Include="Resources\iconfinder_plus-circle_2561291.png" />
+    <Content Include="Resources\MBTI.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

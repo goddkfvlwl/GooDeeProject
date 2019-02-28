@@ -395,5 +395,10 @@ namespace GoodeeProject
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
+
+        public void BtnExit_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

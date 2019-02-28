@@ -1,6 +1,6 @@
 ﻿namespace GoodeeProject
 {
-    partial class FrmMain
+    partial class FrmMain : IFormControl
     {
         /// <summary>
         /// Required designer variable.
@@ -132,7 +132,7 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.IFormControl.BtnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // panel2
             // 
