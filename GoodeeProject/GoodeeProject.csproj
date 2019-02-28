@@ -146,6 +146,12 @@
     <Compile Include="CtlIntroductionMItem.Designer.cs">
       <DependentUpon>CtlIntroductionMItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlMBTIDivide.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlMBTIDivide.designer.cs">
+      <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlNameListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CtlIntroductionMItem.resx">
       <DependentUpon>CtlIntroductionMItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlMBTIDivide.resx">
+      <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlNameListItem.resx">
       <DependentUpon>CtlNameListItem.cs</DependentUpon>

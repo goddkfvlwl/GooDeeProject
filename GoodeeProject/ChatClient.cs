@@ -134,10 +134,11 @@ namespace GoodeeProject
             string[] str = readData.Split(new string[] { "$To$" }, StringSplitOptions.None);
             string target = str[1].Substring(0, str[1].IndexOf("$Name$"));
             string content = str[0].Substring(0, str[0].IndexOf("$From$"));
-            string user = str[0].Replace(content + "$From$", "");
+            string user = str[0].Replace(content + "$From$", "").Split(new string[] { "$FromEmail$" }, StringSplitOptions.None)[0];
+            string useremail = str[0].Replace(content + "$From$", "").Split(new string[] { "$FromEmail$" }, StringSplitOptions.None)[1];
             foreach (FrmChat item in chatList)
             {
-                if (item.Chat1Email == target.Replace(user, "") || item.Chat2Email == target.Replace(user, ""))
+                if ((item.Chat1Email == target.Replace(user, "") && item.Chat2Email == useremail) || (item.Chat2Email == target.Replace(user, "") && item.Chat1Email == useremail))
                 {
                     item.GetMsg(user + " : " + content);
                     item.GetMsg(Environment.NewLine);

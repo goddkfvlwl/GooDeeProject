@@ -20,6 +20,7 @@ namespace GoodeeProject
         string chat2Email;
         string chatEmail;
         string user;
+        string userEmail;
         string target;
         string targetName;
         TcpClient client;
@@ -32,6 +33,8 @@ namespace GoodeeProject
         public string User { get => user; set => user = value; }
         public string Target { get => target; set => target = value; }
         public string TargetName { get => targetName; set => targetName = value; }
+        public string UserEmail { get => userEmail; set => userEmail = value; }
+
         private delegate void GetMsgInvoke(string msg);
 
         public FrmChat()
@@ -50,11 +53,13 @@ namespace GoodeeProject
             if (FrmMain.Mi.Name == chat2)
             {
                 user = chat2;
+                userEmail = chat2Email;
                 target = chatEmail;
                 targetName = chat;
             }else
             {
                 user = chat;
+                userEmail = chatEmail;
                 target = chat2Email;
                 targetName = chat2;
             }
@@ -88,7 +93,7 @@ namespace GoodeeProject
             txtChatContent.Text += user + " : " + txtSendMsg.Text + Environment.NewLine;
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             DAO.InsertChatContent(user + " : " + txtSendMsg.Text + Environment.NewLine, chatEmail, chat2Email);
-            byte[] msg = Encoding.UTF8.GetBytes(txtSendMsg.Text + "$From$" + user + "$To$" + target + "$Name$" + targetName + "$Target$" + "$Msg$");
+            byte[] msg = Encoding.UTF8.GetBytes(txtSendMsg.Text + "$From$" + user + "$FromEmail$" + userEmail + "$To$" + target + "$Name$" + targetName + "$Target$" + "$Msg$");
             ns.Write(msg, 0, msg.Length);
             ns.Flush();
             txtSendMsg.Text = string.Empty;

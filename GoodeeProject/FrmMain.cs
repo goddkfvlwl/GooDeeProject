@@ -115,12 +115,6 @@ namespace GoodeeProject
             studentManagement.BringToFront();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-            Environment.Exit(0);
-        }
-
         private void btnSpec_Click(object sender, EventArgs e)
         {
             if (spec == null)
@@ -397,7 +391,8 @@ namespace GoodeeProject
 
         public void BtnExit_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Application.Exit();
+            Environment.Exit(0);
         }
     }
 }
