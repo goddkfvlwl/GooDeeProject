@@ -68,7 +68,7 @@ namespace GoodeeProject
         {
             s.AddList("주소검색");
             lp.Controls.Clear();
-            currentPage = 1;
+            //currentPage = 1;
 
             string confirmKey = "U01TX0FVVEgyMDE5MDIwNzA5NDQ1NTEwODQ5MjM=";
             int countPerPage = 10;

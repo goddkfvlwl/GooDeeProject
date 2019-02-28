@@ -57,3 +57,4 @@ C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\Go
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDivide.resources
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIResult.resources
 C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIResult.resources
+C:\Users\GDC1\Desktop\구디프로젝트 소스트리\GoodeeProject\bin\Debug\Resources\MBTI.jpg
