@@ -20,13 +20,10 @@ namespace GoodeeProject
         int remainTime;
         private string email;
 
-        public string Email { get => email; set => email = value; }
-
         public FrmSendEmail()
         {
             InitializeComponent();
             btn_Change.Enabled = false;
-            Frm_DrawLine();
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)
@@ -58,18 +55,22 @@ namespace GoodeeProject
             MailAddress fromAddr;
             MailMessage mail;
             MailAddress toAddr;
-
-            fromAddr = new MailAddress("pca03160@naver.com", "SendMail", Encoding.UTF8);
+            if (String.IsNullOrEmpty(tb_Email.Text))
+            {
+                MessageBox.Show("인증번호를 전송할 이메일을 입력해주세요.", "오류");
+                return;
+            }
+            fromAddr = new MailAddress("pca03160@naver.com", "GoodeeAcademy", Encoding.UTF8);
             try
             {
                 toAddr = new MailAddress(tb_Email.Text);
             }
             catch (FormatException)
             {
-                MessageBox.Show("잘못된 형식의 이메일입니다");
+                MessageBox.Show("잘못된 형식의 이메일입니다", "오류");
                 return;
             }
-
+         
             SmtpClient smtp = new SmtpClient("smtp.naver.com", 587);
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;  //SSL ( Secure Service Line)
@@ -80,7 +81,7 @@ namespace GoodeeProject
             mail.Subject = "비밀번호 변경 인증 이메일";
 
             Random ran = new Random();
-           
+            tempPassword = "";
             for (int i = 0; i < 8; i++)
             {
                 int rndVal = (int)(ran.Next(62));
@@ -98,7 +99,7 @@ namespace GoodeeProject
                 }
             } 
 
-            mail.Body = tempPassword;
+            mail.Body = "인증번호 : " + tempPassword;
 
             mail.BodyEncoding = Encoding.UTF8;
             mail.SubjectEncoding = Encoding.UTF8;
@@ -106,13 +107,14 @@ namespace GoodeeProject
             try
             {
                 smtp.Send(mail);
-                MessageBox.Show("메일 전송 완료");
+                MessageBox.Show("메일 전송 완료", "전송 완료");
                 email = tb_Email.Text;
+                timer1.Enabled = true;
             }
             catch (Exception es)
             {
                 MessageBox.Show(es.Message);
-                MessageBox.Show("실패, 관리자에게 문의바람");
+                MessageBox.Show("실패, 관리자에게 문의바람", "오류");
             }
         }
 
@@ -120,7 +122,7 @@ namespace GoodeeProject
         {
             remainTime = 301;
             SendMail();
-            timer1.Enabled = true;
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -131,7 +133,7 @@ namespace GoodeeProject
             if (remainTime == 0)
             {
                 timer1.Enabled = false;
-                MessageBox.Show("인증시간이 만료되었습니다. 재발송을 해주세요.");
+                MessageBox.Show("인증시간이 만료되었습니다. 재발송을 해주세요.", "인증 실패", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -139,7 +141,7 @@ namespace GoodeeProject
         {
             if (tempPassword == tb_Check.Text)
             {
-                MessageBox.Show("인증성공");
+                MessageBox.Show("인증 성공하였습니다.", "인증 성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox1.Image = Properties.Resources._326572_48;
                 timer1.Enabled = false;
@@ -147,26 +149,17 @@ namespace GoodeeProject
             }
             else
             {
-                MessageBox.Show("잘못된 인증번호입니다.");
+                MessageBox.Show("잘못된 인증번호입니다.", "인증 실패");
             }
         }
 
         private void btn_Change_Click(object sender, EventArgs e)
         {
-            FrmModifyPW modify = new FrmModifyPW();
-            modify.Owner = this;
+            bool checkForm = true;
+            FrmModifyPW modify = new FrmModifyPW(email, checkForm);
             modify.Show();
-            this.Close();
         }
 
-        public void Frm_DrawLine()
-        {
-            Rectangle rec = new Rectangle(new Point(100, 100), new Size(this.Width - 4, this.Height - 4));
-            Graphics graphics = this.CreateGraphics();
-              
-            graphics.DrawRectangle(new Pen(Color.Red, 2),rec);
-            //graphics.Dispose();
-        }
         public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {
             Rectangle borderRectangle = this.ClientRectangle;

@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class CtlSpecDetail : UserControl
+    public partial class CtlClass : UserControl
     {
-        public CtlSpecDetail()
+        public CtlClass()
         {
             InitializeComponent();
         }
-
     }
 }

@@ -34,6 +34,9 @@ namespace GoodeeProject
 
         private void btnCreateID_Click(object sender, EventArgs e)
         {
+
+            FrmCreateID createID = new FrmCreateID();
+            createID.Show();
             s.AddList("관리자생성 클릭");
         }
 

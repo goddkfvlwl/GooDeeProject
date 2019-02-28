@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class CtlSpecDetail : UserControl
+    public partial class CtlMBTIDivide : UserControl
     {
-        public CtlSpecDetail()
+        public CtlMBTIDivide()
         {
             InitializeComponent();
         }
-
     }
 }

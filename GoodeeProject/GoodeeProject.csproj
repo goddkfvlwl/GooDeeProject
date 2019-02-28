@@ -39,6 +39,15 @@
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -95,6 +104,30 @@
     <Compile Include="CtlAddr.Designer.cs">
       <DependentUpon>CtlAddr.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlClass.Designer.cs">
+      <DependentUpon>CtlClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlCreateCom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlCreateCom.Designer.cs">
+      <DependentUpon>CtlCreateCom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlCreateManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlCreateManager.Designer.cs">
+      <DependentUpon>CtlCreateManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlIntroductionListM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlIntroductionListM.Designer.cs">
+      <DependentUpon>CtlIntroductionListM.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlEdu.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,15 +140,25 @@
     <Compile Include="CtlEduHistory.Designer.cs">
       <DependentUpon>CtlEduHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtlIntroductionMItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlIntroductionMItem.Designer.cs">
+      <DependentUpon>CtlIntroductionMItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlNameListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlNameListItem.Designer.cs">
+      <DependentUpon>CtlNameListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CtlLicense.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CtlLicense.Designer.cs">
       <DependentUpon>CtlLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="CtlMBTIDivide.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="CtlMBTIDivide.cs" />
     <Compile Include="CtlMBTIDivide.Designer.cs">
       <DependentUpon>CtlMBTIDivide.cs</DependentUpon>
     </Compile>
@@ -148,6 +191,24 @@
     </Compile>
     <Compile Include="CtlProfile.Designer.cs">
       <DependentUpon>CtlProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlSelfIntroduce.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlSelfIntroduce.Designer.cs">
+      <DependentUpon>CtlSelfIntroduce.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionItem.Designer.cs">
+      <DependentUpon>CtlSelfIntroductionItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlSelfIntroductionList.Designer.cs">
+      <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
     </Compile>
     <Compile Include="CtlResume.cs">
       <SubType>UserControl</SubType>
@@ -245,6 +306,12 @@
     </Compile>
     <Compile Include="FrmSearchAddr.Designer.cs">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelfIntroduce.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSelfIntroduce.Designer.cs">
+      <DependentUpon>FrmSelfIntroduce.cs</DependentUpon>
     </Compile>
     <Compile Include="IFormControl.cs" />
     <Compile Include="FrmLogin.cs">
@@ -356,11 +423,29 @@
     <EmbeddedResource Include="CtlAddr.resx">
       <DependentUpon>CtlAddr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CtlClass.resx">
+      <DependentUpon>CtlClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlCreateCom.resx">
+      <DependentUpon>CtlCreateCom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlCreateManager.resx">
+      <DependentUpon>CtlCreateManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlIntroductionListM.resx">
+      <DependentUpon>CtlIntroductionListM.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CtlEdu.resx">
       <DependentUpon>CtlEdu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlEduHistory.resx">
       <DependentUpon>CtlEduHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlIntroductionMItem.resx">
+      <DependentUpon>CtlIntroductionMItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlNameListItem.resx">
+      <DependentUpon>CtlNameListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlLicense.resx">
       <DependentUpon>CtlLicense.cs</DependentUpon>
@@ -385,6 +470,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DefaultSurvey.resx">
       <DependentUpon>DefaultSurvey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlSelfIntroduce.resx">
+      <DependentUpon>CtlSelfIntroduce.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlSelfIntroductionItem.resx">
+      <DependentUpon>CtlSelfIntroductionItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlSelfIntroductionList.resx">
+      <DependentUpon>CtlSelfIntroductionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CtlResume.resx">
       <DependentUpon>CtlResume.cs</DependentUpon>
@@ -443,6 +537,9 @@
     <EmbeddedResource Include="FrmSearchAddr.resx">
       <DependentUpon>FrmSearchAddr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelfIntroduce.resx">
+      <DependentUpon>FrmSelfIntroduce.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Portfolio.resx">
       <DependentUpon>Portfolio.cs</DependentUpon>
     </EmbeddedResource>
@@ -493,6 +590,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\iconfinder_minus-circle_2561243.png" />
+    <None Include="Resources\iconfinder_plus-circle_2561291.png" />
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

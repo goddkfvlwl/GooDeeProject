@@ -46,7 +46,144 @@ namespace GoodeeProject.GoodeeDAO
             return ai;
         }
 
+<<<<<<< HEAD
         internal DataTable SelectChat(string id)
+=======
+        internal bool CheckID(string email)
+        {
+            bool result = false;
+            string proc = "CheckID";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ID", email);
+            int count = (int)con.ExecuteScalar(proc, parameters);
+            if (count == 0)
+            {
+                result = true;
+            }
+            return result;
+        }
+
+
+
+        internal bool InsertAdmin(MemberInfo info, string password, char authority)
+        {
+            string proc = "InsertAdmin";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[10];
+            parameters[0] = new SqlParameter("ID", info.Id);
+            parameters[1] = new SqlParameter("PW", password);
+            parameters[2] = new SqlParameter("Name", info.Name);
+            if (info.BirthDate < DateTime.Parse("0002.01.01"))
+            {
+                parameters[3] = new SqlParameter("BirthDate", DBNull.Value);
+            }
+            else
+            {
+                parameters[3] = new SqlParameter("BirthDate", info.BirthDate);
+            }
+            parameters[4] = new SqlParameter("Gender", info.Gender);
+            parameters[5] = new SqlParameter("Mobile", info.Mobile);
+            parameters[6] = new SqlParameter("Address", info.Address);
+            if (info.Army == 'Y' || info.Army == 'N')
+            {
+                parameters[7] = new SqlParameter("Army", info.Army);
+            }
+            else
+            {
+                parameters[7] = new SqlParameter("Army", DBNull.Value);
+            }
+
+            SqlParameter imageParameter = new SqlParameter("picture", SqlDbType.Image);
+            imageParameter.Value = DBNull.Value;
+
+            if (info.Picture == null)
+            {
+                parameters[8] = imageParameter;
+            }
+            else
+            {
+                parameters[8] = new SqlParameter("picture", ImageToByteArray(info.Picture));
+            }
+            parameters[9] = new SqlParameter("Authority", authority);
+
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                return true;
+            }
+            else
+            {
+
+                return false;
+            }
+        }
+
+        internal bool DeleteSelfIntroduction(string id, int num)
+        {
+            bool result = false;
+            string proc = "DeleteSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("ID", id);
+            parameters[1] = new SqlParameter("Num", num);
+
+            if (con.ExecuteDelete(proc, parameters))
+            {
+                result = true;
+            }
+            return result;
+        }
+
+        internal int GetMax(string id)
+        {
+            string proc = "MaxNumSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("ID", id);
+
+
+            object temp = con.ExecuteScalar(proc, parameters);
+            int result = temp == DBNull.Value? 0 : (int)temp;
+
+            return result;
+        }
+
+        internal void UpdateSelfIntroduction(string id, string text1, string text2, string v, int num)
+        {
+            string proc = "UpdateSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = new SqlParameter("ID", id);
+            parameters[1] = new SqlParameter("Title", text1);
+            parameters[2] = new SqlParameter("Body", text2);
+            parameters[3] = new SqlParameter("Date", v);
+            parameters[4] = new SqlParameter("Num", num);
+
+            if (con.ExecuteUpdate(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
+            }
+        }
+
+        internal void InsertSelfIntroduction(string id, string text1, string text2, string v, int num)
+        {
+            string proc = "InsertSelfIntroduction";
+            con = new DBConnection();
+            SqlParameter[] parameters = new SqlParameter[5];
+            parameters[0] = new SqlParameter("ID", id);
+            parameters[1] = new SqlParameter("Title", text1);
+            parameters[2] = new SqlParameter("Body", text2);
+            parameters[3] = new SqlParameter("Date", v);
+            parameters[4] = new SqlParameter("Num", num);
+
+            if (con.ExecuteInsert(proc, parameters))
+            {
+                System.Windows.Forms.MessageBox.Show("저장성공");
+            }
+        }
+
+        internal void InsertMember(MemberInfo member)
+>>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
         {
             string proc = "SelectChat";
             con = new DBConnection();
@@ -178,6 +315,7 @@ namespace GoodeeProject.GoodeeDAO
             return con.ExecuteSelect(proc);
             
         }
+
         public MemberInfo SelectMember(string id)
         {
             string proc = "SelectMember";
@@ -394,6 +532,8 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+
+      
         public bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture)
         {
             string proc = "UpdateMemberInfo";
@@ -414,7 +554,7 @@ namespace GoodeeProject.GoodeeDAO
             }
             else
             {
-                pms[4] = new SqlParameter("picture", imageToByteArray(picture));
+                pms[4] = new SqlParameter("picture", ImageToByteArray(picture));
             }
             
 
@@ -425,7 +565,22 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
-        public byte[] imageToByteArray(Image imageIn)
+        public DataTable SelectSelfIntroduction(string id)
+        {
+            string proc = "SelectSelfIntroduction";
+
+
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+
+            DataTable dt = con.SelectWithParams(proc, pms);
+
+            return dt;
+
+        }
+
+        public byte[] ImageToByteArray(Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
             imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
@@ -548,6 +703,7 @@ namespace GoodeeProject.GoodeeDAO
             return con.ExecuteSelect(proc);
         }
 
+<<<<<<< HEAD
         public bool InsertMBTI_Stats(string id, int ei, int sn, int tf, int jp, string result, DateTime mbtiDate)
         {
             string proc = "InsertMBTI_Stats";
@@ -582,11 +738,17 @@ namespace GoodeeProject.GoodeeDAO
         public DataTable SelectMBTI_Stats()
         {
             string proc = "SelectMbtiStats";
+=======
+        public DataTable SelectAllClass()
+        {
+            string proc = "SelectAllClass";
+>>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
             con = new DBConnection();
 
             return con.ExecuteSelect(proc);
         }
 
+<<<<<<< HEAD
         public DataTable SelectMBTI_StatsByName(string name)
         {
             string proc = "SelectMBTIStatsByName";
@@ -603,6 +765,14 @@ namespace GoodeeProject.GoodeeDAO
             con = new DBConnection();
             SqlParameter[] pms = new SqlParameter[1];
             pms[0] = new SqlParameter("result", result);
+=======
+        internal DataTable SelectMemberInfoINClassNum(int tag)
+        {
+            string proc = "SelectMemberInfoINClassNum";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("ClassNum", tag);
+>>>>>>> a5c7b02c08d75bc21294b8f33b94f8256f11b742
 
             return con.SelectWithParams(proc, pms);
         }
