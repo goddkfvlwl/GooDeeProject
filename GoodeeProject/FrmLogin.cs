@@ -102,7 +102,6 @@ namespace GoodeeProject
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-
             if (FrmMain.Ai.Id != null && LogoutCheck == false)
             {
                 s.AddList("프로그램 종료");

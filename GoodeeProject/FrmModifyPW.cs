@@ -16,13 +16,21 @@ namespace GoodeeProject
 
         private int movePointX;
         private int movePointY;
+        private string email;
+        private bool checkForm;
+        public string Email { get { return email; } set { email = value; } }
+        public bool CheckForm { get { return checkForm; } set { checkForm = value; } }
 
         public FrmModifyPW()
         {
             InitializeComponent();
-            
+            ctlModifyPW1.Parent = this;
         }
-
+        public FrmModifyPW(string email, bool checkForm) : this()
+        {
+            this.email = email;
+            this.checkForm = checkForm;
+        }
         public void BtnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -46,6 +54,7 @@ namespace GoodeeProject
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
         }
+
 
         public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {

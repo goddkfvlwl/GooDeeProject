@@ -32,7 +32,7 @@
             this.lblResume = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.separator2 = new iTalk.iTalk_Separator();
-            this.iTalk_Label1 = new iTalk.iTalk_Label();
+            this.lbl_SelfIntroduction = new iTalk.iTalk_Label();
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.SuspendLayout();
             // 
@@ -77,17 +77,17 @@
             this.separator2.TabIndex = 12;
             this.separator2.Text = "iTalk_Separator2";
             // 
-            // iTalk_Label1
+            // lbl_SelfIntroduction
             // 
-            this.iTalk_Label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(14, 38);
-            this.iTalk_Label1.Name = "iTalk_Label1";
-            this.iTalk_Label1.Size = new System.Drawing.Size(137, 20);
-            this.iTalk_Label1.TabIndex = 13;
-            this.iTalk_Label1.Text = "자기소개서";
-            this.iTalk_Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_SelfIntroduction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lbl_SelfIntroduction.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lbl_SelfIntroduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.lbl_SelfIntroduction.Location = new System.Drawing.Point(14, 38);
+            this.lbl_SelfIntroduction.Name = "lbl_SelfIntroduction";
+            this.lbl_SelfIntroduction.Size = new System.Drawing.Size(137, 20);
+            this.lbl_SelfIntroduction.TabIndex = 13;
+            this.lbl_SelfIntroduction.Text = "자기소개서";
+            this.lbl_SelfIntroduction.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // iTalk_Label2
             // 
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.iTalk_Label2);
-            this.Controls.Add(this.iTalk_Label1);
+            this.Controls.Add(this.lbl_SelfIntroduction);
             this.Controls.Add(this.separator2);
             this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.lblResume);
@@ -122,7 +122,7 @@
         internal iTalk.iTalk_Separator iTalk_Separator1;
         internal iTalk.iTalk_Separator separator2;
         internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;
-        internal iTalk.iTalk_Label iTalk_Label1;
+        internal iTalk.iTalk_Label lbl_SelfIntroduction;
         internal iTalk.iTalk_Label iTalk_Label2;
     }
 }

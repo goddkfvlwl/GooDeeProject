@@ -76,7 +76,7 @@ namespace GoodeeProject
             List<MBTIChoice> aList = new List<MBTIChoice>();
             List<MBTIChoice> bList = new List<MBTIChoice>();
             List<MBTIChoice> cList = new List<MBTIChoice>();
-            
+
             foreach (DataRow item in choice.Rows)
             {
                 if (item["item"].ToString().Trim() == "A")
@@ -98,14 +98,11 @@ namespace GoodeeProject
             {
                 CtlMBTIQuestion mq = new CtlMBTIQuestion();
                 mq.flowpanelChoice.FlowDirection = FlowDirection.TopDown;
-                mq.flowpanelChoice.Controls.SetChildIndex(mq.rdoA, 0);
-                mq.flowpanelChoice.Controls.SetChildIndex(mq.rdoB, 1);
                 mq.lblNum.Text = question.DataSet.Tables[0].Rows[i]["QuestionNum"].ToString() + ". ";
                 mq.lblQuestion.Text = question.DataSet.Tables[0].Rows[i]["Question"].ToString();
 
                 mq.rdoA.Text = "(" + aList[i].Item + ") " + aList[i].ItemDetail.ToString();
                 mq.rdoB.Text = "(" + bList[i].Item + ") " + bList[i].ItemDetail.ToString();
-
                 mq.rdoA.Tag = new KeyValuePair<int, string>(aList[i].QuestionNum, "A");
                 mq.rdoB.Tag = new KeyValuePair<int, string>(bList[i].QuestionNum, "B");
 
@@ -154,7 +151,7 @@ namespace GoodeeProject
                             cbA.AutoSize = true;
                             cbB.AutoSize = true;
                             cbC.AutoSize = true;
-                            
+
                             cbA.Text = mq.rdoA.Text;
                             cbB.Text = mq.rdoB.Text;
                             cbC.Text = "(" + item.Item + ") " + item.ItemDetail;
@@ -184,7 +181,7 @@ namespace GoodeeProject
         private void btnSend_Click(object sender, EventArgs e)
         {
             mbtiDic = new Dictionary<int, string>();
-            
+
             foreach (var item in mqList)
             {
                 if (item.flowpanelChoice.Controls.ContainsKey("cbA"))
@@ -208,12 +205,14 @@ namespace GoodeeProject
                     {
                         value += tempC.Value.ToString() + ",";
                     }
+
                     if (value.Length != 0)
                     {
                         value = value.Remove(value.Length - 1, 1); 
                     }
                     mbtiDic.Add(tempA.Key, value);
                 }
+
                 if (item.rdoA.Checked)
                 {
                     KeyValuePair<int, string> temp = (KeyValuePair<int, string>)item.rdoA.Tag;
@@ -234,7 +233,6 @@ namespace GoodeeProject
                     }
                 }
             }
-            
             MBTI_Calculator();
 
             
@@ -272,7 +270,7 @@ namespace GoodeeProject
                     }
                 }
             }
-            
+
             int ei = ChangeScore(tendency['E'], tendency['I']);
             int ns = ChangeScore(tendency['N'], tendency['S']);
             int ft = ChangeScore(tendency['F'], tendency['T']);

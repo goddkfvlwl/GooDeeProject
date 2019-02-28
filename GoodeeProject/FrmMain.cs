@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace GoodeeProject
 {
-    public partial class FrmMain : Form
+    public partial class FrmMain : Form, IFormControl
     {
         SaveLog s = new SaveLog();
         private int movePointX;
@@ -122,7 +122,6 @@ namespace GoodeeProject
             Application.Exit();
             Environment.Exit(0);
         }
-
         private void btnSpec_Click(object sender, EventArgs e)
         {
             if (spec == null)
@@ -136,6 +135,7 @@ namespace GoodeeProject
                 spec.BringToFront();
                 spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click; ;
                 spec.Controls["lblResume"].Click += BtnResume_Click;
+                spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
             }
             else
             {
@@ -159,6 +159,25 @@ namespace GoodeeProject
                 panel2.Controls.Add(portfolioManager);
                 portfolioManager.Location = new Point(185, 0);
                 portfolioManager.BringToFront();
+            }  
+
+        }
+
+        private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
+        {
+            RemoveUserControl();
+
+            if (ai.Authority == 'S')
+            {
+                CtlSelfIntroductionList introductionList = new CtlSelfIntroductionList();
+                introductionList.Location = new Point(186, 0);
+                panel2.Controls.Add(introductionList);
+            }
+            else
+            {
+                CtlIntroductionListM introductionList = new CtlIntroductionListM();
+                introductionList.Location = new Point(186, 0);
+                panel2.Controls.Add(introductionList);
             }
         }
 
@@ -294,25 +313,6 @@ namespace GoodeeProject
                 }
         }
 
-        private void btnMinimum_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            movePointX = e.X;
-            movePointY = e.Y;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
-            }
-        }
-
         private void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
@@ -345,6 +345,37 @@ namespace GoodeeProject
             mq = null;
         }
 
+        private void portfolio1_Load(object sender, EventArgs e)
+        {
+            portfolio1.Controls["portfolioDetail1"].AutoSize = true;
+            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+            portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
+        }
+
+        private void PortfolioDetail1_Resize(object sender, EventArgs e)
+        {
+            VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+        }
+
+        public void Frm_MouseDown(object sender, MouseEventArgs e)
+        {
+            movePointX = e.X;
+            movePointY = e.Y;
+        }
+
+        public void Frm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
+            }
+        }
+
+        public void BtnExit_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
             ChatClinet = new ChatClient(this);
@@ -355,6 +386,20 @@ namespace GoodeeProject
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             ChatClinet.DisConnect();
+            Application.Exit();
+        }
+
+
+        public void BtnMinimum_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
+        {
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
     }
 }

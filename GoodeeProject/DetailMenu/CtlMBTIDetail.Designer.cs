@@ -39,7 +39,7 @@
             this.lblResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.lblResult.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblResult.Location = new System.Drawing.Point(14, 42);
+            this.lblResult.Location = new System.Drawing.Point(14, 45);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(137, 20);
             this.lblResult.TabIndex = 19;
@@ -49,7 +49,7 @@
             // iTalk_Separator1
             // 
             this.iTalk_Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_Separator1.Location = new System.Drawing.Point(24, 30);
+            this.iTalk_Separator1.Location = new System.Drawing.Point(24, 34);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
             this.iTalk_Separator1.Size = new System.Drawing.Size(120, 10);
             this.iTalk_Separator1.TabIndex = 17;
@@ -60,7 +60,7 @@
             this.lblWrite.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.lblWrite.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblWrite.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblWrite.Location = new System.Drawing.Point(12, 11);
+            this.lblWrite.Location = new System.Drawing.Point(12, 14);
             this.lblWrite.Name = "lblWrite";
             this.lblWrite.Size = new System.Drawing.Size(140, 20);
             this.lblWrite.TabIndex = 16;
