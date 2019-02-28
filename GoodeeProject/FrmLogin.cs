@@ -42,6 +42,8 @@ namespace GoodeeProject
                     }
                     else
                     {
+                        FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
+                        FrmMain.Curriculum = gd.GetCurriculum(FrmMain.Mi.ClassNum);
                         FrmMain.Ai.Pw = tboxPW.Text;
                         FrmMain.Mi = gd.SelectMember(FrmMain.Ai.Id);
                         FrmMain fr = new FrmMain();

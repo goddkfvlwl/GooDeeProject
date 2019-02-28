@@ -28,68 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnReadExl = new iTalk.iTalk_Button_1();
             this.gViewStudentInfo = new System.Windows.Forms.DataGridView();
-            this.btnWriteExl = new iTalk.iTalk_Button_1();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnubtnStudentRegist = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnubtnExcelRegist = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnubtnIndividualRegist = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnubtnStudentPrint = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnReadExl
-            // 
-            this.btnReadExl.BackColor = System.Drawing.Color.Transparent;
-            this.btnReadExl.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnReadExl.Image = null;
-            this.btnReadExl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReadExl.Location = new System.Drawing.Point(3, 3);
-            this.btnReadExl.Name = "btnReadExl";
-            this.btnReadExl.Size = new System.Drawing.Size(172, 40);
-            this.btnReadExl.TabIndex = 0;
-            this.btnReadExl.Text = "수강생 명단 엑셀 입력";
-            this.btnReadExl.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnReadExl.Click += new System.EventHandler(this.btnReadExl_Click);
             // 
             // gViewStudentInfo
             // 
+            this.gViewStudentInfo.AllowUserToAddRows = false;
+            this.gViewStudentInfo.AllowUserToDeleteRows = false;
+            this.gViewStudentInfo.AllowUserToResizeColumns = false;
+            this.gViewStudentInfo.AllowUserToResizeRows = false;
             this.gViewStudentInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gViewStudentInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gViewStudentInfo.Location = new System.Drawing.Point(0, 52);
+            this.gViewStudentInfo.Location = new System.Drawing.Point(0, 62);
             this.gViewStudentInfo.Name = "gViewStudentInfo";
+            this.gViewStudentInfo.ReadOnly = true;
+            this.gViewStudentInfo.RowHeadersVisible = false;
             this.gViewStudentInfo.RowTemplate.Height = 23;
-            this.gViewStudentInfo.Size = new System.Drawing.Size(815, 402);
+            this.gViewStudentInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gViewStudentInfo.Size = new System.Drawing.Size(815, 392);
             this.gViewStudentInfo.TabIndex = 1;
+            this.gViewStudentInfo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gViewStudentInfo_CellClick);
             // 
-            // btnWriteExl
+            // menuStrip1
             // 
-            this.btnWriteExl.BackColor = System.Drawing.Color.Transparent;
-            this.btnWriteExl.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnWriteExl.Image = null;
-            this.btnWriteExl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnWriteExl.Location = new System.Drawing.Point(181, 3);
-            this.btnWriteExl.Name = "btnWriteExl";
-            this.btnWriteExl.Size = new System.Drawing.Size(172, 40);
-            this.btnWriteExl.TabIndex = 2;
-            this.btnWriteExl.Text = "수강생 명단 엑셀 출력";
-            this.btnWriteExl.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubtnStudentRegist,
+            this.mnubtnStudentPrint});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(815, 24);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnubtnStudentRegist
+            // 
+            this.mnubtnStudentRegist.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnubtnExcelRegist,
+            this.mnubtnIndividualRegist});
+            this.mnubtnStudentRegist.Name = "mnubtnStudentRegist";
+            this.mnubtnStudentRegist.Size = new System.Drawing.Size(83, 20);
+            this.mnubtnStudentRegist.Text = "수강생 등록";
+            // 
+            // mnubtnExcelRegist
+            // 
+            this.mnubtnExcelRegist.Name = "mnubtnExcelRegist";
+            this.mnubtnExcelRegist.Size = new System.Drawing.Size(170, 22);
+            this.mnubtnExcelRegist.Text = "수강생 Excel 등록";
+            this.mnubtnExcelRegist.Click += new System.EventHandler(this.btnReadExl_Click);
+            // 
+            // mnubtnIndividualRegist
+            // 
+            this.mnubtnIndividualRegist.Name = "mnubtnIndividualRegist";
+            this.mnubtnIndividualRegist.Size = new System.Drawing.Size(170, 22);
+            this.mnubtnIndividualRegist.Text = "수강생 개별  등록";
+            this.mnubtnIndividualRegist.Click += new System.EventHandler(this.mnubtnIndividualRegist_Click);
+            // 
+            // mnubtnStudentPrint
+            // 
+            this.mnubtnStudentPrint.Name = "mnubtnStudentPrint";
+            this.mnubtnStudentPrint.Size = new System.Drawing.Size(83, 20);
+            this.mnubtnStudentPrint.Text = "수강생 출력";
+            this.mnubtnStudentPrint.Click += new System.EventHandler(this.btnWriteExl_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(335, 33);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 3;
+            this.btnSearch.Text = "검색";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(109, 35);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 21);
+            this.textBox1.TabIndex = 4;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "이름",
+            "과정명",
+            "분류"});
+            this.comboBox1.Location = new System.Drawing.Point(3, 36);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(100, 20);
+            this.comboBox1.TabIndex = 5;
             // 
             // StudentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnWriteExl);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.gViewStudentInfo);
-            this.Controls.Add(this.btnReadExl);
+            this.Controls.Add(this.menuStrip1);
             this.Name = "StudentManagement";
             this.Size = new System.Drawing.Size(815, 454);
             this.Load += new System.EventHandler(this.StudentManagement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gViewStudentInfo)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private iTalk.iTalk_Button_1 btnReadExl;
-        private iTalk.iTalk_Button_1 btnWriteExl;
         internal System.Windows.Forms.DataGridView gViewStudentInfo;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnubtnStudentRegist;
+        private System.Windows.Forms.ToolStripMenuItem mnubtnExcelRegist;
+        private System.Windows.Forms.ToolStripMenuItem mnubtnIndividualRegist;
+        private System.Windows.Forms.ToolStripMenuItem mnubtnStudentPrint;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Resources;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,22 +20,37 @@ namespace GoodeeProject
         SaveLog s = new SaveLog();
         private int movePointX;
         private int movePointY;
-        
-
+        static string curriculum;
         //로그인 한 사용자의 정보를 담을 객체
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
-        
-
+        #region Controls
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
         CtlSurveyAdminDetail surveyAdmin;
-        CtlSurveyUserDetail surveyUser;
         CtlMBTIDetail mbti;
-        
+        Chat chat;
+        ChatClient chatClinet;
+
+        ClassList classlist;
+        StudentManagement studentManagement;
+        PortfolioList portfolioList;
+        PortfolioManager portfolioManager;
+        CtlResume rs;
+        SurveyList surveyList;
+        CreateSurvey createSurvey;
+        CtlMBTIResult mr;
+        FrmMBTIQuestion mq;
+        #endregion
+
+        public static string Curriculum { get => curriculum; set => curriculum = value; }
+        internal ChatClient ChatClinet { get => chatClinet; set => chatClinet = value; }
+        public static bool IsConnected { get => isConnected; set => isConnected = value; }
+        static bool isConnected = false;
+        Thread loginThread;
+        public static string chatContent;
         internal static MemberInfo Mi { get => mi; set => mi = value; }
         internal static AccountInfo Ai { get => ai; set => ai = value; }
-
         public FrmMain()
         {
             //InitializeComponent();
@@ -46,6 +63,11 @@ namespace GoodeeProject
             InitializeComponent();
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
+            ctlProfile1.btnClassModify.Click += BtnClassModify_Click;
+            if (ai.Authority == 'S')
+            {
+
+            }
 
             if (mi.Picture != null)
             {
@@ -65,6 +87,7 @@ namespace GoodeeProject
                 //사용자가 수강생일때
                 ctlProfile1.btnLog.Visible = false;
                 ctlProfile1.btnStudent.Visible = false;
+                ctlProfile1.btnClassModify.Visible = false;
                 ctlProfile1.Size = new Size(224, 111);
                 ctlProfile1.Location = new Point(767, 29);
             }
@@ -73,39 +96,80 @@ namespace GoodeeProject
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
             }
+            ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
 
-        
+        private void BtnClassModify_Click(object sender, EventArgs e)
+        {
+            classlist = new ClassList();
+            panel2.Controls.Add(classlist);
+            classlist.Location = new Point(185, 0);
+            classlist.BringToFront();
+        }
+
+        private void BtnStudent_Click(object sender, EventArgs e)
+        {
+            studentManagement = new StudentManagement();
+            panel2.Controls.Add(studentManagement);
+            studentManagement.Location = new Point(185, 0);
+            studentManagement.Visible = true;
+            studentManagement.BringToFront();
+        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+
             Application.Exit();
+            Environment.Exit(0);
         }
 
         private void btnSpec_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-            
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
+            if (spec == null)
+            {
+                RemoveUserControl();
+                sidePanel.Visible = true;
+                sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
+                spec = new CtlSpecDetail();
+                panel2.Controls.Add(spec);
+                spec.Location = new Point(192, 1);
+                spec.BringToFront();
+                spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click; ;
+                spec.Controls["lblResume"].Click += BtnResume_Click;
+            }
+            else
+            {
+                sidePanel.Visible = false;
+                RemoveUserControl();
+            }
+        }
 
-            spec = new CtlSpecDetail();
-            panel2.Controls.Add(spec);
-            spec.BringToFront();
-            spec.Location = new Point(192, 1);
-            spec.Controls["lblResume"].Click += BtnResume_Click;
+        private void BtnPortfolio_Click(object sender, EventArgs e)
+        {
+            if (ai.Authority == 'S')
+            {
+                portfolioList = new PortfolioList();
+                panel2.Controls.Add(portfolioList);
+                portfolioList.Location = new Point(185, 0);
+                portfolioList.BringToFront();
+            }
+            else if (ai.Authority == 'A' || ai.Authority == 'M')
+            {
+                portfolioManager = new PortfolioManager();
+                panel2.Controls.Add(portfolioManager);
+                portfolioManager.Location = new Point(185, 0);
+                portfolioManager.BringToFront();
+            }
         }
 
         private void BtnResume_Click(object sender, EventArgs e)
         {
             s.AddList("이력서 클릭");
-            CtlResume rs = new CtlResume();
+            rs = new CtlResume();
             panel2.Controls.Add(rs);
             rs.Location = new Point(185, 0);
             spec.SendToBack();
         }
-
-        
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
@@ -117,37 +181,69 @@ namespace GoodeeProject
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
+            if (companyInfo == null)
+            {
+                RemoveUserControl();
 
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
+                sidePanel.Visible = true;
+                sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
-            companyInfo = new CtlCompanyInfoDetail();
-            panel2.Controls.Add(companyInfo);
-            companyInfo.Location = new Point(192, 211);
+                companyInfo = new CtlCompanyInfoDetail();
+                panel2.Controls.Add(companyInfo);
+                companyInfo.Location = new Point(192, 211);
+            }
+            else
+            {
+                sidePanel.Visible = false;
+                RemoveUserControl();
+            }
         }
 
         private void btnSurvey_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
-
-            if (ai.Authority == 'S')
+            if (surveyAdmin == null)
             {
-                //사용자
-                surveyUser = new CtlSurveyUserDetail();
-                panel2.Controls.Add(surveyUser);
-                surveyUser.Location = new Point(192, 100);
+                RemoveUserControl();
+
+                sidePanel.Visible = true;
+                sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
+                if (ai.Authority == 'S')
+                {
+                    surveyList = new SurveyList();
+                    panel2.Controls.Add(surveyList);
+                    surveyList.Location = new Point(185, 0);
+                    surveyList.BringToFront();
+                }
+                else
+                {
+                    //관리자, 최상위 관리자
+                    if (surveyAdmin == null)
+                    {
+                        surveyAdmin = new CtlSurveyAdminDetail();
+                    }
+                    panel2.Controls.Add(surveyAdmin);
+                    surveyAdmin.Location = new Point(192, 40);
+                    surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
+                    surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
+                    surveyAdmin.BringToFront();
+                }
             }
-            else
-            {
-                //관리자, 최상위 관리자
-                surveyAdmin = new CtlSurveyAdminDetail();
-                panel2.Controls.Add(surveyAdmin);
-                surveyAdmin.Location = new Point(192, 71);
-            }
+        }
+
+        private void lblMenu1_Click(object sender, EventArgs e)
+        {
+            surveyList = new SurveyList();
+            panel2.Controls.Add(surveyList);
+            surveyList.Location = new Point(185, 0);
+            surveyList.BringToFront();
+        }
+
+        private void iTalk_Label1_Click(object sender, EventArgs e)
+        {
+            createSurvey = new CreateSurvey();
+            panel2.Controls.Add(createSurvey);
+            createSurvey.Location = new Point(185, 0);
+            createSurvey.BringToFront();
         }
 
         private void btnMBTI_Click(object sender, EventArgs e)
@@ -167,7 +263,7 @@ namespace GoodeeProject
 
         private void MBTIResult_Click(object sender, EventArgs e)
         {
-            CtlMBTIResult mr = new CtlMBTIResult();
+            mr = new CtlMBTIResult();
             panel2.Controls.Add(mr);
             mr.Location = new Point(185, 0);
             mbti.SendToBack();
@@ -176,16 +272,26 @@ namespace GoodeeProject
         private void MBTIWrite_Click(object sender, EventArgs e)
         {
             mbti.SendToBack();
-            FrmMBTIQuestion mq = new FrmMBTIQuestion();
+            mq = new FrmMBTIQuestion();
             mq.Show();
         }
 
         private void btnChat_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
-
-            sidePanel.Visible = true;
-            sidePanel.Location = new Point(btnChat.Size.Width - 10, btnChat.Location.Y);
+                if (isConnected)
+                {
+                    chat = new Chat(ChatClinet.Client, isConnected);
+                    panel2.Controls.Add(chat);
+                    chat.Location = new Point(185, 0);
+                    chat.BringToFront();
+                    chatClinet.RequestMemberList();
+                }
+                else
+                {
+                    isConnected = false;
+                    MessageBox.Show("채팅서버에 접속할수 없습니다. 잠시후 다시 시도해주세요.");
+                }
         }
 
         private void btnMinimum_Click(object sender, EventArgs e)
@@ -210,13 +316,45 @@ namespace GoodeeProject
         private void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
+            spec = null;
             panel2.Controls.Remove(companyInfo);
+            companyInfo = null;
             panel2.Controls.Remove(surveyAdmin);
-            panel2.Controls.Remove(surveyUser);
+            surveyAdmin = null;
             panel2.Controls.Remove(mbti);
+            mbti = null;
+            panel2.Controls.Remove(chat);
+            chat = null;
+            panel2.Controls.Remove(classlist);
+            classlist = null;
+            panel2.Controls.Remove(studentManagement);
+            studentManagement = null;
+            panel2.Controls.Remove(portfolioList);
+            portfolioList = null;
+            panel2.Controls.Remove(portfolioManager);
+            portfolioManager = null;
+            panel2.Controls.Remove(rs);
+            rs = null;
+            panel2.Controls.Remove(surveyList);
+            surveyList = null;
+            panel2.Controls.Remove(createSurvey);
+            createSurvey = null;
+            panel2.Controls.Remove(mr);
+            mr = null;
+            panel2.Controls.Remove(mq);
+            mq = null;
         }
 
-        
-        
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            ChatClinet = new ChatClient(this);
+            loginThread = new Thread(ChatClinet.ChatLogin);
+            loginThread.Start();
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ChatClinet.DisConnect();
+        }
     }
 }
