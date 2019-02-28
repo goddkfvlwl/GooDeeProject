@@ -120,6 +120,7 @@ namespace GoodeeProject
                     {
                         if (item.QuestionNum != 24)
                         {
+
                             mq.flowpanelChoice.Size = new Size(750, 80);
                             mq.Size = new Size(771, 108);
                             rdoC.Name = "rdoC";
@@ -235,7 +236,6 @@ namespace GoodeeProject
             }
             MBTI_Calculator();
 
-            
         }
 
         public void MBTI_Calculator()

@@ -186,11 +186,6 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
-        internal void InsertMember(MemberInfo member)
-        {
-
-        }
-
         internal void InsertClass(string Class, string curriculm, TextBox turn, DateTime startDate, DateTime endDate, bool isActive)
         {
             string proc = "InsertClass";
@@ -737,6 +732,8 @@ namespace GoodeeProject.GoodeeDAO
         public DataTable SelectMBTI_Stats()
         {
             string proc = "SelectMbtiStats";
+            con = new DBConnection();
+
             return con.ExecuteSelect(proc);
         }
 
@@ -747,6 +744,7 @@ namespace GoodeeProject.GoodeeDAO
 
             return con.ExecuteSelect(proc);
         }
+
         public DataTable SelectMBTI_StatsByName(string name)
         {
             string proc = "SelectMBTIStatsByName";
@@ -772,7 +770,6 @@ namespace GoodeeProject.GoodeeDAO
             con = new DBConnection();
             SqlParameter[] pms = new SqlParameter[1];
             pms[0] = new SqlParameter("ClassNum", tag);
-
             return con.SelectWithParams(proc, pms);
         }
     }

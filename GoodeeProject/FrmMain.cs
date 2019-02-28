@@ -118,10 +118,10 @@ namespace GoodeeProject
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
             Environment.Exit(0);
         }
+
         private void btnSpec_Click(object sender, EventArgs e)
         {
             if (spec == null)
@@ -160,7 +160,6 @@ namespace GoodeeProject
                 portfolioManager.Location = new Point(185, 0);
                 portfolioManager.BringToFront();
             }  
-
         }
 
         private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
@@ -369,11 +368,6 @@ namespace GoodeeProject
             {
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
-        }
-
-        public void BtnExit_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
