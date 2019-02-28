@@ -20,8 +20,6 @@ namespace GoodeeProject
             goodee = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
-
-
         private void btn_Search_Click(object sender, EventArgs e)
         {
             FrmCreateID parent = (FrmCreateID)this.Parent.Parent;

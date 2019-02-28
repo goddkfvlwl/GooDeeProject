@@ -79,11 +79,11 @@ namespace GoodeeProject
         {
             if (client == null)
             {
-                byte[] nickName = Encoding.UTF8.GetBytes(mi.Id + "$||$" + mi.Name + "$||$" + ai.Authority);
+                byte[] nickName = Encoding.UTF8.GetBytes(mi.Id + "$||$" + mi.Name + "$||$" + ai.Authority + "$||$" + mi.Address + "$||$");
                 client = new TcpClient();
                 try
                 {
-                    client.Connect("192.168.0.248", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
+                    client.Connect("40.76.89.193",3333);   // 연결이 되었으니, Connteced에 true를 준다.
                     isConnected = true;
                 }
                 catch (Exception a)

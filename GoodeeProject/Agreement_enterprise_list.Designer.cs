@@ -30,7 +30,7 @@
         {
             this.agreementList1 = new MetroFramework.Controls.MetroListView();
             this.iTalk_HeaderLabel1 = new iTalk.iTalk_HeaderLabel();
-            this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
+            this.btnwrite = new iTalk.iTalk_Button_1();
             this.SuspendLayout();
             // 
             // agreementList1
@@ -58,18 +58,18 @@
             this.iTalk_HeaderLabel1.TabIndex = 6;
             this.iTalk_HeaderLabel1.Text = "게시판";
             // 
-            // iTalk_Button_12
+            // btnwrite
             // 
-            this.iTalk_Button_12.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_12.Font = new System.Drawing.Font("함초롬돋움", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_12.Image = null;
-            this.iTalk_Button_12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_12.Location = new System.Drawing.Point(737, 411);
-            this.iTalk_Button_12.Name = "iTalk_Button_12";
-            this.iTalk_Button_12.Size = new System.Drawing.Size(65, 26);
-            this.iTalk_Button_12.TabIndex = 5;
-            this.iTalk_Button_12.Text = "글쓰기";
-            this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnwrite.BackColor = System.Drawing.Color.Transparent;
+            this.btnwrite.Font = new System.Drawing.Font("함초롬돋움", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnwrite.Image = null;
+            this.btnwrite.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnwrite.Location = new System.Drawing.Point(737, 411);
+            this.btnwrite.Name = "btnwrite";
+            this.btnwrite.Size = new System.Drawing.Size(65, 26);
+            this.btnwrite.TabIndex = 5;
+            this.btnwrite.Text = "글쓰기";
+            this.btnwrite.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // Agreement_enterprise_list
             // 
@@ -77,7 +77,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.agreementList1);
             this.Controls.Add(this.iTalk_HeaderLabel1);
-            this.Controls.Add(this.iTalk_Button_12);
+            this.Controls.Add(this.btnwrite);
             this.Name = "Agreement_enterprise_list";
             this.Size = new System.Drawing.Size(815, 454);
             this.Load += new System.EventHandler(this.Agreement_enterprise_list_Load);
@@ -90,6 +90,6 @@
 
         private MetroFramework.Controls.MetroListView agreementList1;
         private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel1;
-        private iTalk.iTalk_Button_1 iTalk_Button_12;
+        internal iTalk.iTalk_Button_1 btnwrite;
     }
 }

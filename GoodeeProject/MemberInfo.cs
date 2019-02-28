@@ -19,12 +19,23 @@ namespace GoodeeProject
         private char army;
         private float score;
         private int classNum;
+        private string regist;
         private Image picture;
-
         public MemberInfo()
         {
         }
 
+        public MemberInfo(string id, string name, DateTime birthDate, char gender, string mobile, string address, int classNum, string regist)
+        {
+            this.id = id;
+            this.name = name;
+            this.birthDate = birthDate;
+            this.gender = gender;
+            this.mobile = mobile;
+            this.address = address;
+            this.classNum = classNum;
+            this.regist = regist;
+        }
         public MemberInfo(string id, string name, DateTime birthDate, char gender, string mobile, string address, string hopePay, char army, float score, int classNum, Image picture)
         {
             this.Id = id;
@@ -39,7 +50,6 @@ namespace GoodeeProject
             this.ClassNum = classNum;
             this.Picture = picture;
         }
-
         public string Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
@@ -50,6 +60,7 @@ namespace GoodeeProject
         public char Army { get => army; set => army = value; }
         public float Score { get => score; set => score = value; }
         public int ClassNum { get => classNum; set => classNum = value; }
+        public string Regist { get => regist; set => regist = value; }
         public Image Picture { get => picture; set => picture = value; }
     }
 

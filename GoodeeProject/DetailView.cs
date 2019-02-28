@@ -114,10 +114,6 @@ namespace GoodeeProject
             detail.Location = new Point(190, 3);
             detail.BringToFront();
             panel.Controls.Add(detail);
-
-
         }
-
-
     }
 }

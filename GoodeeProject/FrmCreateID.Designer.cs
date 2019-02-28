@@ -30,7 +30,6 @@
         {
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
-            this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.btn_CreateCom = new System.Windows.Forms.Button();
             this.btn_CreateManager = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -64,14 +63,6 @@
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 94);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(472, 10);
-            this.iTalk_Separator1.TabIndex = 91;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
             // btn_CreateCom
             // 
             this.btn_CreateCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -98,9 +89,9 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(0, 110);
+            this.panel1.Location = new System.Drawing.Point(1, 96);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(472, 490);
+            this.panel1.Size = new System.Drawing.Size(470, 488);
             this.panel1.TabIndex = 94;
             // 
             // FrmCreateID
@@ -108,11 +99,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(472, 600);
+            this.ClientSize = new System.Drawing.Size(472, 585);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_CreateCom);
             this.Controls.Add(this.btn_CreateManager);
-            this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.btnMinimum);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -128,7 +118,6 @@
         #endregion
         private iTalk.iTalk_Button_1 btnMinimum;
         private iTalk.iTalk_Button_1 btnExit;
-        private iTalk.iTalk_Separator iTalk_Separator1;
         private System.Windows.Forms.Button btn_CreateCom;
         private System.Windows.Forms.Button btn_CreateManager;
         private System.Windows.Forms.Panel panel1;

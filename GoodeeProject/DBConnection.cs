@@ -201,9 +201,7 @@ namespace GoodeeProject
                 cmd.Parameters.AddRange(pms);
             }
             int r = cmd.ExecuteNonQuery();
-
-
-            if (r == 1)
+            if (r >= 1)
             {
                 result = true;
             }

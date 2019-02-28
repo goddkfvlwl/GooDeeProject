@@ -1,6 +1,6 @@
 ﻿namespace GoodeeProject
 {
-    partial class FrmMain
+    partial class FrmMain : IFormControl
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,6 @@
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.studentManagement1 = new GoodeeProject.StudentManagement();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnChat = new System.Windows.Forms.Button();
             this.btnMBTI = new System.Windows.Forms.Button();
@@ -81,22 +80,6 @@
             this.iTalk_Separator1.TabIndex = 7;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
-            // ctlProfile1
-            // 
-            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
-            this.ctlProfile1.Name = "ctlProfile1";
-            this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
-            this.ctlProfile1.TabIndex = 0;
-            // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
-            this.iTalk_Separator1.TabIndex = 7;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
@@ -119,10 +102,7 @@
             this.btnMinimum.TabIndex = 25;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
-
             this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
-            
-
             // 
             // btnExit
             // 
@@ -141,9 +121,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-
-            this.panel2.Controls.Add(this.studentManagement1);
-
             this.panel2.Controls.Add(this.sidePanel);
             this.panel2.Controls.Add(this.btnChat);
             this.panel2.Controls.Add(this.btnMBTI);
@@ -157,14 +134,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 454);
             this.panel2.TabIndex = 27;
-            // 
-            // studentManagement1
-            // 
-            this.studentManagement1.Location = new System.Drawing.Point(185, 0);
-            this.studentManagement1.Name = "studentManagement1";
-            this.studentManagement1.Size = new System.Drawing.Size(815, 454);
-            this.studentManagement1.TabIndex = 8;
-            this.studentManagement1.Visible = false;
             // 
             // sidePanel
             // 
@@ -286,6 +255,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTalk_ThemeContainer1";
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -301,16 +272,13 @@
         private System.Windows.Forms.Button btnChat;
         private System.Windows.Forms.Button btnMBTI;
         private System.Windows.Forms.Button btnSurvey;
-        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button btnBoard;
         private System.Windows.Forms.Button btnSpec;
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Separator iTalk_Separator1;
-
-
-        private StudentManagement studentManagement1;
-
+        private Portfolio portfolio1;
         internal CtlProfile ctlProfile1;
         internal System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.Button btnInfo;
     }
 }
