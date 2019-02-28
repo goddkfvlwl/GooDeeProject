@@ -114,3 +114,5 @@ C:\C#\GoodeeProject\GoodeeProject\bin\Debug\AxInterop.WMPLib.dll
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\C#\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\NetSpell.SpellChecker.dll
+C:\C#\GoodeeProject\GoodeeProject\bin\Debug\NetSpell.SpellChecker.xml
