@@ -42,6 +42,7 @@ namespace GoodeeProject
 
                         try
                         {
+                            //3333, 40.76.89.193
                             client.Connect("40.76.89.193", 3333);
                             ns = client.GetStream();
                             ns.Write(nickName, 0, nickName.Length);

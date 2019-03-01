@@ -95,13 +95,6 @@ namespace GoodeeProject
                 pboxPic.Image = Image.FromFile(openFileDialog1.FileName);
             }
         }
-
-
-
-
-        //private byte[] GetBytePicture()
-        //{
-        //    Image
-        //}
+        
     }
 }
