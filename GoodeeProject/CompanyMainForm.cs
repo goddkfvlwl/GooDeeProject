@@ -83,8 +83,12 @@ namespace GoodeeProject
                 client = new TcpClient();
                 try
                 {
+<<<<<<< HEAD
                     // 
                     client.Connect("40.76.89.193", 3333);   // 연결이 되었으니, Connteced에 true를 준다.
+=======
+                    client.Connect("40.76.89.193",3333);   // 연결이 되었으니, Connteced에 true를 준다.
+>>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
                     isConnected = true;
                 }
                 catch (Exception a)

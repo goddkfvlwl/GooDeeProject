@@ -15,12 +15,20 @@ namespace GoodeeProject
 {
     public partial class StudentManagement : UserControl
     {
+        SaveLog log = new SaveLog();
         System.Data.DataTable table;
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public StudentManagement()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 수강생의 명단을 데이터베이스에서 불러와 데이터그리드뷰에 입력하고 데이터그리드뷰의 컬럼헤더를 설정합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StudentManagement_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
@@ -38,14 +46,19 @@ namespace GoodeeProject
             this.gViewStudentInfo.Columns.Add("Regist", "학적");
             this.gViewStudentInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             gViewStudentInfo.Rows.Clear();
-            
+
             foreach (DataRow item in table.Rows)
             {
                 ViewRowInsert(item);
             }
-            
+
         }
 
+        /// <summary>
+        /// OpenFileDialog를 실행시켜 수강생 명단이 있는 엑셀파일을 선택하면 해당 엑셀파일에서 데이터를 읽어와 데이터베이스에 입력합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnReadExl_Click(object sender, EventArgs e)
         {
             string xlsPath = "";
@@ -61,14 +74,15 @@ namespace GoodeeProject
                 OleDbCommand cmd = new OleDbCommand("SELECT * FROM [sheet1$]", con);
                 var xls = cmd.ExecuteReader();
                 GoodeeDAO.GoodeeDAO goodeeDAO = GoodeeDAO.GoodeeDAO.GetInstance();
-
+                int count = 0;
                 while (xls.Read())
                 {
+                    count++;
                     if (!string.IsNullOrEmpty(xls["이메일"].ToString()) && !string.IsNullOrEmpty(xls["이름"].ToString())
-                        && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString()) 
+                        && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString())
                         && !string.IsNullOrEmpty(xls["휴대폰"].ToString()) && !string.IsNullOrEmpty(xls["주소"].ToString()))
                     {
-                        string[] member = new string[9];
+                        string[] member = new string[10];
                         member[0] = xls["이메일"].ToString();
                         member[1] = xls["이름"].ToString();
                         member[2] = xls["성별"].ToString() == "남자" ? "m" : "f";
@@ -78,14 +92,42 @@ namespace GoodeeProject
                         member[6] = xls["분류"].ToString();
                         member[7] = xls["과정명"].ToString();
                         member[8] = xls["회차"].ToString();
-                        goodeeDAO.InsertMember(member); 
+                        goodeeDAO.InsertMember(member);
+                        string[] Education = new string[5];
+                        Education[0] = xls["이메일"].ToString();
+                        Education[1] = xls["최종학교"].ToString();
+                        if (xls["최종학교"].ToString().Contains("대학교"))
+                        {
+                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학교")));
+                        }
+                        else if ((xls["최종학교"].ToString().Contains("대학")))
+                        {
+                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학")));
+                        }
+                        else if (xls["최종학교"].ToString().Contains("고등학교"))
+                        {
+                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("고등학교")));
+                        }
+                        else if (xls["최종학교"].ToString().Contains("대학원"))
+                        {
+                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학원")));
+                        }
+                        Education[3] = xls["전공"].ToString();
+                        Education[4] = xls["학력"].ToString();
+                        goodeeDAO.InsertEducation(Education[0], DateTime.Now, DateTime.Now, Education[1], Education[2], Education[3], Education[4]);
                     }
                 }
                 con.Close();
+                log.AddList("수강생 명단" + count + "명 추가");
             }
             this.StudentManagement_Load(null, null);
         }
 
+        /// <summary>
+        /// 데이터베이스에서 수강생 목록을 읽어와서 엑셀파일로 저장합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnWriteExl_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFile = new SaveFileDialog();
@@ -125,9 +167,10 @@ namespace GoodeeProject
                     worksheet.Cells[7][i + 3] = table.Rows[i]["Mobile"].ToString();
                     worksheet.Cells[8][i + 3] = table.Rows[i]["Id"].ToString();
                     worksheet.Cells[9][i + 3] = table.Rows[i]["Address"].ToString();
-                    worksheet.Cells[10][i + 3] = "학력";
-                    worksheet.Cells[11][i + 3] = "최종학교";
-                    worksheet.Cells[12][i + 3] = "전공";
+                    var edu = goodeeDAO.GetHighestEducation(table.Rows[i]["Id"].ToString());
+                    worksheet.Cells[10][i + 3] = edu.Rows[0]["EduType"].ToString();
+                    worksheet.Cells[11][i + 3] = edu.Rows[0]["School"].ToString();
+                    worksheet.Cells[12][i + 3] = edu.Rows[0]["Department"].ToString();
                 }
                 workbook.SaveAs(saveFile.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal, missingValue, missingValue, missingValue, missingValue, Microsoft.Office.Interop.Excel.XlSaveAsAccessMode.xlExclusive, missingValue, missingValue, missingValue, missingValue, missingValue);
                 workbook.Close(true, missingValue, missingValue);
@@ -136,8 +179,14 @@ namespace GoodeeProject
                 Marshal.ReleaseComObject(workbook);
                 Marshal.ReleaseComObject(app);
             }
+            log.AddList("수강생 명단 출력");
         }
 
+        /// <summary>
+        /// 선택한 수강생의 상세정보를 표시합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e"> DataGridView 셀 및 행 작업과 관련된 데이터를 제공하는 이벤트입니다.</param>
         private void gViewStudentInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string id = gViewStudentInfo.Rows[e.RowIndex].Cells[7].Value.ToString();
@@ -145,14 +194,22 @@ namespace GoodeeProject
             regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
-
+        /// <summary>
+        /// 수강생을 추가하는 폼을 실행시킵니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void mnubtnIndividualRegist_Click(object sender, EventArgs e)
         {
             FrmStudentRegist regist = new FrmStudentRegist();
             regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
-
+        /// <summary>
+        /// ComboBox의 선택 아이템에 따라 Textbox에 입력된 데이터로 수강생을 검색합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             gViewStudentInfo.Rows.Clear();

@@ -103,6 +103,11 @@ namespace GoodeeProject
             ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
 
+        /// <summary>
+        /// 훈련과정을 수정하는 폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnClassModify_Click(object sender, EventArgs e)
         {
             classlist = new ClassList();
@@ -110,6 +115,11 @@ namespace GoodeeProject
             classlist.Location = new Point(185, 0);
             classlist.BringToFront();
         }
+        /// <summary>
+        /// 수강생을 관리하는 폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnStudent_Click(object sender, EventArgs e)
         {
             studentManagement = new StudentManagement();
@@ -119,6 +129,11 @@ namespace GoodeeProject
             studentManagement.BringToFront();
         }
 
+        /// <summary>
+        /// 세부목록을 표시합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSpec_Click(object sender, EventArgs e)
         {
             if (spec == null)
@@ -141,6 +156,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 현재 로그인된 계정의 권한에 따라 포트폴리오목록 또는 포트폴리오 매니저폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
             if (ai.Authority == 'S')
@@ -223,6 +243,18 @@ namespace GoodeeProject
             companyInfo.BringToFront();
             companyInfo.Controls["lblMenu1"].Click += FrmMain_Click;
             
+<<<<<<< HEAD
+
+        }
+
+        private void FrmMain_Click(object sender, EventArgs e)
+        {
+            RemoveUserControl();
+            information = new JobInformation();
+            information.Location = new Point(190, 3);
+            panel2.Controls.Add(information);
+=======
+>>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
 
         }
 
@@ -235,6 +267,11 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 현재 로그인된 계정의 권한에 따라 설문목록 또는 설문 관리폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSurvey_Click(object sender, EventArgs e)
         {
             if (surveyAdmin == null)
@@ -266,6 +303,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 설문목록을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void lblMenu1_Click(object sender, EventArgs e)
         {
             surveyList = new SurveyList();
@@ -274,6 +316,11 @@ namespace GoodeeProject
             surveyList.BringToFront();
         }
 
+        /// <summary>
+        /// 새로운 설문을 작성하는 폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void iTalk_Label1_Click(object sender, EventArgs e)
         {
             createSurvey = new CreateSurvey();
@@ -313,6 +360,11 @@ namespace GoodeeProject
             mq.Show();
         }
 
+        /// <summary>
+        /// 채팅폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnChat_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -331,6 +383,11 @@ namespace GoodeeProject
                 }
         }
 
+        /// <summary>
+        /// 현제 활성화된 폼을 모두 삭제합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         internal void RemoveUserControl()
         {
             panel2.Controls.Remove(spec);
@@ -365,6 +422,7 @@ namespace GoodeeProject
             agreement = null;
             panel2.Controls.Remove(information);
             information = null;
+<<<<<<< HEAD
         }
 
         private void portfolio1_Load(object sender, EventArgs e)
@@ -377,6 +435,8 @@ namespace GoodeeProject
         private void PortfolioDetail1_Resize(object sender, EventArgs e)
         {
             //VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
+=======
+>>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)
@@ -400,6 +460,11 @@ namespace GoodeeProject
             loginThread.Start();
         }
 
+        /// <summary>
+        /// 현재 폼이 종료될때 채팅서버의 접속을 종료합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             ChatClinet.DisConnect();
@@ -422,6 +487,11 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 현재 폼을 종료합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         public void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

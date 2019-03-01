@@ -18,21 +18,40 @@ namespace GoodeeProject
 {
     public partial class Portfolio : UserControl
     {
+        SaveLog log = new SaveLog();
         string beforeName;
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public Portfolio()
         {
             InitializeComponent();
             beforeName = "";
         }
+        /// <summary>
+        /// LoadPortfolio를 호출합니다.
+        /// </summary>
+        /// <param name="id">수강생의 ID</param>
+        /// <param name="portfolioName">포트폴리오 제목</param>
         public Portfolio(string id, string portfolioName) : this()
         {
             LoadPortfolio(id, portfolioName);
         }
+        /// <summary>
+        /// 스크롤바의 자동이동을 막는 메서드입니다.
+        /// </summary>
+        /// <param name="activeControl">스크롤바의 이동을 호출한 컨트롤입니다.</param>
+        /// <returns></returns>
         protected override Point ScrollToControl(Control activeControl)
         {
             return this.AutoScrollPosition;
         }
 
+        /// <summary>
+        /// 작성한 포트폴리오의 내용을 FTP서버에 XML형식으로 변환하여 저장합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
             bool isDirectoryExist = false;
@@ -175,11 +194,14 @@ namespace GoodeeProject
             if (check)
             {
                 MessageBox.Show("저장성공");
-            }else
+                log.AddList("포트폴리오 저장");
+            }
+            else
             {
                 MessageBox.Show("저장실패");
             }
         }
+        
         /// <summary>
         /// ftp서버에서 포트폴리오를 불러옵니다.
         /// </summary>
@@ -277,8 +299,14 @@ namespace GoodeeProject
             }
 
             beforeName = projectInfo.Controls["txtProjectTitle"].Text;
+            log.AddList("포트폴리오 불러오기");
         }
 
+        /// <summary>
+        /// 포트폴리오의 내용을 PDF파일로 저장합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSaveToPDF_Click(object sender, EventArgs e)
         {
             var missingValue = System.Reflection.Missing.Value;
@@ -337,6 +365,11 @@ namespace GoodeeProject
             File.Delete(Application.StartupPath + "/DocTo.doc");
         }
 
+        /// <summary>
+        /// 현재 폼을 종료합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Dispose();

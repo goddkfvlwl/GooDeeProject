@@ -21,11 +21,19 @@ namespace GoodeeProject
         public TcpClient Client { get => client; set => client = value; }
 
         FrmMain main;
+        SaveLog log = new SaveLog();
+        /// <summary>
+        /// 생성자
+        /// </summary>
+        /// <param name="main">메인 폼 객체</param>
         public ChatClient(FrmMain main)
         {
             this.main = main;
         }
 
+        /// <summary>
+        /// 채팅서버에 접속 합니다.
+        /// </summary>
         internal void ChatLogin()
         {
             if (FrmMain.Ai.Authority != 'C')
@@ -42,7 +50,10 @@ namespace GoodeeProject
 
                         try
                         {
+<<<<<<< HEAD
                             //3333, 40.76.89.193
+=======
+>>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
                             client.Connect("40.76.89.193", 3333);
                             ns = client.GetStream();
                             ns.Write(nickName, 0, nickName.Length);
@@ -50,6 +61,7 @@ namespace GoodeeProject
                             FrmMain.IsConnected = true;
                             getMassageThread = new Thread(GetMassage);
                             getMassageThread.Start();
+                            log.AddList("채팅서버 접속");
                             return;
                         }
                         catch (Exception)
@@ -60,6 +72,7 @@ namespace GoodeeProject
                         }
                     }
                 }
+<<<<<<< HEAD
             }
             else
             {
@@ -86,9 +99,15 @@ namespace GoodeeProject
                     getMassageThread = new Thread(GetMassage);
                     getMassageThread.Start();
                 }
+=======
+               
+>>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
             }
         }
 
+        /// <summary>
+        /// 채팅서버에 접속된 인원의 명단을 요청합니다.
+        /// </summary>
         internal void RequestMemberList()
         {
             ns = client.GetStream();
@@ -97,6 +116,9 @@ namespace GoodeeProject
             ns.Flush();
         }
 
+        /// <summary>
+        /// 채팅서버로부터 받는 메세지를 처리합니다.
+        /// </summary>
         private void GetMassage()
         {
             while (FrmMain.IsConnected)
@@ -139,6 +161,9 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 학생정보열람 요청을 거부하는 메서드입니다.
+        /// </summary>
         private void NoSendMessage()
         {
             string text = "요청거부&&&&%%%%%_____";
@@ -147,6 +172,9 @@ namespace GoodeeProject
             ns.Flush();
         }
 
+        /// <summary>
+        /// 학생정보열람 요청을 승인하는 메서드입니다.
+        /// </summary>
         private void SendMessage()
         {
             string text = "요청허용$$$$!!@@@__+++";
@@ -155,6 +183,9 @@ namespace GoodeeProject
             ns.Flush();
         }
 
+        /// <summary>
+        /// 서버로부터 받아온 접속자 명단을 OnlineInfo 객체로 동적으로 생성합니다.
+        /// </summary>
         private void GetMembers()
         {
             if (readData.Contains("$member$"))
@@ -189,6 +220,9 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 채팅서버로부터 채팅메세지를 받았을때 처리하는 메서드입니다.
+        /// </summary>
         private void Msg()
         {
             string[] str = readData.Split(new string[] { "$To$" }, StringSplitOptions.None);
@@ -206,6 +240,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 접속자 명단을 더블클릭할경우 해당 명단의 접속자와의 채팅방을 생성합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Info_DoubleClick(object sender, EventArgs e)
         {
             OnlineInfo info = sender as OnlineInfo;
@@ -235,6 +274,9 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 채팅서버와의 접속을 종료합니다.
+        /// </summary>
         internal void DisConnect()
         {
             if (client != null && client.Connected)
@@ -243,6 +285,7 @@ namespace GoodeeProject
                 ns.Write(nickName, 0, nickName.Length);
                 ns.Flush();
             }
+            log.AddList("채팅서버 접속 해제");
         }
     }
 }

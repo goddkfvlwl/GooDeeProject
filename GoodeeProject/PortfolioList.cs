@@ -14,22 +14,39 @@ namespace GoodeeProject
 {
     public partial class PortfolioList : UserControl
     {
+        SaveLog log = new SaveLog();
         string id;
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public PortfolioList()
         {
             InitializeComponent();
             this.id = FrmMain.Mi.Id;
         }
+        /// <summary>
+        /// 생성자
+        /// </summary>
+        /// <param name="id"></param>
         public PortfolioList(string id) : this()
         {
             this.id = id;
+            log.AddList(id + "수강생의 포트폴리오 목록 열람");
         }
-
+        /// <summary>
+        /// 현재 창을 종료합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
-
+        /// <summary>
+        /// 포트폴리오 목록을 데이터베이스에서 읽어와서 PortfolioListMenu 컨트롤을 동적으로 생성합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void PortfolioList_Load(object sender, EventArgs e)
         {
             this.ListMenuLayout.Controls.Clear();
@@ -51,6 +68,11 @@ namespace GoodeeProject
             
         }
 
+        /// <summary>
+        /// PortfolioListMenu 컨트롤을 더블클릭하면 해당 포트폴리오의 상세 내용을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void Menu_DoubleClick(object sender, EventArgs e)
         {
             string portfolioTitle = (sender as PortfolioListMenu).Controls["lblTitle"].Text;
@@ -60,6 +82,11 @@ namespace GoodeeProject
             portfolio.BringToFront();
         }
 
+        /// <summary>
+        /// 포트폴리오를 작성하는 사용자 정의 컨트롤을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnAddPortfolio_Click(object sender, EventArgs e)
         {
             Portfolio portfolio = new Portfolio();
@@ -67,13 +94,24 @@ namespace GoodeeProject
             portfolio.Location = new Point(185, 0);
             portfolio.Disposed += Portfolio_Disposed;
             portfolio.BringToFront();
+            log.AddList("포트폴리오 추가");
         }
 
+        /// <summary>
+        /// 포트폴리오 사용자 정의 컨트롤이 종료되면 포트폴리오 리스트를 재호출 합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void Portfolio_Disposed(object sender, EventArgs e)
         {
             PortfolioList_Load(null, null);
         }
 
+        /// <summary>
+        /// 선택된 포트폴리오를 삭제합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("삭제하면 복구할수없습니다. 삭제하시겠습니까?", "포트폴리오 삭제", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
@@ -115,6 +153,7 @@ namespace GoodeeProject
                 MessageBox.Show("포트폴리오가 삭제되었습니다.");
             }
             PortfolioList_Load(null, null);
+            log.AddList("포트폴리오 삭제");
         }
     }
 }

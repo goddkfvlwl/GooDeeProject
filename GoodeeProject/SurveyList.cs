@@ -13,11 +13,18 @@ namespace GoodeeProject
     public partial class SurveyList : UserControl
     {
         List<Survey> list;
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public SurveyList()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// 데이터 그리드뷰에 설문목록을 입력하고 컬럼헤더를 설정합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void SurveyList_Load(object sender, EventArgs e)
         {
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
@@ -50,6 +57,11 @@ namespace GoodeeProject
             dataGridView1.Refresh();
         }
 
+        /// <summary>
+        /// 선택된 설문 목록의 상세 내용을 표시합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">DataGridView 셀 및 행 작업과 관련된 데이터를 제공하는 이벤트입니다. </param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             SurveyDetail detail = new SurveyDetail(new Survey(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), bool.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()), DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()), DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString())));
