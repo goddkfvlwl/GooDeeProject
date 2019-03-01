@@ -437,10 +437,10 @@ namespace GoodeeProject
                 }
 
                 excelApp.Quit();
-                File.Delete(Application.StartupPath + "/Resources/userResume.xls");
                 Marshal.ReleaseComObject(workSheet);
                 Marshal.ReleaseComObject(workBook);
                 Marshal.ReleaseComObject(excelApp);
+                File.Delete(Application.StartupPath + "/Resources/userResume.xls");
             }
         }
     }
