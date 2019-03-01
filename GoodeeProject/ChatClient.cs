@@ -21,11 +21,19 @@ namespace GoodeeProject
         public TcpClient Client { get => client; set => client = value; }
 
         FrmMain main;
+        SaveLog log = new SaveLog();
+        /// <summary>
+        /// 생성자
+        /// </summary>
+        /// <param name="main">메인 폼 객체</param>
         public ChatClient(FrmMain main)
         {
             this.main = main;
         }
 
+        /// <summary>
+        /// 채팅서버에 접속 합니다.
+        /// </summary>
         internal void ChatLogin()
         {
             if (FrmMain.Ai.Authority != 'C')
@@ -44,12 +52,12 @@ namespace GoodeeProject
                         {
                             client.Connect("40.76.89.193", 3333);
                             ns = client.GetStream();
-
                             ns.Write(nickName, 0, nickName.Length);
                             ns.Flush();
                             FrmMain.IsConnected = true;
                             getMassageThread = new Thread(GetMassage);
                             getMassageThread.Start();
+                            log.AddList("채팅서버 접속");
                             return;
                         }
                         catch (Exception)
@@ -60,34 +68,13 @@ namespace GoodeeProject
                         }
                     }
                 }
-            }else
-            {
-                if (client == null && !FrmMain.IsConnected)
-                {
-                    byte[] nickName = Encoding.UTF8.GetBytes(FrmMain.Mi.Id + "$||$" + FrmMain.Ai.Authority + "%*%*");
-                    client = new TcpClient();
-                    try
-                    {
-                        client.Connect("192.168.0.248", 3389);   // 연결이 되었으니, Connteced에 true를 준다.
-                        FrmMain.IsConnected = true;
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("서버 또는 포트번호를 확인해주세요." + a.Message);
-                        return;
-                    }
-
-                    // TcpClient 객체의 GetStream() 메서드는 TCP 네트워크 스트림을 리턴한다. 이 네트워크 스트림을 이용해서 네트워크으로 데이타 송수신하게 된다
-                    ns = client.GetStream();
-                    ns.Write(nickName, 0, nickName.Length);
-                    ns.Flush();
-
-                    getMassageThread = new Thread(GetMassage);
-                    getMassageThread.Start();
-                }
+               
             }
         }
 
+        /// <summary>
+        /// 채팅서버에 접속된 인원의 명단을 요청합니다.
+        /// </summary>
         internal void RequestMemberList()
         {
             ns = client.GetStream();
@@ -96,6 +83,9 @@ namespace GoodeeProject
             ns.Flush();
         }
 
+        /// <summary>
+        /// 채팅서버로부터 받는 메세지를 처리합니다.
+        /// </summary>
         private void GetMassage()
         {
             while (FrmMain.IsConnected)
@@ -105,6 +95,7 @@ namespace GoodeeProject
                 ns.Read(receiveMsg, 0, receiveMsg.Length);
                 ns.Flush();
                 readData = Encoding.UTF8.GetString(receiveMsg);
+                
                 if (readData.Contains("$member$"))
                 {
                     GetMembers();
@@ -118,21 +109,28 @@ namespace GoodeeProject
                     MessageBox.Show("동일한 계정이 이미 접속중입니다.");
                     Environment.Exit(0);
                 }
-                else if (readData.Contains("$열람요청$"))
+                else if (readData.Contains("열람요청%&&"))
                 {
-                    DialogResult result = MessageBox.Show(readData, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (FrmMain.Ai.Authority=='A' || FrmMain.Ai.Authority=='M')
                     {
-                        SendMessage();
-                    }
-                    else if (result == DialogResult.No)
-                    {
-                        NoSendMessage();
+                        string readCompnay = readData.Substring(0, readData.IndexOf("%&&"));
+                        DialogResult result = MessageBox.Show(readCompnay, "기업요청", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            SendMessage();
+                        }
+                        else if (result == DialogResult.No)
+                        {
+                            NoSendMessage();
+                        } 
                     }
                 }
             }
         }
 
+        /// <summary>
+        /// 학생정보열람 요청을 거부하는 메서드입니다.
+        /// </summary>
         private void NoSendMessage()
         {
             string text = "요청거부&&&&%%%%%_____";
@@ -141,6 +139,9 @@ namespace GoodeeProject
             ns.Flush();
         }
 
+        /// <summary>
+        /// 학생정보열람 요청을 승인하는 메서드입니다.
+        /// </summary>
         private void SendMessage()
         {
             string text = "요청허용$$$$!!@@@__+++";
@@ -149,6 +150,9 @@ namespace GoodeeProject
             ns.Flush();
         }
 
+        /// <summary>
+        /// 서버로부터 받아온 접속자 명단을 OnlineInfo 객체로 동적으로 생성합니다.
+        /// </summary>
         private void GetMembers()
         {
             if (readData.Contains("$member$"))
@@ -183,6 +187,9 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 채팅서버로부터 채팅메세지를 받았을때 처리하는 메서드입니다.
+        /// </summary>
         private void Msg()
         {
             string[] str = readData.Split(new string[] { "$To$" }, StringSplitOptions.None);
@@ -200,6 +207,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 접속자 명단을 더블클릭할경우 해당 명단의 접속자와의 채팅방을 생성합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Info_DoubleClick(object sender, EventArgs e)
         {
             OnlineInfo info = sender as OnlineInfo;
@@ -229,6 +241,9 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 채팅서버와의 접속을 종료합니다.
+        /// </summary>
         internal void DisConnect()
         {
             if (client != null && client.Connected)
@@ -237,6 +252,7 @@ namespace GoodeeProject
                 ns.Write(nickName, 0, nickName.Length);
                 ns.Flush();
             }
+            log.AddList("채팅서버 접속 해제");
         }
     }
 }

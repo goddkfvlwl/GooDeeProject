@@ -335,11 +335,8 @@ namespace GoodeeProject.GoodeeDAO
             parameters[6] = new SqlParameter("ClassName", str[6]);
             parameters[7] = new SqlParameter("Curriculum", str[7]);
             parameters[8] = new SqlParameter("Turn", str[8]);
-            parameters[9] = new SqlParameter("Regist", str[9]);
-            if (con.ExecuteInsert(proc, parameters))
-            {
-                System.Windows.Forms.MessageBox.Show("저장성공");
-            }
+            parameters[9] = new SqlParameter("Regist", "수강");
+            con.ExecuteInsert(proc, parameters);
         }
 
         public DataTable SelectMemberList()
@@ -1133,6 +1130,14 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+        public DataTable GetHighestEducation(string id)
+        {
+            string proc = "GetHighestEducation";
+            con = new DBConnection();
+            SqlParameter[] pms = new SqlParameter[1];
+            pms[0] = new SqlParameter("id", id);
+            return con.SelectWithParams(proc, pms);
+        }
         public DataTable SelectLicense(string id)
         {
             string proc = "SelectLicense";

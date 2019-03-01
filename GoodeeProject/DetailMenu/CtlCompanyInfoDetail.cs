@@ -17,35 +17,38 @@ namespace GoodeeProject
             InitializeComponent();
            
         }
-
-        KREDIT_JOB kREDIT_;
-        Panel panel;
+        
+        //KREDIT_JOB kREDIT_;
+        //Panel panel;
+        //JobInformation information;
         private void lblMenu1_Click_1(object sender, EventArgs e)
         {
-            JobInformation information = new JobInformation();
-            information.Location = new Point(190, 3);
+            //information = new JobInformation();
+            //information.Location = new Point(190, 3);
 
-            panel = (Panel)Parent;
-            panel.Controls.Add(information);
-            FrmMain main = (FrmMain)panel.Parent;
-            main.RemoveUserControl();
-
+            //panel = (Panel)Parent;
+            //panel.Controls.Add(information);
+            //FrmMain main = (FrmMain)panel.Parent;
+            
+            //main.RemoveUserControl();
+            
         }
+
 
         private void iTalk_Label1_Click(object sender, EventArgs e)
         {
-            kREDIT_ = new KREDIT_JOB();
-            kREDIT_.Location = new Point(190, 3);
+            //kREDIT_ = new KREDIT_JOB();
+            //kREDIT_.Location = new Point(190, 3);
 
-            panel = (Panel)Parent;
-            panel.Controls.Add(kREDIT_);
-            FrmMain main = (FrmMain)panel.Parent;
-            main.RemoveUserControl();
+            //panel = (Panel)Parent;
+            //panel.Controls.Add(kREDIT_);
+            //FrmMain main = (FrmMain)panel.Parent;
+            //main.RemoveUserControl();
         }
 
         public void RemoveControl()
         {
-            panel.Controls.Remove(kREDIT_);
+            //panel.Controls.Remove(kREDIT_);
         }
     }
 }

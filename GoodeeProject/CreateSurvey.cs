@@ -15,19 +15,34 @@ namespace GoodeeProject
 {
     public partial class CreateSurvey : UserControl
     {
+        SaveLog log = new SaveLog();
         bool ismodify = false;
         int surveyNum;
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public CreateSurvey()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 설문제목과 설문번호를 받아 FTP서버로부터 설문의 내용을 읽어오는  SurveyModify 메서드를 실행합니다.
+        /// </summary>
+        /// <param name="surveyName">설문 제목</param>
+        /// <param name="surveyNum">설문 번호</param>
         public CreateSurvey(string surveyName, int surveyNum) : this()
         {
             this.txtSurveyTitle.Text = surveyName;
             this.surveyNum = surveyNum;
             SurveyModify();
         }
+
+        /// <summary>
+        /// 설문 문항에 객관식 선택지를 추가합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnAddMultiChoice_Click(object sender, EventArgs e)
         {
             TextBox text = new TextBox();
@@ -36,6 +51,11 @@ namespace GoodeeProject
             this.defaultSurvey1.Controls["flowLayoutPanel1"].Controls["QuestionPanel"].Controls.Add(text);
         }
 
+        /// <summary>
+        /// 설문 문항을 추가합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnAddQuestion_Click(object sender, EventArgs e)
         {
             DefaultSurvey survey = new DefaultSurvey();
@@ -66,6 +86,11 @@ namespace GoodeeProject
             defaultSurvey1.Controls["flowLayoutPanel1"].Controls["QuestionPanel"].Controls.Clear();
         }
 
+        /// <summary>
+        /// 설문 문항을 삭제합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             Control control = sender as Control;
@@ -76,6 +101,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 설문 문항에 주관식 답안을 추가합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnAddEssay_Click(object sender, EventArgs e)
         {
             bool check = true;
@@ -99,6 +129,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 작성한 설문을 FTP서버에 XML 형식으로 변환하여 저장합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             FtpWebRequest request = default(FtpWebRequest);
@@ -110,7 +145,9 @@ namespace GoodeeProject
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
                 request.GetResponse();
                 DAO.DeleteSurvey(surveyNum);
-            }else
+                log.AddList("설문 수정");
+            }
+            else
             {
                 if (!DAO.CheckSurveyTitle(this.txtSurveyTitle.Text))
                 {
@@ -181,11 +218,16 @@ namespace GoodeeProject
 
             
             DAO.InsertSurvey(FrmMain.Mi.Id, this.txtSurveyTitle.Text, start, end);
-
+            log.AddList("설문 추가");
             this.Dispose();
             return;
         }
 
+        /// <summary>
+        /// 설문제목과 설문번호를 받아 FTP서버로부터 설문의 내용을 읽어옵니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         public void SurveyModify()
         {
             ismodify = true;

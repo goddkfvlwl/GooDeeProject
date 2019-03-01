@@ -82,14 +82,14 @@
             // mnubtnExcelRegist
             // 
             this.mnubtnExcelRegist.Name = "mnubtnExcelRegist";
-            this.mnubtnExcelRegist.Size = new System.Drawing.Size(170, 22);
+            this.mnubtnExcelRegist.Size = new System.Drawing.Size(180, 22);
             this.mnubtnExcelRegist.Text = "수강생 Excel 등록";
             this.mnubtnExcelRegist.Click += new System.EventHandler(this.btnReadExl_Click);
             // 
             // mnubtnIndividualRegist
             // 
             this.mnubtnIndividualRegist.Name = "mnubtnIndividualRegist";
-            this.mnubtnIndividualRegist.Size = new System.Drawing.Size(170, 22);
+            this.mnubtnIndividualRegist.Size = new System.Drawing.Size(180, 22);
             this.mnubtnIndividualRegist.Text = "수강생 개별  등록";
             this.mnubtnIndividualRegist.Click += new System.EventHandler(this.mnubtnIndividualRegist_Click);
             // 

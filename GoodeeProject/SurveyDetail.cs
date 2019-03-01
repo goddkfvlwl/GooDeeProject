@@ -14,15 +14,27 @@ namespace GoodeeProject
     public partial class SurveyDetail : UserControl
     {
         Survey survey;
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public SurveyDetail()
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// 생성자
+        /// </summary>
+        /// <param name="survey">Survey 객체</param>
         public SurveyDetail(Survey survey) : this()
         {
             this.survey = survey;
         }
-
+        /// <summary>
+        /// 설문의 상세내용을 표시합니다.
+        /// 만약 이미 참여한 설문일경우 폼을 종료합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void SurveyDetail_Load(object sender, EventArgs e)
         {
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
@@ -80,7 +92,11 @@ namespace GoodeeProject
                 this.SurveyDetailPanel.Controls.Add(survey);
             }
         }
-
+        /// <summary>
+        /// 작성한 설문을 저장합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             foreach (Control item in this.SurveyDetailPanel.Controls)
@@ -116,7 +132,11 @@ namespace GoodeeProject
             this.Dispose();
             return;
         }
-
+        /// <summary>
+        /// 작성된 설문의 결과를 표시합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnResult_Click(object sender, EventArgs e)
         {
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
@@ -159,7 +179,11 @@ namespace GoodeeProject
                 }
             }
         }
-
+        /// <summary>
+        /// 설문을 수정하는 폼을 실행시킵니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체입니다.</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnModify_Click(object sender, EventArgs e)
         {
             CreateSurvey create = new CreateSurvey(survey.SurveyName, survey.SurveyNum);

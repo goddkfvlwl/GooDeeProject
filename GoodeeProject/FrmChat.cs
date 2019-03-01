@@ -37,11 +37,23 @@ namespace GoodeeProject
 
         private delegate void GetMsgInvoke(string msg);
 
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public FrmChat()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 채팅방의 대화내역을 데이터베이스에서 읽어옵니다.
+        /// </summary>
+        /// <param name="chat">참여자1의 이름입니다.</param>
+        /// <param name="chatEmail">참여자1의 이메일주소입니다.</param>
+        /// <param name="chat2">참여자2의 이름입니다.</param>
+        /// <param name="chat2Email">참여자2의 이메일주소입니다.</param>
+        /// <param name="title">채팅방의 제목입니다.</param>
+        /// <param name="client">채팅서버과 통신을 하기위한 TcpClient 객체입니다./</param>
         public FrmChat(string chat, string chatEmail, string chat2, string chat2Email, string title,  System.Net.Sockets.TcpClient client) : this()
         {
             chatTitle = title;
@@ -64,14 +76,20 @@ namespace GoodeeProject
                 targetName = chat2;
             }
         }
-
+        
+        /// <summary>
+        /// 채팅방을 등록합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void FrmChat_Load(object sender, EventArgs e)
         {
             this.Text = chatTitle;
             InsertChatList();
         }
+
         /// <summary>
-        /// 상담목록을 저장하거나 저장된 상담 목록의 상담내용을 불러오는 메서드입니다.
+        /// 채팅목록을 저장하거나 저장된  채팅목록의 채팅내용을 불러오는 메서드입니다.
         /// </summary>
         private void InsertChatList()
         {
@@ -87,6 +105,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 채팅서버로 메세지를 보내고 채팅내역을 저장합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSendMsg_Click(object sender, EventArgs e)
         {
             NetworkStream ns = client.GetStream();
@@ -100,6 +123,10 @@ namespace GoodeeProject
             txtSendMsg.Focus();
         }
 
+        /// <summary>
+        /// 채팅서버로부터 받은 메세지를 처리하는 메서드입니다.
+        /// </summary>
+        /// <param name="msg"></param>
         internal void GetMsg(string msg)
         {
             if (this.InvokeRequired)
@@ -112,12 +139,22 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// txtChatContent의 내용이 변경될때 txtChatContent 의 스크롤을 가장 아래로 이동시킵니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void txtChatContent_TextChanged(object sender, EventArgs e)
         {
             txtChatContent.Select(0, txtChatContent.TextLength);
             txtChatContent.ScrollToCaret();
         }
 
+        /// <summary>
+        /// Enter키를 누르면 btnSendMsg_Click 이벤트를 실행시킵니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void txtSendMsg_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txtSendMsg.Text))

@@ -428,7 +428,6 @@ namespace GoodeeProject
                 try
                 {
                     workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName, Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false, Type.Missing);
-                    File.Delete(Application.StartupPath + "/Resources/userResume.xls");
                     MessageBox.Show("저장 완료");
                 }
                 catch (Exception)
@@ -440,6 +439,7 @@ namespace GoodeeProject
                 Marshal.ReleaseComObject(workSheet);
                 Marshal.ReleaseComObject(workBook);
                 Marshal.ReleaseComObject(excelApp);
+                File.Delete(Application.StartupPath + "/Resources/userResume.xls");
             }
         }
     }
