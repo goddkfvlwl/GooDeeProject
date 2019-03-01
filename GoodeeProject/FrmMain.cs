@@ -291,6 +291,7 @@ namespace GoodeeProject
 
             mbti = new CtlMBTIDetail();
             panel2.Controls.Add(mbti);
+            
             mbti.BringToFront();
             mbti.Location = new Point(192, 141);
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
