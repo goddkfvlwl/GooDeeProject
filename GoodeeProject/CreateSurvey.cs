@@ -18,6 +18,7 @@ namespace GoodeeProject
         SaveLog log = new SaveLog();
         bool ismodify = false;
         int surveyNum;
+        string surveyName = "";
         /// <summary>
         /// 생성자
         /// </summary>
@@ -33,6 +34,7 @@ namespace GoodeeProject
         /// <param name="surveyNum">설문 번호</param>
         public CreateSurvey(string surveyName, int surveyNum) : this()
         {
+            this.surveyName = surveyName;
             this.txtSurveyTitle.Text = surveyName;
             this.surveyNum = surveyNum;
             SurveyModify();
@@ -141,7 +143,7 @@ namespace GoodeeProject
            
             if (ismodify)
             {
-                request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Survey/" + this.txtSurveyTitle.Text + ".xml");
+                request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Survey/" + surveyName + ".xml");
                 request.Method = WebRequestMethods.Ftp.DeleteFile;
                 request.GetResponse();
                 DAO.DeleteSurvey(surveyNum);
@@ -180,7 +182,15 @@ namespace GoodeeProject
                 }
                 title.AppendChild(question);
             }
-            dtpStartDate.Value = new DateTime(dtpStartDate.Value.Year, dtpStartDate.Value.Month, dtpStartDate.Value.Day - 1, 23, 59, 59);
+
+            if (dtpStartDate.Value.Day > 1)
+            {
+                dtpStartDate.Value = new DateTime(dtpStartDate.Value.Year, dtpStartDate.Value.Month, dtpStartDate.Value.Day - 1, 23, 59, 59);
+            }else
+            {
+                dtpStartDate.Value = new DateTime(dtpStartDate.Value.Year, dtpStartDate.Value.Month, dtpStartDate.Value.Day, 1, 0, 0);
+            }
+            
             dtpEndDate.Value = new DateTime(dtpEndDate.Value.Year, dtpEndDate.Value.Month, dtpEndDate.Value.Day, 23, 59, 59);
             DateTime start = default(DateTime);
             DateTime end = default(DateTime);
@@ -214,11 +224,12 @@ namespace GoodeeProject
                 fileStream.CopyTo(ftpStream);
                 fileStream.Close();
             }
-            File.Delete(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml");
+            
 
             
             DAO.InsertSurvey(FrmMain.Mi.Id, this.txtSurveyTitle.Text, start, end);
             log.AddList("설문 추가");
+            File.Delete(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml");
             this.Dispose();
             return;
         }

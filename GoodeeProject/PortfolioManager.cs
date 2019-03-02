@@ -52,7 +52,7 @@ namespace GoodeeProject
         {
             if (e.RowIndex > -1)
             {
-                PortfolioList list = new PortfolioList(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                PortfolioList list = new PortfolioList(dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString());
                 this.Parent.Controls.Add(list);
                 list.Location = new Point(185, 0);
                 list.BringToFront();
