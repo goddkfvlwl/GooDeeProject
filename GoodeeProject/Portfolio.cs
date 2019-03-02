@@ -316,7 +316,9 @@ namespace GoodeeProject
             Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
             Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
             doc.Tables[1].Cell(3, 2).Range.Text = projectInfo.Controls["txtProjectTitle"].Text;
-            if (DateTime.Parse(projectInfo.Controls["dpProjectStartDate"].ToString()) < DateTime.Parse(projectInfo.Controls["dpProjectEndDate"].ToString()))
+            string a = projectInfo.Controls["dpProjectStartDate"].ToString();
+            string b = projectInfo.Controls["dpProjectEndDate"].ToString();
+            if (DateTime.Parse(projectInfo.Controls["dpProjectStartDate"].Text) < DateTime.Parse(projectInfo.Controls["dpProjectEndDate"].Text))
             {
                 doc.Tables[1].Cell(4, 2).Range.Text = projectInfo.Controls["dpProjectStartDate"].Text + " ~ " + projectInfo.Controls["dpProjectEndDate"].Text;
             }else
@@ -345,10 +347,10 @@ namespace GoodeeProject
                     {
                         doc.Tables[1].Rows.Add();
                     }
-                    File.Delete(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
+                   File.Delete(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
                 }
             }
-            doc.SaveAs2(Application.StartupPath + "/DocTo.doc");
+            doc.SaveAs(Application.StartupPath + "/DocTo.doc");
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "PDF File (*.pdf) *.pdf|";
             save.DefaultExt = ".pdf";
@@ -363,6 +365,7 @@ namespace GoodeeProject
             Marshal.FinalReleaseComObject(doc);
             Marshal.FinalReleaseComObject(app);
             File.Delete(Application.StartupPath + "/DocTo.doc");
+
         }
 
         /// <summary>

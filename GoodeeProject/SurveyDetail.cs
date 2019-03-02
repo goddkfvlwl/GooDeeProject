@@ -154,6 +154,7 @@ namespace GoodeeProject
                             if (c.Controls[i].Text == rst[2].ToString())
                             {
                                 c.Controls[i].Text = c.Controls[i].Text + " 합 : " + rst[3].ToString();
+                                c.Controls[i].Width = c.Controls[i].Text.Length * (c.Controls[i] as RadioButton).Font.Height;
                             }
                         }
                     }
@@ -171,7 +172,8 @@ namespace GoodeeProject
                                 TextBox text = new TextBox();
                                 text.ReadOnly = true;
                                 text.Text = rst[1].ToString();
-                                text.Width = c.Width - 20;
+                                text.Width = 540;
+                                text.Multiline = true;
                                 c.Controls.Add(text);
                             }
                         }

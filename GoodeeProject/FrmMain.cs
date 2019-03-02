@@ -441,9 +441,9 @@ namespace GoodeeProject
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            ChatClinet = new ChatClient(this);
-            loginThread = new Thread(ChatClinet.ChatLogin);
-            loginThread.Start();
+            //ChatClinet = new ChatClient(this);
+            //loginThread = new Thread(ChatClinet.ChatLogin);
+            //loginThread.Start();
         }
 
         /// <summary>
