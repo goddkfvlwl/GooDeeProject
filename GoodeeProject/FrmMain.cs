@@ -243,8 +243,6 @@ namespace GoodeeProject
             companyInfo.BringToFront();
             companyInfo.Controls["lblMenu1"].Click += FrmMain_Click;
             
-<<<<<<< HEAD
-
         }
 
         private void FrmMain_Click(object sender, EventArgs e)
@@ -253,19 +251,8 @@ namespace GoodeeProject
             information = new JobInformation();
             information.Location = new Point(190, 3);
             panel2.Controls.Add(information);
-=======
->>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
-
         }
 
-        private void FrmMain_Click(object sender, EventArgs e)
-        {
-            RemoveUserControl();
-            information = new JobInformation();
-            information.Location = new Point(190, 3);
-            panel2.Controls.Add(information);
-
-        }
 
         /// <summary>
         /// 현재 로그인된 계정의 권한에 따라 설문목록 또는 설문 관리폼을 호출합니다.
@@ -422,7 +409,7 @@ namespace GoodeeProject
             agreement = null;
             panel2.Controls.Remove(information);
             information = null;
-<<<<<<< HEAD
+
         }
 
         private void portfolio1_Load(object sender, EventArgs e)
@@ -435,8 +422,7 @@ namespace GoodeeProject
         private void PortfolioDetail1_Resize(object sender, EventArgs e)
         {
             //VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-=======
->>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
+
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)

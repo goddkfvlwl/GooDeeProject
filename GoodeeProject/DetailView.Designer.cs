@@ -40,9 +40,10 @@
             this.butDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butDelete.Image = null;
             this.butDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butDelete.Location = new System.Drawing.Point(657, 395);
+            this.butDelete.Location = new System.Drawing.Point(751, 494);
+            this.butDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butDelete.Name = "butDelete";
-            this.butDelete.Size = new System.Drawing.Size(56, 24);
+            this.butDelete.Size = new System.Drawing.Size(64, 30);
             this.butDelete.TabIndex = 41;
             this.butDelete.Text = "삭제";
             this.butDelete.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -54,9 +55,10 @@
             this.butUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.butUpdate.Image = null;
             this.butUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.butUpdate.Location = new System.Drawing.Point(729, 395);
+            this.butUpdate.Location = new System.Drawing.Point(833, 494);
+            this.butUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.butUpdate.Name = "butUpdate";
-            this.butUpdate.Size = new System.Drawing.Size(56, 24);
+            this.butUpdate.Size = new System.Drawing.Size(64, 30);
             this.butUpdate.TabIndex = 40;
             this.butUpdate.Text = "수정";
             this.butUpdate.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -64,10 +66,10 @@
             // 
             // boardBoby
             // 
-            this.boardBoby.Enabled = false;
-            this.boardBoby.Location = new System.Drawing.Point(21, 58);
+            this.boardBoby.Location = new System.Drawing.Point(24, 72);
+            this.boardBoby.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.boardBoby.Name = "boardBoby";
-            this.boardBoby.Size = new System.Drawing.Size(764, 331);
+            this.boardBoby.Size = new System.Drawing.Size(873, 413);
             this.boardBoby.TabIndex = 39;
             this.boardBoby.Text = "";
             // 
@@ -77,22 +79,23 @@
             this.title.BackColor = System.Drawing.Color.Transparent;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.title.Location = new System.Drawing.Point(17, 26);
+            this.title.Location = new System.Drawing.Point(19, 32);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(33, 16);
+            this.title.Size = new System.Drawing.Size(38, 20);
             this.title.TabIndex = 38;
             this.title.Text = "제 목";
             // 
             // DetailView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.butDelete);
             this.Controls.Add(this.butUpdate);
             this.Controls.Add(this.boardBoby);
             this.Controls.Add(this.title);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DetailView";
-            this.Size = new System.Drawing.Size(803, 445);
+            this.Size = new System.Drawing.Size(918, 556);
             this.Load += new System.EventHandler(this.DetailView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

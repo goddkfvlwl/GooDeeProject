@@ -427,14 +427,11 @@ namespace GoodeeProject
 
                 try
                 {
-<<<<<<< HEAD
+
                   workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName,Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false,Type.Missing);
                   
                   MessageBox.Show("저장 완료");
-=======
-                    workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName, Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false, Type.Missing);
-                    MessageBox.Show("저장 완료");
->>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
+
                 }
                 catch (Exception)
                 {

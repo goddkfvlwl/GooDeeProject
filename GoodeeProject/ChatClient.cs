@@ -50,10 +50,7 @@ namespace GoodeeProject
 
                         try
                         {
-<<<<<<< HEAD
-                            //3333, 40.76.89.193
-=======
->>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
+
                             client.Connect("40.76.89.193", 3333);
                             ns = client.GetStream();
                             ns.Write(nickName, 0, nickName.Length);
@@ -72,37 +69,9 @@ namespace GoodeeProject
                         }
                     }
                 }
-<<<<<<< HEAD
-            }
-            else
-            {
-                if (client == null && !FrmMain.IsConnected)
-                {
-                    byte[] nickName = Encoding.UTF8.GetBytes(FrmMain.Mi.Id + "$||$" + FrmMain.Ai.Authority + "%*%*");
-                    client = new TcpClient();
-                    try
-                    {
-                        client.Connect("40.76.89.193", 3333);   // 연결이 되었으니, Connteced에 true를 준다.
-                        FrmMain.IsConnected = true;
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("서버 또는 포트번호를 확인해주세요." + a.Message);
-                        return;
-                    }
 
-                    // TcpClient 객체의 GetStream() 메서드는 TCP 네트워크 스트림을 리턴한다. 이 네트워크 스트림을 이용해서 네트워크으로 데이타 송수신하게 된다
-                    ns = client.GetStream();
-                    ns.Write(nickName, 0, nickName.Length);
-                    ns.Flush();
-
-                    getMassageThread = new Thread(GetMassage);
-                    getMassageThread.Start();
-                }
-=======
-               
->>>>>>> d22901daf54ae42da71a02514ccd99b28c1209f2
             }
+          
         }
 
         /// <summary>
