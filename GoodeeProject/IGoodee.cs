@@ -30,7 +30,6 @@ namespace GoodeeProject
         #region 사람인
         string SubAreaCount(string firstAreaName);
         List<FirstSubArea> SubAreaName(string fristCode);
-        List<FirstSubArea> ForeginAllFirstAreaName();
         List<FirstSubArea> AreaAutomaticSearch();
         List<FirstSubJob> AllFirstJobName();
         List<FirstSubJob> selectSecondJob(string firstJobCode);

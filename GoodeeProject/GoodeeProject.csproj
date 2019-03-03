@@ -162,7 +162,6 @@
       <DependentUpon>CompanyMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CompanyRandomPassword.cs" />
-    <Compile Include="ExtensionKREDIT.cs" />
     <Compile Include="ExtensionXML.cs" />
     <Compile Include="JobChoice.cs">
       <SubType>UserControl</SubType>
