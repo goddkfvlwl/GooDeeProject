@@ -27,8 +27,14 @@ namespace GoodeeProject
             tboxHopePay.Text = FrmMain.Mi.HopePay;
             gd = GoodeeDAO.GoodeeDAO.GetInstance();
             pboxPic.Image = FrmMain.Mi.Picture;
-        }
 
+            s.AddList("회원정보수정 클릭");
+        }
+        /// <summary>
+        /// 주소검색API 폼을 띄우는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearhAddr_Click(object sender, EventArgs e)
         {
             FrmModify frm = (FrmModify)this.Parent.Parent;
@@ -38,7 +44,11 @@ namespace GoodeeProject
             sa.Show();
 
         }
-
+        /// <summary>
+        /// 선택한 주소를 가져오는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Sa_FormClosed(object sender, FormClosedEventArgs e)
         {
             FrmModify parent = (FrmModify)this.Parent.Parent;
@@ -51,7 +61,11 @@ namespace GoodeeProject
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
-
+        /// <summary>
+        /// 유효성검사를 마친 데이터를 Update 시켜주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModify_Click(object sender, EventArgs e)
         {
             string mobilePattern = "^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$";  //핸드폰 정규식
@@ -87,7 +101,11 @@ namespace GoodeeProject
             }
 
         }
-
+        /// <summary>
+        /// 프로필사진을 설정하는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPicture_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
