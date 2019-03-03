@@ -205,6 +205,7 @@ namespace GoodeeProject
             regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
+
         /// <summary>
         /// 수강생을 추가하는 폼을 실행시킵니다.
         /// </summary>
@@ -216,6 +217,7 @@ namespace GoodeeProject
             regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
+
         /// <summary>
         /// ComboBox의 선택 아이템에 따라 Textbox에 입력된 데이터로 수강생을 검색합니다.
         /// </summary>
@@ -257,6 +259,7 @@ namespace GoodeeProject
                     break;
             }
         }
+
         /// <summary>
         /// 그리드뷰에 StudentInfo정보를 체우는 메서드입니다.
         /// </summary>

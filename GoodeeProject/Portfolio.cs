@@ -20,6 +20,7 @@ namespace GoodeeProject
     {
         SaveLog log = new SaveLog();
         string beforeName;
+
         /// <summary>
         /// 생성자
         /// </summary>
@@ -28,6 +29,7 @@ namespace GoodeeProject
             InitializeComponent();
             beforeName = "";
         }
+
         /// <summary>
         /// LoadPortfolio를 호출합니다.
         /// </summary>
@@ -37,6 +39,7 @@ namespace GoodeeProject
         {
             LoadPortfolio(id, portfolioName);
         }
+
         /// <summary>
         /// 스크롤바의 자동이동을 막는 메서드입니다.
         /// </summary>

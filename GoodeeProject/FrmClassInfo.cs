@@ -15,6 +15,7 @@ namespace GoodeeProject
         private string classNum;
         SaveLog log = new SaveLog();
         bool ismodify = false;
+
         /// <summary>
         /// 생성자
         /// </summary>
@@ -58,6 +59,7 @@ namespace GoodeeProject
             }
             
         }
+
         /// <summary>
         /// 현재 폼을 종료합니다.
         /// </summary>
