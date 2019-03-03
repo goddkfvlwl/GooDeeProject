@@ -51,7 +51,7 @@ namespace GoodeeProject
                         try
                         {
 
-                            client.Connect("40.76.89.193", 3333);
+                            client.Connect("114.204.139.201", 3333);
                             ns = client.GetStream();
                             ns.Write(nickName, 0, nickName.Length);
                             ns.Flush();
@@ -159,7 +159,7 @@ namespace GoodeeProject
         {
             if (readData.Contains("$member$"))
             {
-                main.Controls["panel2"].Controls["Chat"].Controls["LoginPanel"].Controls.Clear();
+                main.Controls["panel2"].Controls["panel3"].Controls["chat"].Controls["LoginPanel"].Controls.Clear();
                 string[] members = default(string[]);
 
                 if (readData.Contains("$Msg$"))
@@ -183,7 +183,7 @@ namespace GoodeeProject
                         info.Controls["lblName"].Text = member.Rows[0]["Name"].ToString();
                         info.Controls["lblCurriculum"].Text = member.Rows[0]["Curriculum"].ToString();
                         info.Controls["lblEmail"].Text = member.Rows[0]["ID"].ToString();
-                        (main.Controls["panel2"].Controls["Chat"] as Chat).GetMember(info);
+                        (main.Controls["panel2"].Controls["panel3"].Controls["Chat"] as Chat).GetMember(info);
                     }
                 }
             }

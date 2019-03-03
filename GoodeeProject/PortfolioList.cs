@@ -78,7 +78,7 @@ namespace GoodeeProject
             string portfolioTitle = (sender as PortfolioListMenu).Controls["lblTitle"].Text;
             Portfolio portfolio = new Portfolio(id, portfolioTitle);
             this.Parent.Controls.Add(portfolio);
-            portfolio.Location = new Point(185, 0);
+            portfolio.Location = new Point(0, 0);
             portfolio.BringToFront();
             if (FrmMain.Ai.Authority=='C')
             {
@@ -99,7 +99,7 @@ namespace GoodeeProject
         {
             Portfolio portfolio = new Portfolio();
             this.Parent.Controls.Add(portfolio);
-            portfolio.Location = new Point(185, 0);
+            portfolio.Location = new Point(0, 0);
             portfolio.Disposed += Portfolio_Disposed;
             portfolio.BringToFront();
             log.AddList("포트폴리오 추가");

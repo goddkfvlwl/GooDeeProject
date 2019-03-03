@@ -778,6 +778,7 @@
     </Content>
     <None Include="Resources\KakaoTalk_20190225_085247325.png" />
     <None Include="Resources\picture.png" />
+    <None Include="Resources\down-arrow.png" />
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

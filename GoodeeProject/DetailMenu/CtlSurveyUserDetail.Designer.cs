@@ -29,46 +29,36 @@
         private void InitializeComponent()
         {
             this.lblMenu1 = new iTalk.iTalk_Label();
-            this.iTalk_ChatBubble_L1 = new iTalk.iTalk_ChatBubble_L();
             this.SuspendLayout();
             // 
             // lblMenu1
             // 
-            this.lblMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.lblMenu1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMenu1.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblMenu1.Location = new System.Drawing.Point(13, 7);
+            this.lblMenu1.Location = new System.Drawing.Point(9, 11);
             this.lblMenu1.Name = "lblMenu1";
             this.lblMenu1.Size = new System.Drawing.Size(140, 20);
             this.lblMenu1.TabIndex = 16;
             this.lblMenu1.Text = "작성";
             this.lblMenu1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // iTalk_ChatBubble_L1
-            // 
-            this.iTalk_ChatBubble_L1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_ChatBubble_L1.BubbleColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_ChatBubble_L1.DrawBubbleArrow = true;
-            this.iTalk_ChatBubble_L1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iTalk_ChatBubble_L1.Location = new System.Drawing.Point(4, 3);
-            this.iTalk_ChatBubble_L1.Name = "iTalk_ChatBubble_L1";
-            this.iTalk_ChatBubble_L1.Size = new System.Drawing.Size(152, 34);
-            this.iTalk_ChatBubble_L1.TabIndex = 15;
-            // 
             // CtlSurveyUserDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.Controls.Add(this.lblMenu1);
-            this.Controls.Add(this.iTalk_ChatBubble_L1);
+            this.Location = new System.Drawing.Point(3, 3);
             this.Name = "CtlSurveyUserDetail";
-            this.Size = new System.Drawing.Size(158, 43);
+            this.Size = new System.Drawing.Size(160, 40);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         internal iTalk.iTalk_Label lblMenu1;
-        internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;
     }
 }

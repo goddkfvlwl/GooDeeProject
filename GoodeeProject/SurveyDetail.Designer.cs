@@ -55,12 +55,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(815, 79);
+            this.panel1.Size = new System.Drawing.Size(788, 79);
             this.panel1.TabIndex = 1;
             // 
             // btnResult
             // 
-            this.btnResult.Location = new System.Drawing.Point(737, 47);
+            this.btnResult.Location = new System.Drawing.Point(699, 47);
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(75, 23);
             this.btnResult.TabIndex = 7;
@@ -70,7 +70,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(737, 9);
+            this.btnModify.Location = new System.Drawing.Point(699, 9);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 6;
@@ -81,7 +81,7 @@
             // lblWriter
             // 
             this.lblWriter.AutoSize = true;
-            this.lblWriter.Location = new System.Drawing.Point(607, 58);
+            this.lblWriter.Location = new System.Drawing.Point(592, 17);
             this.lblWriter.Name = "lblWriter";
             this.lblWriter.Size = new System.Drawing.Size(0, 12);
             this.lblWriter.TabIndex = 5;
@@ -89,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(599, 18);
+            this.label4.Location = new System.Drawing.Point(545, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 4;
@@ -136,7 +136,7 @@
             this.SurveyDetailPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.SurveyDetailPanel.Location = new System.Drawing.Point(0, 79);
             this.SurveyDetailPanel.Name = "SurveyDetailPanel";
-            this.SurveyDetailPanel.Size = new System.Drawing.Size(815, 4);
+            this.SurveyDetailPanel.Size = new System.Drawing.Size(788, 4);
             this.SurveyDetailPanel.TabIndex = 3;
             // 
             // btnSubmit
@@ -144,7 +144,7 @@
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSubmit.Location = new System.Drawing.Point(0, 83);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(815, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(788, 23);
             this.btnSubmit.TabIndex = 4;
             this.btnSubmit.Text = "설문 작성";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             this.Controls.Add(this.SurveyDetailPanel);
             this.Controls.Add(this.panel1);
             this.Name = "SurveyDetail";
-            this.Size = new System.Drawing.Size(815, 454);
+            this.Size = new System.Drawing.Size(788, 454);
             this.Load += new System.EventHandler(this.SurveyDetail_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

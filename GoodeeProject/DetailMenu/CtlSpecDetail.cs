@@ -16,10 +16,11 @@ namespace GoodeeProject
         {
             InitializeComponent();
         }
-
-        private void CtlSpecDetail_Load(object sender, EventArgs e)
+        public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {
-            this.BackColor = Color.Transparent;
+            Rectangle borderRectangle = this.ClientRectangle;
+            borderRectangle.Inflate(0, 0);
+            ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.FromArgb(142, 142, 142), ButtonBorderStyle.Solid);
         }
     }
 }

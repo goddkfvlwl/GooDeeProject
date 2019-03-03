@@ -137,7 +137,7 @@ namespace GoodeeProject
         {
             Panel panel = (Panel)Parent;
             FrmMain main = (FrmMain)panel.Parent;
-            main.RemoveUserControl();
+            main.RemoveControls();
             panel.Controls.Remove(this);
 
             UpdateAgreement detail = new UpdateAgreement(ab.Title, ab.Body, postNum);

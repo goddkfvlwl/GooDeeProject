@@ -191,7 +191,7 @@ namespace GoodeeProject
             CreateSurvey create = new CreateSurvey(survey.SurveyName, survey.SurveyNum);
             this.Parent.Controls.Add(create);
             create.BringToFront();
-            create.Location = new Point(185, 0);
+            create.Location = new Point(0, 0);
             this.Dispose();
         }
     }

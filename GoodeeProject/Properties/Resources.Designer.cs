@@ -175,7 +175,7 @@ namespace GoodeeProject.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap MBTI {
             get {
-                object obj = ResourceManager.GetObject("MBTI", resourceCulture);
+                object obj = ResourceManager.GetObject("minus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
