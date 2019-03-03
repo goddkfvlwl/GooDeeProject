@@ -143,15 +143,20 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-<<<<<<< HEAD
-        internal static System.Drawing.Bitmap KakaoTalk_20190225_085247325 {
-            get {
+
+        internal static System.Drawing.Bitmap KakaoTalk_20190225_085247325
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("KakaoTalk_20190225_085247325", resourceCulture);
-=======
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+
         internal static System.Drawing.Bitmap MBTI {
             get {
                 object obj = ResourceManager.GetObject("MBTI", resourceCulture);
->>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
+
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -159,7 +164,7 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-<<<<<<< HEAD
+
         internal static System.Drawing.Bitmap loupe {
             get {
                 object obj = ResourceManager.GetObject("loupe", resourceCulture);
@@ -177,18 +182,18 @@ namespace GoodeeProject.Properties {
             }
         }
         
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static System.Drawing.Bitmap MBTI {
-=======
-        internal static System.Drawing.Bitmap minus {
->>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
-            get {
-                object obj = ResourceManager.GetObject("minus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
+        ///// <summary>
+        /////   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        ///// </summary>
+        //internal static System.Drawing.Bitmap MBTI {
+
+        //internal static System.Drawing.Bitmap minus {
+
+        //    get {
+        //        object obj = ResourceManager.GetObject("minus", resourceCulture);
+        //        return ((System.Drawing.Bitmap)(obj));
+        //    }
+        //}
         
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.

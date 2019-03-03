@@ -16,14 +16,13 @@ namespace GoodeeProject
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-=======
+
         public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {
             Rectangle borderRectangle = this.ClientRectangle;
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.FromArgb(142, 142, 142), ButtonBorderStyle.Solid);
         }
->>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
+
     }
 }

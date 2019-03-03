@@ -318,12 +318,6 @@
     <Compile Include="DefaultSurvey.Designer.cs">
       <DependentUpon>DefaultSurvey.cs</DependentUpon>
     </Compile>
-    <Compile Include="DetailMenu\CtlCompanyInfoDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="DetailMenu\CtlCompanyInfoDetail.Designer.cs">
-      <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="DetailMenu\CtlMBTIDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -654,9 +648,6 @@
     <EmbeddedResource Include="CtlResume.resx">
       <DependentUpon>CtlResume.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DetailMenu\CtlCompanyInfoDetail.resx">
-      <DependentUpon>CtlCompanyInfoDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DetailMenu\CtlMBTIDetail.resx">
       <DependentUpon>CtlMBTIDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -782,7 +773,6 @@
     </Compile>
     <None Include="Resources\iconfinder_minus-circle_2561243.png" />
     <None Include="Resources\iconfinder_plus-circle_2561291.png" />
-<<<<<<< HEAD
     <None Include="Resources\bold-text-option.png" />
     <None Include="Resources\font.png" />
     <Content Include="Resources\MBTI.jpg">
@@ -790,9 +780,7 @@
     </Content>
     <None Include="Resources\KakaoTalk_20190225_085247325.png" />
     <None Include="Resources\picture.png" />
-=======
     <None Include="Resources\down-arrow.png" />
->>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -35,6 +35,7 @@
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnChat = new System.Windows.Forms.Button();
             this.btnMBTI = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnBoard = new System.Windows.Forms.Button();
             this.btnSpec = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -58,8 +58,9 @@
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 146);
+            this.panel1.Size = new System.Drawing.Size(1143, 182);
             this.panel1.TabIndex = 26;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);
@@ -68,25 +69,28 @@
             // ctlProfile1
             // 
             this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
+            this.ctlProfile1.Location = new System.Drawing.Point(723, 36);
+            this.ctlProfile1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.ctlProfile1.Name = "ctlProfile1";
-            this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
+            this.ctlProfile1.Size = new System.Drawing.Size(414, 139);
             this.ctlProfile1.TabIndex = 27;
             // 
             // iTalk_Separator1
             // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
+            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 175);
+            this.iTalk_Separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
+            this.iTalk_Separator1.Size = new System.Drawing.Size(1143, 12);
             this.iTalk_Separator1.TabIndex = 7;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.구디로고;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 9);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(180, 133);
+            this.pictureBox1.Size = new System.Drawing.Size(206, 166);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
@@ -97,9 +101,10 @@
             this.btnMinimum.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnMinimum.Image = null;
             this.btnMinimum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMinimum.Location = new System.Drawing.Point(949, 3);
+            this.btnMinimum.Location = new System.Drawing.Point(1085, 4);
+            this.btnMinimum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimum.Name = "btnMinimum";
-            this.btnMinimum.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimum.Size = new System.Drawing.Size(23, 25);
             this.btnMinimum.TabIndex = 25;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -111,9 +116,10 @@
             this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.btnExit.Image = null;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(975, 3);
+            this.btnExit.Location = new System.Drawing.Point(1114, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.Size = new System.Drawing.Size(23, 25);
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -131,18 +137,29 @@
             this.panel2.Controls.Add(this.btnBoard);
             this.panel2.Controls.Add(this.btnSpec);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 146);
-            this.panel2.MinimumSize = new System.Drawing.Size(126, 39);
+            this.panel2.Location = new System.Drawing.Point(0, 182);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel2.MinimumSize = new System.Drawing.Size(144, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1000, 454);
+            this.panel2.Size = new System.Drawing.Size(1143, 568);
             this.panel2.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(213, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(930, 568);
+            this.panel3.TabIndex = 7;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // sidePanel
             // 
             this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(187)))), ((int)(((byte)(104)))));
-            this.sidePanel.Location = new System.Drawing.Point(174, 0);
+            this.sidePanel.Location = new System.Drawing.Point(199, 0);
+            this.sidePanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.sidePanel.Name = "sidePanel";
-            this.sidePanel.Size = new System.Drawing.Size(10, 76);
+            this.sidePanel.Size = new System.Drawing.Size(11, 95);
             this.sidePanel.TabIndex = 6;
             this.sidePanel.Visible = false;
             // 
@@ -154,9 +171,10 @@
             this.btnChat.ForeColor = System.Drawing.Color.Gray;
             this.btnChat.Image = global::GoodeeProject.Properties.Resources.chat_48;
             this.btnChat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChat.Location = new System.Drawing.Point(0, 375);
+            this.btnChat.Location = new System.Drawing.Point(0, 469);
+            this.btnChat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(186, 79);
+            this.btnChat.Size = new System.Drawing.Size(213, 99);
             this.btnChat.TabIndex = 5;
             this.btnChat.Text = "상담";
             this.btnChat.UseVisualStyleBackColor = false;
@@ -170,9 +188,10 @@
             this.btnMBTI.ForeColor = System.Drawing.Color.Gray;
             this.btnMBTI.Image = global::GoodeeProject.Properties.Resources.write_48;
             this.btnMBTI.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMBTI.Location = new System.Drawing.Point(0, 150);
+            this.btnMBTI.Location = new System.Drawing.Point(0, 188);
+            this.btnMBTI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMBTI.Name = "btnMBTI";
-            this.btnMBTI.Size = new System.Drawing.Size(186, 76);
+            this.btnMBTI.Size = new System.Drawing.Size(213, 95);
             this.btnMBTI.TabIndex = 4;
             this.btnMBTI.Text = " MBTI";
             this.btnMBTI.UseVisualStyleBackColor = false;
@@ -186,9 +205,10 @@
             this.btnSurvey.ForeColor = System.Drawing.Color.Gray;
             this.btnSurvey.Image = global::GoodeeProject.Properties.Resources.survey_48;
             this.btnSurvey.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSurvey.Location = new System.Drawing.Point(0, 75);
+            this.btnSurvey.Location = new System.Drawing.Point(0, 94);
+            this.btnSurvey.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSurvey.Name = "btnSurvey";
-            this.btnSurvey.Size = new System.Drawing.Size(186, 76);
+            this.btnSurvey.Size = new System.Drawing.Size(213, 95);
             this.btnSurvey.TabIndex = 3;
             this.btnSurvey.Text = "설문";
             this.btnSurvey.UseVisualStyleBackColor = false;
@@ -202,9 +222,10 @@
             this.btnInfo.ForeColor = System.Drawing.Color.Gray;
             this.btnInfo.Image = global::GoodeeProject.Properties.Resources.info_48;
             this.btnInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInfo.Location = new System.Drawing.Point(0, 225);
+            this.btnInfo.Location = new System.Drawing.Point(0, 281);
+            this.btnInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(186, 76);
+            this.btnInfo.Size = new System.Drawing.Size(213, 95);
             this.btnInfo.TabIndex = 2;
             this.btnInfo.Text = "   기업정보";
             this.btnInfo.UseVisualStyleBackColor = false;
@@ -218,9 +239,10 @@
             this.btnBoard.ForeColor = System.Drawing.Color.Gray;
             this.btnBoard.Image = global::GoodeeProject.Properties.Resources.board_48;
             this.btnBoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBoard.Location = new System.Drawing.Point(0, 300);
+            this.btnBoard.Location = new System.Drawing.Point(0, 375);
+            this.btnBoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBoard.Name = "btnBoard";
-            this.btnBoard.Size = new System.Drawing.Size(186, 76);
+            this.btnBoard.Size = new System.Drawing.Size(213, 95);
             this.btnBoard.TabIndex = 1;
             this.btnBoard.Text = "협약기업 게시판";
             this.btnBoard.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -236,33 +258,25 @@
             this.btnSpec.Image = global::GoodeeProject.Properties.Resources.user_48;
             this.btnSpec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSpec.Location = new System.Drawing.Point(0, 0);
+            this.btnSpec.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSpec.Name = "btnSpec";
-            this.btnSpec.Size = new System.Drawing.Size(186, 76);
+            this.btnSpec.Size = new System.Drawing.Size(213, 95);
             this.btnSpec.TabIndex = 0;
             this.btnSpec.Text = "   스펙관리";
             this.btnSpec.UseVisualStyleBackColor = false;
             this.btnSpec.Click += new System.EventHandler(this.btnSpec_Click);
             // 
-<<<<<<< HEAD
-=======
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(186, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(814, 454);
-            this.panel3.TabIndex = 7;
-            // 
->>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.ClientSize = new System.Drawing.Size(1143, 750);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(126, 39);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(144, 49);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTalk_ThemeContainer1";
@@ -291,10 +305,10 @@
         private Portfolio portfolio1;
         internal CtlProfile ctlProfile1;
         internal System.Windows.Forms.Panel panel2;
-<<<<<<< HEAD
+
         internal System.Windows.Forms.Button btnInfo;
-=======
+
         internal System.Windows.Forms.Panel panel3;
->>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
+
     }
 }
