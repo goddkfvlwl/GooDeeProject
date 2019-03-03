@@ -21,16 +21,7 @@ namespace GoodeeProject
         
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
-            {
-                new GoodeeDAO.GoodeeDAO().InsertCommantBoard(boardNum, body.Text, DateTime.Now, FrmMain.Ai.Id);
-                MessageBox.Show("댓글이 정상적으로 달렸습니다");
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            
         }
 
         private void Commant_Load(object sender, EventArgs e)

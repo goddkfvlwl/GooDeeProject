@@ -289,5 +289,15 @@ namespace GoodeeProject
                 }
             }
         }
+
+        private void iTalk_Button_13_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnComment_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

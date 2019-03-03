@@ -701,7 +701,35 @@ namespace GoodeeProject.GoodeeDAO
                 throw;
             }
         }
+        public List<BoardListComment> OutBoard(int board)
+        {
+            //GetPost
+            List<BoardListComment> list = new List<BoardListComment>();
+            SqlParameter prm = new SqlParameter();
+            prm = new SqlParameter("@boardNum", board);
+            string sp = "SelectCommentBoard";
+            try
+            {
+                SqlDataReader reader = new DBConnection().GetPost(sp, prm);
+                while (reader.Read())
+                {
+                    list.Add(new BoardListComment()
+                    {
+                        BoardNum = Int32.Parse(reader["BoardNum"].ToString()),
+                        Body = reader["Body"].ToString(),
+                        WriteDate = DateTime.Parse(reader["WriteDate"].ToString()),
+                        Id = reader["ID"].ToString()
 
+                    });
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return list;
+        }
         public List<AgreementBoard> OutBoard()
         {
             List<AgreementBoard> lst = new List<AgreementBoard>();
@@ -1260,17 +1288,17 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
-        public bool InsertCommantBoard(int code, string body, DateTime date, string ID)
+        public bool InsertCommantBoard(BoardListComment b)
         {
             string proc = "InsertCommantBoard";
 
             var dbCon = new DBConnection();
 
             SqlParameter[] sqlParameters = new SqlParameter[4];
-            sqlParameters[0] = new SqlParameter("@boardNum",code);
-            sqlParameters[1] = new SqlParameter("@body", body);
-            sqlParameters[2] = new SqlParameter("@writeDate",date);
-            sqlParameters[3] = new SqlParameter("@Id", ID);
+            sqlParameters[0] = new SqlParameter("@boardNum",b.BoardNum);
+            sqlParameters[1] = new SqlParameter("@body", b.Body);
+            sqlParameters[2] = new SqlParameter("@writeDate",b.WriteDate);
+            sqlParameters[3] = new SqlParameter("@Id", b.Id);
 
 
             try

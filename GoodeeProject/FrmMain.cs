@@ -46,7 +46,7 @@ namespace GoodeeProject
         JobInformation information;
         DetailView detail;
         Agreement_enterprise agreement_Enterprise;
-        
+        CommantLsit cmlist;
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -257,6 +257,7 @@ namespace GoodeeProject
                     detail.Location = new Point(190, 3);
                     detail.BringToFront();
                     panel2.Controls.Add(detail);
+                    detail.btnComment.Click += BtnComment_Click;
                 }
             }
             else if (ai.Authority != 'S')
@@ -269,13 +270,34 @@ namespace GoodeeProject
                     detail = new DetailView(boardNum);
                     detail.Location = new Point(190, 3);
                     detail.BringToFront();
-                    panel2.Controls.Add(detail); 
+                    panel2.Controls.Add(detail);
+                    detail.btnComment.Click += BtnComment_Click;
                 }
             }
-           
+            
         }
 
-        
+        private void BtnComment_Click(object sender, EventArgs e)
+        {
+            RemoveUserControl();
+
+            cmlist = new CommantLsit(boardNum);
+            cmlist.Location = new Point(190, 3);
+            cmlist.BringToFront();
+            panel2.Controls.Add(cmlist);
+
+            cmlist.board.Click += Board_Click;
+        }
+
+        private void Board_Click(object sender, EventArgs e)
+        {
+            RemoveUserControl();
+            detail = new DetailView(boardNum);
+            detail.Location = new Point(190, 3);
+            detail.BringToFront();
+            panel2.Controls.Add(detail);
+        }
+
         private void Btnwrite_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -468,7 +490,8 @@ namespace GoodeeProject
             detail = null;
             panel2.Controls.Remove(agreement_Enterprise);
             agreement_Enterprise = null;
-            
+            panel2.Controls.Remove(cmlist);
+            cmlist = null;
         }
 
         private void portfolio1_Load(object sender, EventArgs e)

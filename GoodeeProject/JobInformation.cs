@@ -47,6 +47,11 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 지역선택을 눌렀울 경우, 아래의 패널에 지역선택의 사용자 정의 폼이 ADD된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
             RemoveControl();
@@ -56,7 +61,11 @@ namespace GoodeeProject
 
         }
 
-
+        /// <summary>
+        /// 직종선택을 눌렀을 경우 패널에 직종선택에 해당하는 사용자 정의폼을 띄운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iTalk_Button_13_Click(object sender, EventArgs e)
         {
             RemoveControl();
@@ -66,6 +75,9 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 해당폼의 컨트롤을 초기화
+        /// </summary>
         public void RemoveControl()
         {
             this.Controls.Remove(choice);
@@ -74,6 +86,11 @@ namespace GoodeeProject
             this.resultPanel.Visible = false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             
@@ -327,12 +344,21 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 키워드 클릭시 텍스트가 초기화 된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void jobSearch_Click(object sender, EventArgs e)
         {
             jobSearch.Text = " ";
         }
 
-       
+       /// <summary>
+       /// 페이지 이동에 대한 페이징의 부분이다.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void iTalk_Button_13_Click_1(object sender, EventArgs e)
         {
             if (page != totalpage)
@@ -352,6 +378,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 페이징에 해당하는 부분이다
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iTalk_Button_12_Click(object sender, EventArgs e)
         {
             if (page != 0)
@@ -371,6 +402,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 검색기록을 모두 초기화시키면서 키워드로 저장되어있던 모든 것들을 초기화 시킨다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void picReset_Click(object sender, EventArgs e)
         {
             area.Clear();
@@ -390,6 +426,11 @@ namespace GoodeeProject
             search.JobKeyword("기업을 입력하세요");
         }
 
+        /// <summary>
+        /// 검색초기화의 툴팁이다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void JobInformation_Load(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(picReset, "검색 초기화");
