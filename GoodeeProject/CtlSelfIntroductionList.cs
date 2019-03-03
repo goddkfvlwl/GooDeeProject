@@ -18,6 +18,7 @@ namespace GoodeeProject
         {
             InitializeComponent();
             goodee = GoodeeDAO.GoodeeDAO.GetInstance();
+            flowLayoutPanel1.AutoScroll = true;
             GetBoard();
      
         }

@@ -25,24 +25,8 @@ namespace GoodeeProject
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
         #region Controls
-        CtlSpecDetail spec;
-        CtlCompanyInfoDetail companyInfo;
-        CtlSurveyAdminDetail surveyAdmin;
-        CtlMBTIDetail mbti;
-        Chat chat;
         ChatClient chatClinet;
-
-        ClassList classlist;
-        StudentManagement studentManagement;
-        PortfolioList portfolioList;
-        PortfolioManager portfolioManager;
-        CtlResume rs;
-        SurveyList surveyList;
-        CreateSurvey createSurvey;
-        CtlMBTIResult mr;
-        FrmMBTIQuestion mq;
-        CtlSelfIntroductionList introductionList;
-        CtlIntroductionListM introductionListM;
+        Panel detailPanel;
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -56,8 +40,9 @@ namespace GoodeeProject
         public FrmMain()
         {
             //InitializeComponent();
+            detailPanel = new Panel();
             LoadFrm();
-
+      
         }
 
         public void LoadFrm()
@@ -103,101 +88,114 @@ namespace GoodeeProject
 
         private void BtnClassModify_Click(object sender, EventArgs e)
         {
-            classlist = new ClassList();
-            panel2.Controls.Add(classlist);
-            classlist.Location = new Point(185, 0);
-            classlist.BringToFront();
+            RemoveControls();
+
+            ClassList classlist = new ClassList();
+            classlist.Location = new Point(0, 0);
+
+            panel3.Controls.Add(classlist);
         }
 
         private void BtnStudent_Click(object sender, EventArgs e)
         {
-            studentManagement = new StudentManagement();
-            panel2.Controls.Add(studentManagement);
-            studentManagement.Location = new Point(185, 0);
+            RemoveControls();
+
+            StudentManagement studentManagement = new StudentManagement();
+            studentManagement.Location = new Point(0, 0);
             studentManagement.Visible = true;
-            studentManagement.BringToFront();
+
+            panel3.Controls.Add(studentManagement);
+
         }
 
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
             Environment.Exit(0);
         }
 
         private void btnSpec_Click(object sender, EventArgs e)
         {
-            if (spec == null)
+            if (detailPanel.Controls.ContainsKey("CtlSpecDetail"))
             {
-                RemoveUserControl();
-                sidePanel.Visible = true;
-                sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
-                spec = new CtlSpecDetail();
-                panel2.Controls.Add(spec);
-                spec.Location = new Point(192, 1);
-                spec.BringToFront();
-                spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click; ;
-                spec.Controls["lblResume"].Click += BtnResume_Click;
-                spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
-            }
-            else
-            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
                 sidePanel.Visible = false;
-                RemoveUserControl();
+                return;
             }
+            sidePanel.Visible = true;
+            sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
+
+            CtlSpecDetail spec = new CtlSpecDetail();
+            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+            spec.Controls["lblResume"].Click += BtnResume_Click;
+            spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
+            spec.Location = new Point(0, 0);
+
+            AddPanel(spec, btnSpec.Size, btnSpec.Location);
         }
 
+        private void AddPanel(Control item, Size size, Point point)
+        {
+            detailPanel.Controls.Clear();
+            detailPanel.Controls.Add(item);
+            detailPanel.Location = new Point(size.Width, point.Y);
+            detailPanel.Size = item.Size;
 
+            panel2.Controls.Add(detailPanel);
+            detailPanel.BringToFront();
+        }
 
         private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
         {
+            RemoveControls();
 
             if (ai.Authority == 'S')
             {
-                introductionList = new CtlSelfIntroductionList();
-                introductionList.Location = new Point(186, 0);
-                panel2.Controls.Add(introductionList);
+                CtlSelfIntroductionList introductionList = new CtlSelfIntroductionList();
+                introductionList.Location = new Point(0, 0);
+                panel3.Controls.Add(introductionList);
             }
             else
             {
-                introductionListM = new CtlIntroductionListM();
-                introductionListM.Location = new Point(186, 0);
-                panel2.Controls.Add(introductionListM);
+                CtlIntroductionListM introductionListM = new CtlIntroductionListM();
+                introductionListM.Location = new Point(0, 0);
+                panel3.Controls.Add(introductionListM);
             }
         }
 
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
+            RemoveControls();
+
             if (ai.Authority == 'S')
             {
-                portfolioList = new PortfolioList();
-                panel2.Controls.Add(portfolioList);
-                portfolioList.Location = new Point(185, 0);
-                portfolioList.BringToFront();
+                PortfolioList portfolioList = new PortfolioList();
+                panel3.Controls.Add(portfolioList);
+                portfolioList.Location = new Point(0, 0);
             }
             else if (ai.Authority == 'A' || ai.Authority == 'M')
             {
-                portfolioManager = new PortfolioManager();
-                panel2.Controls.Add(portfolioManager);
-                portfolioManager.Location = new Point(185, 0);
-                portfolioManager.BringToFront();
+                PortfolioManager portfolioManager = new PortfolioManager();
+                panel3.Controls.Add(portfolioManager);
+                portfolioManager.Location = new Point(0, 0);
             }
-
         }
 
         private void BtnResume_Click(object sender, EventArgs e)
         {
+            RemoveControls();
+
             s.AddList("이력서 클릭");
-            rs = new CtlResume();
-            panel2.Controls.Add(rs);
-            rs.Location = new Point(185, 0);
-            spec.SendToBack();
+            CtlResume rs = new CtlResume();
+            panel3.Controls.Add(rs);
+            rs.Location = new Point(0, 0);
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
+            RemoveControls();
 
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
@@ -205,110 +203,121 @@ namespace GoodeeProject
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            if (companyInfo == null)
+            if (detailPanel.Controls.ContainsKey("CtlCompanyInfoDetail"))
             {
-                RemoveUserControl();
-
-                sidePanel.Visible = true;
-                sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
-
-                companyInfo = new CtlCompanyInfoDetail();
-                panel2.Controls.Add(companyInfo);
-                companyInfo.Location = new Point(192, 211);
-            }
-            else
-            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
                 sidePanel.Visible = false;
-                RemoveUserControl();
+                return;
             }
+            sidePanel.Visible = true;
+            sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
+
+            CtlCompanyInfoDetail companyInfo = new CtlCompanyInfoDetail();
+            companyInfo.Location = new Point(0, 0);
+
+            AddPanel(companyInfo, btnInfo.Size, btnInfo.Location);
         }
 
         private void btnSurvey_Click(object sender, EventArgs e)
         {
-            if (surveyAdmin == null)
+            if (detailPanel.Controls.ContainsKey("CtlSurveyAdminDetail"))
             {
-                RemoveUserControl();
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
+                sidePanel.Visible = false;
+                return;
+            }
+            sidePanel.Visible = true;
+            sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
+            sidePanel.BringToFront();
+            if (ai.Authority == 'S')
+            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel = null;
+                panel3.Controls.Clear();
+                SurveyList surveyList = new SurveyList();
+                surveyList.BackColor = Color.Transparent;
+                surveyList.Location = new Point(185, 0);
+                panel3.Controls.Add(surveyList);
+            }
+            else
+            {
+                //관리자, 최상위 관리자
+                CtlSurveyAdminDetail surveyAdmin = new CtlSurveyAdminDetail();
 
-                sidePanel.Visible = true;
-                sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
-                if (ai.Authority == 'S')
-                {
-                    surveyList = new SurveyList();
-                    panel2.Controls.Add(surveyList);
-                    surveyList.Location = new Point(185, 0);
-                    surveyList.BringToFront();
-                }
-                else
-                {
-                    //관리자, 최상위 관리자
-                    if (surveyAdmin == null)
-                    {
-                        surveyAdmin = new CtlSurveyAdminDetail();
-                    }
-                    panel2.Controls.Add(surveyAdmin);
-                    surveyAdmin.Location = new Point(192, 40);
-                    surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
-                    surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
-                    surveyAdmin.BringToFront();
-                }
+                surveyAdmin.Location = new Point(0, 0);
+                surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
+                surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
+
+                AddPanel(surveyAdmin, btnSurvey.Size, btnSurvey.Location);
             }
         }
 
         private void lblMenu1_Click(object sender, EventArgs e)
         {
-            surveyList = new SurveyList();
-            panel2.Controls.Add(surveyList);
-            surveyList.Location = new Point(185, 0);
-            surveyList.BringToFront();
+            RemoveControls();
+
+            SurveyList surveyList = new SurveyList();
+            surveyList.Location = new Point(0, 0);
+            panel3.Controls.Add(surveyList);
         }
 
         private void iTalk_Label1_Click(object sender, EventArgs e)
         {
-            createSurvey = new CreateSurvey();
-            panel2.Controls.Add(createSurvey);
-            createSurvey.Location = new Point(185, 0);
-            createSurvey.BringToFront();
+            RemoveControls();
+
+            CreateSurvey createSurvey = new CreateSurvey();
+            createSurvey.Location = new Point(0, 0);
+            panel3.Controls.Add(createSurvey);
         }
 
         private void btnMBTI_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-
+            if (detailPanel.Controls.ContainsKey("CtlMBTIDetail"))
+            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
+                sidePanel.Visible = false;
+                return;
+            }
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnMBTI.Size.Width - 10, btnMBTI.Location.Y);
 
-            mbti = new CtlMBTIDetail();
-            panel2.Controls.Add(mbti);
-            mbti.BringToFront();
-            mbti.Location = new Point(192, 141);
+            CtlMBTIDetail mbti = new CtlMBTIDetail();
+            mbti.Location = new Point(0, 0);
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
             mbti.Controls["lblResult"].Click += MBTIResult_Click;
+
+            AddPanel(mbti, btnMBTI.Size, btnMBTI.Location);
         }
 
         private void MBTIResult_Click(object sender, EventArgs e)
         {
-            mr = new CtlMBTIResult();
-            panel2.Controls.Add(mr);
-            mr.Location = new Point(185, 0);
-            mbti.SendToBack();
+            RemoveControls();
 
+            CtlMBTIResult mr = new CtlMBTIResult();
+            panel3.Controls.Add(mr);
+            mr.BackColor = Color.FromArgb(0, 0, 0, 0);
+            mr.Location = new Point(0, 0);
         }
 
         private void MBTIWrite_Click(object sender, EventArgs e)
         {
-            mbti.SendToBack();
-            mq = new FrmMBTIQuestion();
+            panel2.Controls.Remove(detailPanel);
+            detailPanel.Controls.Clear();
+            FrmMBTIQuestion mq = new FrmMBTIQuestion();
             mq.Show();
         }
 
         private void btnChat_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
+            RemoveControls();
             if (isConnected)
             {
-                chat = new Chat(ChatClinet.Client, isConnected);
-                panel2.Controls.Add(chat);
-                chat.Location = new Point(185, 0);
+                Chat chat = new Chat(ChatClinet.Client, isConnected);
+                panel3.Controls.Add(chat);
+                chat.Location = new Point(0, 0);
                 chat.BringToFront();
                 chatClinet.RequestMemberList();
             }
@@ -319,36 +328,11 @@ namespace GoodeeProject
             }
         }
 
-        private void RemoveUserControl()
+        public void RemoveControls()
         {
-            panel2.Controls.Remove(spec);
-            spec = null;
-            panel2.Controls.Remove(companyInfo);
-            companyInfo = null;
-            panel2.Controls.Remove(surveyAdmin);
-            surveyAdmin = null;
-            panel2.Controls.Remove(mbti);
-            mbti = null;
-            panel2.Controls.Remove(chat);
-            chat = null;
-            panel2.Controls.Remove(classlist);
-            classlist = null;
-            panel2.Controls.Remove(studentManagement);
-            studentManagement = null;
-            panel2.Controls.Remove(portfolioList);
-            portfolioList = null;
-            panel2.Controls.Remove(portfolioManager);
-            portfolioManager = null;
-            panel2.Controls.Remove(rs);
-            rs = null;
-            panel2.Controls.Remove(surveyList);
-            surveyList = null;
-            panel2.Controls.Remove(createSurvey);
-            createSurvey = null;
-            panel2.Controls.Remove(mr);
-            mr = null;
-            panel2.Controls.Remove(mq);
-            mq = null;
+            panel2.Controls.Remove(detailPanel);
+            detailPanel.Controls.Clear();
+            panel3.Controls.Clear();
         }
 
         private void portfolio1_Load(object sender, EventArgs e)
@@ -379,7 +363,6 @@ namespace GoodeeProject
 
         public void BtnExit_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
         }
 
@@ -394,39 +377,6 @@ namespace GoodeeProject
             Rectangle borderRectangle = this.ClientRectangle;
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
-
-            panel2.Controls.Remove(spec);
-            spec = null;
-            panel2.Controls.Remove(companyInfo);
-            companyInfo = null;
-            panel2.Controls.Remove(surveyAdmin);
-            surveyAdmin = null;
-            panel2.Controls.Remove(mbti);
-            mbti = null;
-            panel2.Controls.Remove(chat);
-            chat = null;
-            panel2.Controls.Remove(classlist);
-            classlist = null;
-            panel2.Controls.Remove(studentManagement);
-            studentManagement = null;
-            panel2.Controls.Remove(portfolioList);
-            portfolioList = null;
-            panel2.Controls.Remove(portfolioManager);
-            portfolioManager = null;
-            panel2.Controls.Remove(rs);
-            rs = null;
-            panel2.Controls.Remove(surveyList);
-            surveyList = null;
-            panel2.Controls.Remove(createSurvey);
-            createSurvey = null;
-            panel2.Controls.Remove(mr);
-            mr = null;
-            panel2.Controls.Remove(mq);
-            mq = null;
-            panel2.Controls.Remove(introductionList);
-            introductionList = null;
-            panel2.Controls.Remove(introductionListM);
-            introductionListM = null;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -439,7 +389,18 @@ namespace GoodeeProject
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             ChatClinet.DisConnect();
+        }
 
+        private void SetCtlsArgb()
+        {
+            Control.ControlCollection coll = this.Controls;
+            foreach (Control item in coll)
+            {
+                if (item != null)
+                {
+                    item.BackColor = Color.FromArgb(0, 0, 0, 0);
+                }
+            }
         }
     }
 }

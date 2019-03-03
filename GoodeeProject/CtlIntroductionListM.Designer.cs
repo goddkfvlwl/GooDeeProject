@@ -35,6 +35,7 @@
             // 
             // flpIntroductionList
             // 
+            this.flpIntroductionList.AutoScroll = true;
             this.flpIntroductionList.BackColor = System.Drawing.Color.White;
             this.flpIntroductionList.Location = new System.Drawing.Point(285, 79);
             this.flpIntroductionList.Name = "flpIntroductionList";

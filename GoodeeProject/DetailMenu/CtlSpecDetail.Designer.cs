@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.iTalk_ChatBubble_L1 = new iTalk.iTalk_ChatBubble_L();
             this.lblResume = new iTalk.iTalk_Label();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.separator2 = new iTalk.iTalk_Separator();
@@ -36,23 +35,13 @@
             this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.SuspendLayout();
             // 
-            // iTalk_ChatBubble_L1
-            // 
-            this.iTalk_ChatBubble_L1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_ChatBubble_L1.BubbleColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_ChatBubble_L1.DrawBubbleArrow = true;
-            this.iTalk_ChatBubble_L1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.iTalk_ChatBubble_L1.Location = new System.Drawing.Point(3, 3);
-            this.iTalk_ChatBubble_L1.Name = "iTalk_ChatBubble_L1";
-            this.iTalk_ChatBubble_L1.Size = new System.Drawing.Size(152, 90);
-            this.iTalk_ChatBubble_L1.TabIndex = 8;
-            // 
             // lblResume
             // 
-            this.lblResume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblResume.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.lblResume.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblResume.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblResume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lblResume.Location = new System.Drawing.Point(12, 7);
+            this.lblResume.Location = new System.Drawing.Point(10, 10);
             this.lblResume.Name = "lblResume";
             this.lblResume.Size = new System.Drawing.Size(140, 20);
             this.lblResume.TabIndex = 9;
@@ -61,8 +50,8 @@
             // 
             // iTalk_Separator1
             // 
-            this.iTalk_Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.iTalk_Separator1.Location = new System.Drawing.Point(24, 26);
+            this.iTalk_Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.iTalk_Separator1.Location = new System.Drawing.Point(24, 34);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
             this.iTalk_Separator1.Size = new System.Drawing.Size(120, 10);
             this.iTalk_Separator1.TabIndex = 10;
@@ -70,8 +59,8 @@
             // 
             // separator2
             // 
-            this.separator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
-            this.separator2.Location = new System.Drawing.Point(21, 57);
+            this.separator2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.separator2.Location = new System.Drawing.Point(21, 73);
             this.separator2.Name = "separator2";
             this.separator2.Size = new System.Drawing.Size(120, 10);
             this.separator2.TabIndex = 12;
@@ -79,10 +68,11 @@
             // 
             // lbl_SelfIntroduction
             // 
-            this.lbl_SelfIntroduction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lbl_SelfIntroduction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.lbl_SelfIntroduction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbl_SelfIntroduction.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lbl_SelfIntroduction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.lbl_SelfIntroduction.Location = new System.Drawing.Point(14, 38);
+            this.lbl_SelfIntroduction.Location = new System.Drawing.Point(13, 49);
             this.lbl_SelfIntroduction.Name = "lbl_SelfIntroduction";
             this.lbl_SelfIntroduction.Size = new System.Drawing.Size(137, 20);
             this.lbl_SelfIntroduction.TabIndex = 13;
@@ -91,10 +81,11 @@
             // 
             // iTalk_Label2
             // 
-            this.iTalk_Label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.iTalk_Label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.iTalk_Label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label2.Location = new System.Drawing.Point(15, 68);
+            this.iTalk_Label2.Location = new System.Drawing.Point(13, 89);
             this.iTalk_Label2.Name = "iTalk_Label2";
             this.iTalk_Label2.Size = new System.Drawing.Size(136, 20);
             this.iTalk_Label2.TabIndex = 14;
@@ -105,14 +96,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.Controls.Add(this.iTalk_Label2);
             this.Controls.Add(this.lbl_SelfIntroduction);
             this.Controls.Add(this.separator2);
             this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.lblResume);
-            this.Controls.Add(this.iTalk_ChatBubble_L1);
             this.Name = "CtlSpecDetail";
-            this.Size = new System.Drawing.Size(162, 96);
+            this.Size = new System.Drawing.Size(160, 120);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
             this.ResumeLayout(false);
 
         }
@@ -121,7 +113,6 @@
         internal iTalk.iTalk_Label lblResume;
         internal iTalk.iTalk_Separator iTalk_Separator1;
         internal iTalk.iTalk_Separator separator2;
-        internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;
         internal iTalk.iTalk_Label lbl_SelfIntroduction;
         internal iTalk.iTalk_Label iTalk_Label2;
     }

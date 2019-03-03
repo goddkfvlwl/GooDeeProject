@@ -597,6 +597,7 @@
     </Compile>
     <None Include="Resources\iconfinder_minus-circle_2561243.png" />
     <None Include="Resources\iconfinder_plus-circle_2561291.png" />
+    <None Include="Resources\down-arrow.png" />
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

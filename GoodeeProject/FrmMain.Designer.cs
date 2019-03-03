@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ctlProfile1 = new GoodeeProject.CtlProfile();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,6 +42,7 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnBoard = new System.Windows.Forms.Button();
             this.btnSpec = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -67,26 +68,10 @@
             // ctlProfile1
             // 
             this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
+            this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
             this.ctlProfile1.Name = "ctlProfile1";
-            this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
-            this.ctlProfile1.TabIndex = 0;
-            // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
-            this.iTalk_Separator1.TabIndex = 7;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
-            // ctlProfile1
-            // 
-            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(640, 29);
-            this.ctlProfile1.Name = "ctlProfile1";
-            this.ctlProfile1.Size = new System.Drawing.Size(360, 111);
-            this.ctlProfile1.TabIndex = 0;
+            this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
+            this.ctlProfile1.TabIndex = 27;
             // 
             // iTalk_Separator1
             // 
@@ -132,11 +117,12 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.sidePanel);
             this.panel2.Controls.Add(this.btnChat);
             this.panel2.Controls.Add(this.btnMBTI);
@@ -257,49 +243,12 @@
             this.btnSpec.UseVisualStyleBackColor = false;
             this.btnSpec.Click += new System.EventHandler(this.btnSpec_Click);
             // 
-            // ctlProfile1
+            // panel3
             // 
-            this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
-            this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
-            this.ctlProfile1.Name = "ctlProfile1";
-            this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
-            this.ctlProfile1.TabIndex = 27;
-            // 
-            // iTalk_Separator1
-            // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(0, 140);
-            this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(1000, 10);
-            this.iTalk_Separator1.TabIndex = 7;
-            this.iTalk_Separator1.Text = "iTalk_Separator1";
-            // 
-            // btnMinimum
-            // 
-            this.btnMinimum.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimum.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnMinimum.Image = null;
-            this.btnMinimum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMinimum.Location = new System.Drawing.Point(949, 3);
-            this.btnMinimum.Name = "btnMinimum";
-            this.btnMinimum.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimum.TabIndex = 25;
-            this.btnMinimum.Text = "_";
-            this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnMinimum.Click += new System.EventHandler(this.BtnMinimum_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.Transparent;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.btnExit.Image = null;
-            this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(975, 3);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(20, 20);
-            this.btnExit.TabIndex = 24;
-            this.btnExit.Text = "X";
-            this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.panel3.Location = new System.Drawing.Point(186, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(814, 454);
+            this.panel3.TabIndex = 7;
             // 
             // FrmMain
             // 
@@ -342,5 +291,6 @@
         private Portfolio portfolio1;
         internal CtlProfile ctlProfile1;
         internal System.Windows.Forms.Panel panel2;
+        internal System.Windows.Forms.Panel panel3;
     }
 }
