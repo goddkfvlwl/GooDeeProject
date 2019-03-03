@@ -72,6 +72,7 @@
             this.boardBoby.Size = new System.Drawing.Size(873, 413);
             this.boardBoby.TabIndex = 39;
             this.boardBoby.Text = "";
+            this.boardBoby.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.boardBoby_LinkClicked_1);
             // 
             // title
             // 

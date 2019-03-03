@@ -41,14 +41,14 @@ namespace GoodeeProject
 
         private void firstJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(firstJobName.SelectedItem.ToString());
             secondJobName.Items.Clear();
             for (int i = 0; i < jlist.Count; i++)
             {
                 if (jlist[i].FirstJob_Name == firstJobName.SelectedItem.ToString())
                 {
                     code = jlist[i].FirstJob_Code;
-                    jlist2 = new GoodeeDAO.GoodeeDAO().selectSecondJob(code);   // 1차 지역코드를 넘겨서 1차지역코드, 2차지역이름, 2차지역코드
+                    jlist2 = new GoodeeDAO.GoodeeDAO().selectSecondJob(code);   
+                    // 1차 지역코드를 넘겨서 1차지역코드, 2차지역이름, 2차지역코드
                 }
             }
             foreach (FirstSubJob item in jlist2)

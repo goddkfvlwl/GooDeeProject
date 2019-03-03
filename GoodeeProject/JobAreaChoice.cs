@@ -49,34 +49,8 @@ namespace GoodeeProject
             }
             #endregion
 
-            #region 외국지역추가
-            //lst.Clear();
-            //lst = new GoodeeDAO.GoodeeDAO().ForeginAllFirstAreaName();
-
-            //foreach (FirstSubArea item in lst)
-            //{
-            //    iTalk.iTalk_Button_1 foreginArea = new iTalk.iTalk_Button_1();
-            //    foreginArea.Size = new Size(63, 19);
-            //    foreginArea.Font = new Font(fm, 8f);
-            //    foreginArea.Text = item.FirstAreaName1;
-            //    foreginArea.Click += ForeginArea_Click;
-            //    foreginAreaName.Controls.Add(foreginArea);
-
-            //} 
-            #endregion
-
         }
 
-        /// <summary>
-        /// 외국지역버튼
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ForeginArea_Click(object sender, EventArgs e)
-        {
-            //iTalk.iTalk_Button_1 button = (iTalk.iTalk_Button_1)sender;
-            //MessageBox.Show(button.Text);
-        }
 
         /// <summary>
         /// 한국지역버튼

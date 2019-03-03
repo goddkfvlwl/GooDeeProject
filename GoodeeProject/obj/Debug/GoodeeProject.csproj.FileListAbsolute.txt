@@ -89,11 +89,6 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.O
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.GyeonggiArea.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.JobAreaChoice.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.JobInformation.resources
-C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.KREDITPanel.resources
-C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.KREDIT_JOB.resources
-C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.KREDIT_JOBlist.resources
-C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.KREDIT_JOBResult.resources
-C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.MedioButton.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIQuestion.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIResult.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources

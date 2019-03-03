@@ -72,9 +72,7 @@ namespace GoodeeProject
 
 
         int remainTime; // timer 시간
-        bool Read;
-
-
+        
         private void RequestButton_Click(object sender, EventArgs e)
         {
             if (client == null)

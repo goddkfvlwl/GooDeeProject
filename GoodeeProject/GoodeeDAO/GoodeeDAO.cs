@@ -815,7 +815,7 @@ namespace GoodeeProject.GoodeeDAO
             try
             {
                 SqlDataReader reader = new DBConnection().GetPost(sp, sqlparameters);
-                //System.Windows.Forms.MessageBox.Show(firstCode = reader["FirstArea_Code"].ToString());
+                
                 while (reader.Read())
                 {
                     firstCode = reader["FirstArea_Code"].ToString();
@@ -875,32 +875,6 @@ namespace GoodeeProject.GoodeeDAO
                         
                 }
                 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return list;
-        }
-
-        public List<FirstSubArea> ForeginAllFirstAreaName()
-        {
-            string proc = "ForeignAreaName";
-            List<FirstSubArea> list = new List<FirstSubArea>();
-
-            try
-            {
-                SqlDataReader reader = new DBConnection().Select(proc);
-                while (reader.Read())
-                {
-                    list.Add(new FirstSubArea()
-                    {
-                        FirstAreaName1 = reader["FirstArea_Name"].ToString()
-                    });
-
-                }
-
             }
             catch (Exception)
             {

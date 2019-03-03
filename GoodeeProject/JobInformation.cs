@@ -83,7 +83,7 @@ namespace GoodeeProject
             job.Clear();
 
             Keyword();
-            toolTip1.SetToolTip(picReset, "검색초기화");
+            //toolTip1.SetToolTip(picReset, "검색초기화");
         }
 
         private void Keyword()
@@ -206,7 +206,6 @@ namespace GoodeeProject
         private void OneJobMat_Click(object sender, EventArgs e)
         {
             oneJobMatResult oneJob = (oneJobMatResult)sender;
-            //MessageBox.Show(oneJob.companyName.Name);
             Process.Start("chrome.exe", oneJob.companyName.Name);
         }
 
@@ -387,6 +386,11 @@ namespace GoodeeProject
             labPage.Text = 0 + " / " + 0;
             jobSearch.Text = "기업을 입력하세요";
             search.JobKeyword("기업을 입력하세요");
+        }
+
+        private void JobInformation_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(picReset, "검색 초기화");
         }
     }
 }

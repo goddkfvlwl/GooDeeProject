@@ -40,7 +40,7 @@ namespace GoodeeProject
         {
 
             title.Text = "제목 : " + ab.Title + "  | 협약기업게시판"; ;
-
+            MessageBox.Show(ab.Body);
             FtpWebRequest req = (FtpWebRequest)WebRequest.Create(ab.Body);
             req.Method = WebRequestMethods.Ftp.DownloadFile;
 
@@ -66,8 +66,21 @@ namespace GoodeeProject
             Uri serverUri = new Uri(ab.Body);
             if (FtpDelete(serverUri))
             {
-                gd.DeleteBoard(ab.BoardNum);
-                MessageBox.Show("정말삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result =  MessageBox.Show("정말삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        gd.DeleteBoard(ab.BoardNum);
+                        MessageBox.Show("삭제성공.");
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+                
 
             }
         }
@@ -114,6 +127,11 @@ namespace GoodeeProject
             detail.Location = new Point(190, 3);
             detail.BringToFront();
             panel.Controls.Add(detail);
+        }
+
+        private void boardBoby_LinkClicked_1(object sender, LinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("Chrome.exe", e.LinkText);
         }
     }
 }

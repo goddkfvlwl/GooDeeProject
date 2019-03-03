@@ -18,6 +18,9 @@ namespace GoodeeProject
         private TcpClient client;
         private NetworkStream ns;
 
+        PortfolioManager portfolioManager;
+        CtlIntroductionListM introductionList;
+
         public CompanyForm()
         {
             InitializeComponent();
@@ -34,11 +37,11 @@ namespace GoodeeProject
         #region 인터페이스
         public void BtnExit_Click(object sender, EventArgs e)
         {
-            string logout = "$DisConnect$";
-            byte[] a = Encoding.UTF8.GetBytes(logout);
-            ns.Write(a, 0, a.Length);
-            ns.Flush();
-            Environment.Exit(0);
+            //string logout = "$DisConnect$";
+            //byte[] a = Encoding.UTF8.GetBytes(logout);
+            //ns.Write(a, 0, a.Length);
+            //ns.Flush();
+            //Environment.Exit(0);
         }
 
         public void BtnMinimum_Click(object sender, EventArgs e)
@@ -83,17 +86,34 @@ namespace GoodeeProject
 
         private void btnSpec_Click(object sender, EventArgs e)
         {
-            CtlIntroductionListM introductionList = new CtlIntroductionListM();
-            introductionList.Location = new Point(20, 3);
+            RemoveControl();
+            introductionList = new CtlIntroductionListM();
+            introductionList.Location = new Point(6, 7);
             panel2.Controls.Add(introductionList);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CtlResume rs = new CtlResume();
-            panel2.Controls.Add(rs);
-            rs.Location = new Point(20, 3);
+            //CtlResume rs = new CtlResume();
+            //panel2.Controls.Add(rs);
+            //rs.Location = new Point(20, 3);
+
             //spec.SendToBack();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RemoveControl();
+            portfolioManager = new PortfolioManager();
+            panel2.Controls.Add(portfolioManager);
+            portfolioManager.Location = new Point(6, 7);
+            portfolioManager.BringToFront();
+        }
+
+        public void RemoveControl()
+        {
+            panel2.Controls.Remove(portfolioManager);
+            panel2.Controls.Remove(introductionList);
         }
     }
 }

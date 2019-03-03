@@ -44,6 +44,8 @@ namespace GoodeeProject
         CtlMBTIResult mr;
         FrmMBTIQuestion mq;
         JobInformation information;
+        DetailView detail;
+        Agreement_enterprise agreement_Enterprise;
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -219,15 +221,36 @@ namespace GoodeeProject
             agreement.Location = new Point(192, 3);
             agreement.BringToFront();
 
-
+            agreement.agreementList1.ItemSelectionChanged += AgreementList1_ItemSelectionChanged;
             agreement.btnwrite.Click += Btnwrite_Click;
 
 
         }
 
+        private void AgreementList1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            RemoveUserControl();
+            int boardNum = 0;   // 게시물 번호
+
+            if (e.IsSelected)
+            {
+                ListViewItem listViewItem = e.Item;
+                boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
+                
+                detail = new DetailView(boardNum);
+                detail.Location = new Point(190, 3);
+                detail.BringToFront();
+                panel2.Controls.Add(detail);
+            }
+        }
+
         private void Btnwrite_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RemoveUserControl();
+            agreement_Enterprise = new Agreement_enterprise();
+            panel2.Controls.Add(agreement_Enterprise);
+            agreement_Enterprise.Location = new Point(192, 3);
+            agreement_Enterprise.BringToFront();
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
@@ -237,11 +260,11 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
-            companyInfo = new CtlCompanyInfoDetail();
-            panel2.Controls.Add(companyInfo);
-            companyInfo.Location = new Point(192, 211);
-            companyInfo.BringToFront();
-            companyInfo.Controls["lblMenu1"].Click += FrmMain_Click;
+            information = new JobInformation();
+            information.Location = new Point(190, 3);
+            information.BringToFront();
+            panel2.Controls.Add(information);
+            
             
         }
 
@@ -409,7 +432,10 @@ namespace GoodeeProject
             agreement = null;
             panel2.Controls.Remove(information);
             information = null;
-
+            panel2.Controls.Remove(detail);
+            detail = null;
+            panel2.Controls.Remove(agreement_Enterprise);
+            agreement_Enterprise = null;
         }
 
         private void portfolio1_Load(object sender, EventArgs e)
@@ -441,9 +467,9 @@ namespace GoodeeProject
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //ChatClinet = new ChatClient(this);
-            //loginThread = new Thread(ChatClinet.ChatLogin);
-            //loginThread.Start();
+            ChatClinet = new ChatClient(this);
+            loginThread = new Thread(ChatClinet.ChatLogin);
+            loginThread.Start();
         }
 
         /// <summary>

@@ -57,6 +57,13 @@ namespace GoodeeProject
                 list.Location = new Point(185, 0);
                 list.BringToFront();
             }
+            if (FrmMain.Ai.Authority=='C')
+            {
+                PortfolioList list = new PortfolioList(dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString());
+                this.Parent.Controls.Add(list);
+                list.Location = new Point(6,7);
+                list.BringToFront();
+            }
         }
         /// <summary>
         /// 현재의 폼을 종료시킵니다.

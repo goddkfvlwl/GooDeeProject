@@ -46,39 +46,6 @@ namespace GoodeeProject
             agreementList1.Columns.Add("조회", 50, HorizontalAlignment.Left);
             agreementList1.EndUpdate();
         }
-        Panel panel;
-        FrmMain main;
-        Agreement_enterprise agreement;
-        private void iTalk_Button_12_Click(object sender, EventArgs e)
-        {
-            panel = (Panel)Parent;
-            main = (FrmMain)panel.Parent;
-            main.RemoveUserControl();
-
-            agreement = new Agreement_enterprise();
-            agreement.Location = new Point(190, 3);
-            panel.Controls.Add(agreement);
-        }
-
-        private void agreementList1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            int boardNum = 0;   // 게시물 번호
-
-            panel = (Panel)Parent;
-            main = (FrmMain)panel.Parent;
-            main.RemoveUserControl();
-
-            if (e.IsSelected)
-            {
-                ListViewItem listViewItem = e.Item;
-                boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
-
-                DetailView detail = new DetailView(boardNum);
-                detail.Location = new Point(190, 3);
-                detail.BringToFront();
-                panel.Controls.Add(detail);
-            }
-
-        }
+        
     }
 }
