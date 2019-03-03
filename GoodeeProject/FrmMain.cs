@@ -139,9 +139,10 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSpec_Click(object sender, EventArgs e)
         {
+            RemoveUserControl();
             if (spec == null)
             {
-                RemoveUserControl();
+                
                 sidePanel.Visible = true;
                 sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
                 spec = new CtlSpecDetail();
@@ -166,6 +167,7 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
+            RemoveUserControl();
             if (ai.Authority == 'S')
             {
                 portfolioList = new PortfolioList();
@@ -202,6 +204,7 @@ namespace GoodeeProject
 
         private void BtnResume_Click(object sender, EventArgs e)
         {
+            RemoveUserControl();
             s.AddList("이력서 클릭");
             rs = new CtlResume();
             panel2.Controls.Add(rs);
@@ -316,9 +319,9 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSurvey_Click(object sender, EventArgs e)
         {
+            RemoveUserControl();
             if (surveyAdmin == null)
             {
-                RemoveUserControl();
 
                 sidePanel.Visible = true;
                 sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
@@ -352,6 +355,7 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void lblMenu1_Click(object sender, EventArgs e)
         {
+            RemoveUserControl();
             surveyList = new SurveyList();
             panel2.Controls.Add(surveyList);
             surveyList.Location = new Point(185, 0);
@@ -365,6 +369,7 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void iTalk_Label1_Click(object sender, EventArgs e)
         {
+            RemoveUserControl();
             createSurvey = new CreateSurvey();
             panel2.Controls.Add(createSurvey);
             createSurvey.Location = new Point(185, 0);
@@ -468,7 +473,8 @@ namespace GoodeeProject
             detail = null;
             panel2.Controls.Remove(agreement_Enterprise);
             agreement_Enterprise = null;
-            
+            panel2.Controls.Remove(detail);
+            detail = null;
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)

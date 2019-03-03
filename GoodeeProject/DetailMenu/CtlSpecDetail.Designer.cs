@@ -113,6 +113,7 @@
             this.Controls.Add(this.iTalk_ChatBubble_L1);
             this.Name = "CtlSpecDetail";
             this.Size = new System.Drawing.Size(162, 96);
+            this.Load += new System.EventHandler(this.CtlSpecDetail_Load);
             this.ResumeLayout(false);
 
         }

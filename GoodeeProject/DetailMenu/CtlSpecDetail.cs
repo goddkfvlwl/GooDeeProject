@@ -16,5 +16,10 @@ namespace GoodeeProject
         {
             InitializeComponent();
         }
+
+        private void CtlSpecDetail_Load(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Transparent;
+        }
     }
 }
