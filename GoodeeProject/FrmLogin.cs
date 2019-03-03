@@ -28,6 +28,11 @@ namespace GoodeeProject
             gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 
+        /// <summary>
+        /// AccountInfo 테이블에 데이터와 비교하여 기업일경우 기업 폼을, 그 외엔 메인 폼을 띄운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
             
@@ -100,6 +105,11 @@ namespace GoodeeProject
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
         }
 
+        /// <summary>
+        /// 프로그램 종료될때 리스트에 쌓인 로그들을 파일로 만들어 보낸후 만든 파일은 삭제한다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
 

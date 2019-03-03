@@ -63,7 +63,11 @@ namespace GoodeeProject
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
         }
-
+        /// <summary>
+        /// 입력한 Text를 주소API를 이용해 검색결과를 띄우는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             s.AddList("주소검색");
@@ -155,17 +159,25 @@ namespace GoodeeProject
                 MessageBox.Show("검색어를 입력해주세요", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// 검색결과중에 해당하는 주소를 선택하면 수정 칸으로 넘겨주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnChoice_Click(object sender, EventArgs e)
         {
             iTalk.iTalk_Button_1 btn = (iTalk.iTalk_Button_1)sender;
             string roadAddr = btn.Parent.Controls["lblRoadAddr"].Text;
-
+            s.AddList("주소 선택");
             FrmModify FrmModify = (FrmModify)Owner;
             FrmModify.Addr = roadAddr;
             this.Close();
         }
-
+        /// <summary>
+        /// 다음 페이지 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnNext_Click(object sender, EventArgs e)
         {
             if (currentPage != totalPageNum)
@@ -178,7 +190,11 @@ namespace GoodeeProject
                 MessageBox.Show("마지막 페이지 입니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
+        /// <summary>
+        /// 이전 페이지 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnPrev_Click(object sender, EventArgs e)
         {
             if (currentPage != 1)

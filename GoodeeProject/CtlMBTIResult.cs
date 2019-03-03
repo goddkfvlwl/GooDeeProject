@@ -15,6 +15,7 @@ namespace GoodeeProject
         GoodeeDAO.GoodeeDAO gd;
         DataTable mbtiResult;
         iTalk.iTalk_TextBox_Small tbSearch;
+        SaveLog s = new SaveLog();
 
         public CtlMBTIResult()
         {
@@ -24,7 +25,8 @@ namespace GoodeeProject
 
         private void CtlMBTIResult_Load(object sender, EventArgs e)
         {
-            
+            s.AddList("MBTI 결과 창");
+
             if (FrmMain.Ai.Authority == 'S')
             {
                 //학생일 때 본인 결과만
@@ -100,6 +102,7 @@ namespace GoodeeProject
         {
             if (lvResult.SelectedItems[0] != null)
             {
+                s.AddList("MBTI 결과 상세보기");
                 DataTable result = gd.SelectMBTI_Stats_Stu(lvResult.SelectedItems[0].SubItems[1].Text);
                 FrmMBTIResult mr = new FrmMBTIResult(result);
                 mr.Show();

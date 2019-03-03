@@ -30,9 +30,12 @@ namespace GoodeeProject
         {
             key = GetKey().Substring(8, 16);
             GetImage(key);
-
+            s.AddList("비밀번호 수정 클릭");
         }
-
+        /// <summary>
+        /// 캡챠API에서 Key를 받는다.
+        /// </summary>
+        /// <returns></returns>
         private string GetKey()
         {
             string key = "";
@@ -51,7 +54,10 @@ namespace GoodeeProject
             }
             return key;
         }
-
+        /// <summary>
+        /// 캡챠 API에서 이미지를 받는다.
+        /// </summary>
+        /// <param name="key"></param>
         private void GetImage(string key)
         {
             string Imgkey = key; //호출로 받은 키값
@@ -65,7 +71,10 @@ namespace GoodeeProject
             Stream input = response.GetResponseStream();
             pboxCaptcha.Image = Image.FromStream(input);
         }
-
+        /// <summary>
+        /// 캡챠 API의 이미지와 입력받은 TextBox의 값과 일치하는지 판단하는 메서드
+        /// </summary>
+        /// <returns></returns>
         private bool CaptchaResult()
         {
             bool check = false;
@@ -102,7 +111,9 @@ namespace GoodeeProject
         {
             NewPWCheck();
         }
-
+        /// <summary>
+        /// 새 비밀번호와 새비밀번호 확인의 text내용이 일치하는 경우를 구분하는 메서드
+        /// </summary>
         private void NewPWCheck()
         {
             if (tboxNewPW.Text == tboxNewREPW.Text && tboxNewPW.Text != "")
@@ -118,7 +129,11 @@ namespace GoodeeProject
                 pwCheck = false;
             }
         }
-
+        /// <summary>
+        /// 유효성검사를 마친 데이터를 Update하는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
             if (FrmMain.Ai.Pw == tboxNowPW.Text && pwCheck == true)
@@ -127,7 +142,7 @@ namespace GoodeeProject
                 {
                     if (gd.UpdatePassWord(FrmMain.Mi.Id, tboxNewPW.Text))
                     {
-                        s.AddList("정보수정 완료");
+                        s.AddList("비밀번호수정 완료");
                         MessageBox.Show("수정 성공", "완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.ParentForm.Close();
                     }
@@ -144,7 +159,11 @@ namespace GoodeeProject
                 MessageBox.Show("현재비밀번호가 일치하지 않거나 새 비밀번호를 확인해주세요.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        /// <summary>
+        /// 캡챠이미지를 다시 불러온다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnReload_Click(object sender, EventArgs e)
         {
             CtlModifyPW_Load(null, null);

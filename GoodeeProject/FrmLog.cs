@@ -14,6 +14,7 @@ namespace GoodeeProject
 {
     public partial class FrmLog : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         FtpWebResponse res;
         FtpWebRequest req;
         FtpWebRequest req2;
@@ -57,7 +58,11 @@ namespace GoodeeProject
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
         }
-
+        /// <summary>
+        /// 파일목록을 string배열로 받은거를 ListView에 넣는다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmLog_Load(object sender, EventArgs e)
         {
             fileArr = GetFileListArray();
@@ -76,7 +81,10 @@ namespace GoodeeProject
 
             lvLogFiles.EndUpdate();
         }
-
+        /// <summary>
+        /// FTP서버의 Log폴더안의 파일목록을 String배열로 변환한다.
+        /// </summary>
+        /// <returns></returns>
         private string[] GetFileListArray()
         {
             string fileList = "";
@@ -103,7 +111,11 @@ namespace GoodeeProject
 
             return arrayFileList;
         }
-
+        /// <summary>
+        /// ListView 더블클릭 시 해당 로그파일의 내용을 폼을띄우면서 매개변수로 보내준다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lvLogFiles_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             long filesize = 0;
@@ -161,6 +173,11 @@ namespace GoodeeProject
             File.Delete(path);
         }
 
+        /// <summary>
+        /// TextBox안에 있는 Text가 들어간 파일명을 ListView에 띄운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(tboxSearch.Text))
@@ -183,7 +200,7 @@ namespace GoodeeProject
                     lvi.ImageIndex = 0;
                     lvLogFiles.Items.Add(lvi);
                 }
-
+                s.AddList("로그 검색");
                 lvLogFiles.EndUpdate(); 
             }
             else
@@ -192,6 +209,11 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 파일 전체목록을 다시 불러온다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAll_Click(object sender, EventArgs e)
         {
             FrmLog_Load(null, null);

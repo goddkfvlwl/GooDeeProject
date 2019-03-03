@@ -161,7 +161,11 @@ namespace GoodeeProject
                 portfolioManager.BringToFront();
             }
         }
-
+        /// <summary>
+        /// 이력서 사용자정의컨트롤을 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnResume_Click(object sender, EventArgs e)
         {
             s.AddList("이력서 클릭");
@@ -245,7 +249,11 @@ namespace GoodeeProject
             createSurvey.Location = new Point(185, 0);
             createSurvey.BringToFront();
         }
-
+        /// <summary>
+        /// MBTI 세부메뉴를 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMBTI_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -261,17 +269,27 @@ namespace GoodeeProject
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
             mbti.Controls["lblResult"].Click += MBTIResult_Click;
         }
-
+        /// <summary>
+        /// MBTI 결과 사용자정의컨트롤을 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MBTIResult_Click(object sender, EventArgs e)
         {
+            s.AddList("설문 결과");
             mr = new CtlMBTIResult();
             panel2.Controls.Add(mr);
             mr.Location = new Point(185, 0);
             mbti.SendToBack();
         }
-
+        /// <summary>
+        /// MBTI 설문 작성 사용자정의컨트롤을 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MBTIWrite_Click(object sender, EventArgs e)
         {
+            s.AddList("설문 작성");
             mbti.SendToBack();
             mq = new FrmMBTIQuestion();
             mq.Show();
