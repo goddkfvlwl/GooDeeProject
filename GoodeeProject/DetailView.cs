@@ -42,9 +42,9 @@ namespace GoodeeProject
         string data = "";
         private void DetailView_Load(object sender, EventArgs e)
         {
-            
+
             title.Text = "제목 : " + ab.Title + "  | 협약기업게시판"; ;
-            
+
             FtpWebRequest req = (FtpWebRequest)WebRequest.Create(ab.Body);
             req.Method = WebRequestMethods.Ftp.DownloadFile;
 
@@ -83,7 +83,7 @@ namespace GoodeeProject
             Uri serverUri = new Uri(ab.Body);
             if (FtpDelete(serverUri))
             {
-                DialogResult result =  MessageBox.Show("정말삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("정말삭제하시겠습니까?", "삭제", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -97,7 +97,7 @@ namespace GoodeeProject
                         throw;
                     }
                 }
-                
+
 
             }
         }
@@ -136,12 +136,12 @@ namespace GoodeeProject
         private void butUpdate_Click(object sender, EventArgs e)
         {
             Panel panel = (Panel)Parent;
-            FrmMain main = (FrmMain)panel.Parent;
-            main.RemoveUserControl();
+            FrmMain main = (FrmMain)panel.Parent.Parent;
+            main.RemoveControls();
             panel.Controls.Remove(this);
 
             UpdateAgreement detail = new UpdateAgreement(ab.Title, ab.Body, postNum);
-            detail.Location = new Point(190, 3);
+            detail.Location = new Point(0, 0);
             detail.BringToFront();
             panel.Controls.Add(detail);
         }
@@ -292,7 +292,7 @@ namespace GoodeeProject
 
         private void iTalk_Button_13_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnComment_Click(object sender, EventArgs e)

@@ -52,6 +52,10 @@ namespace GoodeeProject
             agreementList1.Columns.Add("조회", 50, HorizontalAlignment.Left);
             agreementList1.EndUpdate();
         }
-        
+
+        private void btnwrite_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

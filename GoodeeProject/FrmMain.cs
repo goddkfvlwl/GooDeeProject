@@ -27,19 +27,8 @@ namespace GoodeeProject
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
         #region Controls
-
-        public Panel Panel2 { get { return panel2; } set { panel2 = value; } }
-        CtlSpecDetail spec;
-        
-       
-        JobInformation information;
-        DetailView detail;
-        Agreement_enterprise agreement_Enterprise;
-        CommantLsit cmlist;
-
         ChatClient chatClinet;
         Panel detailPanel;
-
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -64,10 +53,6 @@ namespace GoodeeProject
             ctlProfile1.lblEmailID.Text = mi.Id;
             ctlProfile1.lblName.Text = mi.Name;
             ctlProfile1.btnClassModify.Click += BtnClassModify_Click;
-            if (ai.Authority == 'S')
-            {
-
-            }
 
             if (mi.Picture != null)
             {
@@ -95,7 +80,7 @@ namespace GoodeeProject
             {
                 //관리자일 때
                 ctlProfile1.btnCreateID.Visible = false;
-                
+
             }
             ctlProfile1.Controls["flowLayoutPanel1"].Controls["btnStudent"].Click += BtnStudent_Click;
         }
@@ -132,18 +117,18 @@ namespace GoodeeProject
         }
 
 
-        /// <summary>
-        /// 세부목록을 표시합니다.
-        /// </summary>
-        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
-        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
             Environment.Exit(0);
         }
 
-
+        /// <summary>
+        /// 스펙괸리의 세부목록을 표시합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSpec_Click(object sender, EventArgs e)
         {
             if (detailPanel.Controls.ContainsKey("CtlSpecDetail"))
@@ -166,12 +151,6 @@ namespace GoodeeProject
         }
 
 
-
-        /// <summary>
-        /// 현재 로그인된 계정의 권한에 따라 포트폴리오목록 또는 포트폴리오 매니저폼을 호출합니다.
-        /// </summary>
-        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
-        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void AddPanel(Control item, Size size, Point point)
         {
             detailPanel.Controls.Clear();
@@ -201,10 +180,14 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 현재 로그인된 계정의 권한에 따라 포트폴리오목록 또는 포트폴리오 매니저폼을 호출합니다.
+        /// </summary>
+        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
+        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnPortfolio_Click(object sender, EventArgs e)
         {
             RemoveControls();
-
             if (ai.Authority == 'S')
             {
                 PortfolioList portfolioList = new PortfolioList();
@@ -225,51 +208,43 @@ namespace GoodeeProject
             RemoveControls();
 
             s.AddList("이력서 클릭");
-
             CtlResume rs = new CtlResume();
             panel3.Controls.Add(rs);
             rs.Location = new Point(0, 0);
-
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
-
             s.AddList("협약기업게시판");
-            RemoveUserControl();
-            
+            RemoveControls();
+            Agreement_enterprise_list agreement = new Agreement_enterprise_list();
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
-            
-            if (ai.Authority!='S')
+            if (ai.Authority != 'S')
             {
-                agreement = new Agreement_enterprise_list();
+
                 panel3.Controls.Add(agreement);
-                panel3.Location = new Point(0, 0);
-                agreement.Location = new Point(192, 3);
+                panel3.Location = new Point(192, 0);
+                agreement.Location = new Point(0, 0);
                 agreement.BringToFront();
             }
             else
             {
-                agreement = new Agreement_enterprise_list();
                 agreement.btnwrite.Visible = false;
                 panel3.Controls.Add(agreement);
-                panel3.Location = new Point(0, 0);
-                agreement.Location = new Point(192, 3);
+                panel3.Location = new Point(192, 0);
+                agreement.Location = new Point(0, 0);
                 agreement.BringToFront();
             }
 
             agreement.agreementList1.ItemSelectionChanged += AgreementList1_ItemSelectionChanged;
             agreement.btnwrite.Click += Btnwrite_Click;
-
-
         }
 
         int boardNum = 0; // 게시물번호
         private void AgreementList1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            RemoveUserControl();
-             
+            RemoveControls();
             if (ai.Authority == 'S')    // 학생일 경우
             {
                 if (e.IsSelected)
@@ -277,13 +252,11 @@ namespace GoodeeProject
                     ListViewItem listViewItem = e.Item;
                     boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
 
-                    detail = new DetailView(boardNum);
+                    DetailView detail = new DetailView(boardNum);
                     detail.butDelete.Visible = false;
                     detail.butUpdate.Visible = false;
-                    detail.Location = new Point(190, 3);
-                    detail.BringToFront();
-                    panel3.Controls.Add(agreement);
-                    panel3.Location = new Point(0, 0);
+                    detail.Location = new Point(0, 0);
+                    panel3.Controls.Add(detail);
                     detail.btnComment.Click += BtnComment_Click;
                 }
             }
@@ -294,71 +267,59 @@ namespace GoodeeProject
                     ListViewItem listViewItem = e.Item;
                     boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
 
-                    detail = new DetailView(boardNum);
-                    detail.Location = new Point(190, 3);
+                    DetailView detail = new DetailView(boardNum);
+                    detail.Location = new Point(0, 0);
                     detail.BringToFront();
-                    panel3.Controls.Add(agreement);
-                    panel3.Location = new Point(0, 0);
+                    panel3.Controls.Add(detail);
                     detail.btnComment.Click += BtnComment_Click;
                 }
             }
-            
+
         }
 
         private void BtnComment_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
+            RemoveControls();
 
-            cmlist = new CommantLsit(boardNum);
-            cmlist.Location = new Point(190, 3);
+            CommantLsit cmlist = new CommantLsit(boardNum);
+            cmlist.Location = new Point(0, 0);
             cmlist.BringToFront();
             panel3.Controls.Add(cmlist);
-            panel3.Location = new Point(0, 0);
+            panel3.Location = new Point(185, 0);
 
             cmlist.board.Click += Board_Click;
         }
 
         private void Board_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-            detail = new DetailView(boardNum);
-            detail.Location = new Point(190, 3);
+            RemoveControls();
+            DetailView detail = new DetailView(boardNum);
+            detail.Location = new Point(0, 0);
             detail.BringToFront();
             panel3.Controls.Add(detail);
-            panel3.Location = new Point(0, 0);
         }
 
         private void Btnwrite_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-            agreement_Enterprise = new Agreement_enterprise();
-            panel2.Controls.Add(agreement_Enterprise);
-            agreement_Enterprise.Location = new Point(192, 3);
+            RemoveControls();
+            Agreement_enterprise agreement_Enterprise = new Agreement_enterprise();
+            panel3.Controls.Add(agreement_Enterprise);
+            agreement_Enterprise.Location = new Point(0, 0);
             agreement_Enterprise.BringToFront();
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
             s.AddList("기업정보확인");
-            RemoveUserControl();
+            RemoveControls();
 
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
-            information = new JobInformation();
-            information.Location = new Point(190, 3);
+            JobInformation information = new JobInformation();
+            information.Location = new Point(0, 0);
             information.BringToFront();
-            panel2.Controls.Add(information);
-            
-            
-        }
-
-        private void FrmMain_Click(object sender, EventArgs e)
-        {
-            RemoveUserControl();
-            information = new JobInformation();
-            information.Location = new Point(190, 3);
-            panel2.Controls.Add(information);
+            panel3.Controls.Add(information);
         }
 
         /// <summary>
@@ -385,7 +346,7 @@ namespace GoodeeProject
                 panel3.Controls.Clear();
                 SurveyList surveyList = new SurveyList();
                 surveyList.BackColor = Color.Transparent;
-                surveyList.Location = new Point(185, 0);
+                surveyList.Location = new Point(0, 0);
                 panel3.Controls.Add(surveyList);
             }
             else
@@ -394,8 +355,8 @@ namespace GoodeeProject
                 CtlSurveyAdminDetail surveyAdmin = new CtlSurveyAdminDetail();
 
                 surveyAdmin.Location = new Point(0, 0);
-                surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
-                surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
+                surveyAdmin.Controls["btnNewSurvey"].Click += btnNewSurvey_Click;
+                surveyAdmin.Controls["btnSurveyList"].Click += btnSurveyList_Click;
 
                 AddPanel(surveyAdmin, btnSurvey.Size, btnSurvey.Location);
             }
@@ -406,7 +367,7 @@ namespace GoodeeProject
         /// </summary>
         /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
-        private void lblMenu1_Click(object sender, EventArgs e)
+        private void btnSurveyList_Click(object sender, EventArgs e)
         {
             RemoveControls();
 
@@ -420,7 +381,7 @@ namespace GoodeeProject
         /// </summary>
         /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
-        private void iTalk_Label1_Click(object sender, EventArgs e)
+        private void btnNewSurvey_Click(object sender, EventArgs e)
         {
             RemoveControls();
 
@@ -451,14 +412,12 @@ namespace GoodeeProject
 
         private void MBTIResult_Click(object sender, EventArgs e)
         {
-
             RemoveControls();
 
             CtlMBTIResult mr = new CtlMBTIResult();
             panel3.Controls.Add(mr);
             mr.BackColor = Color.FromArgb(0, 0, 0, 0);
             mr.Location = new Point(0, 0);
-
         }
 
         private void MBTIWrite_Click(object sender, EventArgs e)
@@ -492,61 +451,10 @@ namespace GoodeeProject
             }
         }
 
-        /// <summary>
-        /// 현제 활성화된 폼을 모두 삭제합니다.
-        /// </summary>
-        /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
-        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
-        internal void RemoveUserControl()
-        {
-            panel2.Controls.Remove(spec);
-            spec = null;
-            panel2.Controls.Remove(agreement);
-            agreement = null;
-            panel2.Controls.Remove(information);
-            information = null;
-            panel2.Controls.Remove(detail);
-            detail = null;
-            panel2.Controls.Remove(agreement_Enterprise);
-            agreement_Enterprise = null;
-            panel2.Controls.Remove(cmlist);
-            cmlist = null;
-
-            RemoveControls();
-            if (isConnected)
-            {
-                Chat chat = new Chat(ChatClinet.Client, isConnected);
-                panel3.Controls.Add(chat);
-                chat.Location = new Point(0, 0);
-                chat.BringToFront();
-                chatClinet.RequestMemberList();
-            }
-            else
-            {
-                isConnected = false;
-                MessageBox.Show("채팅서버에 접속할수 없습니다. 잠시후 다시 시도해주세요.");
-            }
-        }
-
         public void RemoveControls()
         {
-            panel2.Controls.Remove(detailPanel);
             detailPanel.Controls.Clear();
             panel3.Controls.Clear();
-
-        }
-
-        private void portfolio1_Load(object sender, EventArgs e)
-        {
-            //portfolio1.Controls["portfolioDetail1"].AutoSize = true;
-            //VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-            //portfolio1.Controls["portfolioDetail1"].Resize += PortfolioDetail1_Resize;
-        }
-
-        private void PortfolioDetail1_Resize(object sender, EventArgs e)
-        {
-            //VerticalScroll.Maximum = portfolio1.Controls["portfolioDetail1"].Height;
-
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)
@@ -563,42 +471,38 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 폼이 로드될때 채팅서버에 접속합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
             ChatClinet = new ChatClient(this);
             loginThread = new Thread(ChatClinet.ChatLogin);
             loginThread.Start();
-            
-
         }
 
         /// <summary>
         /// 현재 폼이 종료될때 채팅서버의 접속을 종료합니다.
         /// </summary>
         /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
-        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
+        /// <param name="e">FormClosing 이벤트에 대한 데이터를 제공합니다.</param>
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
             ChatClinet.DisConnect();
         }
 
         public void BtnMinimum_Click(object sender, EventArgs e)
         {
-
             WindowState = FormWindowState.Minimized;
-
         }
 
         public void Frm_BorderPaint(object sender, PaintEventArgs e)
         {
-
-
             Rectangle borderRectangle = this.ClientRectangle;
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
-
         }
 
         /// <summary>
@@ -608,10 +512,8 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         public void BtnExit_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
             Environment.Exit(0);
-
             ChatClinet.DisConnect();
         }
 
@@ -625,7 +527,6 @@ namespace GoodeeProject
                     item.BackColor = Color.FromArgb(0, 0, 0, 0);
                 }
             }
-
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)

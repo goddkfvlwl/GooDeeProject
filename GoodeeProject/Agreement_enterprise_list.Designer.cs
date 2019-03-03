@@ -71,6 +71,7 @@
             this.btnwrite.TabIndex = 5;
             this.btnwrite.Text = "글쓰기";
             this.btnwrite.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnwrite.Click += new System.EventHandler(this.btnwrite_Click);
             // 
             // Agreement_enterprise_list
             // 
