@@ -43,6 +43,7 @@ E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise_list.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.Commant.resources
+E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CommantLsit.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CompanyForm.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CompanyMainForm.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.JobChoice.resources
@@ -72,7 +73,6 @@ E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroduce.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionItem.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionList.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlResume.resources
-E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
 E:\TeamProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources

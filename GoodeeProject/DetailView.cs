@@ -136,12 +136,12 @@ namespace GoodeeProject
         private void butUpdate_Click(object sender, EventArgs e)
         {
             Panel panel = (Panel)Parent;
-            FrmMain main = (FrmMain)panel.Parent;
+            FrmMain main = (FrmMain)panel.Parent.Parent;
             main.RemoveControls();
             panel.Controls.Remove(this);
 
             UpdateAgreement detail = new UpdateAgreement(ab.Title, ab.Body, postNum);
-            detail.Location = new Point(190, 3);
+            detail.Location = new Point(0, 0);
             detail.BringToFront();
             panel.Controls.Add(detail);
         }
@@ -288,6 +288,16 @@ namespace GoodeeProject
                     startIndex += wordsStartIndex + word.Length;
                 }
             }
+        }
+
+        private void iTalk_Button_13_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnComment_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -36,7 +36,7 @@
             // 
             this.firstJobName.FormattingEnabled = true;
             this.firstJobName.ItemHeight = 15;
-            this.firstJobName.Location = new System.Drawing.Point(23, 84);
+            this.firstJobName.Location = new System.Drawing.Point(20, 30);
             this.firstJobName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.firstJobName.Name = "firstJobName";
             this.firstJobName.Size = new System.Drawing.Size(145, 274);
@@ -47,7 +47,7 @@
             // 
             this.secondJobName.FormattingEnabled = true;
             this.secondJobName.ItemHeight = 15;
-            this.secondJobName.Location = new System.Drawing.Point(177, 84);
+            this.secondJobName.Location = new System.Drawing.Point(174, 30);
             this.secondJobName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.secondJobName.Name = "secondJobName";
             this.secondJobName.Size = new System.Drawing.Size(171, 274);
@@ -62,7 +62,7 @@
             this.Controls.Add(this.firstJobName);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "JobChoice";
-            this.Size = new System.Drawing.Size(829, 409);
+            this.Size = new System.Drawing.Size(798, 520);
             this.Load += new System.EventHandler(this.AreaChoice_Load);
             this.ResumeLayout(false);
 

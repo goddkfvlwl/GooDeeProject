@@ -73,6 +73,7 @@
             this.labPage.Name = "labPage";
             this.labPage.Size = new System.Drawing.Size(0, 15);
             this.labPage.TabIndex = 26;
+            this.labPage.Visible = false;
             // 
             // iTalk_Button_13
             // 
@@ -87,6 +88,7 @@
             this.iTalk_Button_13.TabIndex = 24;
             this.iTalk_Button_13.Text = "Privious";
             this.iTalk_Button_13.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Button_13.Visible = false;
             this.iTalk_Button_13.Click += new System.EventHandler(this.iTalk_Button_13_Click_1);
             // 
             // iTalk_Button_12
@@ -102,6 +104,7 @@
             this.iTalk_Button_12.TabIndex = 23;
             this.iTalk_Button_12.Text = "Privious";
             this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Button_12.Visible = false;
             this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
             // 
             // picReset

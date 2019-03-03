@@ -37,6 +37,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.serchtxt = new iTalk.iTalk_TextBox_Small();
             this.iTalk_Button_11 = new iTalk.iTalk_Button_1();
+            this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
             this.serchPic = new System.Windows.Forms.PictureBox();
             this.Strikethrough = new System.Windows.Forms.PictureBox();
             this.FontUnderLine = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
+            this.btnComment = new iTalk.iTalk_Button_1();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.serchPic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Strikethrough)).BeginInit();
@@ -151,6 +152,21 @@
             this.iTalk_Button_11.Text = "검색";
             this.iTalk_Button_11.TextAlignment = System.Drawing.StringAlignment.Center;
             this.iTalk_Button_11.Click += new System.EventHandler(this.iTalk_Button_11_Click);
+            // 
+            // iTalk_Button_12
+            // 
+            this.iTalk_Button_12.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Button_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_Button_12.Image = null;
+            this.iTalk_Button_12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iTalk_Button_12.Location = new System.Drawing.Point(259, 4);
+            this.iTalk_Button_12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iTalk_Button_12.Name = "iTalk_Button_12";
+            this.iTalk_Button_12.Size = new System.Drawing.Size(66, 31);
+            this.iTalk_Button_12.TabIndex = 44;
+            this.iTalk_Button_12.Text = "지우기";
+            this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
             // 
             // serchPic
             // 
@@ -257,25 +273,26 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // iTalk_Button_12
+            // btnComment
             // 
-            this.iTalk_Button_12.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_12.Image = null;
-            this.iTalk_Button_12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_12.Location = new System.Drawing.Point(259, 4);
-            this.iTalk_Button_12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iTalk_Button_12.Name = "iTalk_Button_12";
-            this.iTalk_Button_12.Size = new System.Drawing.Size(66, 31);
-            this.iTalk_Button_12.TabIndex = 44;
-            this.iTalk_Button_12.Text = "지우기";
-            this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
+            this.btnComment.BackColor = System.Drawing.Color.Transparent;
+            this.btnComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComment.Image = null;
+            this.btnComment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnComment.Location = new System.Drawing.Point(24, 503);
+            this.btnComment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnComment.Name = "btnComment";
+            this.btnComment.Size = new System.Drawing.Size(181, 30);
+            this.btnComment.TabIndex = 54;
+            this.btnComment.Text = "댓글달기";
+            this.btnComment.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.btnComment.Click += new System.EventHandler(this.btnComment_Click);
             // 
             // DetailView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnComment);
             this.Controls.Add(this.Strikethrough);
             this.Controls.Add(this.FontUnderLine);
             this.Controls.Add(this.FontBold);
@@ -326,5 +343,6 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private iTalk.iTalk_Button_1 iTalk_Button_12;
+        internal iTalk.iTalk_Button_1 btnComment;
     }
 }

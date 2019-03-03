@@ -33,10 +33,11 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(520, 549);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(507, 520);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // CheckBoxAdd
@@ -46,7 +47,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CheckBoxAdd";
-            this.Size = new System.Drawing.Size(523, 549);
+            this.Size = new System.Drawing.Size(507, 520);
             this.ResumeLayout(false);
 
         }

@@ -47,6 +47,11 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 지역선택을 눌렀울 경우, 아래의 패널에 지역선택의 사용자 정의 폼이 ADD된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
             RemoveControl();
@@ -56,7 +61,11 @@ namespace GoodeeProject
 
         }
 
-
+        /// <summary>
+        /// 직종선택을 눌렀을 경우 패널에 직종선택에 해당하는 사용자 정의폼을 띄운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iTalk_Button_13_Click(object sender, EventArgs e)
         {
             RemoveControl();
@@ -66,6 +75,9 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 해당폼의 컨트롤을 초기화
+        /// </summary>
         public void RemoveControl()
         {
             this.Controls.Remove(choice);
@@ -74,11 +86,18 @@ namespace GoodeeProject
             this.resultPanel.Visible = false;
         }
 
+        /// <summary>
+        /// 모든키워드들이 정해지고 검색으로 넘기는 작업이다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             
             RemoveControl();    // 컨트롤 리무브
-
+            iTalk_Button_12.Visible = true;
+            iTalk_Button_13.Visible = true;
+            labPage.Visible = true;
 
             area.Clear();
             job.Clear();
@@ -87,6 +106,9 @@ namespace GoodeeProject
             
         }
 
+        /// <summary>
+        /// 해당 키워드를 넘기면서 xml을 파싱한다.
+        /// </summary>
         private void Keyword()
         {
             if (!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text != "기업을 입력하세요") // 키워드가 있을 경우
@@ -109,7 +131,7 @@ namespace GoodeeProject
             {
                 // 키워드만 없는 경우
                 url = listAdd(url, page);
-                MessageBox.Show(url);
+                //MessageBox.Show(url);
                 XElement xml = url.XmlParsing(url);
                 total = xml.XmlTotal(xml);  // 해당 jobs노드의 속성인 total값을 반환
                 PageVisible();
@@ -118,6 +140,12 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 선택된 키워드들을 코드로 변환하여 사람인 API에 url로 넘긴다.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
         private string listAddKey(string url, int page)
         {
             if (JobAreaChoice.CheckResultlist.Count != 0 || JobChoice.Jlistcheck.Count != 0)
@@ -178,6 +206,9 @@ namespace GoodeeProject
         }
 
         FontFamily fm = new FontFamily("굴림");
+        /// <summary>
+        /// 검색결과의 채용기업들의 정보를 사용자 정의폼으로 띄운다.
+        /// </summary>
         private void JobResultAdd()
         {
             foreach (var item in list)
@@ -203,13 +234,21 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 채용정보의 사용자정의폼 클릭시 해당 사이트로 접속한다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OneJobMat_Click(object sender, EventArgs e)
         {
             oneJobMatResult oneJob = (oneJobMatResult)sender;
             Process.Start("chrome.exe", oneJob.companyName.Name);
         }
 
-
+        /// <summary>
+        /// xml을 매개변수로 받으며, 파싱을 하고, 해당 노드를 분석하여 값을 출력한다.
+        /// </summary>
+        /// <param name="xml"></param>
         private void UrlXml(XElement xml)
         {
             list.Clear();
@@ -237,12 +276,13 @@ namespace GoodeeProject
 
 
         }
-
+        int spage;
+        int t;
         private void PageVisible()
         {
             totalpage = Paging();
-            int spage = page + 1;
-            int t = totalpage - 1;
+            spage = page + 1;
+            t = totalpage - 1;
             labPage.Text = spage + " / " + t;
 
             this.gbResultJob.Visible = true;
@@ -327,19 +367,30 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 키워드 클릭시 텍스트가 초기화 된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void jobSearch_Click(object sender, EventArgs e)
         {
             jobSearch.Text = " ";
         }
 
-       
+       /// <summary>
+       /// 페이지 이동에 대한 페이징의 부분이다.
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         private void iTalk_Button_13_Click_1(object sender, EventArgs e)
         {
             if (page != totalpage)
             {
                 resultPanel.Controls.Clear();
                 page = page + 1;
-                labPage.Text = page + " / " + totalpage;
+                spage = page + 1;
+                t = totalpage - 1;
+                labPage.Text = spage + " / " + t;
                 url = listAdd(url, page);
                 XElement xml = url.XmlParsing(url);
                 UrlXml(xml);
@@ -352,13 +403,20 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 페이징에 해당하는 부분이다
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iTalk_Button_12_Click(object sender, EventArgs e)
         {
             if (page != 0)
             {
                 resultPanel.Controls.Clear();
                 page = page - 1;
-                labPage.Text = page + " / " + totalpage;
+                spage = page + 1;
+                t = totalpage - 1;
+                labPage.Text = spage + " / " + t;
                 url = listAdd(url, page);
                 XElement xml = url.XmlParsing(url);
                 UrlXml(xml);
@@ -371,12 +429,20 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 검색기록을 모두 초기화시키면서 키워드로 저장되어있던 모든 것들을 초기화 시킨다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void picReset_Click(object sender, EventArgs e)
         {
             area.Clear();
             job.Clear();
             list.Clear();
             page = 0;
+            iTalk_Button_12.Visible = false;
+            iTalk_Button_13.Visible = false;
+            labPage.Visible = false;
             url = "http://api.saramin.co.kr/job-search?";
             area.Remove(0, area.Length);
             job.Remove(0, job.Length);
@@ -390,6 +456,11 @@ namespace GoodeeProject
             search.JobKeyword("기업을 입력하세요");
         }
 
+        /// <summary>
+        /// 검색초기화의 툴팁이다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void JobInformation_Load(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(picReset, "검색 초기화");

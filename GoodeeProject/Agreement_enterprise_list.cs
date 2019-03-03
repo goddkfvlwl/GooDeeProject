@@ -30,7 +30,7 @@ namespace GoodeeProject
             list = new GoodeeDAO.GoodeeDAO().OutBoard();    // 게시물번호, 게시물제목, 작성자, 작성일, 조회
 
             agreementList1.BeginUpdate();
-
+            
             agreementList1.View = View.Details;
 
             foreach (AgreementBoard ab in list)

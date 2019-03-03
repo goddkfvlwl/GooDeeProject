@@ -35,6 +35,7 @@
             this.btnMinimum = new iTalk.iTalk_Button_1();
             this.btnExit = new iTalk.iTalk_Button_1();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.sidePanel = new System.Windows.Forms.Panel();
             this.btnChat = new System.Windows.Forms.Button();
             this.btnMBTI = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnBoard = new System.Windows.Forms.Button();
             this.btnSpec = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -69,6 +69,7 @@
             // 
             this.ctlProfile1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
             this.ctlProfile1.Location = new System.Drawing.Point(633, 29);
+            this.ctlProfile1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ctlProfile1.Name = "ctlProfile1";
             this.ctlProfile1.Size = new System.Drawing.Size(362, 111);
             this.ctlProfile1.TabIndex = 27;
@@ -136,6 +137,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1000, 454);
             this.panel2.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(185, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(815, 454);
+            this.panel3.TabIndex = 7;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // sidePanel
             // 
@@ -242,13 +251,6 @@
             this.btnSpec.Text = "   스펙관리";
             this.btnSpec.UseVisualStyleBackColor = false;
             this.btnSpec.Click += new System.EventHandler(this.btnSpec_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(186, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(814, 454);
-            this.panel3.TabIndex = 7;
             // 
             // FrmMain
             // 
