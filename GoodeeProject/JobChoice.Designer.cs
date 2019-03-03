@@ -29,53 +29,40 @@
         private void InitializeComponent()
         {
             this.firstJobName = new System.Windows.Forms.ListBox();
-            this.iTalk_RichTextBox1 = new iTalk.iTalk_RichTextBox();
             this.secondJobName = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // firstJobName
             // 
             this.firstJobName.FormattingEnabled = true;
-            this.firstJobName.ItemHeight = 12;
-            this.firstJobName.Location = new System.Drawing.Point(20, 67);
+            this.firstJobName.ItemHeight = 15;
+            this.firstJobName.Location = new System.Drawing.Point(23, 84);
+            this.firstJobName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.firstJobName.Name = "firstJobName";
-            this.firstJobName.Size = new System.Drawing.Size(127, 220);
+            this.firstJobName.Size = new System.Drawing.Size(145, 274);
             this.firstJobName.TabIndex = 0;
             this.firstJobName.SelectedIndexChanged += new System.EventHandler(this.firstJobName_SelectedIndexChanged);
-            // 
-            // iTalk_RichTextBox1
-            // 
-            this.iTalk_RichTextBox1.AutoWordSelection = false;
-            this.iTalk_RichTextBox1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_RichTextBox1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.iTalk_RichTextBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.iTalk_RichTextBox1.Location = new System.Drawing.Point(16, 18);
-            this.iTalk_RichTextBox1.Name = "iTalk_RichTextBox1";
-            this.iTalk_RichTextBox1.ReadOnly = false;
-            this.iTalk_RichTextBox1.Size = new System.Drawing.Size(696, 32);
-            this.iTalk_RichTextBox1.TabIndex = 2;
-            this.iTalk_RichTextBox1.Text = "직업(직종)명 입력";
-            this.iTalk_RichTextBox1.WordWrap = true;
             // 
             // secondJobName
             // 
             this.secondJobName.FormattingEnabled = true;
-            this.secondJobName.ItemHeight = 12;
-            this.secondJobName.Location = new System.Drawing.Point(155, 67);
+            this.secondJobName.ItemHeight = 15;
+            this.secondJobName.Location = new System.Drawing.Point(177, 84);
+            this.secondJobName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.secondJobName.Name = "secondJobName";
-            this.secondJobName.Size = new System.Drawing.Size(150, 220);
+            this.secondJobName.Size = new System.Drawing.Size(171, 274);
             this.secondJobName.TabIndex = 3;
             this.secondJobName.SelectedIndexChanged += new System.EventHandler(this.secondJobName_SelectedIndexChanged);
             // 
             // JobChoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.secondJobName);
-            this.Controls.Add(this.iTalk_RichTextBox1);
             this.Controls.Add(this.firstJobName);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "JobChoice";
-            this.Size = new System.Drawing.Size(725, 327);
+            this.Size = new System.Drawing.Size(829, 409);
             this.Load += new System.EventHandler(this.AreaChoice_Load);
             this.ResumeLayout(false);
 
@@ -84,7 +71,6 @@
         #endregion
 
         private System.Windows.Forms.ListBox firstJobName;
-        private iTalk.iTalk_RichTextBox iTalk_RichTextBox1;
         private System.Windows.Forms.ListBox secondJobName;
     }
 }

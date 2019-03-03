@@ -33,10 +33,8 @@
             this.gbResultJob = new System.Windows.Forms.GroupBox();
             this.resultPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.labPage = new System.Windows.Forms.Label();
-            this.iTalk_Button_14 = new iTalk.iTalk_Button_1();
             this.iTalk_Button_13 = new iTalk.iTalk_Button_1();
             this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
-            this.iTalk_Button_11 = new iTalk.iTalk_Button_1();
             this.picReset = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.JobButton = new iTalk.iTalk_Button_1();
@@ -76,20 +74,6 @@
             this.labPage.Size = new System.Drawing.Size(0, 15);
             this.labPage.TabIndex = 26;
             // 
-            // iTalk_Button_14
-            // 
-            this.iTalk_Button_14.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_14.Image = null;
-            this.iTalk_Button_14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_14.Location = new System.Drawing.Point(591, 531);
-            this.iTalk_Button_14.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iTalk_Button_14.Name = "iTalk_Button_14";
-            this.iTalk_Button_14.Size = new System.Drawing.Size(63, 24);
-            this.iTalk_Button_14.TabIndex = 25;
-            this.iTalk_Button_14.Text = "Last";
-            this.iTalk_Button_14.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
             // iTalk_Button_13
             // 
             this.iTalk_Button_13.BackColor = System.Drawing.Color.Transparent;
@@ -119,20 +103,6 @@
             this.iTalk_Button_12.Text = "Privious";
             this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
             this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
-            // 
-            // iTalk_Button_11
-            // 
-            this.iTalk_Button_11.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_11.Image = null;
-            this.iTalk_Button_11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_11.Location = new System.Drawing.Point(209, 532);
-            this.iTalk_Button_11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.iTalk_Button_11.Name = "iTalk_Button_11";
-            this.iTalk_Button_11.Size = new System.Drawing.Size(66, 22);
-            this.iTalk_Button_11.TabIndex = 22;
-            this.iTalk_Button_11.Text = "First";
-            this.iTalk_Button_11.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // picReset
             // 
@@ -210,10 +180,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gbResultJob);
             this.Controls.Add(this.labPage);
-            this.Controls.Add(this.iTalk_Button_14);
             this.Controls.Add(this.iTalk_Button_13);
             this.Controls.Add(this.iTalk_Button_12);
-            this.Controls.Add(this.iTalk_Button_11);
             this.Controls.Add(this.picReset);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.JobButton);
@@ -234,16 +202,14 @@
         #endregion
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox gbResultJob;
-        private System.Windows.Forms.FlowLayoutPanel resultPanel;
         private System.Windows.Forms.Label labPage;
-        private iTalk.iTalk_Button_1 iTalk_Button_14;
         private iTalk.iTalk_Button_1 iTalk_Button_13;
         private iTalk.iTalk_Button_1 iTalk_Button_12;
-        private iTalk.iTalk_Button_1 iTalk_Button_11;
         private System.Windows.Forms.PictureBox picReset;
         private System.Windows.Forms.PictureBox pictureBox1;
         private iTalk.iTalk_Button_1 JobButton;
         private iTalk.iTalk_Button_1 areaButton;
         private iTalk.iTalk_RichTextBox jobSearch;
+        private System.Windows.Forms.FlowLayoutPanel resultPanel;
     }
 }

@@ -16,6 +16,13 @@ namespace GoodeeProject
         private static string key;  // 검색어 키워드
         public static string Key { get => key; set => key = value; }
 
+        /// <summary>
+        /// 확장메서드의 종류로, String을 받으며 XElement를 반환한다.
+        /// xml 을 파싱하는 부분이다.
+        /// </summary>
+        /// <param name="stx"></param>
+        /// <param name="strXml"></param>
+        /// <returns></returns>
         public static XElement XmlParsing(this String stx, string strXml)
         {
             Uri url = new Uri(strXml);
@@ -29,6 +36,13 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// XML을 파싱하여, jobs에 해당하는 것을 반환한다.
+        /// 확장메서드의 일 부분
+        /// </summary>
+        /// <param name="xElem"></param>
+        /// <param name="element"></param>
+        /// <returns></returns>
         public static int XmlTotal(this XElement xElem, XElement element)
         {
             var result = from xe in element.Elements("jobs")
@@ -42,6 +56,13 @@ namespace GoodeeProject
             return total;
 
         }
+
+        /// <summary>
+        /// string의 타입만 사용이 가능한 확장메서드이다.
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="strUrl"></param>
+        /// <returns></returns>
         public static XmlReader ReaderCreate(this String str, string strUrl)
         {
             Uri url = new Uri(strUrl);

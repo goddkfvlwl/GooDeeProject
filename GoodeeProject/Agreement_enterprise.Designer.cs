@@ -29,31 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Agreement_enterprise));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.Fontsize = new System.Windows.Forms.ComboBox();
             this.comFontStyle = new System.Windows.Forms.ComboBox();
-            this.boardBoby = new System.Windows.Forms.RichTextBox();
+            this.find = new System.Windows.Forms.RichTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.attachments = new iTalk.iTalk_ComboBox();
-            this.iTalk_Label3 = new iTalk.iTalk_Label();
-            this.iTalk_Button_13 = new iTalk.iTalk_Button_1();
-            this.iTalk_Label1 = new iTalk.iTalk_Label();
-            this.iTalk_HeaderLabel1 = new iTalk.iTalk_HeaderLabel();
-            this.save = new iTalk.iTalk_Button_1();
-            this.Title = new iTalk.iTalk_TextBox_Small();
-            this.iTalk_Label2 = new iTalk.iTalk_Label();
             this.Strikethrough = new System.Windows.Forms.PictureBox();
             this.FontUnderLine = new System.Windows.Forms.PictureBox();
             this.FontBold = new System.Windows.Forms.PictureBox();
             this.pictureButton = new System.Windows.Forms.PictureBox();
             this.FontColor = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.serchtxt = new iTalk.iTalk_TextBox_Small();
+            this.iTalk_Button_11 = new iTalk.iTalk_Button_1();
+            this.iTalk_Button_12 = new iTalk.iTalk_Button_1();
+            this.serchPic = new System.Windows.Forms.PictureBox();
+            this.iTalk_HeaderLabel1 = new iTalk.iTalk_HeaderLabel();
+            this.save = new iTalk.iTalk_Button_1();
+            this.Title = new iTalk.iTalk_TextBox_Small();
+            this.iTalk_Label2 = new iTalk.iTalk_Label();
             ((System.ComponentModel.ISupportInitialize)(this.Strikethrough)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FontUnderLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FontBold)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FontColor)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.serchPic)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -80,7 +84,7 @@
             "38",
             "98",
             "72"});
-            this.Fontsize.Location = new System.Drawing.Point(288, 129);
+            this.Fontsize.Location = new System.Drawing.Point(285, 150);
             this.Fontsize.Name = "Fontsize";
             this.Fontsize.Size = new System.Drawing.Size(66, 23);
             this.Fontsize.TabIndex = 37;
@@ -89,78 +93,144 @@
             // 
             // comFontStyle
             // 
+            this.comFontStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comFontStyle.FormattingEnabled = true;
-            this.comFontStyle.Location = new System.Drawing.Point(143, 129);
+            this.comFontStyle.Location = new System.Drawing.Point(140, 150);
             this.comFontStyle.Name = "comFontStyle";
             this.comFontStyle.Size = new System.Drawing.Size(139, 23);
             this.comFontStyle.TabIndex = 36;
             this.comFontStyle.SelectedIndexChanged += new System.EventHandler(this.comFontStyle_SelectedIndexChanged);
             // 
-            // boardBoby
+            // find
             // 
-            this.boardBoby.Location = new System.Drawing.Point(29, 162);
-            this.boardBoby.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.boardBoby.Name = "boardBoby";
-            this.boardBoby.Size = new System.Drawing.Size(873, 302);
-            this.boardBoby.TabIndex = 33;
-            this.boardBoby.Text = "";
+            this.find.Location = new System.Drawing.Point(29, 193);
+            this.find.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.find.Name = "find";
+            this.find.Size = new System.Drawing.Size(868, 311);
+            this.find.TabIndex = 33;
+            this.find.Text = "";
             // 
-            // attachments
+            // Strikethrough
             // 
-            this.attachments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.attachments.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.attachments.DropDownHeight = 100;
-            this.attachments.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.attachments.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.attachments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.attachments.FormattingEnabled = true;
-            this.attachments.HoverSelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.attachments.IntegralHeight = false;
-            this.attachments.ItemHeight = 20;
-            this.attachments.Location = new System.Drawing.Point(90, 472);
-            this.attachments.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.attachments.Name = "attachments";
-            this.attachments.Size = new System.Drawing.Size(807, 26);
-            this.attachments.StartIndex = 0;
-            this.attachments.TabIndex = 27;
+            this.Strikethrough.Image = global::GoodeeProject.Properties.Resources.strikethrough;
+            this.Strikethrough.Location = new System.Drawing.Point(465, 144);
+            this.Strikethrough.Name = "Strikethrough";
+            this.Strikethrough.Size = new System.Drawing.Size(46, 32);
+            this.Strikethrough.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Strikethrough.TabIndex = 40;
+            this.Strikethrough.TabStop = false;
+            this.Strikethrough.Click += new System.EventHandler(this.Strikethrough_Click);
             // 
-            // iTalk_Label3
+            // FontUnderLine
             // 
-            this.iTalk_Label3.AutoSize = true;
-            this.iTalk_Label3.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label3.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label3.Location = new System.Drawing.Point(25, 480);
-            this.iTalk_Label3.Name = "iTalk_Label3";
-            this.iTalk_Label3.Size = new System.Drawing.Size(65, 19);
-            this.iTalk_Label3.TabIndex = 24;
-            this.iTalk_Label3.Text = "첨부파일";
+            this.FontUnderLine.Image = global::GoodeeProject.Properties.Resources.font;
+            this.FontUnderLine.Location = new System.Drawing.Point(409, 144);
+            this.FontUnderLine.Name = "FontUnderLine";
+            this.FontUnderLine.Size = new System.Drawing.Size(46, 32);
+            this.FontUnderLine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FontUnderLine.TabIndex = 39;
+            this.FontUnderLine.TabStop = false;
+            this.FontUnderLine.Click += new System.EventHandler(this.FontUnderLine_Click);
             // 
-            // iTalk_Button_13
+            // FontBold
             // 
-            this.iTalk_Button_13.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Button_13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iTalk_Button_13.Image = null;
-            this.iTalk_Button_13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iTalk_Button_13.Location = new System.Drawing.Point(368, 75);
-            this.iTalk_Button_13.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.iTalk_Button_13.Name = "iTalk_Button_13";
-            this.iTalk_Button_13.Size = new System.Drawing.Size(64, 30);
-            this.iTalk_Button_13.TabIndex = 22;
-            this.iTalk_Button_13.Text = "파일";
-            this.iTalk_Button_13.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.FontBold.Image = global::GoodeeProject.Properties.Resources.bold_text_option;
+            this.FontBold.Location = new System.Drawing.Point(357, 144);
+            this.FontBold.Name = "FontBold";
+            this.FontBold.Size = new System.Drawing.Size(46, 32);
+            this.FontBold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FontBold.TabIndex = 38;
+            this.FontBold.TabStop = false;
+            this.FontBold.Click += new System.EventHandler(this.FontBold_Click);
             // 
-            // iTalk_Label1
+            // pictureButton
             // 
-            this.iTalk_Label1.AutoSize = true;
-            this.iTalk_Label1.BackColor = System.Drawing.Color.Transparent;
-            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label1.Location = new System.Drawing.Point(482, 69);
-            this.iTalk_Label1.Name = "iTalk_Label1";
-            this.iTalk_Label1.Size = new System.Drawing.Size(65, 19);
-            this.iTalk_Label1.TabIndex = 19;
-            this.iTalk_Label1.Text = "파일첨부";
+            this.pictureButton.Image = global::GoodeeProject.Properties.Resources.picture;
+            this.pictureButton.Location = new System.Drawing.Point(87, 144);
+            this.pictureButton.Name = "pictureButton";
+            this.pictureButton.Size = new System.Drawing.Size(46, 32);
+            this.pictureButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureButton.TabIndex = 35;
+            this.pictureButton.TabStop = false;
+            this.pictureButton.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // FontColor
+            // 
+            this.FontColor.Image = global::GoodeeProject.Properties.Resources.text__2_;
+            this.FontColor.Location = new System.Drawing.Point(35, 144);
+            this.FontColor.Name = "FontColor";
+            this.FontColor.Size = new System.Drawing.Size(46, 32);
+            this.FontColor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.FontColor.TabIndex = 34;
+            this.FontColor.TabStop = false;
+            this.FontColor.Click += new System.EventHandler(this.FontColor_Click);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.serchtxt);
+            this.flowLayoutPanel1.Controls.Add(this.iTalk_Button_11);
+            this.flowLayoutPanel1.Controls.Add(this.iTalk_Button_12);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(570, 144);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(327, 41);
+            this.flowLayoutPanel1.TabIndex = 48;
+            this.flowLayoutPanel1.Visible = false;
+            // 
+            // serchtxt
+            // 
+            this.serchtxt.BackColor = System.Drawing.Color.Transparent;
+            this.serchtxt.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.serchtxt.ForeColor = System.Drawing.Color.DimGray;
+            this.serchtxt.Location = new System.Drawing.Point(3, 3);
+            this.serchtxt.MaxLength = 32767;
+            this.serchtxt.Multiline = false;
+            this.serchtxt.Name = "serchtxt";
+            this.serchtxt.ReadOnly = false;
+            this.serchtxt.Size = new System.Drawing.Size(180, 33);
+            this.serchtxt.TabIndex = 42;
+            this.serchtxt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
+            this.serchtxt.UseSystemPasswordChar = false;
+            // 
+            // iTalk_Button_11
+            // 
+            this.iTalk_Button_11.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Button_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_Button_11.Image = null;
+            this.iTalk_Button_11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iTalk_Button_11.Location = new System.Drawing.Point(189, 4);
+            this.iTalk_Button_11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iTalk_Button_11.Name = "iTalk_Button_11";
+            this.iTalk_Button_11.Size = new System.Drawing.Size(44, 30);
+            this.iTalk_Button_11.TabIndex = 43;
+            this.iTalk_Button_11.Text = "검색";
+            this.iTalk_Button_11.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Button_11.Click += new System.EventHandler(this.iTalk_Button_11_Click_1);
+            // 
+            // iTalk_Button_12
+            // 
+            this.iTalk_Button_12.BackColor = System.Drawing.Color.Transparent;
+            this.iTalk_Button_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iTalk_Button_12.Image = null;
+            this.iTalk_Button_12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iTalk_Button_12.Location = new System.Drawing.Point(239, 4);
+            this.iTalk_Button_12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.iTalk_Button_12.Name = "iTalk_Button_12";
+            this.iTalk_Button_12.Size = new System.Drawing.Size(74, 31);
+            this.iTalk_Button_12.TabIndex = 45;
+            this.iTalk_Button_12.Text = "지우기";
+            this.iTalk_Button_12.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.iTalk_Button_12.Click += new System.EventHandler(this.iTalk_Button_12_Click);
+            // 
+            // serchPic
+            // 
+            this.serchPic.Image = ((System.Drawing.Image)(resources.GetObject("serchPic.Image")));
+            this.serchPic.Location = new System.Drawing.Point(518, 147);
+            this.serchPic.Name = "serchPic";
+            this.serchPic.Size = new System.Drawing.Size(46, 32);
+            this.serchPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.serchPic.TabIndex = 47;
+            this.serchPic.TabStop = false;
+            this.serchPic.Click += new System.EventHandler(this.serchPic_Click);
             // 
             // iTalk_HeaderLabel1
             // 
@@ -194,7 +264,7 @@
             this.Title.BackColor = System.Drawing.Color.Transparent;
             this.Title.Font = new System.Drawing.Font("Tahoma", 11F);
             this.Title.ForeColor = System.Drawing.Color.DimGray;
-            this.Title.Location = new System.Drawing.Point(101, 69);
+            this.Title.Location = new System.Drawing.Point(87, 75);
             this.Title.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Title.MaxLength = 32767;
             this.Title.Multiline = false;
@@ -213,71 +283,18 @@
             this.iTalk_Label2.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label2.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.iTalk_Label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
-            this.iTalk_Label2.Location = new System.Drawing.Point(25, 75);
+            this.iTalk_Label2.Location = new System.Drawing.Point(25, 89);
             this.iTalk_Label2.Name = "iTalk_Label2";
             this.iTalk_Label2.Size = new System.Drawing.Size(41, 19);
             this.iTalk_Label2.TabIndex = 1;
             this.iTalk_Label2.Text = "제 목";
             // 
-            // Strikethrough
-            // 
-            this.Strikethrough.Image = global::GoodeeProject.Properties.Resources.strikethrough;
-            this.Strikethrough.Location = new System.Drawing.Point(468, 123);
-            this.Strikethrough.Name = "Strikethrough";
-            this.Strikethrough.Size = new System.Drawing.Size(46, 32);
-            this.Strikethrough.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Strikethrough.TabIndex = 40;
-            this.Strikethrough.TabStop = false;
-            this.Strikethrough.Click += new System.EventHandler(this.Strikethrough_Click);
-            // 
-            // FontUnderLine
-            // 
-            this.FontUnderLine.Image = global::GoodeeProject.Properties.Resources.font;
-            this.FontUnderLine.Location = new System.Drawing.Point(412, 123);
-            this.FontUnderLine.Name = "FontUnderLine";
-            this.FontUnderLine.Size = new System.Drawing.Size(46, 32);
-            this.FontUnderLine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FontUnderLine.TabIndex = 39;
-            this.FontUnderLine.TabStop = false;
-            this.FontUnderLine.Click += new System.EventHandler(this.FontUnderLine_Click);
-            // 
-            // FontBold
-            // 
-            this.FontBold.Image = global::GoodeeProject.Properties.Resources.bold_text_option;
-            this.FontBold.Location = new System.Drawing.Point(360, 123);
-            this.FontBold.Name = "FontBold";
-            this.FontBold.Size = new System.Drawing.Size(46, 32);
-            this.FontBold.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FontBold.TabIndex = 38;
-            this.FontBold.TabStop = false;
-            this.FontBold.Click += new System.EventHandler(this.FontBold_Click);
-            // 
-            // pictureButton
-            // 
-            this.pictureButton.Image = global::GoodeeProject.Properties.Resources.picture;
-            this.pictureButton.Location = new System.Drawing.Point(90, 123);
-            this.pictureButton.Name = "pictureButton";
-            this.pictureButton.Size = new System.Drawing.Size(46, 32);
-            this.pictureButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureButton.TabIndex = 35;
-            this.pictureButton.TabStop = false;
-            this.pictureButton.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // FontColor
-            // 
-            this.FontColor.Image = global::GoodeeProject.Properties.Resources.text__2_;
-            this.FontColor.Location = new System.Drawing.Point(38, 123);
-            this.FontColor.Name = "FontColor";
-            this.FontColor.Size = new System.Drawing.Size(46, 32);
-            this.FontColor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FontColor.TabIndex = 34;
-            this.FontColor.TabStop = false;
-            this.FontColor.Click += new System.EventHandler(this.FontColor_Click);
-            // 
             // Agreement_enterprise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.serchPic);
             this.Controls.Add(this.Strikethrough);
             this.Controls.Add(this.FontUnderLine);
             this.Controls.Add(this.FontBold);
@@ -285,11 +302,7 @@
             this.Controls.Add(this.comFontStyle);
             this.Controls.Add(this.pictureButton);
             this.Controls.Add(this.FontColor);
-            this.Controls.Add(this.boardBoby);
-            this.Controls.Add(this.attachments);
-            this.Controls.Add(this.iTalk_Label3);
-            this.Controls.Add(this.iTalk_Button_13);
-            this.Controls.Add(this.iTalk_Label1);
+            this.Controls.Add(this.find);
             this.Controls.Add(this.iTalk_HeaderLabel1);
             this.Controls.Add(this.save);
             this.Controls.Add(this.Title);
@@ -303,6 +316,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.FontBold)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FontColor)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.serchPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,18 +331,19 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private iTalk.iTalk_HeaderLabel iTalk_HeaderLabel1;
-        private iTalk.iTalk_Label iTalk_Label1;
-        private iTalk.iTalk_Button_1 iTalk_Button_13;
-        private iTalk.iTalk_Label iTalk_Label3;
-        private iTalk.iTalk_ComboBox attachments;
         private System.Windows.Forms.ComboBox Fontsize;
         private System.Windows.Forms.ComboBox comFontStyle;
         private System.Windows.Forms.PictureBox pictureButton;
         private System.Windows.Forms.PictureBox FontColor;
-        private System.Windows.Forms.RichTextBox boardBoby;
+        private System.Windows.Forms.RichTextBox find;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox FontBold;
         private System.Windows.Forms.PictureBox FontUnderLine;
         private System.Windows.Forms.PictureBox Strikethrough;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private iTalk.iTalk_TextBox_Small serchtxt;
+        private iTalk.iTalk_Button_1 iTalk_Button_11;
+        private System.Windows.Forms.PictureBox serchPic;
+        private iTalk.iTalk_Button_1 iTalk_Button_12;
     }
 }

@@ -19,9 +19,15 @@ namespace GoodeeProject
             list = new List<AgreementBoard>();
         }
 
+        /// <summary>
+        /// 해당 폼이 로드될 경우이다.
+        /// 게시판에 작성된 목록들이 리스트 박스에 표시된다
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Agreement_enterprise_list_Load(object sender, EventArgs e)
         {
-            list = new GoodeeDAO.GoodeeDAO().OutBoard();    // 게시물번호, 게시물제목, 작성자, 작성일, 조회, (좋아요)
+            list = new GoodeeDAO.GoodeeDAO().OutBoard();    // 게시물번호, 게시물제목, 작성자, 작성일, 조회
 
             agreementList1.BeginUpdate();
 

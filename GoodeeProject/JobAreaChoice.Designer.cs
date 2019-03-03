@@ -33,18 +33,20 @@
             // 
             // koreaAreaPanel
             // 
-            this.koreaAreaPanel.Location = new System.Drawing.Point(10, 3);
+            this.koreaAreaPanel.Location = new System.Drawing.Point(11, 4);
+            this.koreaAreaPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.koreaAreaPanel.Name = "koreaAreaPanel";
-            this.koreaAreaPanel.Size = new System.Drawing.Size(258, 315);
+            this.koreaAreaPanel.Size = new System.Drawing.Size(295, 394);
             this.koreaAreaPanel.TabIndex = 7;
             // 
             // JobAreaChoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.koreaAreaPanel);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "JobAreaChoice";
-            this.Size = new System.Drawing.Size(725, 327);
+            this.Size = new System.Drawing.Size(829, 409);
             this.Load += new System.EventHandler(this.JobAreaChoice_Load);
             this.ResumeLayout(false);
 

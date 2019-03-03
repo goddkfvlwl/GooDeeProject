@@ -26,8 +26,6 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\NetOffice.dll
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\NetSpell.SpellChecker.dll
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Newtonsoft.Json.dll
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\OfficeApi.dll
-C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\PrintRichTextBox.dll
-C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\RichTextBoxEx.dll
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Tulpep.NotificationWindow.dll
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\VBIDEApi.dll
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\stdole.dll
@@ -114,3 +112,4 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.c
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.exe
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.pdb
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.Commant.resources

@@ -130,6 +130,12 @@
     <Compile Include="ClassList.Designer.cs">
       <DependentUpon>ClassList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Commant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Commant.Designer.cs">
+      <DependentUpon>Commant.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateSurvey.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -523,6 +529,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Agreement_enterprise_list.resx">
       <DependentUpon>Agreement_enterprise_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Commant.resx">
+      <DependentUpon>Commant.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyForm.resx">
       <DependentUpon>CompanyForm.cs</DependentUpon>

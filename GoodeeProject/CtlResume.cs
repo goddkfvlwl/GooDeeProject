@@ -30,6 +30,12 @@ namespace GoodeeProject
         CtlEdu ce;
         CtlLicense cl;
 
+
+        DataTable license;
+        DataTable edu;
+        DataTable edu_His;
+
+
         public CtlResume()
         {
             InitializeComponent();
@@ -98,37 +104,96 @@ namespace GoodeeProject
 
         private void ReceiveInfo()
         {
-            tboxName.Text = FrmMain.Mi.Name;
-            if (!String.IsNullOrEmpty(FrmMain.Mi.BirthDate.ToString()))
+            if (FrmMain.Ai.Authority != 'C')
             {
-                tboxBirthDate.Text = FrmMain.Mi.BirthDate.ToShortDateString();
+                tboxName.Text = FrmMain.Mi.Name;
+                if (!String.IsNullOrEmpty(FrmMain.Mi.BirthDate.ToString()))
+                {
+                    tboxBirthDate.Text = FrmMain.Mi.BirthDate.ToShortDateString();
+                }
+                else
+                {
+                    tboxBirthDate.Text = "";
+                }
+                if (FrmMain.Mi.Gender == 'M')
+                {
+                    radioGenderM.Checked = true;
+                }
+                else
+                {
+                    radioGenderW.Checked = true;
+                }
+                tboxAddr.Text = FrmMain.Mi.Address;
+                tboxMobile.Text = FrmMain.Mi.Mobile;
+                tboxEmail.Text = FrmMain.Mi.Id;
+                if (FrmMain.Mi.Army == 'Y')
+                {
+                    radioArmyY.Checked = true;
+                }
+                else
+                {
+                    radioArmyN.Checked = true;
+                }
+
+                pboxProfile.Image = FrmMain.Mi.Picture;
             }
-            else
+            else if (FrmMain.Ai.Authority == 'C')
             {
-                tboxBirthDate.Text = "";
-            }
-            if (FrmMain.Mi.Gender == 'M')
-            {
-                radioGenderM.Checked = true;
-            }
-            else
-            {
-                radioGenderW.Checked = true;
-            }
-            tboxAddr.Text = FrmMain.Mi.Address;
-            tboxMobile.Text = FrmMain.Mi.Mobile;
-            tboxEmail.Text = FrmMain.Mi.Id;
-            if (FrmMain.Mi.Army == 'Y')
-            {
-                radioArmyY.Checked = true;
-            }
-            else
-            {
-                radioArmyN.Checked = true;
+                foreach (var item in CompanyForm.Mlist)
+                {
+                    if (item.Id == CompanyForm.ID1)
+                    {
+                        tboxName.Text = item.Name;
+                    }
+                    if (!String.IsNullOrEmpty(item.BirthDate.ToString()))
+                    {
+                        tboxBirthDate.Text = item.BirthDate.ToShortDateString();
+                    }
+                    else
+                    {
+                        tboxBirthDate.Text = "";
+                    }
+                    if (item.Gender == 'M')
+                    {
+                        radioGenderM.Checked = true;
+                    }
+                    else
+                    {
+                        radioGenderW.Checked = true;
+                    }
+                    if (item.Army == 'Y')
+                    {
+                        radioArmyY.Checked = true;
+                    }
+                    else
+                    {
+                        radioArmyN.Checked = true;
+                    }
+                    tboxAddr.Text = item.Address;
+                    tboxMobile.Text = item.Mobile;
+                    tboxEmail.Text = item.Id;
+                    pboxProfile.Image = item.Picture;
+
+                    pboxProfile.Image = FrmMain.Mi.Picture;
+                }
+                pboxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
             }
 
-            pboxProfile.Image = FrmMain.Mi.Picture;
-            pboxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
+            //    if (FrmMain.Mi.Army == 'Y')
+            //    {
+            //        radioArmyY.Checked = true;
+            //    }
+            //    else
+            //    {
+            //        radioArmyN.Checked = true;
+            //    }
+
+            //    pboxProfile.Image = FrmMain.Mi.Picture;
+            //}
+
+
+            
+            //pboxProfile.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void BtnDelEduHistory_Click(object sender, EventArgs e)
@@ -238,9 +303,19 @@ namespace GoodeeProject
         //로드 시 저장되어있는 데이터 불러올 메서드
         private void ReloadResume()
         {
-            DataTable license = gd.SelectLicense(FrmMain.Mi.Id);
-            DataTable edu = gd.SelectEdu(FrmMain.Mi.Id);
-            DataTable edu_His = gd.SelectEdu_History(FrmMain.Mi.Id);
+            
+            if (FrmMain.Ai.Authority!='C')
+            {
+                license = gd.SelectLicense(FrmMain.Mi.Id);
+                edu = gd.SelectEdu(FrmMain.Mi.Id);
+                edu_His = gd.SelectEdu_History(FrmMain.Mi.Id);
+            }
+            else
+            {
+                license = gd.SelectLicense(CompanyForm.ID1);
+                edu = gd.SelectEdu(CompanyForm.ID1);
+                edu_His = gd.SelectEdu_History(CompanyForm.ID1);
+            }
 
             CtlLicense[] cl = new CtlLicense[license.DataSet.Tables[0].Rows.Count];
             CtlEdu[] ce = new CtlEdu[edu.DataSet.Tables[0].Rows.Count];
@@ -257,7 +332,7 @@ namespace GoodeeProject
                     cl[i].tboxLiName.Text = license.DataSet.Tables[0].Rows[i]["Name"].ToString();
                     cl[i].mTboxDate.Text = license.DataSet.Tables[0].Rows[i]["Date"].ToString();
                     cl[i].tboxAgency.Text = license.DataSet.Tables[0].Rows[i]["Agency"].ToString();
-                } 
+                }
             }
 
             //학력
@@ -273,7 +348,7 @@ namespace GoodeeProject
                     ce[i].cboxSchoolType.Text = edu.DataSet.Tables[0].Rows[i]["SchoolType"].ToString();
                     ce[i].tboxDepart.Text = edu.DataSet.Tables[0].Rows[i]["Department"].ToString();
                     ce[i].cboxGraduType.Text = edu.DataSet.Tables[0].Rows[i]["EduType"].ToString();
-                } 
+                }
             }
 
             //교육이력
@@ -289,7 +364,7 @@ namespace GoodeeProject
                     ch[i].tboxEduName.Text = edu_His.DataSet.Tables[0].Rows[i]["EduName"].ToString();
                     ch[i].tboxSkill.Text = edu_His.DataSet.Tables[0].Rows[i]["SkillName"].ToString();
                     ch[i].tboxDetail.Text = edu_His.DataSet.Tables[0].Rows[i]["Detail"].ToString();
-                } 
+                }
             }
         }
 

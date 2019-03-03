@@ -38,7 +38,7 @@ namespace GoodeeProject
 
         
         bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture);
-
+        bool InsertCommantBoard(int code, string body, DateTime date, string ID);
 
 
         bool InsertLicense(string id, string name, DateTime date, string agency);

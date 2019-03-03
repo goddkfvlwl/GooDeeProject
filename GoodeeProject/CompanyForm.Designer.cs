@@ -34,6 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.ctlProfile1 = new GoodeeProject.CtlProfile();
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.btnMinimum = new iTalk.iTalk_Button_1();
@@ -75,7 +76,7 @@
             this.button1.ForeColor = System.Drawing.Color.Gray;
             this.button1.Image = global::GoodeeProject.Properties.Resources.user_48;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 285);
+            this.button1.Location = new System.Drawing.Point(0, 388);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(213, 95);
@@ -92,7 +93,7 @@
             this.button2.ForeColor = System.Drawing.Color.Gray;
             this.button2.Image = global::GoodeeProject.Properties.Resources.user_48;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 388);
+            this.button2.Location = new System.Drawing.Point(0, 285);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 95);
@@ -115,6 +116,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
             this.panel1.Controls.Add(this.ctlProfile1);
             this.panel1.Controls.Add(this.iTalk_Separator1);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -126,6 +128,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1181, 182);
             this.panel1.TabIndex = 27;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(213, 182);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(599, 582);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // ctlProfile1
             // 
@@ -210,5 +219,6 @@
         private iTalk.iTalk_Separator iTalk_Separator1;
         internal CtlProfile ctlProfile1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -46,6 +46,7 @@ namespace GoodeeProject
         JobInformation information;
         DetailView detail;
         Agreement_enterprise agreement_Enterprise;
+        
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -216,10 +217,21 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
 
-            agreement = new Agreement_enterprise_list();
-            panel2.Controls.Add(agreement);
-            agreement.Location = new Point(192, 3);
-            agreement.BringToFront();
+            if (ai.Authority!='S')
+            {
+                agreement = new Agreement_enterprise_list();
+                panel2.Controls.Add(agreement);
+                agreement.Location = new Point(192, 3);
+                agreement.BringToFront();
+            }
+            else
+            {
+                agreement = new Agreement_enterprise_list();
+                agreement.btnwrite.Visible = false;
+                panel2.Controls.Add(agreement);
+                agreement.Location = new Point(192, 3);
+                agreement.BringToFront();
+            }
 
             agreement.agreementList1.ItemSelectionChanged += AgreementList1_ItemSelectionChanged;
             agreement.btnwrite.Click += Btnwrite_Click;
@@ -227,23 +239,43 @@ namespace GoodeeProject
 
         }
 
+        int boardNum = 0; // 게시물번호
         private void AgreementList1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             RemoveUserControl();
-            int boardNum = 0;   // 게시물 번호
-
-            if (e.IsSelected)
+             
+            if (ai.Authority == 'S')    // 학생일 경우
             {
-                ListViewItem listViewItem = e.Item;
-                boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
-                
-                detail = new DetailView(boardNum);
-                detail.Location = new Point(190, 3);
-                detail.BringToFront();
-                panel2.Controls.Add(detail);
+                if (e.IsSelected)
+                {
+                    ListViewItem listViewItem = e.Item;
+                    boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
+
+                    detail = new DetailView(boardNum);
+                    detail.butDelete.Visible = false;
+                    detail.butUpdate.Visible = false;
+                    detail.Location = new Point(190, 3);
+                    detail.BringToFront();
+                    panel2.Controls.Add(detail);
+                }
             }
+            else if (ai.Authority != 'S')
+            {
+                if (e.IsSelected)
+                {
+                    ListViewItem listViewItem = e.Item;
+                    boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
+
+                    detail = new DetailView(boardNum);
+                    detail.Location = new Point(190, 3);
+                    detail.BringToFront();
+                    panel2.Controls.Add(detail); 
+                }
+            }
+           
         }
 
+        
         private void Btnwrite_Click(object sender, EventArgs e)
         {
             RemoveUserControl();
@@ -436,6 +468,7 @@ namespace GoodeeProject
             detail = null;
             panel2.Controls.Remove(agreement_Enterprise);
             agreement_Enterprise = null;
+            
         }
 
         private void portfolio1_Load(object sender, EventArgs e)

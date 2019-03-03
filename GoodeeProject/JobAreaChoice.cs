@@ -30,7 +30,11 @@ namespace GoodeeProject
 
         }
 
-
+        /// <summary>
+        /// 해당 폼이 로드될때 디비의 1차지역들이 화면에 추가된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void JobAreaChoice_Load(object sender, EventArgs e)
         {
             #region 한국대표지역추가
@@ -53,7 +57,7 @@ namespace GoodeeProject
 
 
         /// <summary>
-        /// 한국지역버튼
+        /// 한국2차지역버튼이 추가된다.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -64,8 +68,8 @@ namespace GoodeeProject
             iTalk.iTalk_Button_1 button = (iTalk.iTalk_Button_1)sender; //현재 sender이 object이기 때문에 
             area = new CheckBoxAdd();
 
-            area.Location = new Point(282, 77);
-            area.Size = new Size(435, 237);
+            area.Location = new Point(312,4);
+            area.Size = new Size(514,394);
             this.Controls.Add(area);
 
             // code는 메인지역이름을 받아서 1차지역코드를 반환시켜준다.
@@ -84,6 +88,10 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 체크박스를 눌렀을때 리스트에 추가하고 풀면 빼면서, 이 결과를 list에 저장해서 키워드로 넘긴다.
+        /// </summary>
+        /// <param name="sender"></param>
         private void _CheckBox_CheckedChanged(object sender)
         {
             iTalk.iTalk_CheckBox _CheckBox = (iTalk.iTalk_CheckBox)sender;
@@ -116,6 +124,9 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 해당 폼에서의 컨트롤 초기화
+        /// </summary>
         public void RemoveControl()
         {
             this.Controls.Remove(area);
