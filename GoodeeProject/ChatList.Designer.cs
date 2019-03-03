@@ -50,6 +50,7 @@
             this.lblLastChatContent.Size = new System.Drawing.Size(97, 12);
             this.lblLastChatContent.TabIndex = 1;
             this.lblLastChatContent.Text = "마지막 채팅 기록";
+            this.lblLastChatContent.Click += new System.EventHandler(this.ChatList_Click);
             // 
             // ChatList
             // 

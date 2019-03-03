@@ -35,7 +35,7 @@ namespace GoodeeProject
             var memberInfo = DAO.SelectMemberInfo(id);
             txtName.Text = memberInfo.Rows[0]["name"].ToString();
             txtEmail.Text = memberInfo.Rows[0]["ID"].ToString();
-            txtBirthDay.Text = memberInfo.Rows[0]["BirthDate"].ToString();
+            dtpBirthDay.Value = DateTime.Parse(memberInfo.Rows[0]["BirthDate"].ToString());
             txtMobile.Text = memberInfo.Rows[0]["Mobile"].ToString();
             txtAddress.Text = memberInfo.Rows[0]["Address"].ToString();
             txtClass.Text = memberInfo.Rows[0]["Class_Name"].ToString();
@@ -63,28 +63,40 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtEmail.Text) && !String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(txtBirthDay.Text) && !String.IsNullOrEmpty(txtMobile.Text) && !String.IsNullOrEmpty(txtAddress.Text) && !String.IsNullOrEmpty(txtClass.Text) && !String.IsNullOrEmpty(txtCurriculm.Text) && !String.IsNullOrEmpty(txtTurn.Text) && !string.IsNullOrEmpty(Regist.SelectedItem.ToString()))
+            if (!String.IsNullOrEmpty(txtEmail.Text) && !String.IsNullOrEmpty(txtName.Text) && !String.IsNullOrEmpty(dtpBirthDay.Value.ToShortDateString()) && !String.IsNullOrEmpty(txtMobile.Text) && !String.IsNullOrEmpty(txtAddress.Text) && !String.IsNullOrEmpty(txtClass.Text) && !String.IsNullOrEmpty(txtCurriculm.Text) && !String.IsNullOrEmpty(txtTurn.Text) && !string.IsNullOrEmpty(Regist.SelectedItem.ToString()))
             {
                 GoodeeDAO.GoodeeDAO goodeeDAO = new GoodeeDAO.GoodeeDAO();
-                string[] member = new string[10];
-                member[0] = txtEmail.Text;
-                member[1] = txtName.Text;
-                if ((this.groupBox1.Controls["rdoMale"] as RadioButton).Checked)
+                var memberInfo = goodeeDAO.SelectMember(txtEmail.Text);
+                if (string.IsNullOrEmpty(memberInfo.Id))
                 {
-                    member[2] = "m";
-                }
-                else
+                    string[] member = new string[10];
+                    member[0] = txtEmail.Text;
+                    member[1] = txtName.Text;
+                    if ((this.groupBox1.Controls["rdoMale"] as RadioButton).Checked)
+                    {
+                        member[2] = "m";
+                    }
+                    else
+                    {
+                        member[2] = "f";
+                    }
+                    member[3] = dtpBirthDay.Value.ToShortDateString();
+                    member[4] = txtMobile.Text;
+                    member[5] = txtAddress.Text;
+                    member[6] = txtClass.Text;
+                    member[7] = txtCurriculm.Text;
+                    member[8] = txtTurn.Text;
+                    member[9] = Regist.SelectedItem.ToString();
+                    goodeeDAO.InsertMember(member);
+                }else
                 {
-                    member[2] = "f";
+                    MessageBox.Show("이미 등록된 수강생입니다.");
+                    this.Dispose();
                 }
-                member[3] = txtBirthDay.Text;
-                member[4] = txtMobile.Text;
-                member[5] = txtAddress.Text;
-                member[6] = txtClass.Text;
-                member[7] = txtCurriculm.Text;
-                member[8] = txtTurn.Text;
-                member[9] = Regist.SelectedItem.ToString();
-                goodeeDAO.InsertMember(member);
+                
+            }else
+            {
+                MessageBox.Show("빈 데이터를 체워주세요.");
             }
             if (ismodify)
             {

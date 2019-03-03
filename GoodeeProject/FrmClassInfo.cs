@@ -27,7 +27,7 @@ namespace GoodeeProject
         /// 훈련과정 번호에 해당하는 훈련과정의 정보를 데이터베이스에서 읽어옵니다.
         /// </summary>
         /// <param name="classNum">훈련과정 번호</param>
-        public FrmClassInfo(string classNum)
+        public FrmClassInfo(string classNum) : this()
         {
             this.classNum = classNum;
             GoodeeDAO.GoodeeDAO DAO = new GoodeeDAO.GoodeeDAO();

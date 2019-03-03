@@ -52,12 +52,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMobile = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBirthDay = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTurn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtClass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.dtpBirthDay = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -276,13 +276,6 @@
             this.label4.TabIndex = 36;
             this.label4.Text = "휴대폰";
             // 
-            // txtBirthDay
-            // 
-            this.txtBirthDay.Location = new System.Drawing.Point(236, 61);
-            this.txtBirthDay.Name = "txtBirthDay";
-            this.txtBirthDay.Size = new System.Drawing.Size(100, 21);
-            this.txtBirthDay.TabIndex = 35;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -324,11 +317,20 @@
             this.label1.TabIndex = 30;
             this.label1.Text = "분류";
             // 
+            // dtpBirthDay
+            // 
+            this.dtpBirthDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpBirthDay.Location = new System.Drawing.Point(232, 58);
+            this.dtpBirthDay.Name = "dtpBirthDay";
+            this.dtpBirthDay.Size = new System.Drawing.Size(109, 21);
+            this.dtpBirthDay.TabIndex = 56;
+            // 
             // FrmStudentRegist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 243);
+            this.Controls.Add(this.dtpBirthDay);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
@@ -349,7 +351,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtMobile);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBirthDay);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTurn);
             this.Controls.Add(this.label2);
@@ -394,11 +395,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMobile;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtBirthDay;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTurn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpBirthDay;
     }
 }

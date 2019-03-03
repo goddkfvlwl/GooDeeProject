@@ -69,9 +69,19 @@ namespace GoodeeProject
                 list.Chat2 = item[4].ToString();
                 list.Controls["lblLastChatContent"].Text = item[5].ToString();
                 list.DoubleClick += List_DoubleClick;
+                foreach (Control control in list.Controls)
+                {
+                    control.DoubleClick += Control_DoubleClick;
+                }
                 ChatPanel.Controls.Add(list);
             }
             log.AddList("접속목록요청");
+        }
+
+        private void Control_DoubleClick(object sender, EventArgs e)
+        {
+            Label label = sender as Label;
+            List_DoubleClick(label.Parent, e);
         }
 
         /// <summary>

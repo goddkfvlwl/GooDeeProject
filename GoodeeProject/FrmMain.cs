@@ -425,18 +425,23 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 폼이 로드될때 채팅서버에 접속합니다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //ChatClinet = new ChatClient(this);
-            //loginThread = new Thread(ChatClinet.ChatLogin);
-            //loginThread.Start();
+            ChatClinet = new ChatClient(this);
+            loginThread = new Thread(ChatClinet.ChatLogin);
+            loginThread.Start();
         }
 
         /// <summary>
         /// 현재 폼이 종료될때 채팅서버의 접속을 종료합니다.
         /// </summary>
         /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
-        /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
+        /// <param name="e">FormClosing 이벤트에 대한 데이터를 제공합니다.</param>
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             ChatClinet.DisConnect();

@@ -55,10 +55,16 @@ namespace GoodeeProject
             if (string.IsNullOrEmpty(dataGridView1.SelectedRows[0].Cells[4].Value.ToString()))
             {
                 startDate = "1753-11-11";
+            }else
+            {
+                startDate = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             }
             if (string.IsNullOrEmpty(dataGridView1.SelectedRows[0].Cells[5].Value.ToString()))
             {
                 endDate = "1753-11-11";
+            }else
+            {
+                endDate = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
             }
             DAO.UpdateClass(int.Parse(dataGridView1.SelectedRows[0].Cells[0].Value.ToString()), dataGridView1.SelectedRows[0].Cells[1].Value.ToString(), dataGridView1.SelectedRows[0].Cells[2].Value.ToString(), dataGridView1.SelectedRows[0].Cells[3].Value.ToString(), DateTime.Parse(startDate), DateTime.Parse(endDate), false);
             log.AddList("훈련과정 비활성화");
