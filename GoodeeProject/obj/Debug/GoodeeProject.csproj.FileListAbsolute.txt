@@ -114,3 +114,4 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.p
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.Commant.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.CommantLsit.resources
+C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\GoodeeProject.xml

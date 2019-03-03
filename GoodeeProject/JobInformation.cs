@@ -87,7 +87,7 @@ namespace GoodeeProject
         }
 
         /// <summary>
-        /// 
+        /// 모든키워드들이 정해지고 검색으로 넘기는 작업이다.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -95,7 +95,9 @@ namespace GoodeeProject
         {
             
             RemoveControl();    // 컨트롤 리무브
-
+            iTalk_Button_12.Visible = true;
+            iTalk_Button_13.Visible = true;
+            labPage.Visible = true;
 
             area.Clear();
             job.Clear();
@@ -104,6 +106,9 @@ namespace GoodeeProject
             
         }
 
+        /// <summary>
+        /// 해당 키워드를 넘기면서 xml을 파싱한다.
+        /// </summary>
         private void Keyword()
         {
             if (!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text != "기업을 입력하세요") // 키워드가 있을 경우
@@ -126,7 +131,7 @@ namespace GoodeeProject
             {
                 // 키워드만 없는 경우
                 url = listAdd(url, page);
-                MessageBox.Show(url);
+                //MessageBox.Show(url);
                 XElement xml = url.XmlParsing(url);
                 total = xml.XmlTotal(xml);  // 해당 jobs노드의 속성인 total값을 반환
                 PageVisible();
@@ -135,6 +140,12 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 선택된 키워드들을 코드로 변환하여 사람인 API에 url로 넘긴다.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
         private string listAddKey(string url, int page)
         {
             if (JobAreaChoice.CheckResultlist.Count != 0 || JobChoice.Jlistcheck.Count != 0)
@@ -195,6 +206,9 @@ namespace GoodeeProject
         }
 
         FontFamily fm = new FontFamily("굴림");
+        /// <summary>
+        /// 검색결과의 채용기업들의 정보를 사용자 정의폼으로 띄운다.
+        /// </summary>
         private void JobResultAdd()
         {
             foreach (var item in list)
@@ -220,13 +234,21 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 채용정보의 사용자정의폼 클릭시 해당 사이트로 접속한다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OneJobMat_Click(object sender, EventArgs e)
         {
             oneJobMatResult oneJob = (oneJobMatResult)sender;
             Process.Start("chrome.exe", oneJob.companyName.Name);
         }
 
-
+        /// <summary>
+        /// xml을 매개변수로 받으며, 파싱을 하고, 해당 노드를 분석하여 값을 출력한다.
+        /// </summary>
+        /// <param name="xml"></param>
         private void UrlXml(XElement xml)
         {
             list.Clear();
@@ -413,6 +435,9 @@ namespace GoodeeProject
             job.Clear();
             list.Clear();
             page = 0;
+            iTalk_Button_12.Visible = false;
+            iTalk_Button_13.Visible = false;
+            labPage.Visible = false;
             url = "http://api.saramin.co.kr/job-search?";
             area.Remove(0, area.Length);
             job.Remove(0, job.Length);
