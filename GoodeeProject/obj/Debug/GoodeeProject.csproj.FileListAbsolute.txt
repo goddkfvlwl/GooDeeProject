@@ -9,8 +9,6 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\surve
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\write-48.png
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\chat-48.png
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\profile2.png
-C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Database1.mdf
-C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Database1_log.ldf
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\326572-48.png
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\reload24.png
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\reload.png
@@ -41,7 +39,6 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\Interop.WMPNSSC
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.Agreement_enterprise_list.resources
-C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.Commant.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.CommantLsit.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.CompanyForm.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.CompanyMainForm.resources
