@@ -101,8 +101,8 @@ namespace GoodeeProject
             }
 
             add = new CheckBoxAdd();
-            add.Location = new Point(312, 67);
-            add.Size = new Size(400, 220);
+            add.Location = new Point(348, 53);
+            add.Size = new Size(507, 520);
             this.Controls.Add(add);
 
             foreach (FirstSubJob item in jlist3)
@@ -111,6 +111,7 @@ namespace GoodeeProject
                 _CheckBox.Text = item.Detailjob_Name;
                 _CheckBox.Font = new Font(fm, 9f);
                 _CheckBox.CheckedChanged += _CheckBox_CheckedChanged;
+                //add.flowLayoutPanel.
                 add.flowLayoutPanel1.Controls.Add(_CheckBox);
             }
 
