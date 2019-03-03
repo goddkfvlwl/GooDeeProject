@@ -60,7 +60,7 @@
             // 
             // btnResult
             // 
-            this.btnResult.Location = new System.Drawing.Point(737, 47);
+            this.btnResult.Location = new System.Drawing.Point(728, 47);
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(75, 23);
             this.btnResult.TabIndex = 7;
@@ -70,7 +70,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(737, 9);
+            this.btnModify.Location = new System.Drawing.Point(728, 9);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 6;
@@ -81,7 +81,7 @@
             // lblWriter
             // 
             this.lblWriter.AutoSize = true;
-            this.lblWriter.Location = new System.Drawing.Point(607, 58);
+            this.lblWriter.Location = new System.Drawing.Point(592, 17);
             this.lblWriter.Name = "lblWriter";
             this.lblWriter.Size = new System.Drawing.Size(0, 12);
             this.lblWriter.TabIndex = 5;
@@ -89,7 +89,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(599, 18);
+            this.label4.Location = new System.Drawing.Point(545, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 4;

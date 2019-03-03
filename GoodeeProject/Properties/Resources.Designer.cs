@@ -156,7 +156,6 @@ namespace GoodeeProject.Properties {
         internal static System.Drawing.Bitmap MBTI {
             get {
                 object obj = ResourceManager.GetObject("MBTI", resourceCulture);
-
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -164,7 +163,6 @@ namespace GoodeeProject.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-
         internal static System.Drawing.Bitmap loupe {
             get {
                 object obj = ResourceManager.GetObject("loupe", resourceCulture);
@@ -181,19 +179,6 @@ namespace GoodeeProject.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        ///// <summary>
-        /////   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        ///// </summary>
-        //internal static System.Drawing.Bitmap MBTI {
-
-        //internal static System.Drawing.Bitmap minus {
-
-        //    get {
-        //        object obj = ResourceManager.GetObject("minus", resourceCulture);
-        //        return ((System.Drawing.Bitmap)(obj));
-        //    }
-        //}
         
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.

@@ -12,6 +12,7 @@ namespace GoodeeProject
 {
     public partial class FrmMBTIQuestion : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         Dictionary<int, string> mbtiDic;
         Dictionary<char, int> tendency;
         List<CtlMBTIQuestion> mqList = new List<CtlMBTIQuestion>();
@@ -59,9 +60,14 @@ namespace GoodeeProject
                 this.Location = new Point(this.Location.X + (e.X - movePointX), this.Location.Y + (e.Y - movePointY));
             }
         }
-
+        /// <summary>
+        /// 문제를 출력하는 사용자정의컨트롤을 나타내며 DataTable에 질문과 선택지를 넣는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmMBTIQuestion_Load(object sender, EventArgs e)
         {
+            s.AddList("MBTI 작성");
             CtlMBTIDivide md = new CtlMBTIDivide();
             flowpanelQuestion.Controls.Add(md);
             md.lblDivide.Text = "제 1부 : 자신에게 자연스럽고, 습관처럼 편안하게 느껴지고, 자주 행동하는 경향과 \n 가깝다고 생각되는 것을 선택하여 답안지에 표시하십시오.";
@@ -70,7 +76,9 @@ namespace GoodeeProject
             choice = gd.SelectMBTI_Choice();
             GetMBTI();
         }
-
+        /// <summary>
+        /// MBTI의 질문과 선택지를 각 사용자정의컨트롤을 이용해 출력시켜주는 메서드
+        /// </summary>
         private void GetMBTI()
         {
             List<MBTIChoice> aList = new List<MBTIChoice>();
@@ -93,7 +101,7 @@ namespace GoodeeProject
                 }
             }
 
-            
+
             for (int i = 0; i < aList.Count; i++)
             {
                 CtlMBTIQuestion mq = new CtlMBTIQuestion();
@@ -112,10 +120,10 @@ namespace GoodeeProject
 
                     mq.Size = new Size(771, 82);
                 }
-                
+
                 foreach (var item in cList)
                 {
-                    
+
                     if (mq.lblNum.Text == item.QuestionNum.ToString() + ". ")
                     {
                         if (item.QuestionNum != 24)
@@ -128,7 +136,7 @@ namespace GoodeeProject
                             rdoC.AutoSize = true;
                             rdoC.Text = "(" + item.Item + ") " + item.ItemDetail;
                             rdoC.Tag = new KeyValuePair<int, string>(item.QuestionNum, "C");
-                            mq.flowpanelChoice.Controls.Add(rdoC); 
+                            mq.flowpanelChoice.Controls.Add(rdoC);
                         }
                         else
                         {
@@ -164,7 +172,7 @@ namespace GoodeeProject
                             //rdoC.Visible = false;
                         }
                     }
-                    
+
                 }
 
                 mqList.Add(mq);
@@ -179,9 +187,14 @@ namespace GoodeeProject
             }
 
         }
-
+        /// <summary>
+        /// 사용자가 선택한 답을 Dictionary에 담는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSend_Click(object sender, EventArgs e)
         {
+            int checkCount = 0;
             mbtiDic = new Dictionary<int, string>();
 
             foreach (var item in mqList)
@@ -189,28 +202,33 @@ namespace GoodeeProject
                 if (item.flowpanelChoice.Controls.ContainsKey("cbA"))
                 {
                     string value = "";
+
                     CheckBox cbA = (CheckBox)item.flowpanelChoice.Controls["cbA"];
                     CheckBox cbB = (CheckBox)item.flowpanelChoice.Controls["cbB"];
                     CheckBox cbC = (CheckBox)item.flowpanelChoice.Controls["cbC"];
                     KeyValuePair<int, string> tempA = (KeyValuePair<int, string>)cbA.Tag;
                     KeyValuePair<int, string> tempB = (KeyValuePair<int, string>)cbB.Tag;
                     KeyValuePair<int, string> tempC = (KeyValuePair<int, string>)cbC.Tag;
-                    if (cbA.Checked)
+                    if (cbA.Checked || cbB.Checked || cbC.Checked)
                     {
-                        value += tempA.Value.ToString() + ",";
-                    }
-                    if (cbB.Checked)
-                    {
-                        value += tempB.Value.ToString() + ",";
-                    }
-                    if (cbC.Checked)
-                    {
-                        value += tempC.Value.ToString() + ",";
+                        if (cbA.Checked)
+                        {
+                            value += tempA.Value.ToString() + ",";
+                        }
+                        if (cbB.Checked)
+                        {
+                            value += tempB.Value.ToString() + ",";
+                        }
+                        if (cbC.Checked)
+                        {
+                            value += tempC.Value.ToString() + ",";
+                        }
+                        checkCount++;
                     }
 
                     if (value.Length != 0)
                     {
-                        value = value.Remove(value.Length - 1, 1); 
+                        value = value.Remove(value.Length - 1, 1);
                     }
                     mbtiDic.Add(tempA.Key, value);
                 }
@@ -219,11 +237,13 @@ namespace GoodeeProject
                 {
                     KeyValuePair<int, string> temp = (KeyValuePair<int, string>)item.rdoA.Tag;
                     mbtiDic.Add(temp.Key, temp.Value);
+                    checkCount++;
                 }
                 if (item.rdoB.Checked)
                 {
                     KeyValuePair<int, string> temp = (KeyValuePair<int, string>)item.rdoB.Tag;
                     mbtiDic.Add(temp.Key, temp.Value);
+                    checkCount++;
                 }
                 if (item.flowpanelChoice.Controls.ContainsKey("rdoC"))
                 {
@@ -232,13 +252,24 @@ namespace GoodeeProject
                     {
                         KeyValuePair<int, string> temp = (KeyValuePair<int, string>)rdoC.Tag;
                         mbtiDic.Add(temp.Key, temp.Value);
+                        checkCount++;
                     }
                 }
             }
-            MBTI_Calculator();
 
+            if (checkCount == 94)
+            {
+                MBTI_Calculator();
+                s.AddList("MBTI 제출 완료");
+            }
+            else
+            {
+                MessageBox.Show("체크되지 않은 문항이 있습니다.");
+            }
         }
-
+        /// <summary>
+        /// 사용자가 선택한 답을 계산하는 메서드
+        /// </summary>
         public void MBTI_Calculator()
         {
             tendency = new Dictionary<char, int>();
@@ -291,7 +322,12 @@ namespace GoodeeProject
                 MessageBox.Show("제출을 실패했습니다.\n잠시후 다시 시도해주세요.");
             }
         }
-
+        /// <summary>
+        /// 두개의 환산점수를 계산하는 메서드
+        /// </summary>
+        /// <param name="a">유형별 점수 a</param>
+        /// <param name="b">유형별 점수 b</param>
+        /// <returns></returns>
         private int ChangeScore(int a, int b)
         {
             int result = 0;
@@ -311,7 +347,10 @@ namespace GoodeeProject
 
             return result;
         }
-
+        /// <summary>
+        /// 유형을 계산하는 메서드
+        /// </summary>
+        /// <returns></returns>
         private string GetResult()
         {
             string temp = "";

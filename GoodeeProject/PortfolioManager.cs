@@ -21,6 +21,7 @@ namespace GoodeeProject
         {
             InitializeComponent();
         }
+
         /// <summary>
         /// 데이터 그리드뷰에 수강생의 정보를 데이터베이스에서 호출하여 넣고 데이터그리드뷰의 컬럼 헤더를 설정합니다.
         /// </summary>
@@ -43,6 +44,7 @@ namespace GoodeeProject
             dataGridView1.Columns[9].HeaderText = "이메일";
             dataGridView1.Columns[10].HeaderText = "수강여부";
         }
+
         /// <summary>
         /// 선택한 수강생의 포트폴리오 목록을 표시합니다.
         /// </summary>
@@ -54,7 +56,7 @@ namespace GoodeeProject
             {
                 PortfolioList list = new PortfolioList(dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString());
                 this.Parent.Controls.Add(list);
-                list.Location = new Point(185, 0);
+                list.Location = new Point(0, 0);
                 list.BringToFront();
             }
             if (FrmMain.Ai.Authority=='C')
@@ -64,15 +66,6 @@ namespace GoodeeProject
                 list.Location = new Point(6,7);
                 list.BringToFront();
             }
-        }
-        /// <summary>
-        /// 현재의 폼을 종료시킵니다.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel1.Controls[0].Dispose();
         }
     }
 }

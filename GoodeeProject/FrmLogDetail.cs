@@ -12,6 +12,7 @@ namespace GoodeeProject
 {
     public partial class FrmLogDetail : Form, IFormControl
     {
+        SaveLog s = new SaveLog();
         private string log;
         private int movePointX;
         private int movePointY;
@@ -23,6 +24,7 @@ namespace GoodeeProject
 
         public FrmLogDetail(string log) : this()
         {
+            s.AddList("Log 상세보기");
             this.log = log;
             tboxLogDetail.Text = this.log;
         }

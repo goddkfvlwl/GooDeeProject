@@ -66,7 +66,7 @@ namespace GoodeeProject
         {
             SurveyDetail detail = new SurveyDetail(new Survey(int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString()), dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString(), dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString(), bool.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString()), DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString()), DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString())));
             this.Parent.Controls.Add(detail);
-            detail.Location = new Point(185, 0);
+            detail.Location = new Point(0, 0);
             detail.BringToFront();
         }
     }

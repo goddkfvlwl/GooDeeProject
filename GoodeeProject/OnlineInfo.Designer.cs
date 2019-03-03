@@ -73,7 +73,6 @@
             this.Name = "OnlineInfo";
             this.Size = new System.Drawing.Size(310, 57);
             this.Click += new System.EventHandler(this.OnlineInfo_Click);
-            this.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.OnlineInfo_ControlRemoved);
             this.ResumeLayout(false);
             this.PerformLayout();
 

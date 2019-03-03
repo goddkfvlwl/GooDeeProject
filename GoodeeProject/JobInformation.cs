@@ -283,6 +283,10 @@ namespace GoodeeProject
             totalpage = Paging();
             spage = page + 1;
             t = totalpage - 1;
+            if (t == -1)
+            {
+                t = 0;
+            }
             labPage.Text = spage + " / " + t;
 
             this.gbResultJob.Visible = true;
@@ -303,6 +307,7 @@ namespace GoodeeProject
             else if(total % count == 0)
             {
                 totalpage = total / count;
+
             }
             return totalpage;
         }
@@ -390,6 +395,10 @@ namespace GoodeeProject
                 page = page + 1;
                 spage = page + 1;
                 t = totalpage - 1;
+                if (t==-1)
+                {
+                    t = 0;
+                }
                 labPage.Text = spage + " / " + t;
                 url = listAdd(url, page);
                 XElement xml = url.XmlParsing(url);
@@ -416,6 +425,10 @@ namespace GoodeeProject
                 page = page - 1;
                 spage = page + 1;
                 t = totalpage - 1;
+                if (t == -1)
+                {
+                    t = 0;
+                }
                 labPage.Text = spage + " / " + t;
                 url = listAdd(url, page);
                 XElement xml = url.XmlParsing(url);

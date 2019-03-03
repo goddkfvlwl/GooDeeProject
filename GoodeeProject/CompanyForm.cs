@@ -251,7 +251,7 @@ namespace GoodeeProject
         /// </summary>
         public void RemoveControl()
         {
-           
+            panel2.Controls.Clear();
             panel2.Controls.Remove(portfolioManager);
             panel2.Controls.Remove(introductionList);
             panel2.Controls.Remove(rs);

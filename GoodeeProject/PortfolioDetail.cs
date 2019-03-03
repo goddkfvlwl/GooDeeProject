@@ -16,12 +16,16 @@ namespace GoodeeProject
         Point point;
         Control control;
         
+        /// <summary>
+        /// 생성자
+        /// </summary>
         public PortfolioDetail()
         {
             InitializeComponent();
             txtProjectPart.MinimumSize = txtProjectPart.Size;
             size = txtUseTools.Height;
         }
+
         /// <summary>
         /// 스크롤바의 자동이동을 막는 메서드입니다.
         /// </summary>
@@ -42,6 +46,7 @@ namespace GoodeeProject
             TextBox textbox = sender as TextBox;
             textbox.Height = textbox.Font.Height * (textbox.GetLineFromCharIndex(textbox.Text.Length) + 2);
         }
+
         /// <summary>
         /// 텍스트박스를 동적으로 생성하여 추가합니다.
         /// </summary>
@@ -59,6 +64,7 @@ namespace GoodeeProject
             textbox.Multiline = true;
             introductionPanel.Controls.Add(textbox);
         }
+
         /// <summary>
         /// 텍스트박스가 포커스를 잃을경우 텍스트박스의 테두리를 지웁니다.
         /// </summary>
@@ -155,6 +161,7 @@ namespace GoodeeProject
                 point = e.Location;
             }
         }
+
         /// <summary>
         /// 현재 폼을 종료합니다.
         /// </summary>

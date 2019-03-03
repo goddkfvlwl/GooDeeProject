@@ -19,6 +19,7 @@ namespace GoodeeProject
         {
             InitializeComponent();
         }
+
         /// <summary>
         /// 데이터 그리드뷰에 수강생의 정보를 데이터베이스에서 호출하여 넣고 데이터그리드뷰의 컬럼 헤더를 설정합니다.
         /// </summary>

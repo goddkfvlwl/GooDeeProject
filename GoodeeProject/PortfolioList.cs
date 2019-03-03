@@ -16,6 +16,7 @@ namespace GoodeeProject
     {
         SaveLog log = new SaveLog();
         string id;
+
         /// <summary>
         /// 생성자
         /// </summary>
@@ -24,6 +25,7 @@ namespace GoodeeProject
             InitializeComponent();
             this.id = FrmMain.Mi.Id;
         }
+
         /// <summary>
         /// 생성자
         /// </summary>
@@ -33,6 +35,7 @@ namespace GoodeeProject
             this.id = id;
             log.AddList(id + "수강생의 포트폴리오 목록 열람");
         }
+
         /// <summary>
         /// 현재 창을 종료합니다.
         /// </summary>
@@ -42,6 +45,7 @@ namespace GoodeeProject
         {
             this.Dispose();
         }
+
         /// <summary>
         /// 포트폴리오 목록을 데이터베이스에서 읽어와서 PortfolioListMenu 컨트롤을 동적으로 생성합니다.
         /// </summary>
@@ -78,7 +82,7 @@ namespace GoodeeProject
             string portfolioTitle = (sender as PortfolioListMenu).Controls["lblTitle"].Text;
             Portfolio portfolio = new Portfolio(id, portfolioTitle);
             this.Parent.Controls.Add(portfolio);
-            portfolio.Location = new Point(185, 0);
+            portfolio.Location = new Point(0, 0);
             portfolio.BringToFront();
             if (FrmMain.Ai.Authority=='C')
             {
@@ -99,7 +103,7 @@ namespace GoodeeProject
         {
             Portfolio portfolio = new Portfolio();
             this.Parent.Controls.Add(portfolio);
-            portfolio.Location = new Point(185, 0);
+            portfolio.Location = new Point(0, 0);
             portfolio.Disposed += Portfolio_Disposed;
             portfolio.BringToFront();
             log.AddList("포트폴리오 추가");

@@ -82,39 +82,50 @@ namespace GoodeeProject
                         && !string.IsNullOrEmpty(xls["성별"].ToString()) && !string.IsNullOrEmpty(xls["생년월일"].ToString())
                         && !string.IsNullOrEmpty(xls["휴대폰"].ToString()) && !string.IsNullOrEmpty(xls["주소"].ToString()))
                     {
-                        string[] member = new string[10];
-                        member[0] = xls["이메일"].ToString();
-                        member[1] = xls["이름"].ToString();
-                        member[2] = xls["성별"].ToString() == "남자" ? "m" : "f";
-                        member[3] = xls["생년월일"].ToString();
-                        member[4] = xls["휴대폰"].ToString();
-                        member[5] = xls["주소"].ToString();
-                        member[6] = xls["분류"].ToString();
-                        member[7] = xls["과정명"].ToString();
-                        member[8] = xls["회차"].ToString();
-                        goodeeDAO.InsertMember(member);
-                        string[] Education = new string[5];
-                        Education[0] = xls["이메일"].ToString();
-                        Education[1] = xls["최종학교"].ToString();
-                        if (xls["최종학교"].ToString().Contains("대학교"))
+                        try
                         {
-                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학교")));
+                            string[] member = new string[10];
+                            member[0] = xls["이메일"].ToString();
+                            member[1] = xls["이름"].ToString();
+                            member[2] = xls["성별"].ToString() == "남자" ? "m" : "f";
+                            member[3] = xls["생년월일"].ToString();
+                            member[4] = xls["휴대폰"].ToString();
+                            member[5] = xls["주소"].ToString();
+                            member[6] = xls["분류"].ToString();
+                            member[7] = xls["과정명"].ToString();
+                            member[8] = xls["회차"].ToString();
+                            goodeeDAO.InsertMember(member);
+                            string[] Education = new string[5];
+                            Education[0] = xls["이메일"].ToString();
+                            Education[1] = xls["최종학교"].ToString();
+                            if (xls["최종학교"].ToString().Contains("대학교"))
+                            {
+                                Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학교")));
+                            }
+                            else if ((xls["최종학교"].ToString().Contains("대학")))
+                            {
+                                Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학")));
+                            }
+                            else if (xls["최종학교"].ToString().Contains("고등학교"))
+                            {
+                                Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("고등학교")));
+                            }
+                            else if (xls["최종학교"].ToString().Contains("대학원"))
+                            {
+                                Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학원")));
+                            }
+                            else
+                            {
+                                continue;
+                            }
+                            Education[3] = xls["전공"].ToString();
+                            Education[4] = xls["학력"].ToString();
+                            goodeeDAO.InsertEducation(Education[0], DateTime.Now, DateTime.Now, Education[1], Education[2], Education[3], Education[4]);
                         }
-                        else if ((xls["최종학교"].ToString().Contains("대학")))
+                        catch (Exception)
                         {
-                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학")));
+                            continue;
                         }
-                        else if (xls["최종학교"].ToString().Contains("고등학교"))
-                        {
-                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("고등학교")));
-                        }
-                        else if (xls["최종학교"].ToString().Contains("대학원"))
-                        {
-                            Education[2] = (xls["최종학교"].ToString().Substring(xls["최종학교"].ToString().IndexOf("대학원")));
-                        }
-                        Education[3] = xls["전공"].ToString();
-                        Education[4] = xls["학력"].ToString();
-                        goodeeDAO.InsertEducation(Education[0], DateTime.Now, DateTime.Now, Education[1], Education[2], Education[3], Education[4]);
                     }
                 }
                 con.Close();
@@ -194,6 +205,7 @@ namespace GoodeeProject
             regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
+
         /// <summary>
         /// 수강생을 추가하는 폼을 실행시킵니다.
         /// </summary>
@@ -205,6 +217,7 @@ namespace GoodeeProject
             regist.ShowDialog();
             StudentManagement_Load(null, null);
         }
+
         /// <summary>
         /// ComboBox의 선택 아이템에 따라 Textbox에 입력된 데이터로 수강생을 검색합니다.
         /// </summary>
@@ -246,6 +259,7 @@ namespace GoodeeProject
                     break;
             }
         }
+
         /// <summary>
         /// 그리드뷰에 StudentInfo정보를 체우는 메서드입니다.
         /// </summary>

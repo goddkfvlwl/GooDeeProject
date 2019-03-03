@@ -201,8 +201,11 @@ namespace GoodeeProject
                 portfolioManager.Location = new Point(0, 0);
             }
         }
-
-
+        /// <summary>
+        /// 이력서 사용자정의컨트롤을 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnResume_Click(object sender, EventArgs e)
         {
             RemoveControls();
@@ -298,7 +301,6 @@ namespace GoodeeProject
             detail.BringToFront();
             panel3.Controls.Add(detail);
         }
-
         private void Btnwrite_Click(object sender, EventArgs e)
         {
             RemoveControls();
@@ -390,6 +392,11 @@ namespace GoodeeProject
             panel3.Controls.Add(createSurvey);
         }
 
+        /// <summary>
+        /// MBTI 세부메뉴를 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMBTI_Click(object sender, EventArgs e)
         {
             if (detailPanel.Controls.ContainsKey("CtlMBTIDetail"))
@@ -409,7 +416,11 @@ namespace GoodeeProject
 
             AddPanel(mbti, btnMBTI.Size, btnMBTI.Location);
         }
-
+        /// <summary>
+        /// MBTI 결과 사용자정의컨트롤을 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MBTIResult_Click(object sender, EventArgs e)
         {
             RemoveControls();
@@ -419,7 +430,11 @@ namespace GoodeeProject
             mr.BackColor = Color.FromArgb(0, 0, 0, 0);
             mr.Location = new Point(0, 0);
         }
-
+        /// <summary>
+        /// MBTI 설문 작성 사용자정의컨트롤을 띄워주는 메서드
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MBTIWrite_Click(object sender, EventArgs e)
         {
             panel2.Controls.Remove(detailPanel);
@@ -453,6 +468,8 @@ namespace GoodeeProject
 
         public void RemoveControls()
         {
+            panel2.Controls.Remove(detailPanel);
+            detailPanel.Controls.Clear();
             detailPanel.Controls.Clear();
             panel3.Controls.Clear();
         }
