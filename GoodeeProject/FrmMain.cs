@@ -44,6 +44,9 @@ namespace GoodeeProject
         CtlMBTIResult mr;
         FrmMBTIQuestion mq;
         JobInformation information;
+        DetailView detail;
+        Agreement_enterprise agreement_Enterprise;
+        
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -214,20 +217,72 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
 
-            agreement = new Agreement_enterprise_list();
-            panel2.Controls.Add(agreement);
-            agreement.Location = new Point(192, 3);
-            agreement.BringToFront();
+            if (ai.Authority!='S')
+            {
+                agreement = new Agreement_enterprise_list();
+                panel2.Controls.Add(agreement);
+                agreement.Location = new Point(192, 3);
+                agreement.BringToFront();
+            }
+            else
+            {
+                agreement = new Agreement_enterprise_list();
+                agreement.btnwrite.Visible = false;
+                panel2.Controls.Add(agreement);
+                agreement.Location = new Point(192, 3);
+                agreement.BringToFront();
+            }
 
-
+            agreement.agreementList1.ItemSelectionChanged += AgreementList1_ItemSelectionChanged;
             agreement.btnwrite.Click += Btnwrite_Click;
 
 
         }
 
+        int boardNum = 0; // 게시물번호
+        private void AgreementList1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            RemoveUserControl();
+             
+            if (ai.Authority == 'S')    // 학생일 경우
+            {
+                if (e.IsSelected)
+                {
+                    ListViewItem listViewItem = e.Item;
+                    boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
+
+                    detail = new DetailView(boardNum);
+                    detail.butDelete.Visible = false;
+                    detail.butUpdate.Visible = false;
+                    detail.Location = new Point(190, 3);
+                    detail.BringToFront();
+                    panel2.Controls.Add(detail);
+                }
+            }
+            else if (ai.Authority != 'S')
+            {
+                if (e.IsSelected)
+                {
+                    ListViewItem listViewItem = e.Item;
+                    boardNum = Int32.Parse(listViewItem.SubItems[0].Text);
+
+                    detail = new DetailView(boardNum);
+                    detail.Location = new Point(190, 3);
+                    detail.BringToFront();
+                    panel2.Controls.Add(detail); 
+                }
+            }
+           
+        }
+
+        
         private void Btnwrite_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            RemoveUserControl();
+            agreement_Enterprise = new Agreement_enterprise();
+            panel2.Controls.Add(agreement_Enterprise);
+            agreement_Enterprise.Location = new Point(192, 3);
+            agreement_Enterprise.BringToFront();
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
@@ -237,13 +292,12 @@ namespace GoodeeProject
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
 
-            companyInfo = new CtlCompanyInfoDetail();
-            panel2.Controls.Add(companyInfo);
-            companyInfo.Location = new Point(192, 211);
-            companyInfo.BringToFront();
-            companyInfo.Controls["lblMenu1"].Click += FrmMain_Click;
+            information = new JobInformation();
+            information.Location = new Point(190, 3);
+            information.BringToFront();
+            panel2.Controls.Add(information);
             
-
+            
         }
 
         private void FrmMain_Click(object sender, EventArgs e)
@@ -252,8 +306,8 @@ namespace GoodeeProject
             information = new JobInformation();
             information.Location = new Point(190, 3);
             panel2.Controls.Add(information);
-
         }
+
 
         /// <summary>
         /// 현재 로그인된 계정의 권한에 따라 설문목록 또는 설문 관리폼을 호출합니다.
@@ -326,6 +380,7 @@ namespace GoodeeProject
 
             mbti = new CtlMBTIDetail();
             panel2.Controls.Add(mbti);
+            
             mbti.BringToFront();
             mbti.Location = new Point(192, 141);
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
@@ -409,6 +464,11 @@ namespace GoodeeProject
             agreement = null;
             panel2.Controls.Remove(information);
             information = null;
+            panel2.Controls.Remove(detail);
+            detail = null;
+            panel2.Controls.Remove(agreement_Enterprise);
+            agreement_Enterprise = null;
+            
         }
 
         public void Frm_MouseDown(object sender, MouseEventArgs e)

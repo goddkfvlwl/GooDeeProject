@@ -76,6 +76,7 @@ namespace GoodeeProject
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            
             RemoveControl();    // 컨트롤 리무브
 
 
@@ -83,7 +84,7 @@ namespace GoodeeProject
             job.Clear();
 
             Keyword();
-            toolTip1.SetToolTip(picReset, "검색초기화");
+            
         }
 
         private void Keyword()
@@ -92,18 +93,17 @@ namespace GoodeeProject
             {
                 search.JobKeyword(jobSearch.Text);
                 url = listAddKey(url, page);  // 키워드도 있고, 지역 또는 직종이 선택되었을 경우
-                MessageBox.Show(url);
+                //MessageBox.Show(url);
                 XElement xml = url.XmlParsing(url);
                 total = xml.XmlTotal(xml);  // 해당 jobs노드의 속성인 total값을 반환
                 PageVisible();
                 UrlXml(xml);
                 JobResultAdd();
-                //Url();
+                
             }
             else if ((!String.IsNullOrEmpty(jobSearch.Text) && jobSearch.Text == "기업을 입력하세요") && (JobAreaChoice.CheckResultlist.Count == 0 && JobChoice.Jlistcheck.Count == 0))
             {
-                // 3개의 키워드가 없는 경우
-                MessageBox.Show("검색어가 없습니다.");
+               MessageBox.Show("검색어가 없습니다.");
             }
             else
             {
@@ -206,7 +206,6 @@ namespace GoodeeProject
         private void OneJobMat_Click(object sender, EventArgs e)
         {
             oneJobMatResult oneJob = (oneJobMatResult)sender;
-            //MessageBox.Show(oneJob.companyName.Name);
             Process.Start("chrome.exe", oneJob.companyName.Name);
         }
 
@@ -242,8 +241,9 @@ namespace GoodeeProject
         private void PageVisible()
         {
             totalpage = Paging();
-
-            labPage.Text = page + " / " + totalpage;
+            int spage = page + 1;
+            int t = totalpage - 1;
+            labPage.Text = spage + " / " + t;
 
             this.gbResultJob.Visible = true;
             resultPanel.Visible = true;
@@ -260,7 +260,7 @@ namespace GoodeeProject
                 totalpage = total / count + 1;
 
             }
-            else
+            else if(total % count == 0)
             {
                 totalpage = total / count;
             }
@@ -376,6 +376,7 @@ namespace GoodeeProject
             area.Clear();
             job.Clear();
             list.Clear();
+            page = 0;
             url = "http://api.saramin.co.kr/job-search?";
             area.Remove(0, area.Length);
             job.Remove(0, job.Length);
@@ -388,5 +389,12 @@ namespace GoodeeProject
             jobSearch.Text = "기업을 입력하세요";
             search.JobKeyword("기업을 입력하세요");
         }
+
+        private void JobInformation_Load(object sender, EventArgs e)
+        {
+            toolTip1.SetToolTip(picReset, "검색 초기화");
+        }
+
+       
     }
 }

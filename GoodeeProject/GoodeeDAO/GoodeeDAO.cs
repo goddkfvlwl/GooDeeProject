@@ -815,7 +815,7 @@ namespace GoodeeProject.GoodeeDAO
             try
             {
                 SqlDataReader reader = new DBConnection().GetPost(sp, sqlparameters);
-                //System.Windows.Forms.MessageBox.Show(firstCode = reader["FirstArea_Code"].ToString());
+                
                 while (reader.Read())
                 {
                     firstCode = reader["FirstArea_Code"].ToString();
@@ -875,32 +875,6 @@ namespace GoodeeProject.GoodeeDAO
                         
                 }
                 
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-            return list;
-        }
-
-        public List<FirstSubArea> ForeginAllFirstAreaName()
-        {
-            string proc = "ForeignAreaName";
-            List<FirstSubArea> list = new List<FirstSubArea>();
-
-            try
-            {
-                SqlDataReader reader = new DBConnection().Select(proc);
-                while (reader.Read())
-                {
-                    list.Add(new FirstSubArea()
-                    {
-                        FirstAreaName1 = reader["FirstArea_Name"].ToString()
-                    });
-
-                }
-
             }
             catch (Exception)
             {
@@ -1241,7 +1215,7 @@ namespace GoodeeProject.GoodeeDAO
             return con.ExecuteSelect(proc);
         }
 
-        public DataTable SelectMBTI_StatsByName(string name)
+       public DataTable SelectMBTI_StatsByName(string name)
         {
             string proc = "SelectMBTIStatsByName";
             con = new DBConnection();
@@ -1282,9 +1256,33 @@ namespace GoodeeProject.GoodeeDAO
             {
                 result = true;
             }
+            
             return result;
         }
 
+        public bool InsertCommantBoard(int code, string body, DateTime date, string ID)
+        {
+            string proc = "InsertCommantBoard";
+
+            var dbCon = new DBConnection();
+
+            SqlParameter[] sqlParameters = new SqlParameter[4];
+            sqlParameters[0] = new SqlParameter("@boardNum",code);
+            sqlParameters[1] = new SqlParameter("@body", body);
+            sqlParameters[2] = new SqlParameter("@writeDate",date);
+            sqlParameters[3] = new SqlParameter("@Id", ID);
+
+
+            try
+            {
+                return dbCon.ExecuteInsert(proc, sqlParameters);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
 

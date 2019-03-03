@@ -27,6 +27,11 @@ namespace GoodeeProject
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 해당 폼이 로드시, 1차 직종이 리스트박스에 추가된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AreaChoice_Load(object sender, EventArgs e)
         {
             jlist = new GoodeeDAO.GoodeeDAO().AllFirstJobName();  // 전체 1차 직종코드랑 1차 직종 이름을 반환한다.
@@ -39,16 +44,21 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 1차 직종코드를 선택시 해당하는 2차 직종코드가 리스트박스에 추가가된다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void firstJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show(firstJobName.SelectedItem.ToString());
             secondJobName.Items.Clear();
             for (int i = 0; i < jlist.Count; i++)
             {
                 if (jlist[i].FirstJob_Name == firstJobName.SelectedItem.ToString())
                 {
                     code = jlist[i].FirstJob_Code;
-                    jlist2 = new GoodeeDAO.GoodeeDAO().selectSecondJob(code);   // 1차 지역코드를 넘겨서 1차지역코드, 2차지역이름, 2차지역코드
+                    jlist2 = new GoodeeDAO.GoodeeDAO().selectSecondJob(code);   
+                    // 1차 지역코드를 넘겨서 1차지역코드, 2차지역이름, 2차지역코드
                 }
             }
             foreach (FirstSubJob item in jlist2)
@@ -61,13 +71,22 @@ namespace GoodeeProject
 
         CheckBoxAdd add = new CheckBoxAdd();
         iTalk.iTalk_CheckBox _CheckBox;
-
+        
+        /// <summary>
+        /// 3차 직종을 띄운다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void secondJobName_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Controls.Remove(add);
             panelChechkBoxAdd();    // 3차 직종을 띄우는 메서드
         }
 
+        /// <summary>
+        /// 해당 체크할 것을 넘긴다.
+        /// 키워드로 넘길 list의 메서드
+        /// </summary>
         private void panelChechkBoxAdd()
         {
             string secondJobCode = "";
@@ -98,6 +117,11 @@ namespace GoodeeProject
 
         }
 
+        /// <summary>
+        /// 키워드의 리스트를 넘길경우 체크박스도 생각해야 하는데
+        /// 체크가 풀릴경우, 유지될경우를 인식해 키워드를 넘긴다.
+        /// </summary>
+        /// <param name="sender"></param>
         private void _CheckBox_CheckedChanged(object sender)
         {
             iTalk.iTalk_CheckBox _CheckBox = (iTalk.iTalk_CheckBox)sender;

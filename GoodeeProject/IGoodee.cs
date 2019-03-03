@@ -30,7 +30,6 @@ namespace GoodeeProject
         #region 사람인
         string SubAreaCount(string firstAreaName);
         List<FirstSubArea> SubAreaName(string fristCode);
-        List<FirstSubArea> ForeginAllFirstAreaName();
         List<FirstSubArea> AreaAutomaticSearch();
         List<FirstSubJob> AllFirstJobName();
         List<FirstSubJob> selectSecondJob(string firstJobCode);
@@ -39,7 +38,7 @@ namespace GoodeeProject
 
         
         bool UpdateMemberInfo(string id, string mobile, string address, string hopePay, Image picture);
-
+        bool InsertCommantBoard(int code, string body, DateTime date, string ID);
 
 
         bool InsertLicense(string id, string name, DateTime date, string agency);

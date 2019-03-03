@@ -43,9 +43,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GoodeeProject.Properties.Resources.학생정보열람요청;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 47);
+            this.pictureBox1.Size = new System.Drawing.Size(208, 59);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 51;
             this.pictureBox1.TabStop = false;
@@ -56,9 +57,10 @@
             this.RequestButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RequestButton.Image = null;
             this.RequestButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RequestButton.Location = new System.Drawing.Point(159, 164);
+            this.RequestButton.Location = new System.Drawing.Point(182, 205);
+            this.RequestButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RequestButton.Name = "RequestButton";
-            this.RequestButton.Size = new System.Drawing.Size(49, 31);
+            this.RequestButton.Size = new System.Drawing.Size(56, 39);
             this.RequestButton.TabIndex = 54;
             this.RequestButton.Text = "요청";
             this.RequestButton.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -70,17 +72,18 @@
             this.iTalk_Label3.BackColor = System.Drawing.Color.Transparent;
             this.iTalk_Label3.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.iTalk_Label3.ForeColor = System.Drawing.Color.Gray;
-            this.iTalk_Label3.Location = new System.Drawing.Point(58, 126);
+            this.iTalk_Label3.Location = new System.Drawing.Point(66, 158);
             this.iTalk_Label3.Name = "iTalk_Label3";
-            this.iTalk_Label3.Size = new System.Drawing.Size(262, 17);
+            this.iTalk_Label3.Size = new System.Drawing.Size(340, 23);
             this.iTalk_Label3.TabIndex = 53;
             this.iTalk_Label3.Text = "학생정보 열람을 원할시 버튼을 눌러주세요";
             // 
             // iTalk_Separator1
             // 
-            this.iTalk_Separator1.Location = new System.Drawing.Point(-1, 65);
+            this.iTalk_Separator1.Location = new System.Drawing.Point(-1, 81);
+            this.iTalk_Separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.iTalk_Separator1.Name = "iTalk_Separator1";
-            this.iTalk_Separator1.Size = new System.Drawing.Size(364, 25);
+            this.iTalk_Separator1.Size = new System.Drawing.Size(416, 31);
             this.iTalk_Separator1.TabIndex = 50;
             this.iTalk_Separator1.Text = "iTalk_Separator1";
             // 
@@ -90,9 +93,10 @@
             this.btnMinimum.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnMinimum.Image = null;
             this.btnMinimum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMinimum.Location = new System.Drawing.Point(300, 12);
+            this.btnMinimum.Location = new System.Drawing.Point(343, 15);
+            this.btnMinimum.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMinimum.Name = "btnMinimum";
-            this.btnMinimum.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimum.Size = new System.Drawing.Size(23, 25);
             this.btnMinimum.TabIndex = 49;
             this.btnMinimum.Text = "_";
             this.btnMinimum.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -104,9 +108,10 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnExit.Image = null;
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(326, 12);
+            this.btnExit.Location = new System.Drawing.Point(373, 15);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(20, 20);
+            this.btnExit.Size = new System.Drawing.Size(23, 25);
             this.btnExit.TabIndex = 48;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -115,11 +120,10 @@
             // lbl_Time
             // 
             this.lbl_Time.AutoSize = true;
-            this.lbl_Time.Location = new System.Drawing.Point(282, 183);
+            this.lbl_Time.Location = new System.Drawing.Point(322, 229);
             this.lbl_Time.Name = "lbl_Time";
-            this.lbl_Time.Size = new System.Drawing.Size(53, 12);
+            this.lbl_Time.Size = new System.Drawing.Size(0, 15);
             this.lbl_Time.TabIndex = 56;
-            this.lbl_Time.Text = "lbl_Time";
             // 
             // timer1
             // 
@@ -127,10 +131,10 @@
             // 
             // CompanyMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(358, 291);
+            this.ClientSize = new System.Drawing.Size(409, 364);
             this.Controls.Add(this.lbl_Time);
             this.Controls.Add(this.RequestButton);
             this.Controls.Add(this.iTalk_Label3);
@@ -139,6 +143,7 @@
             this.Controls.Add(this.btnMinimum);
             this.Controls.Add(this.btnExit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CompanyMainForm";
             this.Text = "CompanyMainForm";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Frm_MouseDown);

@@ -69,12 +69,15 @@ namespace GoodeeProject
         string readDate = null;
         Thread thread;
         bool isConnected = false;
-
+        bool read = false;
 
         int remainTime; // timer 시간
-        bool Read;
 
-
+        /// <summary>
+        /// 요청이라는 버튼을 클릭시 서버와 연결이 되며, 서버에게 자신의 정보를 보낸다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RequestButton_Click(object sender, EventArgs e)
         {
             if (client == null)
@@ -83,7 +86,9 @@ namespace GoodeeProject
                 client = new TcpClient();
                 try
                 {
+
                     client.Connect("40.76.89.193",3333);   // 연결이 되었으니, Connteced에 true를 준다.
+
                     isConnected = true;
                 }
                 catch (Exception a)
@@ -97,7 +102,7 @@ namespace GoodeeProject
                 ns.Write(nickName, 0, nickName.Length);
                 ns.Flush();
 
-                remainTime = 300;
+                remainTime = 200;
                 timer1.Enabled = true;
 
                 thread = new Thread(GetMessage);
@@ -105,6 +110,9 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// Thread를 돌려서 서버가 보낸 메시지를 받는다.
+        /// </summary>
         private void GetMessage()
         {
             // 서버가 보내준 메서드를 받음
@@ -121,6 +129,12 @@ namespace GoodeeProject
             }
         }
 
+        /// <summary>
+        /// 서버가 보낸 메시지들 중 거부/허용이라는 단어만 받게 필터링이 되어있다.
+        /// 거부 :  서버 연결끊김/기업창이 닫힌다.
+        /// 허용 : 열람창으로 전환
+        /// </summary>
+        /// <param name="readDate"></param>
         private void Open(string readDate)
         {
             if (readDate.Contains("거부"))
@@ -135,13 +149,17 @@ namespace GoodeeProject
             else if (readDate.Contains("허용"))
             {
                 this.Visible = false;
-                //timer1.Enabled = false;
-
+                read = true;
                 CompanyForm companyForm = new CompanyForm(client, ns);
                 companyForm.ShowDialog();
             }
         }
 
+        /// <summary>
+        /// 관리자가 요청신호를 제한시간에 주지 않으면 접속이 끊기고, 해당 창이 닫힌다.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             remainTime -= 1;
@@ -149,9 +167,16 @@ namespace GoodeeProject
             if (remainTime == 0)
             {
                 timer1.Enabled = false;
-                Read = false;
                 MessageBox.Show("요청받을 수 없습니다. 잠시후 다시 실행해 주세요.");
+                string logout = "$DisConnect$";
+                byte[] a = Encoding.UTF8.GetBytes(logout);
+                ns.Write(a, 0, a.Length);
+                ns.Flush();
                 Environment.Exit(0);
+            }
+            else if (read == true)
+            {
+                timer1.Enabled = false;
             }
         }
     }

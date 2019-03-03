@@ -80,6 +80,14 @@ namespace GoodeeProject
             this.Parent.Controls.Add(portfolio);
             portfolio.Location = new Point(185, 0);
             portfolio.BringToFront();
+            if (FrmMain.Ai.Authority=='C')
+            {
+                portfolioTitle = (sender as PortfolioListMenu).Controls["lblTitle"].Text;
+                portfolio = new Portfolio(id, portfolioTitle);
+                this.Parent.Controls.Add(portfolio);
+                portfolio.Location = new Point(6,7);
+                portfolio.BringToFront();
+            }
         }
 
         /// <summary>
