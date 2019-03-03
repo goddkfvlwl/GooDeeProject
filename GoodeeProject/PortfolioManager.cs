@@ -58,14 +58,5 @@ namespace GoodeeProject
                 list.BringToFront();
             }
         }
-        /// <summary>
-        /// 현재의 폼을 종료시킵니다.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
-        {
-            panel1.Controls[0].Dispose();
-        }
     }
 }

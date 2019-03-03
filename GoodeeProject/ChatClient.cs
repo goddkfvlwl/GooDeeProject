@@ -50,7 +50,7 @@ namespace GoodeeProject
 
                         try
                         {
-                            client.Connect("114.204.139.201", 3333);
+                            client.Connect("40.76.89.193", 3333);
                             ns = client.GetStream();
                             ns.Write(nickName, 0, nickName.Length);
                             ns.Flush();
