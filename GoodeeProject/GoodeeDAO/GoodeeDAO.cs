@@ -388,7 +388,12 @@ namespace GoodeeProject.GoodeeDAO
 
         }
 
-
+        /// <summary>
+        /// 1차 지역에 대한 코드와 이름을 디비에 저장
+        /// </summary>
+        /// <param name="fa">1차지역코드</param>
+        /// <param name="fn">1차지역이름</param>
+        /// <returns></returns>
         public bool InsetFirstAreaCode(string fa, string fn)
         {
             string proc = "InsertFistArea_Code";
@@ -411,7 +416,13 @@ namespace GoodeeProject.GoodeeDAO
         }
 
 
-
+        /// <summary>
+        /// 2차지역을인서트한다.
+        /// </summary>
+        /// <param name="code">2차지역코드</param>
+        /// <param name="name">2차지역이름</param>
+        /// <param name="firstcode">1차지역코드</param>
+        /// <returns></returns>
         internal bool InsetFirstAreaCode(string code, string name, string firstcode)
         {
             string proc = "AreaInsert";
@@ -434,6 +445,12 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
+        /// <summary>
+        /// 잡에 대한 정보를 저장
+        /// </summary>
+        /// <param name="jc">직종코드</param>
+        /// <param name="jn">직종이름</param>
+        /// <returns></returns>
         public bool InsertJob(string jc, string jn)
         {
             string proc = "InsertFirstJob";
@@ -456,6 +473,13 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
+        /// <summary>
+        /// 두번째 2차 직종
+        /// </summary>
+        /// <param name="jobCode">2차직종코드</param>
+        /// <param name="jobName">2차직종이름</param>
+        /// <param name="firstJobCode">1차직종코드</param>
+        /// <returns></returns>
         internal bool InsertJob(string jobCode, string jobName, string firstJobCode)
         {
             string proc = "InsertSecondJob";
@@ -641,6 +665,13 @@ namespace GoodeeProject.GoodeeDAO
             return con.ExecuteDelete(proc, parameters);
         }
 
+        /// <summary>
+        /// 3차직종코드 insert
+        /// </summary>
+        /// <param name="jobCode">3차직종코드</param>
+        /// <param name="jobName">3차직종이름</param>
+        /// <param name="secondJobCode">2차직종코드</param>
+        /// <returns></returns>
         internal bool InsertDetailJob(string jobCode, string jobName, string secondJobCode)
         {
             string proc = "InsertDetailJob";
@@ -680,6 +711,11 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+        /// <summary>
+        /// 게시판에 작성된 내용을 insert한다
+        /// </summary>
+        /// <param name="b">작성된 내을 insert할때 필요한 파라미터</param>
+        /// <returns></returns>
         public bool InsertBoard(AgreementBoard b)
         {
             string proc = "BoardInsert";
@@ -701,6 +737,11 @@ namespace GoodeeProject.GoodeeDAO
                 throw;
             }
         }
+        /// <summary>
+        /// 해당 보드넘버의 댓글을 읽어온다.
+        /// </summary>
+        /// <param name="board">게시판번호</param>
+        /// <returns></returns>
         public List<BoardListComment> OutBoard(int board)
         {
             //GetPost
@@ -730,6 +771,10 @@ namespace GoodeeProject.GoodeeDAO
             }
             return list;
         }
+        /// <summary>
+        /// 게시판에 등록이된 내용을 select한다.
+        /// </summary>
+        /// <returns></returns>
         public List<AgreementBoard> OutBoard()
         {
             List<AgreementBoard> lst = new List<AgreementBoard>();
@@ -812,7 +857,11 @@ namespace GoodeeProject.GoodeeDAO
             return ms.ToArray();
         }
 
-
+        /// <summary>
+        /// 게시판의 내용을 삭제
+        /// </summary>
+        /// <param name="num">샂제할 게시판번호</param>
+        /// <returns></returns>
         public bool DeleteBoard(int num)
         {
             string proc = "DeleteBoard";
@@ -832,6 +881,11 @@ namespace GoodeeProject.GoodeeDAO
             }
         }
 
+        /// <summary>
+        /// 1차지역코드 반환
+        /// </summary>
+        /// <param name="firstAreaName"></param>
+        /// <returns></returns>
         public string SubAreaCount(string firstAreaName)
         {
             string sp = "FirstAreaCode";
@@ -857,6 +911,11 @@ namespace GoodeeProject.GoodeeDAO
             
         }
 
+        /// <summary>
+        /// 2차지역알아내기
+        /// </summary>
+        /// <param name="fristCode"></param>
+        /// <returns></returns>
         public List<FirstSubArea> SubAreaName(string fristCode)
         {
             string sp = "subAreaCodeName";
@@ -886,6 +945,10 @@ namespace GoodeeProject.GoodeeDAO
             return list;
         }
 
+        /// <summary>
+        /// 한국1차 지역검색
+        /// </summary>
+        /// <returns></returns>
         public List<FirstSubArea> AllFirstAreaName()
         {
             string proc = "KoreaFirstAreaName";
@@ -912,6 +975,10 @@ namespace GoodeeProject.GoodeeDAO
             return list;
         }
 
+        /// <summary>
+        ///  전체 1차 직종코드랑 1차 직종 이름을 반환한다.
+        /// </summary>
+        /// <returns></returns>
         public List<FirstSubJob> AllFirstJobName()
         {
             string proc = "AllFirstJob";
@@ -990,6 +1057,11 @@ namespace GoodeeProject.GoodeeDAO
             return code;
         }
 
+        /// <summary>
+        /// // 1차 지역코드를 넘겨서 1차지역코드, 2차지역이름, 2차지역코드
+        /// </summary>
+        /// <param name="firstJobCode"></param>
+        /// <returns></returns>
         public List<FirstSubJob> selectSecondJob(string firstJobCode)
         {
             string proc = "selectSecondJob";
@@ -1019,6 +1091,11 @@ namespace GoodeeProject.GoodeeDAO
             return list;
         }
 
+        /// <summary>
+        /// // 3차지역코드 3차지역이름 2차지역코드
+        /// </summary>
+        /// <param name="secondJocCode"></param>
+        /// <returns></returns>
         public List<FirstSubJob> selectDetailJob(string secondJocCode)
         {
             string proc = "DetailJob";
@@ -1048,6 +1125,10 @@ namespace GoodeeProject.GoodeeDAO
             return list;
         }
 
+        /// <summary>
+        /// 지역검색
+        /// </summary>
+        /// <returns></returns>
         public List<FirstSubArea> AreaAutomaticSearch()
         {
             string proc = "AreaAutomaticSearch";
@@ -1288,6 +1369,11 @@ namespace GoodeeProject.GoodeeDAO
             return result;
         }
 
+        /// <summary>
+        /// 댓글등록
+        /// </summary>
+        /// <param name="b">댓글로 넘기기 위한 객체</param>
+        /// <returns></returns>
         public bool InsertCommantBoard(BoardListComment b)
         {
             string proc = "InsertCommantBoard";
