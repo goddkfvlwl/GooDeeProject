@@ -49,7 +49,7 @@ namespace GoodeeProject
                         CompanyMainForm.Mi = gd.SelectMember(CompanyMainForm.Ai.Id);
                         CompanyMainForm companyMainForm = new CompanyMainForm();
                         companyMainForm.Show();
-                        
+                        s.AddList("로그인");
                         this.Visible = false;
 
                     }

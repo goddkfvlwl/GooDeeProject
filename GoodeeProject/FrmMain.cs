@@ -212,6 +212,7 @@ namespace GoodeeProject
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
+            s.AddList("협약기업게시판");
             RemoveUserControl();
 
             sidePanel.Visible = true;
@@ -309,6 +310,7 @@ namespace GoodeeProject
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
+            s.AddList("기업정보확인");
             RemoveUserControl();
 
             sidePanel.Visible = true;
