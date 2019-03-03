@@ -108,5 +108,6 @@ namespace GoodeeProject
             this.Parent.Controls.Add(ctlSelf);
             this.Parent.Controls.Remove(this);
         }
+
     }
 }

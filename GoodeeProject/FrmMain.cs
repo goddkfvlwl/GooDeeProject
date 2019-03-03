@@ -27,6 +27,7 @@ namespace GoodeeProject
         static MemberInfo mi = new MemberInfo();
         static AccountInfo ai = new AccountInfo();
         #region Controls
+<<<<<<< HEAD
         public Panel Panel2 { get { return panel2; } set { panel2 = value; } }
         CtlSpecDetail spec;
         CtlCompanyInfoDetail companyInfo;
@@ -47,6 +48,10 @@ namespace GoodeeProject
         DetailView detail;
         Agreement_enterprise agreement_Enterprise;
         CommantLsit cmlist;
+=======
+        ChatClient chatClinet;
+        Panel detailPanel;
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         #endregion
 
         public static string Curriculum { get => curriculum; set => curriculum = value; }
@@ -61,7 +66,12 @@ namespace GoodeeProject
         public FrmMain()
         {
             //InitializeComponent();
+            detailPanel = new Panel();
             LoadFrm();
+<<<<<<< HEAD
+=======
+      
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
         public void LoadFrm()
@@ -113,10 +123,12 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnClassModify_Click(object sender, EventArgs e)
         {
-            classlist = new ClassList();
-            panel2.Controls.Add(classlist);
-            classlist.Location = new Point(185, 0);
-            classlist.BringToFront();
+            RemoveControls();
+
+            ClassList classlist = new ClassList();
+            classlist.Location = new Point(0, 0);
+
+            panel3.Controls.Add(classlist);
         }
         /// <summary>
         /// 수강생을 관리하는 폼을 호출합니다.
@@ -125,56 +137,102 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void BtnStudent_Click(object sender, EventArgs e)
         {
-            studentManagement = new StudentManagement();
-            panel2.Controls.Add(studentManagement);
-            studentManagement.Location = new Point(185, 0);
+            RemoveControls();
+
+            StudentManagement studentManagement = new StudentManagement();
+            studentManagement.Location = new Point(0, 0);
             studentManagement.Visible = true;
-            studentManagement.BringToFront();
+
+            panel3.Controls.Add(studentManagement);
+
         }
 
+<<<<<<< HEAD
         /// <summary>
         /// 세부목록을 표시합니다.
         /// </summary>
         /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
-        private void btnSpec_Click(object sender, EventArgs e)
+=======
+
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            if (spec == null)
-            {
-                RemoveUserControl();
-                sidePanel.Visible = true;
-                sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
-                spec = new CtlSpecDetail();
-                panel2.Controls.Add(spec);
-                spec.Location = new Point(192, 1);
-                spec.BringToFront();
-                spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click; ;
-                spec.Controls["lblResume"].Click += BtnResume_Click;
-                spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
-            }
-            else
-            {
-                sidePanel.Visible = false;
-                RemoveUserControl();
-            }
+            Application.Exit();
+            Environment.Exit(0);
         }
 
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
+        private void btnSpec_Click(object sender, EventArgs e)
+        {
+            if (detailPanel.Controls.ContainsKey("CtlSpecDetail"))
+            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
+                sidePanel.Visible = false;
+                return;
+            }
+            sidePanel.Visible = true;
+            sidePanel.Location = new Point(btnSpec.Size.Width - 10, btnSpec.Location.Y);
+
+            CtlSpecDetail spec = new CtlSpecDetail();
+            spec.Controls["iTalk_Label2"].Click += BtnPortfolio_Click;
+            spec.Controls["lblResume"].Click += BtnResume_Click;
+            spec.Controls["lbl_SelfIntroduction"].Click += lbl_SelfIntroduction_Click;
+            spec.Location = new Point(0, 0);
+
+            AddPanel(spec, btnSpec.Size, btnSpec.Location);
+        }
+
+<<<<<<< HEAD
         /// <summary>
         /// 현재 로그인된 계정의 권한에 따라 포트폴리오목록 또는 포트폴리오 매니저폼을 호출합니다.
         /// </summary>
         /// <param name="sender">이벤트를 호출한 컨트롤 객체</param>
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
-        private void BtnPortfolio_Click(object sender, EventArgs e)
+=======
+        private void AddPanel(Control item, Size size, Point point)
         {
+            detailPanel.Controls.Clear();
+            detailPanel.Controls.Add(item);
+            detailPanel.Location = new Point(size.Width, point.Y);
+            detailPanel.Size = item.Size;
+
+            panel2.Controls.Add(detailPanel);
+            detailPanel.BringToFront();
+        }
+
+        private void lbl_SelfIntroduction_Click(object sender, EventArgs e)
+        {
+            RemoveControls();
+
             if (ai.Authority == 'S')
             {
-                portfolioList = new PortfolioList();
-                panel2.Controls.Add(portfolioList);
-                portfolioList.Location = new Point(185, 0);
-                portfolioList.BringToFront();
+                CtlSelfIntroductionList introductionList = new CtlSelfIntroductionList();
+                introductionList.Location = new Point(0, 0);
+                panel3.Controls.Add(introductionList);
+            }
+            else
+            {
+                CtlIntroductionListM introductionListM = new CtlIntroductionListM();
+                introductionListM.Location = new Point(0, 0);
+                panel3.Controls.Add(introductionListM);
+            }
+        }
+
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
+        private void BtnPortfolio_Click(object sender, EventArgs e)
+        {
+            RemoveControls();
+
+            if (ai.Authority == 'S')
+            {
+                PortfolioList portfolioList = new PortfolioList();
+                panel3.Controls.Add(portfolioList);
+                portfolioList.Location = new Point(0, 0);
             }
             else if (ai.Authority == 'A' || ai.Authority == 'M')
             {
+<<<<<<< HEAD
                 portfolioManager = new PortfolioManager();
                 panel2.Controls.Add(portfolioManager);
                 portfolioManager.Location = new Point(185, 0);
@@ -197,27 +255,45 @@ namespace GoodeeProject
                 CtlIntroductionListM introductionList = new CtlIntroductionListM();
                 introductionList.Location = new Point(186, 0);
                 panel2.Controls.Add(introductionList);
+=======
+                PortfolioManager portfolioManager = new PortfolioManager();
+                panel3.Controls.Add(portfolioManager);
+                portfolioManager.Location = new Point(0, 0);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             }
         }
 
         private void BtnResume_Click(object sender, EventArgs e)
         {
+            RemoveControls();
+
             s.AddList("이력서 클릭");
+<<<<<<< HEAD
             rs = new CtlResume();
             panel2.Controls.Add(rs);
             rs.Location = new Point(185, 0);
             spec.SendToBack();
 
+=======
+            CtlResume rs = new CtlResume();
+            panel3.Controls.Add(rs);
+            rs.Location = new Point(0, 0);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
         private void btnBoard_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             s.AddList("협약기업게시판");
             RemoveUserControl();
+=======
+            RemoveControls();
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
 
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnBoard.Size.Width - 10, btnBoard.Location.Y);
 
+<<<<<<< HEAD
             if (ai.Authority!='S')
             {
                 agreement = new Agreement_enterprise_list();
@@ -330,6 +406,24 @@ namespace GoodeeProject
             information = new JobInformation();
             information.Location = new Point(190, 3);
             panel2.Controls.Add(information);
+=======
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            if (detailPanel.Controls.ContainsKey("CtlCompanyInfoDetail"))
+            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
+                sidePanel.Visible = false;
+                return;
+            }
+            sidePanel.Visible = true;
+            sidePanel.Location = new Point(btnInfo.Size.Width - 10, btnInfo.Location.Y);
+
+            CtlCompanyInfoDetail companyInfo = new CtlCompanyInfoDetail();
+            companyInfo.Location = new Point(0, 0);
+
+            AddPanel(companyInfo, btnInfo.Size, btnInfo.Location);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
 
@@ -340,32 +434,36 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnSurvey_Click(object sender, EventArgs e)
         {
-            if (surveyAdmin == null)
+            if (detailPanel.Controls.ContainsKey("CtlSurveyAdminDetail"))
             {
-                RemoveUserControl();
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
+                sidePanel.Visible = false;
+                return;
+            }
+            sidePanel.Visible = true;
+            sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
+            sidePanel.BringToFront();
+            if (ai.Authority == 'S')
+            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel = null;
+                panel3.Controls.Clear();
+                SurveyList surveyList = new SurveyList();
+                surveyList.BackColor = Color.Transparent;
+                surveyList.Location = new Point(185, 0);
+                panel3.Controls.Add(surveyList);
+            }
+            else
+            {
+                //관리자, 최상위 관리자
+                CtlSurveyAdminDetail surveyAdmin = new CtlSurveyAdminDetail();
 
-                sidePanel.Visible = true;
-                sidePanel.Location = new Point(btnSurvey.Size.Width - 10, btnSurvey.Location.Y);
-                if (ai.Authority == 'S')
-                {
-                    surveyList = new SurveyList();
-                    panel2.Controls.Add(surveyList);
-                    surveyList.Location = new Point(185, 0);
-                    surveyList.BringToFront();
-                }
-                else
-                {
-                    //관리자, 최상위 관리자
-                    if (surveyAdmin == null)
-                    {
-                        surveyAdmin = new CtlSurveyAdminDetail();
-                    }
-                    panel2.Controls.Add(surveyAdmin);
-                    surveyAdmin.Location = new Point(192, 40);
-                    surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
-                    surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
-                    surveyAdmin.BringToFront();
-                }
+                surveyAdmin.Location = new Point(0, 0);
+                surveyAdmin.Controls["iTalk_Label1"].Click += iTalk_Label1_Click;
+                surveyAdmin.Controls["lblMenu1"].Click += lblMenu1_Click;
+
+                AddPanel(surveyAdmin, btnSurvey.Size, btnSurvey.Location);
             }
         }
 
@@ -376,10 +474,11 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void lblMenu1_Click(object sender, EventArgs e)
         {
-            surveyList = new SurveyList();
-            panel2.Controls.Add(surveyList);
-            surveyList.Location = new Point(185, 0);
-            surveyList.BringToFront();
+            RemoveControls();
+
+            SurveyList surveyList = new SurveyList();
+            surveyList.Location = new Point(0, 0);
+            panel3.Controls.Add(surveyList);
         }
 
         /// <summary>
@@ -389,40 +488,63 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void iTalk_Label1_Click(object sender, EventArgs e)
         {
-            createSurvey = new CreateSurvey();
-            panel2.Controls.Add(createSurvey);
-            createSurvey.Location = new Point(185, 0);
-            createSurvey.BringToFront();
+            RemoveControls();
+
+            CreateSurvey createSurvey = new CreateSurvey();
+            createSurvey.Location = new Point(0, 0);
+            panel3.Controls.Add(createSurvey);
         }
 
         private void btnMBTI_Click(object sender, EventArgs e)
         {
-            RemoveUserControl();
-
+            if (detailPanel.Controls.ContainsKey("CtlMBTIDetail"))
+            {
+                panel2.Controls.Remove(detailPanel);
+                detailPanel.Controls.Clear();
+                sidePanel.Visible = false;
+                return;
+            }
             sidePanel.Visible = true;
             sidePanel.Location = new Point(btnMBTI.Size.Width - 10, btnMBTI.Location.Y);
 
+<<<<<<< HEAD
             mbti = new CtlMBTIDetail();
             panel2.Controls.Add(mbti);
             
             mbti.BringToFront();
             mbti.Location = new Point(192, 141);
+=======
+            CtlMBTIDetail mbti = new CtlMBTIDetail();
+            mbti.Location = new Point(0, 0);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             mbti.Controls["lblWrite"].Click += MBTIWrite_Click;
             mbti.Controls["lblResult"].Click += MBTIResult_Click;
+
+            AddPanel(mbti, btnMBTI.Size, btnMBTI.Location);
         }
 
         private void MBTIResult_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             mr = new CtlMBTIResult();
             panel2.Controls.Add(mr);
             mr.Location = new Point(185, 0);
             mbti.SendToBack();
+=======
+            RemoveControls();
+
+            CtlMBTIResult mr = new CtlMBTIResult();
+            panel3.Controls.Add(mr);
+            mr.BackColor = Color.FromArgb(0, 0, 0, 0);
+            mr.Location = new Point(0, 0);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
         private void MBTIWrite_Click(object sender, EventArgs e)
         {
-            mbti.SendToBack();
-            mq = new FrmMBTIQuestion();
+            panel2.Controls.Remove(detailPanel);
+            detailPanel.Controls.Clear();
+            FrmMBTIQuestion mq = new FrmMBTIQuestion();
             mq.Show();
         }
 
@@ -433,6 +555,7 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void btnChat_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             RemoveUserControl();
                 if (isConnected)
                 {
@@ -494,6 +617,29 @@ namespace GoodeeProject
             agreement_Enterprise = null;
             panel2.Controls.Remove(cmlist);
             cmlist = null;
+=======
+            RemoveControls();
+            if (isConnected)
+            {
+                Chat chat = new Chat(ChatClinet.Client, isConnected);
+                panel3.Controls.Add(chat);
+                chat.Location = new Point(0, 0);
+                chat.BringToFront();
+                chatClinet.RequestMemberList();
+            }
+            else
+            {
+                isConnected = false;
+                MessageBox.Show("채팅서버에 접속할수 없습니다. 잠시후 다시 시도해주세요.");
+            }
+        }
+
+        public void RemoveControls()
+        {
+            panel2.Controls.Remove(detailPanel);
+            detailPanel.Controls.Clear();
+            panel3.Controls.Clear();
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
         private void portfolio1_Load(object sender, EventArgs e)
@@ -525,9 +671,13 @@ namespace GoodeeProject
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             ChatClinet = new ChatClient(this);
             loginThread = new Thread(ChatClinet.ChatLogin);
             loginThread.Start();
+=======
+            Application.Exit();
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
         /// <summary>
@@ -554,7 +704,10 @@ namespace GoodeeProject
             Rectangle borderRectangle = this.ClientRectangle;
             borderRectangle.Inflate(0, 0);
             ControlPaint.DrawBorder(e.Graphics, borderRectangle, Color.DimGray, ButtonBorderStyle.Solid);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
 
         /// <summary>
@@ -564,8 +717,24 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         public void BtnExit_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             Application.Exit();
             Environment.Exit(0);
+=======
+            ChatClinet.DisConnect();
+        }
+
+        private void SetCtlsArgb()
+        {
+            Control.ControlCollection coll = this.Controls;
+            foreach (Control item in coll)
+            {
+                if (item != null)
+                {
+                    item.BackColor = Color.FromArgb(0, 0, 0, 0);
+                }
+            }
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
         }
     }
 }

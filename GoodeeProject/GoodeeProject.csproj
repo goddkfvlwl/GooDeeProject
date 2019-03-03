@@ -782,6 +782,7 @@
     </Compile>
     <None Include="Resources\iconfinder_minus-circle_2561243.png" />
     <None Include="Resources\iconfinder_plus-circle_2561291.png" />
+<<<<<<< HEAD
     <None Include="Resources\bold-text-option.png" />
     <None Include="Resources\font.png" />
     <Content Include="Resources\MBTI.jpg">
@@ -789,6 +790,9 @@
     </Content>
     <None Include="Resources\KakaoTalk_20190225_085247325.png" />
     <None Include="Resources\picture.png" />
+=======
+    <None Include="Resources\down-arrow.png" />
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
     <Content Include="Resources\Resume.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

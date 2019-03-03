@@ -42,6 +42,7 @@
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnBoard = new System.Windows.Forms.Button();
             this.btnSpec = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -116,11 +117,12 @@
             this.btnExit.TabIndex = 24;
             this.btnExit.Text = "X";
             this.btnExit.TextAlignment = System.Drawing.StringAlignment.Center;
-            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.sidePanel);
             this.panel2.Controls.Add(this.btnChat);
             this.panel2.Controls.Add(this.btnMBTI);
@@ -241,6 +243,16 @@
             this.btnSpec.UseVisualStyleBackColor = false;
             this.btnSpec.Click += new System.EventHandler(this.btnSpec_Click);
             // 
+<<<<<<< HEAD
+=======
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(186, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(814, 454);
+            this.panel3.TabIndex = 7;
+            // 
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -279,6 +291,10 @@
         private Portfolio portfolio1;
         internal CtlProfile ctlProfile1;
         internal System.Windows.Forms.Panel panel2;
+<<<<<<< HEAD
         internal System.Windows.Forms.Button btnInfo;
+=======
+        internal System.Windows.Forms.Panel panel3;
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
     }
 }

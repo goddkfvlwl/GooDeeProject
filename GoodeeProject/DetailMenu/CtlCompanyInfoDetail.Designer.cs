@@ -30,14 +30,34 @@
         {
             this.iTalk_Separator1 = new iTalk.iTalk_Separator();
             this.lblMenu1 = new iTalk.iTalk_Label();
-            this.iTalk_ChatBubble_L1 = new iTalk.iTalk_ChatBubble_L();
             this.SuspendLayout();
             // 
+<<<<<<< HEAD
             // iTalk_Separator1
             // 
             this.iTalk_Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
             this.iTalk_Separator1.Location = new System.Drawing.Point(32, 55);
             this.iTalk_Separator1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+=======
+            // iTalk_Label1
+            // 
+            this.iTalk_Label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.iTalk_Label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iTalk_Label1.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.iTalk_Label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+            this.iTalk_Label1.Location = new System.Drawing.Point(12, 49);
+            this.iTalk_Label1.Name = "iTalk_Label1";
+            this.iTalk_Label1.Size = new System.Drawing.Size(137, 20);
+            this.iTalk_Label1.TabIndex = 34;
+            this.iTalk_Label1.Text = "기업정보";
+            this.iTalk_Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // iTalk_Separator1
+            // 
+            this.iTalk_Separator1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.iTalk_Separator1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.iTalk_Separator1.Location = new System.Drawing.Point(23, 33);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             this.iTalk_Separator1.Name = "iTalk_Separator1";
             this.iTalk_Separator1.Size = new System.Drawing.Size(137, 12);
             this.iTalk_Separator1.TabIndex = 33;
@@ -45,10 +65,15 @@
             // 
             // lblMenu1
             // 
-            this.lblMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.lblMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.lblMenu1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblMenu1.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.lblMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(142)))), ((int)(((byte)(142)))));
+<<<<<<< HEAD
             this.lblMenu1.Location = new System.Drawing.Point(19, 26);
+=======
+            this.lblMenu1.Location = new System.Drawing.Point(11, 10);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             this.lblMenu1.Name = "lblMenu1";
             this.lblMenu1.Size = new System.Drawing.Size(160, 25);
             this.lblMenu1.TabIndex = 32;
@@ -56,6 +81,7 @@
             this.lblMenu1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMenu1.Click += new System.EventHandler(this.lblMenu1_Click_1);
             // 
+<<<<<<< HEAD
             // iTalk_ChatBubble_L1
             // 
             this.iTalk_ChatBubble_L1.BackColor = System.Drawing.Color.Transparent;
@@ -68,16 +94,28 @@
             this.iTalk_ChatBubble_L1.Size = new System.Drawing.Size(174, 100);
             this.iTalk_ChatBubble_L1.TabIndex = 31;
             // 
+=======
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             // CtlCompanyInfoDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.Controls.Add(this.iTalk_Separator1);
             this.Controls.Add(this.lblMenu1);
             this.Controls.Add(this.iTalk_ChatBubble_L1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "CtlCompanyInfoDetail";
             this.Size = new System.Drawing.Size(192, 121);
+=======
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(238)))), ((int)(((byte)(233)))));
+            this.Controls.Add(this.iTalk_Label1);
+            this.Controls.Add(this.iTalk_Separator1);
+            this.Controls.Add(this.lblMenu1);
+            this.Name = "CtlCompanyInfoDetail";
+            this.Size = new System.Drawing.Size(160, 80);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Frm_BorderPaint);
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
             this.ResumeLayout(false);
 
         }
@@ -85,6 +123,5 @@
         #endregion
         internal iTalk.iTalk_Separator iTalk_Separator1;
         internal iTalk.iTalk_Label lblMenu1;
-        internal iTalk.iTalk_ChatBubble_L iTalk_ChatBubble_L1;
     }
 }

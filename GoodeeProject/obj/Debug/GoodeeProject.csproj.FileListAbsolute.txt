@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\MBTI.jpg
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\Resume.xlsx
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\Resources\Project Portfolio.docx
@@ -115,3 +116,269 @@ C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.c
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.Commant.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\obj\Debug\GoodeeProject.CommantLsit.resources
 C:\Users\설화짱\Documents\invitations\GoodeeProject\bin\Debug\GoodeeProject.xml
+=======
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\Resume.xlsx
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\Project Portfolio.docx
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\구디로고.gif
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\user-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\board-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\info-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\survey-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\write-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\chat-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\profile2.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\326572-48.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\reload24.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\reload.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\ModifyMember1.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Resources\ModifyPW1.png
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\GoodeeProject.exe.config
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\GoodeeProject.exe
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\MetroFramework.Design.dll
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\MetroFramework.dll
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\GD2\Documents\Project\GoodeeProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.Chat.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.ChatList.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.ClassList.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CreateSurvey.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlAddr.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlClass.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlCreateCom.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlCreateManager.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionListM.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlEdu.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlEduHistory.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionMItem.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlNameListItem.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlLicense.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDivide.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIQuestion.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIResult.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyPW.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroduce.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionItem.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionList.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.DefaultSurvey.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlResume.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmChat.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmClassInfo.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmCreateID.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmLog.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmLogDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmStudentRegist.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.OnlineInfo.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIQuestion.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIResult.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSearchAddr.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSelfIntroduce.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.Portfolio.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmModifyPW.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSendEmail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioList.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioListMenu.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.SurveyDetail.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.SurveyList.resources
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.exe
+C:\Users\GD2\Documents\Project\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\Resume.xlsx
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\Project Portfolio.docx
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\구디로고.gif
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\user-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\board-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\info-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\survey-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\write-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\chat-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\profile2.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\326572-48.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\reload24.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\reload.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\ModifyMember1.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Resources\ModifyPW1.png
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\GoodeeProject.exe.config
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\GoodeeProject.exe
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\MetroFramework.Design.dll
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\MetroFramework.dll
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.Chat.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.ChatList.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.ClassList.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CreateSurvey.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlAddr.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlClass.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlCreateCom.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlCreateManager.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionListM.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlEdu.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlEduHistory.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionMItem.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlNameListItem.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlLicense.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDivide.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIQuestion.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIResult.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyPW.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroduce.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionItem.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionList.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.DefaultSurvey.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlResume.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmChat.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmClassInfo.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmCreateID.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmLog.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmLogDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmStudentRegist.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.OnlineInfo.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIQuestion.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIResult.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSearchAddr.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSelfIntroduce.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.Portfolio.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmModifyPW.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.FrmSendEmail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioList.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioListMenu.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.SurveyDetail.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.SurveyList.resources
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.exe
+C:\Users\USER\Documents\카카오톡 받은 파일\Project\GoodeeProject\obj\Debug\GoodeeProject.pdb
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\Resume.xlsx
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\Project Portfolio.docx
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\구디로고.gif
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\user-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\board-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\info-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\survey-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\write-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\chat-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\profile2.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\326572-48.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\reload24.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\reload.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\ModifyMember1.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Resources\ModifyPW1.png
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\GoodeeProject.exe.config
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\GoodeeProject.exe
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\GoodeeProject.pdb
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\MetroFramework.Design.dll
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\MetroFramework.dll
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Tulpep.NotificationWindow.dll
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csprojAssemblyReference.cache
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\Interop.MSDAOSP.dll
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.ResolveComReference.cache
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.Chat.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.ChatList.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.ClassList.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CreateSurvey.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlAddr.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlClass.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCreateCom.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCreateManager.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionListM.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlEdu.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlEduHistory.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlIntroductionMItem.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlNameListItem.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlLicense.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDivide.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIQuestion.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIResult.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyMemberInfo.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlModifyPW.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlProfile.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroduce.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionItem.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSelfIntroductionList.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.DefaultSurvey.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlResume.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlCompanyInfoDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlMBTIDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSpecDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyAdminDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.CtlSurveyUserDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmChat.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmClassInfo.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmCreateID.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmLog.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmLogDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmLogin.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmMain.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmStudentRegist.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.OnlineInfo.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIQuestion.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmMBTIResult.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModify.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmSearchAddr.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmSelfIntroduce.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.Portfolio.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmModifyPW.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.FrmSendEmail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioList.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioListMenu.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.PortfolioManager.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.Properties.Resources.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.StudentManagement.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyDetail.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.SurveyList.resources
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.GenerateResource.cache
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.csproj.CopyComplete
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.exe
+C:\Users\USER\Documents\GoodeeProject\GoodeeProject\obj\Debug\GoodeeProject.pdb
+>>>>>>> 1527d7b47c9cf77797478870176cc29b4a09206d
