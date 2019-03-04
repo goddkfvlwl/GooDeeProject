@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodeeProject", "GoodeeProject\GoodeeProject.csproj", "{850F3534-73A4-4CD6-B501-52F78CE22B1F}"
 EndProject
-Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "AI Setup Project1", "AI Setup Project1\AI Setup Project1.aiproj", "{06E6A778-1943-4D01-A600-EBF5B16B870B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		All|Any CPU = All|Any CPU
@@ -20,12 +18,6 @@ Global
 		{850F3534-73A4-4CD6-B501-52F78CE22B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{850F3534-73A4-4CD6-B501-52F78CE22B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{850F3534-73A4-4CD6-B501-52F78CE22B1F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{06E6A778-1943-4D01-A600-EBF5B16B870B}.All|Any CPU.ActiveCfg = DefaultBuild
-		{06E6A778-1943-4D01-A600-EBF5B16B870B}.All|Any CPU.Build.0 = DefaultBuild
-		{06E6A778-1943-4D01-A600-EBF5B16B870B}.Debug|Any CPU.ActiveCfg = DefaultBuild
-		{06E6A778-1943-4D01-A600-EBF5B16B870B}.Debug|Any CPU.Build.0 = DefaultBuild
-		{06E6A778-1943-4D01-A600-EBF5B16B870B}.Release|Any CPU.ActiveCfg = DefaultBuild
-		{06E6A778-1943-4D01-A600-EBF5B16B870B}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

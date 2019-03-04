@@ -344,7 +344,6 @@ namespace GoodeeProject
             if (ai.Authority == 'S')
             {
                 panel2.Controls.Remove(detailPanel);
-                detailPanel = null;
                 panel3.Controls.Clear();
                 SurveyList surveyList = new SurveyList();
                 surveyList.BackColor = Color.Transparent;
@@ -469,7 +468,6 @@ namespace GoodeeProject
         public void RemoveControls()
         {
             panel2.Controls.Remove(detailPanel);
-            detailPanel.Controls.Clear();
             detailPanel.Controls.Clear();
             panel3.Controls.Clear();
         }
