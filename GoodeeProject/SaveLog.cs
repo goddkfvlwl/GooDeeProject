@@ -36,7 +36,7 @@ namespace GoodeeProject
         public void WriteLog()
         {
             //string dirPath = @"C:\Users\GDC1\Documents";
-            string dirPath = Application.StartupPath;
+            string dirPath = Application.LocalUserAppDataPath;
 
             filePath = dirPath + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + FrmMain.Ai.Id + ".log";
 
@@ -110,7 +110,7 @@ namespace GoodeeProject
                 req2.Method = WebRequestMethods.Ftp.AppendFile;
             }
 
-            using (sr = new StreamReader(Application.StartupPath + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + id + ".log"))
+            using (sr = new StreamReader(Application.LocalUserAppDataPath + @"\Log_" + DateTime.Now.ToShortDateString() + "_" + id + ".log"))
             {
                 byteLog = Encoding.UTF8.GetBytes(sr.ReadToEnd());
             }

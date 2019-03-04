@@ -31,6 +31,7 @@ namespace GoodeeProject
         public FrmLogin()
         {
             InitializeComponent();
+
             gd = GoodeeDAO.GoodeeDAO.GetInstance();
         }
 

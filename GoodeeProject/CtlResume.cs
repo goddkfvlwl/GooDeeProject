@@ -538,7 +538,7 @@ namespace GoodeeProject
                 //저장
                 try
                 {
-                    workBook.SaveAs(Application.StartupPath + "/Resources/userResume.xls", Excel.XlFileFormat.xlWorkbookNormal, null, null, null, null, Excel.XlSaveAsAccessMode.xlExclusive, Excel.XlSaveConflictResolution.xlLocalSessionChanges, missingValue, missingValue, missingValue, missingValue);
+                    workBook.SaveAs(Application.LocalUserAppDataPath + "/Resources/userResume.xls", Excel.XlFileFormat.xlWorkbookNormal, null, null, null, null, Excel.XlSaveAsAccessMode.xlExclusive, Excel.XlSaveConflictResolution.xlLocalSessionChanges, missingValue, missingValue, missingValue, missingValue);
                 }
                 catch (Exception)
                 {
@@ -548,12 +548,12 @@ namespace GoodeeProject
                 try
                 {
                     workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName, Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false, Type.Missing);
-
-                    MessageBox.Show("저장 완료");
+                    
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("저장 실패");
+                    return;
                 }
                 workBook.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, sf.FileName, Excel.XlFixedFormatQuality.xlQualityStandard, true, true, Type.Missing, Type.Missing, false, Type.Missing);
 
@@ -562,7 +562,7 @@ namespace GoodeeProject
                 Marshal.ReleaseComObject(workSheet);
                 Marshal.ReleaseComObject(workBook);
                 Marshal.ReleaseComObject(excelApp);
-                File.Delete(Application.StartupPath + "/Resources/userResume.xls");
+                File.Delete(Application.LocalUserAppDataPath + "/Resources/userResume.xls");
                 s.AddList("이력서 파일저장");
             }
         }
