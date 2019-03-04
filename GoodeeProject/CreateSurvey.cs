@@ -209,7 +209,7 @@ namespace GoodeeProject
             date.SetAttribute("end", end.ToLongDateString());
             title.AppendChild(date);
             xml.AppendChild(root);
-            XmlTextWriter writer = new XmlTextWriter(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter(Application.LocalUserAppDataPath + "/" + this.txtSurveyTitle.Text + ".xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             xml.WriteContentTo(writer);
             writer.Flush();
@@ -218,7 +218,7 @@ namespace GoodeeProject
             request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Survey/" + this.txtSurveyTitle.Text + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.UseBinary = true;
-            using (Stream fileStream = File.OpenRead(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml"))
+            using (Stream fileStream = File.OpenRead(Application.LocalUserAppDataPath + "/" + this.txtSurveyTitle.Text + ".xml"))
             using (Stream ftpStream = request.GetRequestStream())
             {
                 fileStream.CopyTo(ftpStream);
@@ -229,7 +229,7 @@ namespace GoodeeProject
             
             DAO.InsertSurvey(FrmMain.Mi.Id, this.txtSurveyTitle.Text, start, end);
             log.AddList("설문 추가");
-            File.Delete(Application.StartupPath + "/" + this.txtSurveyTitle.Text + ".xml");
+            File.Delete(Application.LocalUserAppDataPath + "/" + this.txtSurveyTitle.Text + ".xml");
             this.Dispose();
             return;
         }

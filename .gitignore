@@ -216,3 +216,9 @@ project.lock.json
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
+AI Setup Project1/AI Setup Project1.aiproj
+AI Setup Project1/AI Setup Project1.aip
+AI Setup Project1/AI Setup Project1-cache/part3/output-info.ini
+AI Setup Project1/AI Setup Project1-cache/part3/disk1.cab
+AI Setup Project1/AI Setup Project1-cache/cacheIndex.txt
+AI Setup Project1/AI Setup Project1-SetupFiles/AI Setup Project1.msi

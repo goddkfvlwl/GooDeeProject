@@ -57,6 +57,14 @@ namespace GoodeeProject
         /// <param name="e">이벤트 데이터를 포함하는 클래스의 기본 클래스를 나타내며 이벤트 데이터를 포함하지 않는 이벤트에 사용할 값을 제공합니다.</param>
         private void iTalk_Button_11_Click(object sender, EventArgs e)
         {
+            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
+            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
+            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
+            if (string.IsNullOrEmpty(projectInfo.Controls["txtProjectTitle"].Text))
+            {
+                MessageBox.Show("프로젝트 이름을 입력해주세요.");
+                return;
+            }
             bool isDirectoryExist = false;
             string id = FrmMain.Mi.Id;
             FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio");
@@ -64,9 +72,7 @@ namespace GoodeeProject
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
 
-            Control projectInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["projectInfoPanel"];
-            Control useTechnologyInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["useTechnologyPanel"];
-            Control introductionInfo = this.portfolioDetail1.Controls["PanelPortfolioBody"].Controls["introductionPanel"];
+           
 
             while (!reader.EndOfStream)
             {
@@ -175,7 +181,7 @@ namespace GoodeeProject
                 introduction.AppendChild(temp);
             }
 
-            XmlTextWriter writer = new XmlTextWriter(Application.StartupPath + "/" + "xml.xml", Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter(Application.LocalUserAppDataPath + "/" + "xml.xml", Encoding.UTF8);
             writer.Formatting = Formatting.Indented;
             xml.WriteContentTo(writer);
             writer.Flush();
@@ -184,13 +190,13 @@ namespace GoodeeProject
             request = (FtpWebRequest)WebRequest.Create("ftp://52.165.176.111:3333/Portfolio/" + id + "/" + projectInfo.Controls["txtProjectTitle"].Text + "/" + projectInfo.Controls["txtProjectTitle"].Text + ".xml");
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.UseBinary = true;
-            using (Stream fileStream = File.OpenRead(Application.StartupPath + "/" + "xml.xml"))
+            using (Stream fileStream = File.OpenRead(Application.LocalUserAppDataPath + "/" + "xml.xml"))
             using (Stream ftpStream = request.GetRequestStream())
             {
                 fileStream.CopyTo(ftpStream);
                 fileStream.Close();
             }
-            File.Delete(Application.StartupPath + "/" + "xml.xml");
+            File.Delete(Application.LocalUserAppDataPath + "/" + "xml.xml");
 
             GoodeeDAO.GoodeeDAO DAO = GoodeeDAO.GoodeeDAO.GetInstance();
             var check = DAO.InsertPortfolio(FrmMain.Mi.Id, projectInfo.Controls["txtProjectTitle"].Text, beforeName);
@@ -289,8 +295,8 @@ namespace GoodeeProject
                         introductionInfo.Controls.Add(p);
                         (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).Size = new Size(int.Parse(item.Attributes["Width"].Value), int.Parse(item.Attributes["Height"].Value));
                         WebClient web = new WebClient();
-                        web.DownloadFile(item.Attributes["location"].Value, Application.StartupPath + "/" + item.Name + ".jpg");
-                        (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).ImageLocation = Application.StartupPath + "/" + item.Name + ".jpg";
+                        web.DownloadFile(item.Attributes["location"].Value, Application.LocalUserAppDataPath + " / " + item.Name + ".jpg");
+                        (introductionInfo.Controls[introductionInfo.Controls.Count - 1] as PictureBox).ImageLocation = Application.LocalUserAppDataPath + "/" + item.Name + ".jpg";
                     }
                     i++;
                 }
@@ -298,7 +304,7 @@ namespace GoodeeProject
             catch (WebException)
             {
                 MessageBox.Show("저장된 포트폴리오가 없습니다.");
-                return;
+                this.Dispose();
             }
 
             beforeName = projectInfo.Controls["txtProjectTitle"].Text;
@@ -344,16 +350,16 @@ namespace GoodeeProject
                 {
                     doc.Tables[1].Rows.Add();
                     Bitmap bit = new Bitmap((introductionInfo.Controls[i] as PictureBox).Image, (introductionInfo.Controls[i] as PictureBox).Size);
-                    bit.Save(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
-                    doc.Tables[1].Cell(doc.Tables[1].Rows.Count, 1).Range.InlineShapes.AddPicture(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
+                    bit.Save(Application.LocalUserAppDataPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
+                    doc.Tables[1].Cell(doc.Tables[1].Rows.Count, 1).Range.InlineShapes.AddPicture(Application.LocalUserAppDataPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
                     if (i < introductionInfo.Controls.Count)
                     {
                         doc.Tables[1].Rows.Add();
                     }
-                   File.Delete(Application.StartupPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
+                   File.Delete(Application.LocalUserAppDataPath + "/" + introductionInfo.Controls[i].Name + ".jpg");
                 }
             }
-            doc.SaveAs(Application.StartupPath + "/DocTo.doc");
+            doc.SaveAs(Application.LocalUserAppDataPath + "/DocTo.doc");
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "PDF File (*.pdf) *.pdf|";
             save.DefaultExt = ".pdf";
@@ -367,7 +373,7 @@ namespace GoodeeProject
             app.Quit();
             Marshal.FinalReleaseComObject(doc);
             Marshal.FinalReleaseComObject(app);
-            File.Delete(Application.StartupPath + "/DocTo.doc");
+            File.Delete(Application.LocalUserAppDataPath + "/DocTo.doc");
 
         }
 
@@ -379,7 +385,6 @@ namespace GoodeeProject
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Dispose();
-            
         }
     }
 }

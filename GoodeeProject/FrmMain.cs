@@ -40,6 +40,7 @@ namespace GoodeeProject
         internal static MemberInfo Mi { get => mi; set => mi = value; }
         internal static AccountInfo Ai { get => ai; set => ai = value; }
         Agreement_enterprise_list agreement;
+
         public FrmMain()
         {
             //InitializeComponent();
@@ -468,6 +469,7 @@ namespace GoodeeProject
 
         public void RemoveControls()
         {
+            panel2.Controls.Remove(detailPanel);
             detailPanel.Controls.Clear();
             panel3.Controls.Clear();
         }
